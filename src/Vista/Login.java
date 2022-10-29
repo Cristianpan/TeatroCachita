@@ -5,12 +5,48 @@
  */
 package Vista;
 
+import javax.swing.JButton;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
 
 /**
  *
  * @author diana
  */
 public class Login extends javax.swing.JFrame {
+
+    public JButton getBtnIngresar() {
+        return btnIngresar;
+    }
+
+    public void setBtnIngresar(JButton btnIngresar) {
+        this.btnIngresar = btnIngresar;
+    }
+
+    public JPasswordField getTxtContra() {
+        return txtContra;
+    }
+
+    public void setTxtContra(JPasswordField txtContra) {
+        this.txtContra = txtContra;
+    }
+
+    public JTextField getTxtUsuario() {
+        return txtUsuario;
+    }
+
+    public void setTxtUsuario(JTextField txtUsuario) {
+        this.txtUsuario = txtUsuario;
+    }
+
+    public JTextField getTxtWarning() {
+        return txtWarning;
+    }
+
+    public void setTxtWarning(JTextField txtWarning) {
+        this.txtWarning = txtWarning;
+    }
 
     /**
      * Creates new form VentanaInicial
@@ -19,66 +55,14 @@ public class Login extends javax.swing.JFrame {
         
         initComponents();
     }
-
     
-    
-    public javax.swing.JButton getBtnIngresar() {
-        return btnIngresar;
-    }
-
-
-
-    public void setBtnIngresar(javax.swing.JButton btnIngresar) {
-        this.btnIngresar = btnIngresar;
-    }
-
-
-
-    public javax.swing.JPasswordField getTxtContra() {
-        return txtContra;
-    }
-
-
-
-    public void setTxtContra(javax.swing.JPasswordField txtContra) {
-        this.txtContra = txtContra;
-    }
-
-
-
-    public javax.swing.JTextField getTxtUsuario() {
-        return txtUsuario;
-    }
-
-
-
-    public void setTxtUsuario(javax.swing.JTextField txtUsuario) {
-        this.txtUsuario = txtUsuario;
-    }
-
-
-
-    public javax.swing.JTextField getTxtWarning() {
-        return txtWarning;
-    }
-
-
-
-    public void setTxtWarning(javax.swing.JTextField txtWarning) {
-        this.txtWarning = txtWarning;
-    }
-
-
-
     public void habilitarBoton(){
         if(!txtUsuario.getText().isEmpty() && !txtContra.getText().isEmpty()){
             btnIngresar.setEnabled(true);
         }
         else{
             btnIngresar.setEnabled(false);
-            txtWarning.setText(null);
         }
-
     }
 
     /**
@@ -93,14 +77,15 @@ public class Login extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         button1 = new java.awt.Button();
+        jTextField2 = new javax.swing.JTextField();
         panel1 = new java.awt.Panel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel4 = new javax.swing.JLabel();
-        imgLogo = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        labelContraseña = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        labelUsuario = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JTextField();
         btnIngresar = new javax.swing.JButton();
         txtContra = new javax.swing.JPasswordField();
@@ -121,8 +106,10 @@ public class Login extends javax.swing.JFrame {
 
         button1.setLabel("button1");
 
+        jTextField2.setText("jTextField2");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("colorido");
+        setTitle("Inicio");
         setBackground(new java.awt.Color(255, 255, 255));
         setBounds(new java.awt.Rectangle(0, 0, 0, 0));
         setResizable(false);
@@ -139,18 +126,18 @@ public class Login extends javax.swing.JFrame {
         jLabel4.setText("Teatro Chachita");
         panel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, 150, 30));
 
-        imgLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/Imagen1.png")));
-        panel1.add(imgLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, -1, 130));
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/Imagen1.png"))); // NOI18N
+        panel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, -1, 130));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setEnabled(false);
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        labelContraseña.setBackground(new java.awt.Color(0, 0, 51));
-        labelContraseña.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        labelContraseña.setForeground(new java.awt.Color(0, 0, 51));
-        labelContraseña.setText("Contraseña");
-        jPanel2.add(labelContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
+        jLabel3.setBackground(new java.awt.Color(0, 0, 51));
+        jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 51));
+        jLabel3.setText("Contraseña");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
 
         jTextField1.setBackground(new java.awt.Color(255, 255, 255));
         jTextField1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -159,11 +146,11 @@ public class Login extends javax.swing.JFrame {
         jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 560, 198, 37));
         jTextField1.getAccessibleContext().setAccessibleDescription("");
 
-        labelUsuario.setBackground(new java.awt.Color(0, 0, 51));
-        labelUsuario.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        labelUsuario.setForeground(new java.awt.Color(0, 0, 51));
-        labelUsuario.setText("Usuario");
-        jPanel2.add(labelUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
+        jLabel6.setBackground(new java.awt.Color(0, 0, 51));
+        jLabel6.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 51));
+        jLabel6.setText("Usuario");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
 
         txtUsuario.setBackground(new java.awt.Color(255, 255, 255));
         txtUsuario.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -216,20 +203,11 @@ public class Login extends javax.swing.JFrame {
         });
         jPanel2.add(txtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 200, 30));
 
-        txtWarning.setEditable(false);
-        txtWarning.setBackground(new java.awt.Color(255, 255, 255));
-        txtWarning.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
-        txtWarning.setForeground(new java.awt.Color(255, 51, 0));
-        txtWarning.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
-        txtWarning.setBorder(null);
-        txtWarning.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtWarningActionPerformed(evt);
-            }
-        });
-        jPanel2.add(txtWarning, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 200, -1));
+        txtWarning.setBackground(null);
+        txtWarning.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel2.add(txtWarning, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 130, -1));
 
-        panel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 300, 330));
+        panel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 300, 310));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -239,7 +217,7 @@ public class Login extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
         );
 
         panel1.getAccessibleContext().setAccessibleDescription("");
@@ -278,10 +256,6 @@ public class Login extends javax.swing.JFrame {
     private void txtContraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraKeyReleased
         habilitarBoton();
     }//GEN-LAST:event_txtContraKeyReleased
-
-    private void txtWarningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtWarningActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtWarningActionPerformed
 
     /**
      * @param args the command line arguments
@@ -322,15 +296,16 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIngresar;
     private java.awt.Button button1;
-    private javax.swing.JLabel imgLogo;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JLabel labelContraseña;
-    private javax.swing.JLabel labelUsuario;
+    private javax.swing.JTextField jTextField2;
     private java.awt.Panel panel1;
     private javax.swing.JPasswordField txtContra;
     private javax.swing.JTextField txtUsuario;

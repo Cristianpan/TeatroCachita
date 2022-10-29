@@ -9,12 +9,12 @@ package Vista;
  *
  * @author diana
  */
-public class Reporte extends javax.swing.JFrame {
+public class Reportes extends javax.swing.JFrame {
 
     /**
      * Creates new form VentanaReportes
      */
-    public Reporte() {
+    public Reportes() {
         initComponents();
     }
 
@@ -31,16 +31,16 @@ public class Reporte extends javax.swing.JFrame {
         panel16 = new java.awt.Panel();
         jLabel20 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel13 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jLabel14 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
         jLabel15 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        textArea1 = new java.awt.TextArea();
+        textArea2 = new java.awt.TextArea();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        jComboBox4 = new javax.swing.JComboBox<>();
+        jLabel16 = new javax.swing.JLabel();
         panel4 = new java.awt.Panel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -61,9 +61,8 @@ public class Reporte extends javax.swing.JFrame {
         panel16Layout.setHorizontalGroup(
             panel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel16Layout.createSequentialGroup()
-                .addContainerGap(248, Short.MAX_VALUE)
-                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(169, 169, 169))
+                .addGap(0, 467, Short.MAX_VALUE)
+                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         panel16Layout.setVerticalGroup(
             panel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -73,27 +72,18 @@ public class Reporte extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        panel17.add(panel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 50));
+        panel17.add(panel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 50));
 
         jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(25, 43, 55));
         jLabel5.setText("REPORTE ANUAL");
-        panel17.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, -1, -1));
-
-        jTextField5.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField5.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        panel17.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 170, -1));
-
-        jLabel11.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(25, 43, 55));
-        jLabel11.setText("Ingresos");
-        panel17.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
+        panel17.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 80, -1, -1));
 
         jComboBox1.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jComboBox1.setForeground(new java.awt.Color(0, 0, 0));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 1", "Item 2", "Item 3", "Item 4" }));
-        panel17.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 170, -1));
+        panel17.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 130, 140, -1));
 
         jLabel13.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(25, 43, 55));
@@ -105,34 +95,38 @@ public class Reporte extends javax.swing.JFrame {
         jLabel6.setText("REPORTE MENSUAL");
         panel17.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
 
-        jTextField6.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField6.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        panel17.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, 170, -1));
-
-        jLabel14.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(25, 43, 55));
-        jLabel14.setText("Ingresos");
-        panel17.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, -1, -1));
-
-        jComboBox2.setBackground(new java.awt.Color(255, 255, 255));
-        jComboBox2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jComboBox2.setForeground(new java.awt.Color(0, 0, 0));
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 1", "Item 2", "Item 3", "Item 4" }));
-        panel17.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, 170, -1));
-
         jLabel15.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(25, 43, 55));
         jLabel15.setText("Año");
-        panel17.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, -1, -1));
+        panel17.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 110, -1, -1));
 
         jButton2.setBackground(new java.awt.Color(255, 102, 0));
         jButton2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Regresar");
         jButton2.setToolTipText("Regresar");
-        panel17.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, 90, 30));
+        panel17.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 440, 90, 30));
+        panel17.add(textArea1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 170, 320, 250));
+        panel17.add(textArea2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 320, 250));
 
-        getContentPane().add(panel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 270));
+        jComboBox3.setBackground(new java.awt.Color(255, 255, 255));
+        jComboBox3.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jComboBox3.setForeground(new java.awt.Color(0, 0, 0));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 1", "Item 2", "Item 3", "Item 4" }));
+        panel17.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 140, -1));
+
+        jComboBox4.setBackground(new java.awt.Color(255, 255, 255));
+        jComboBox4.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jComboBox4.setForeground(new java.awt.Color(0, 0, 0));
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 1", "Item 2", "Item 3", "Item 4" }));
+        panel17.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 140, -1));
+
+        jLabel16.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(25, 43, 55));
+        jLabel16.setText("Año");
+        panel17.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, -1, -1));
+
+        getContentPane().add(panel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 490));
 
         panel4.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -140,14 +134,14 @@ public class Reporte extends javax.swing.JFrame {
         panel4.setLayout(panel4Layout);
         panel4Layout.setHorizontalGroup(
             panel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 520, Short.MAX_VALUE)
+            .addGap(0, 740, Short.MAX_VALUE)
         );
         panel4Layout.setVerticalGroup(
             panel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 30, Short.MAX_VALUE)
         );
 
-        getContentPane().add(panel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 520, 30));
+        getContentPane().add(panel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 490, 740, 30));
 
         pack();
         setLocationRelativeTo(null);
@@ -170,13 +164,13 @@ public class Reporte extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Reporte.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Reportes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Reporte.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Reportes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Reporte.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Reportes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Reporte.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Reportes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -184,7 +178,7 @@ public class Reporte extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Reporte().setVisible(true);
+                new Reportes().setVisible(true);
             }
         });
     }
@@ -192,18 +186,18 @@ public class Reporte extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JLabel jLabel11;
+    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     private java.awt.Panel panel16;
     private java.awt.Panel panel17;
     private java.awt.Panel panel4;
+    private java.awt.TextArea textArea1;
+    private java.awt.TextArea textArea2;
     // End of variables declaration//GEN-END:variables
 }

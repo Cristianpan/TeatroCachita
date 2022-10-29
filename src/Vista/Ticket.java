@@ -12,7 +12,7 @@ package Vista;
 public class Ticket extends javax.swing.JFrame {
 
     /**
-     * Creates new form VentanaBoleto
+     * Creates new form VentanaTicket
      */
     public Ticket() {
         initComponents();
@@ -27,67 +27,204 @@ public class Ticket extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane2 = new javax.swing.JScrollPane();
-        textArea4 = new java.awt.TextArea();
-        jButton2 = new javax.swing.JButton();
-        panel1 = new java.awt.Panel();
-        label5 = new java.awt.Label();
-        label6 = new java.awt.Label();
-        jLabel5 = new javax.swing.JLabel();
-        label7 = new java.awt.Label();
+        jPanel1 = new javax.swing.JPanel();
+        numVenta = new javax.swing.JLabel();
+        a = new javax.swing.JLabel();
+        funcion = new javax.swing.JLabel();
         label8 = new java.awt.Label();
-        label9 = new java.awt.Label();
-        label10 = new java.awt.Label();
-
-        jButton2.setBackground(new java.awt.Color(255, 102, 0));
-        jButton2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Elegir Asientos");
-        jButton2.setToolTipText("Modificar");
+        lineas = new javax.swing.JLabel();
+        a1 = new javax.swing.JLabel();
+        fecha = new javax.swing.JLabel();
+        a3 = new javax.swing.JLabel();
+        hora = new javax.swing.JLabel();
+        a4 = new javax.swing.JLabel();
+        boletos = new javax.swing.JLabel();
+        lineas1 = new javax.swing.JLabel();
+        a6 = new javax.swing.JLabel();
+        boletos1 = new javax.swing.JLabel();
+        a7 = new javax.swing.JLabel();
+        boletos2 = new javax.swing.JLabel();
+        a8 = new javax.swing.JLabel();
+        boletos3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Boleto");
+        setTitle("Ticket");
         setResizable(false);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        panel1.setBackground(new java.awt.Color(25, 43, 55));
-        panel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        label5.setAlignment(java.awt.Label.CENTER);
-        label5.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        label5.setForeground(new java.awt.Color(213, 218, 222));
-        label5.setText("01245687");
-        panel1.add(label5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, -1));
+        numVenta.setFont(new java.awt.Font("Century Gothic", 0, 10)); // NOI18N
+        numVenta.setForeground(new java.awt.Color(0, 0, 0));
+        numVenta.setText("000000000");
 
-        label6.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        label6.setForeground(new java.awt.Color(255, 255, 255));
-        label6.setText("Alicia en el país de las Maravillas");
-        panel1.add(label6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, -1, -1));
+        a.setFont(new java.awt.Font("Century Gothic", 0, 10)); // NOI18N
+        a.setForeground(new java.awt.Color(0, 0, 0));
+        a.setText("Funcion:");
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/Imagen1.png")));
-        panel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, 100));
+        funcion.setFont(new java.awt.Font("Century Gothic", 0, 10)); // NOI18N
+        funcion.setForeground(new java.awt.Color(0, 0, 0));
+        funcion.setText("Alicia en el pais de las maravillas");
 
-        label7.setFont(new java.awt.Font("Century Gothic", 0, 48)); // NOI18N
-        label7.setForeground(new java.awt.Color(255, 153, 0));
-        label7.setText("CHACHITA");
-        panel1.add(label7, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, -1, -1));
+        label8.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        label8.setForeground(new java.awt.Color(255, 153, 0));
+        label8.setText("CHACHITA");
 
-        label8.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        label8.setForeground(new java.awt.Color(255, 255, 255));
-        label8.setText("15:00 hrs");
-        panel1.add(label8, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, -1, -1));
+        lineas.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        lineas.setForeground(new java.awt.Color(0, 0, 0));
+        lineas.setText("--------------------------------------------------------------");
 
-        label9.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        label9.setForeground(new java.awt.Color(255, 255, 255));
-        label9.setText("FUNCIÓN:");
-        panel1.add(label9, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, -1, -1));
+        a1.setFont(new java.awt.Font("Century Gothic", 0, 10)); // NOI18N
+        a1.setForeground(new java.awt.Color(0, 0, 0));
+        a1.setText("Fecha:");
 
-        label10.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        label10.setForeground(new java.awt.Color(255, 255, 255));
-        label10.setText("12/12/12");
-        panel1.add(label10, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, -1, -1));
+        fecha.setFont(new java.awt.Font("Century Gothic", 0, 10)); // NOI18N
+        fecha.setForeground(new java.awt.Color(0, 0, 0));
+        fecha.setText("12/12/12");
 
-        getContentPane().add(panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 240));
+        a3.setFont(new java.awt.Font("Century Gothic", 0, 10)); // NOI18N
+        a3.setForeground(new java.awt.Color(0, 0, 0));
+        a3.setText("Hora:");
+
+        hora.setFont(new java.awt.Font("Century Gothic", 0, 10)); // NOI18N
+        hora.setForeground(new java.awt.Color(0, 0, 0));
+        hora.setText("15hrs");
+
+        a4.setFont(new java.awt.Font("Century Gothic", 0, 10)); // NOI18N
+        a4.setForeground(new java.awt.Color(0, 0, 0));
+        a4.setText("Boletos:");
+
+        boletos.setFont(new java.awt.Font("Century Gothic", 0, 10)); // NOI18N
+        boletos.setForeground(new java.awt.Color(0, 0, 0));
+        boletos.setText("A1-3, A6, B7");
+
+        lineas1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        lineas1.setForeground(new java.awt.Color(0, 0, 0));
+        lineas1.setText("--------------------------------------------------------------");
+
+        a6.setFont(new java.awt.Font("Century Gothic", 0, 10)); // NOI18N
+        a6.setForeground(new java.awt.Color(0, 0, 0));
+        a6.setText("Precio:");
+
+        boletos1.setFont(new java.awt.Font("Century Gothic", 0, 10)); // NOI18N
+        boletos1.setForeground(new java.awt.Color(0, 0, 0));
+        boletos1.setText("$100");
+
+        a7.setFont(new java.awt.Font("Century Gothic", 0, 10)); // NOI18N
+        a7.setForeground(new java.awt.Color(0, 0, 0));
+        a7.setText("Entrega:");
+
+        boletos2.setFont(new java.awt.Font("Century Gothic", 0, 10)); // NOI18N
+        boletos2.setForeground(new java.awt.Color(0, 0, 0));
+        boletos2.setText("$200");
+
+        a8.setFont(new java.awt.Font("Century Gothic", 0, 10)); // NOI18N
+        a8.setForeground(new java.awt.Color(0, 0, 0));
+        a8.setText("Cambio:");
+
+        boletos3.setFont(new java.awt.Font("Century Gothic", 0, 10)); // NOI18N
+        boletos3.setForeground(new java.awt.Color(0, 0, 0));
+        boletos3.setText("$100");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lineas)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(a)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(funcion))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(a1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(fecha))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(a3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(hora))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(a4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(boletos))
+                            .addComponent(lineas1)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(a6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(boletos1))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(a8)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(boletos3))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(a7)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(boletos2)))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addComponent(label8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(113, 113, 113)
+                        .addComponent(numVenta)))
+                .addContainerGap(17, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(label8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addComponent(numVenta)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lineas)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(a)
+                    .addComponent(funcion))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(a1)
+                    .addComponent(fecha))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(a3)
+                    .addComponent(hora))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(a4)
+                    .addComponent(boletos))
+                .addGap(1, 1, 1)
+                .addComponent(lineas1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(a6)
+                    .addComponent(boletos1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(a7)
+                    .addComponent(boletos2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(a8)
+                    .addComponent(boletos3))
+                .addContainerGap(137, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         pack();
         setLocationRelativeTo(null);
@@ -130,16 +267,24 @@ public class Ticket extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JScrollPane jScrollPane2;
-    private java.awt.Label label10;
-    private java.awt.Label label5;
-    private java.awt.Label label6;
-    private java.awt.Label label7;
+    private javax.swing.JLabel a;
+    private javax.swing.JLabel a1;
+    private javax.swing.JLabel a3;
+    private javax.swing.JLabel a4;
+    private javax.swing.JLabel a6;
+    private javax.swing.JLabel a7;
+    private javax.swing.JLabel a8;
+    private javax.swing.JLabel boletos;
+    private javax.swing.JLabel boletos1;
+    private javax.swing.JLabel boletos2;
+    private javax.swing.JLabel boletos3;
+    private javax.swing.JLabel fecha;
+    private javax.swing.JLabel funcion;
+    private javax.swing.JLabel hora;
+    private javax.swing.JPanel jPanel1;
     private java.awt.Label label8;
-    private java.awt.Label label9;
-    private java.awt.Panel panel1;
-    private java.awt.TextArea textArea4;
+    private javax.swing.JLabel lineas;
+    private javax.swing.JLabel lineas1;
+    private javax.swing.JLabel numVenta;
     // End of variables declaration//GEN-END:variables
 }

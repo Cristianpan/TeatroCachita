@@ -6,6 +6,7 @@ import java.awt.event.*;
 
 import javax.swing.JOptionPane;
 
+import DAO.ConsultaUsuario;
 import Recursos.*;
 
 public class CtrlRegister implements ActionListener {

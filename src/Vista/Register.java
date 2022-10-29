@@ -229,7 +229,7 @@ public class Register extends javax.swing.JFrame {
                 btnCancelarActionPerformed(evt);
             }
         });
-        panel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 410, 100, 33));
+        panel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 410, 100, 33));
 
         btnRegistrar.setBackground(new java.awt.Color(255, 102, 0));
         btnRegistrar.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -246,7 +246,7 @@ public class Register extends javax.swing.JFrame {
         boxTipoUsuario.setBackground(new java.awt.Color(255, 255, 255));
         boxTipoUsuario.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         boxTipoUsuario.setForeground(new java.awt.Color(0, 0, 0));
-        boxTipoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Operador", "Administrador", " ", " " }));
+        boxTipoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "Operador", "Administrador" }));
         panel1.add(boxTipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 210, 30));
 
         jLabel10.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
@@ -265,7 +265,7 @@ public class Register extends javax.swing.JFrame {
                 txtWarningActionPerformed(evt);
             }
         });
-        panel1.add(txtWarning, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, 200, 60));
+        panel1.add(txtWarning, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 310, 200, 60));
 
         getContentPane().add(panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 490));
 

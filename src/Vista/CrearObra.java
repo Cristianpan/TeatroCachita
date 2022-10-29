@@ -19,8 +19,6 @@ public class CrearObra extends javax.swing.JFrame {
      */
     public CrearObra() {
         initComponents();
-        jMenuBar1.setUI(new BasicMenuBarUI(){});
-        jMenuBar1.setBackground(Color.decode("#FF6600"));
     }
 
     /**
@@ -33,9 +31,9 @@ public class CrearObra extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenu1 = new javax.swing.JMenu();
-        panel1 = new java.awt.Panel();
-        panel2 = new java.awt.Panel();
-        jLabel1 = new javax.swing.JLabel();
+        panel7 = new java.awt.Panel();
+        panel6 = new java.awt.Panel();
+        jLabel5 = new javax.swing.JLabel();
         textArea1 = new java.awt.TextArea();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -52,125 +50,114 @@ public class CrearObra extends javax.swing.JFrame {
         jTextField10 = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         panel4 = new java.awt.Panel();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu4 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
-        jCheckBoxMenuItem2 = new javax.swing.JCheckBoxMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jCheckBoxMenuItem3 = new javax.swing.JCheckBoxMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenu5 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        panel8 = new java.awt.Panel();
+        jButton2 = new javax.swing.JButton();
 
         jMenu1.setText("jMenu1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Agregar obras");
         setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        panel1.setBackground(new java.awt.Color(255, 255, 254));
-        panel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panel7.setBackground(new java.awt.Color(255, 255, 254));
+        panel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        panel2.setBackground(new java.awt.Color(25, 43, 55));
+        panel6.setBackground(new java.awt.Color(25, 43, 55));
 
-        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Agregar Obras");
+        jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Agregar Obras");
 
-        javax.swing.GroupLayout panel2Layout = new javax.swing.GroupLayout(panel2);
-        panel2.setLayout(panel2Layout);
-        panel2Layout.setHorizontalGroup(
-            panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout panel6Layout = new javax.swing.GroupLayout(panel6);
+        panel6.setLayout(panel6Layout);
+        panel6Layout.setHorizontalGroup(
+            panel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel6Layout.createSequentialGroup()
                 .addContainerGap(493, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        panel2Layout.setVerticalGroup(
-            panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel2Layout.createSequentialGroup()
+        panel6Layout.setVerticalGroup(
+            panel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        panel1.add(panel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 50));
-        panel1.add(textArea1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 320, 170));
+        panel7.add(panel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 50));
+        panel7.add(textArea1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 320, 170));
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(25, 43, 55));
         jLabel2.setText("Nombre");
-        panel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
+        panel7.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(25, 43, 55));
         jLabel3.setText("Resumen temático");
-        panel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, 160, -1));
+        panel7.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, 160, -1));
 
         jButton1.setBackground(new java.awt.Color(255, 102, 0));
         jButton1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Agregar");
         jButton1.setToolTipText("Agregar");
-        panel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 290, 130, 30));
+        panel7.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 290, 130, 30));
 
         jTextField6.setBackground(new java.awt.Color(255, 255, 255));
         jTextField6.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        panel1.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 240, -1));
+        panel7.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 240, -1));
 
         jLabel7.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(25, 43, 55));
         jLabel7.setText("Primer actor principal");
-        panel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
+        panel7.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
 
         jTextField7.setBackground(new java.awt.Color(255, 255, 255));
         jTextField7.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        panel1.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 240, -1));
+        panel7.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 240, -1));
 
         jLabel8.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(25, 43, 55));
         jLabel8.setText("Segundo actor principal");
         jLabel8.setToolTipText("");
-        panel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
+        panel7.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
 
         jTextField5.setBackground(new java.awt.Color(255, 255, 255));
         jTextField5.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        panel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, 110, -1));
+        panel7.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, 110, -1));
 
         jLabel11.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(25, 43, 55));
         jLabel11.setText("Duración");
-        panel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, -1, -1));
+        panel7.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, -1, -1));
 
         jTextField8.setBackground(new java.awt.Color(255, 255, 255));
         jTextField8.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        panel1.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 240, -1));
+        panel7.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 240, -1));
 
         jLabel12.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(25, 43, 55));
         jLabel12.setText("Genero");
-        panel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
+        panel7.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
 
         jTextField9.setBackground(new java.awt.Color(255, 255, 255));
         jTextField9.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        panel1.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 240, -1));
+        panel7.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 240, -1));
 
         jTextField10.setBackground(new java.awt.Color(255, 255, 255));
         jTextField10.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        panel1.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 110, -1));
+        panel7.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 110, -1));
 
         jLabel13.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(25, 43, 55));
         jLabel13.setText("Precio");
-        panel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, -1, -1));
+        panel7.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, -1, -1));
 
-        getContentPane().add(panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 360));
+        getContentPane().add(panel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, 360));
 
         panel4.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -185,101 +172,37 @@ public class CrearObra extends javax.swing.JFrame {
             .addGap(0, 30, Short.MAX_VALUE)
         );
 
-        getContentPane().add(panel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 690, 30));
+        getContentPane().add(panel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 690, 30));
 
-        jMenuBar1.setBackground(new java.awt.Color(255, 102, 0));
-        jMenuBar1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jMenuBar1.setForeground(new java.awt.Color(0, 0, 0));
-        jMenuBar1.setBorderPainted(false);
-        jMenuBar1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        panel8.setBackground(new java.awt.Color(255, 102, 0));
 
-        jMenu4.setText("Usuario");
+        jButton2.setBackground(new java.awt.Color(255, 102, 0));
+        jButton2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/regreso.png"))); // NOI18N
+        jButton2.setToolTipText("Regresar");
+        jButton2.setBorder(null);
 
-        jMenuItem1.setBackground(new java.awt.Color(0, 204, 204));
-        jMenuItem1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jMenuItem1.setText("Registrar usuario");
-        jMenuItem1.setActionCommand("");
-        jMenu4.add(jMenuItem1);
+        javax.swing.GroupLayout panel8Layout = new javax.swing.GroupLayout(panel8);
+        panel8.setLayout(panel8Layout);
+        panel8Layout.setHorizontalGroup(
+            panel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel8Layout.createSequentialGroup()
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 646, Short.MAX_VALUE))
+        );
+        panel8Layout.setVerticalGroup(
+            panel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel8Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
-        jMenuItem2.setText("Modificar usuarios");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        jMenu4.add(jMenuItem2);
-
-        jMenuItem3.setText("Eliminar Usuario");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
-            }
-        });
-        jMenu4.add(jMenuItem3);
-
-        jMenuBar1.add(jMenu4);
-
-        jMenu2.setText("Obras y Funciones");
-
-        jCheckBoxMenuItem1.setText("Modificar/eliminar Funciones");
-        jMenu2.add(jCheckBoxMenuItem1);
-
-        jCheckBoxMenuItem2.setText("Modificar/eliminar Obras");
-        jMenu2.add(jCheckBoxMenuItem2);
-
-        jMenuItem5.setText("Agregar Obras");
-        jMenu2.add(jMenuItem5);
-
-        jCheckBoxMenuItem3.setText("Agregar Funciones");
-        jMenu2.add(jCheckBoxMenuItem3);
-
-        jMenuBar1.add(jMenu2);
-
-        jMenu3.setText("Reportes");
-
-        jMenuItem6.setText("Reporte mensual y diario");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
-            }
-        });
-        jMenu3.add(jMenuItem6);
-
-        jMenuBar1.add(jMenu3);
-
-        jMenu5.setText("Salir");
-
-        jMenuItem4.setText("Salir");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
-            }
-        });
-        jMenu5.add(jMenuItem4);
-
-        jMenuBar1.add(jMenu5);
-
-        setJMenuBar(jMenuBar1);
+        getContentPane().add(panel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 30));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
-
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
-
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
-
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -308,8 +231,6 @@ public class CrearObra extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -321,38 +242,26 @@ public class CrearObra extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem3;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
-    private java.awt.Panel panel1;
-    private java.awt.Panel panel2;
     private java.awt.Panel panel4;
+    private java.awt.Panel panel6;
+    private java.awt.Panel panel7;
+    private java.awt.Panel panel8;
     private java.awt.TextArea textArea1;
     // End of variables declaration//GEN-END:variables
 }

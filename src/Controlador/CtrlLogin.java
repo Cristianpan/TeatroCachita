@@ -3,7 +3,9 @@ package Controlador;
 import Modelo.*;
 import Recursos.*;
 import Vista.*;
-import java.awt.event.*; 
+import java.awt.event.*;
+
+import DAO.ConsultaUsuario; 
 
 public class CtrlLogin implements ActionListener{
     private User mod; 
@@ -29,7 +31,8 @@ public class CtrlLogin implements ActionListener{
         String contrasena = null; 
         if (e.getSource() == frm.getBtnIngresar()){
             mod.setNombreUsuario(frm.getTxtUsuario().getText());
-            contrasena = Encrip.ecnode(mod.getNombreUsuario(), frm.getTxtContra().getText()); 
+            contrasena = Encrip.ecnode(mod.getNombreUsuario(), String.valueOf(frm.getTxtContra().getPassword()));
+            System.out.println(String.valueOf(frm.getTxtContra().getPassword())); 
             mod.setContrasena(contrasena);
 
             if (modC.isLogin(mod)){

@@ -105,8 +105,15 @@
             </Property>
             <Property name="text" type="java.lang.String" value="B2"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Vista/Img/AsientoOcupado.png"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/imagenes/Asiento.png"/>
+              <Image iconType="3" name="/Vista/Img/Asiento.png"/>
+            </Property>
+            <Property name="rolloverEnabled" type="boolean" value="false"/>
+            <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection component="b1" name="selectedIcon" type="property"/>
             </Property>
           </Properties>
           <Events>
@@ -131,6 +138,7 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Cancelar"/>
             <Property name="toolTipText" type="java.lang.String" value="Aceptar"/>
+            <Property name="rolloverEnabled" type="boolean" value="false"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
@@ -154,6 +162,7 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Aceptar"/>
             <Property name="toolTipText" type="java.lang.String" value="Aceptar"/>
+            <Property name="rolloverEnabled" type="boolean" value="false"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -188,6 +197,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Century Gothic" size="12" style="0"/>
             </Property>
+            <Property name="focusable" type="boolean" value="false"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -208,8 +218,15 @@
             </Property>
             <Property name="text" type="java.lang.String" value="B1"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Vista/Img/AsientoOcupado.png"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/imagenes/Asiento.png"/>
+              <Image iconType="3" name="/Vista/Img/Asiento.png"/>
+            </Property>
+            <Property name="rolloverEnabled" type="boolean" value="false"/>
+            <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Vista/Img/AsientoSeleccionado.png"/>
             </Property>
           </Properties>
           <Events>
@@ -234,8 +251,15 @@
             </Property>
             <Property name="text" type="java.lang.String" value="B3"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Vista/Img/AsientoOcupado.png"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/imagenes/Asiento.png"/>
+              <Image iconType="3" name="/Vista/Img/Asiento.png"/>
+            </Property>
+            <Property name="rolloverEnabled" type="boolean" value="false"/>
+            <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection component="b1" name="selectedIcon" type="property"/>
             </Property>
           </Properties>
           <Events>
@@ -260,8 +284,15 @@
             </Property>
             <Property name="text" type="java.lang.String" value="B4"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Vista/Img/AsientoOcupado.png"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/imagenes/Asiento.png"/>
+              <Image iconType="3" name="/Vista/Img/Asiento.png"/>
+            </Property>
+            <Property name="rolloverEnabled" type="boolean" value="false"/>
+            <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection component="b1" name="selectedIcon" type="property"/>
             </Property>
           </Properties>
           <Events>
@@ -286,8 +317,15 @@
             </Property>
             <Property name="text" type="java.lang.String" value="B6"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Vista/Img/AsientoOcupado.png"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/imagenes/Asiento.png"/>
+              <Image iconType="3" name="/Vista/Img/Asiento.png"/>
+            </Property>
+            <Property name="rolloverEnabled" type="boolean" value="false"/>
+            <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection component="b1" name="selectedIcon" type="property"/>
             </Property>
           </Properties>
           <Events>
@@ -312,8 +350,15 @@
             </Property>
             <Property name="text" type="java.lang.String" value="A2"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Vista/Img/AsientoOcupado.png"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/imagenes/Asiento.png"/>
+              <Image iconType="3" name="/Vista/Img/Asiento.png"/>
+            </Property>
+            <Property name="rolloverEnabled" type="boolean" value="false"/>
+            <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection component="b1" name="selectedIcon" type="property"/>
             </Property>
           </Properties>
           <Events>
@@ -338,8 +383,16 @@
             </Property>
             <Property name="text" type="java.lang.String" value="A1"/>
             <Property name="toolTipText" type="java.lang.String" value="A1"/>
+            <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Vista/Img/AsientoOcupado.png"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/imagenes/Asiento.png"/>
+              <Image iconType="3" name="/Vista/Img/Asiento.png"/>
+            </Property>
+            <Property name="requestFocusEnabled" type="boolean" value="false"/>
+            <Property name="rolloverEnabled" type="boolean" value="false"/>
+            <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection component="b1" name="selectedIcon" type="property"/>
             </Property>
           </Properties>
           <Events>
@@ -364,8 +417,15 @@
             </Property>
             <Property name="text" type="java.lang.String" value="A6"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Vista/Img/AsientoOcupado.png"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/imagenes/Asiento.png"/>
+              <Image iconType="3" name="/Vista/Img/Asiento.png"/>
+            </Property>
+            <Property name="rolloverEnabled" type="boolean" value="false"/>
+            <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection component="b1" name="selectedIcon" type="property"/>
             </Property>
           </Properties>
           <Events>
@@ -390,8 +450,15 @@
             </Property>
             <Property name="text" type="java.lang.String" value="A7"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Vista/Img/AsientoOcupado.png"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/imagenes/Asiento.png"/>
+              <Image iconType="3" name="/Vista/Img/Asiento.png"/>
+            </Property>
+            <Property name="rolloverEnabled" type="boolean" value="false"/>
+            <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection component="b1" name="selectedIcon" type="property"/>
             </Property>
           </Properties>
           <Events>
@@ -416,8 +483,15 @@
             </Property>
             <Property name="text" type="java.lang.String" value="A12"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Vista/Img/AsientoOcupado.png"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/imagenes/Asiento.png"/>
+              <Image iconType="3" name="/Vista/Img/Asiento.png"/>
+            </Property>
+            <Property name="rolloverEnabled" type="boolean" value="false"/>
+            <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection component="b1" name="selectedIcon" type="property"/>
             </Property>
           </Properties>
           <Events>
@@ -442,8 +516,15 @@
             </Property>
             <Property name="text" type="java.lang.String" value="A11"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Vista/Img/AsientoOcupado.png"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/imagenes/Asiento.png"/>
+              <Image iconType="3" name="/Vista/Img/Asiento.png"/>
+            </Property>
+            <Property name="rolloverEnabled" type="boolean" value="false"/>
+            <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection component="b1" name="selectedIcon" type="property"/>
             </Property>
           </Properties>
           <Events>
@@ -468,8 +549,15 @@
             </Property>
             <Property name="text" type="java.lang.String" value="A13"/>
             <Property name="toolTipText" type="java.lang.String" value="A1"/>
+            <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Vista/Img/AsientoOcupado.png"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/imagenes/Asiento.png"/>
+              <Image iconType="3" name="/Vista/Img/Asiento.png"/>
+            </Property>
+            <Property name="rolloverEnabled" type="boolean" value="false"/>
+            <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection component="b1" name="selectedIcon" type="property"/>
             </Property>
           </Properties>
           <Events>
@@ -494,8 +582,15 @@
             </Property>
             <Property name="text" type="java.lang.String" value="A8"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Vista/Img/AsientoOcupado.png"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/imagenes/Asiento.png"/>
+              <Image iconType="3" name="/Vista/Img/Asiento.png"/>
+            </Property>
+            <Property name="rolloverEnabled" type="boolean" value="false"/>
+            <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection component="b1" name="selectedIcon" type="property"/>
             </Property>
           </Properties>
           <Events>
@@ -520,8 +615,15 @@
             </Property>
             <Property name="text" type="java.lang.String" value="A15"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Vista/Img/AsientoOcupado.png"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/imagenes/Asiento.png"/>
+              <Image iconType="3" name="/Vista/Img/Asiento.png"/>
+            </Property>
+            <Property name="rolloverEnabled" type="boolean" value="false"/>
+            <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection component="b1" name="selectedIcon" type="property"/>
             </Property>
           </Properties>
           <Events>
@@ -546,8 +648,15 @@
             </Property>
             <Property name="text" type="java.lang.String" value="A5"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Vista/Img/AsientoOcupado.png"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/imagenes/Asiento.png"/>
+              <Image iconType="3" name="/Vista/Img/Asiento.png"/>
+            </Property>
+            <Property name="rolloverEnabled" type="boolean" value="false"/>
+            <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection component="b1" name="selectedIcon" type="property"/>
             </Property>
           </Properties>
           <Events>
@@ -572,8 +681,15 @@
             </Property>
             <Property name="text" type="java.lang.String" value="A10"/>
             <Property name="toolTipText" type="java.lang.String" value="A1"/>
+            <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Vista/Img/AsientoOcupado.png"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/imagenes/Asiento.png"/>
+              <Image iconType="3" name="/Vista/Img/Asiento.png"/>
+            </Property>
+            <Property name="rolloverEnabled" type="boolean" value="false"/>
+            <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection component="b1" name="selectedIcon" type="property"/>
             </Property>
           </Properties>
           <Events>
@@ -598,8 +714,15 @@
             </Property>
             <Property name="text" type="java.lang.String" value="C2"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Vista/Img/AsientoOcupado.png"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/imagenes/Asiento.png"/>
+              <Image iconType="3" name="/Vista/Img/Asiento.png"/>
+            </Property>
+            <Property name="rolloverEnabled" type="boolean" value="false"/>
+            <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection component="b1" name="selectedIcon" type="property"/>
             </Property>
           </Properties>
           <Events>
@@ -624,8 +747,15 @@
             </Property>
             <Property name="text" type="java.lang.String" value="C1"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Vista/Img/AsientoOcupado.png"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/imagenes/Asiento.png"/>
+              <Image iconType="3" name="/Vista/Img/Asiento.png"/>
+            </Property>
+            <Property name="rolloverEnabled" type="boolean" value="false"/>
+            <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection component="b1" name="selectedIcon" type="property"/>
             </Property>
           </Properties>
           <Events>
@@ -650,8 +780,15 @@
             </Property>
             <Property name="text" type="java.lang.String" value="C6"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Vista/Img/AsientoOcupado.png"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/imagenes/Asiento.png"/>
+              <Image iconType="3" name="/Vista/Img/Asiento.png"/>
+            </Property>
+            <Property name="rolloverEnabled" type="boolean" value="false"/>
+            <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection component="b1" name="selectedIcon" type="property"/>
             </Property>
           </Properties>
           <Events>
@@ -676,8 +813,15 @@
             </Property>
             <Property name="text" type="java.lang.String" value="C7"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Vista/Img/AsientoOcupado.png"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/imagenes/Asiento.png"/>
+              <Image iconType="3" name="/Vista/Img/Asiento.png"/>
+            </Property>
+            <Property name="rolloverEnabled" type="boolean" value="false"/>
+            <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection component="b1" name="selectedIcon" type="property"/>
             </Property>
           </Properties>
           <Events>
@@ -702,8 +846,15 @@
             </Property>
             <Property name="text" type="java.lang.String" value="C12"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Vista/Img/AsientoOcupado.png"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/imagenes/Asiento.png"/>
+              <Image iconType="3" name="/Vista/Img/Asiento.png"/>
+            </Property>
+            <Property name="rolloverEnabled" type="boolean" value="false"/>
+            <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection component="b1" name="selectedIcon" type="property"/>
             </Property>
           </Properties>
           <Events>
@@ -728,8 +879,15 @@
             </Property>
             <Property name="text" type="java.lang.String" value="C11"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Vista/Img/AsientoOcupado.png"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/imagenes/Asiento.png"/>
+              <Image iconType="3" name="/Vista/Img/Asiento.png"/>
+            </Property>
+            <Property name="rolloverEnabled" type="boolean" value="false"/>
+            <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection component="b1" name="selectedIcon" type="property"/>
             </Property>
           </Properties>
           <Events>
@@ -754,8 +912,15 @@
             </Property>
             <Property name="text" type="java.lang.String" value="C3"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Vista/Img/AsientoOcupado.png"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/imagenes/Asiento.png"/>
+              <Image iconType="3" name="/Vista/Img/Asiento.png"/>
+            </Property>
+            <Property name="rolloverEnabled" type="boolean" value="false"/>
+            <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection component="b1" name="selectedIcon" type="property"/>
             </Property>
           </Properties>
           <Events>
@@ -780,8 +945,15 @@
             </Property>
             <Property name="text" type="java.lang.String" value="C8"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Vista/Img/AsientoOcupado.png"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/imagenes/Asiento.png"/>
+              <Image iconType="3" name="/Vista/Img/Asiento.png"/>
+            </Property>
+            <Property name="rolloverEnabled" type="boolean" value="false"/>
+            <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection component="b1" name="selectedIcon" type="property"/>
             </Property>
           </Properties>
           <Events>
@@ -806,8 +978,15 @@
             </Property>
             <Property name="text" type="java.lang.String" value="C15"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Vista/Img/AsientoOcupado.png"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/imagenes/Asiento.png"/>
+              <Image iconType="3" name="/Vista/Img/Asiento.png"/>
+            </Property>
+            <Property name="rolloverEnabled" type="boolean" value="false"/>
+            <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection component="b1" name="selectedIcon" type="property"/>
             </Property>
           </Properties>
           <Events>
@@ -832,8 +1011,15 @@
             </Property>
             <Property name="text" type="java.lang.String" value="C5"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Vista/Img/AsientoOcupado.png"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/imagenes/Asiento.png"/>
+              <Image iconType="3" name="/Vista/Img/Asiento.png"/>
+            </Property>
+            <Property name="rolloverEnabled" type="boolean" value="false"/>
+            <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection component="b1" name="selectedIcon" type="property"/>
             </Property>
           </Properties>
           <Events>
@@ -858,8 +1044,15 @@
             </Property>
             <Property name="text" type="java.lang.String" value="C10"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Vista/Img/AsientoOcupado.png"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/imagenes/Asiento.png"/>
+              <Image iconType="3" name="/Vista/Img/Asiento.png"/>
+            </Property>
+            <Property name="rolloverEnabled" type="boolean" value="false"/>
+            <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection component="b1" name="selectedIcon" type="property"/>
             </Property>
           </Properties>
           <Events>
@@ -884,8 +1077,15 @@
             </Property>
             <Property name="text" type="java.lang.String" value="B8"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Vista/Img/AsientoOcupado.png"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/imagenes/Asiento.png"/>
+              <Image iconType="3" name="/Vista/Img/Asiento.png"/>
+            </Property>
+            <Property name="rolloverEnabled" type="boolean" value="false"/>
+            <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection component="b1" name="selectedIcon" type="property"/>
             </Property>
           </Properties>
           <Events>
@@ -910,8 +1110,15 @@
             </Property>
             <Property name="text" type="java.lang.String" value="B7"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Vista/Img/AsientoOcupado.png"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/imagenes/Asiento.png"/>
+              <Image iconType="3" name="/Vista/Img/Asiento.png"/>
+            </Property>
+            <Property name="rolloverEnabled" type="boolean" value="false"/>
+            <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection component="b1" name="selectedIcon" type="property"/>
             </Property>
           </Properties>
           <Events>
@@ -936,8 +1143,15 @@
             </Property>
             <Property name="text" type="java.lang.String" value="B9"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Vista/Img/AsientoOcupado.png"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/imagenes/Asiento.png"/>
+              <Image iconType="3" name="/Vista/Img/Asiento.png"/>
+            </Property>
+            <Property name="rolloverEnabled" type="boolean" value="false"/>
+            <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection component="b1" name="selectedIcon" type="property"/>
             </Property>
           </Properties>
           <Events>
@@ -962,8 +1176,15 @@
             </Property>
             <Property name="text" type="java.lang.String" value="B10"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Vista/Img/AsientoOcupado.png"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/imagenes/Asiento.png"/>
+              <Image iconType="3" name="/Vista/Img/Asiento.png"/>
+            </Property>
+            <Property name="rolloverEnabled" type="boolean" value="false"/>
+            <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection component="b1" name="selectedIcon" type="property"/>
             </Property>
           </Properties>
           <Events>
@@ -988,8 +1209,15 @@
             </Property>
             <Property name="text" type="java.lang.String" value="B12"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Vista/Img/AsientoOcupado.png"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/imagenes/Asiento.png"/>
+              <Image iconType="3" name="/Vista/Img/Asiento.png"/>
+            </Property>
+            <Property name="rolloverEnabled" type="boolean" value="false"/>
+            <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection component="b1" name="selectedIcon" type="property"/>
             </Property>
           </Properties>
           <Events>
@@ -1014,8 +1242,15 @@
             </Property>
             <Property name="text" type="java.lang.String" value="B11"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Vista/Img/AsientoOcupado.png"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/imagenes/Asiento.png"/>
+              <Image iconType="3" name="/Vista/Img/Asiento.png"/>
+            </Property>
+            <Property name="rolloverEnabled" type="boolean" value="false"/>
+            <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection component="b1" name="selectedIcon" type="property"/>
             </Property>
           </Properties>
           <Events>
@@ -1065,8 +1300,15 @@
             </Property>
             <Property name="text" type="java.lang.String" value="C4"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Vista/Img/AsientoOcupado.png"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/imagenes/Asiento.png"/>
+              <Image iconType="3" name="/Vista/Img/Asiento.png"/>
+            </Property>
+            <Property name="rolloverEnabled" type="boolean" value="false"/>
+            <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection component="b1" name="selectedIcon" type="property"/>
             </Property>
           </Properties>
           <Events>
@@ -1091,8 +1333,15 @@
             </Property>
             <Property name="text" type="java.lang.String" value="C9"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Vista/Img/AsientoOcupado.png"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/imagenes/Asiento.png"/>
+              <Image iconType="3" name="/Vista/Img/Asiento.png"/>
+            </Property>
+            <Property name="rolloverEnabled" type="boolean" value="false"/>
+            <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection component="b1" name="selectedIcon" type="property"/>
             </Property>
           </Properties>
           <Events>
@@ -1117,8 +1366,15 @@
             </Property>
             <Property name="text" type="java.lang.String" value="C14"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Vista/Img/AsientoOcupado.png"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/imagenes/Asiento.png"/>
+              <Image iconType="3" name="/Vista/Img/Asiento.png"/>
+            </Property>
+            <Property name="rolloverEnabled" type="boolean" value="false"/>
+            <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection component="b1" name="selectedIcon" type="property"/>
             </Property>
           </Properties>
           <Events>
@@ -1143,8 +1399,15 @@
             </Property>
             <Property name="text" type="java.lang.String" value="C13"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Vista/Img/AsientoOcupado.png"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/imagenes/Asiento.png"/>
+              <Image iconType="3" name="/Vista/Img/Asiento.png"/>
+            </Property>
+            <Property name="rolloverEnabled" type="boolean" value="false"/>
+            <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection component="b1" name="selectedIcon" type="property"/>
             </Property>
           </Properties>
           <Events>
@@ -1169,8 +1432,15 @@
             </Property>
             <Property name="text" type="java.lang.String" value="A14"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Vista/Img/AsientoOcupado.png"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/imagenes/Asiento.png"/>
+              <Image iconType="3" name="/Vista/Img/Asiento.png"/>
+            </Property>
+            <Property name="rolloverEnabled" type="boolean" value="false"/>
+            <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection component="b1" name="selectedIcon" type="property"/>
             </Property>
           </Properties>
           <Events>
@@ -1195,8 +1465,15 @@
             </Property>
             <Property name="text" type="java.lang.String" value="A9"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Vista/Img/AsientoOcupado.png"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/imagenes/Asiento.png"/>
+              <Image iconType="3" name="/Vista/Img/Asiento.png"/>
+            </Property>
+            <Property name="rolloverEnabled" type="boolean" value="false"/>
+            <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection component="b1" name="selectedIcon" type="property"/>
             </Property>
           </Properties>
           <Events>
@@ -1221,8 +1498,15 @@
             </Property>
             <Property name="text" type="java.lang.String" value="A4"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Vista/Img/AsientoOcupado.png"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/imagenes/Asiento.png"/>
+              <Image iconType="3" name="/Vista/Img/Asiento.png"/>
+            </Property>
+            <Property name="rolloverEnabled" type="boolean" value="false"/>
+            <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection component="b1" name="selectedIcon" type="property"/>
             </Property>
           </Properties>
           <Events>
@@ -1247,8 +1531,15 @@
             </Property>
             <Property name="text" type="java.lang.String" value="A3"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Vista/Img/AsientoOcupado.png"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/imagenes/Asiento.png"/>
+              <Image iconType="3" name="/Vista/Img/Asiento.png"/>
+            </Property>
+            <Property name="rolloverEnabled" type="boolean" value="false"/>
+            <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection component="b1" name="selectedIcon" type="property"/>
             </Property>
           </Properties>
           <Events>
@@ -1273,8 +1564,15 @@
             </Property>
             <Property name="text" type="java.lang.String" value="B5"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="disabledIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Vista/Img/AsientoOcupado.png"/>
+            </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/imagenes/Asiento.png"/>
+              <Image iconType="3" name="/Vista/Img/Asiento.png"/>
+            </Property>
+            <Property name="rolloverEnabled" type="boolean" value="false"/>
+            <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection component="b1" name="selectedIcon" type="property"/>
             </Property>
           </Properties>
           <Events>

@@ -12,15 +12,12 @@ import javax.swing.JCheckBox;
  *
  * @author diana
  */
-public class ElegirAsientos extends javax.swing.JFrame {
+public class ElegirAsiento extends javax.swing.JFrame {
 
     /**
-     * Creates new form ElegirAsientos
-     */
-    ImageIcon imagen = new ImageIcon("src/Vista/Img/AsientoSeleccionado.png");
-    ImageIcon imagen2 = new ImageIcon("src/Vista/Img/Asiento.png");
-    
-    public ElegirAsientos() {
+     * Creates new form VentanaElegirAsiento
+     */    
+    public ElegirAsiento() {
         initComponents();
     }
 
@@ -123,7 +120,10 @@ public class ElegirAsientos extends javax.swing.JFrame {
         b2.setForeground(new java.awt.Color(0, 0, 0));
         b2.setText("B2");
         b2.setToolTipText("");
+        b2.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/AsientoOcupado.png"))); // NOI18N
         b2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/Asiento.png"))); // NOI18N
+        b2.setRolloverEnabled(false);
+        b2.setSelectedIcon(b1.getSelectedIcon());
         b2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b2ActionPerformed(evt);
@@ -136,6 +136,7 @@ public class ElegirAsientos extends javax.swing.JFrame {
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Cancelar");
         jButton1.setToolTipText("Aceptar");
+        jButton1.setRolloverEnabled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -148,6 +149,7 @@ public class ElegirAsientos extends javax.swing.JFrame {
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Aceptar");
         jButton2.setToolTipText("Aceptar");
+        jButton2.setRolloverEnabled(false);
         panel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 470, 120, 32));
 
         jLabel7.setBackground(new java.awt.Color(255, 51, 0));
@@ -158,6 +160,7 @@ public class ElegirAsientos extends javax.swing.JFrame {
 
         jTextField1.setBackground(new java.awt.Color(255, 255, 255));
         jTextField1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jTextField1.setFocusable(false);
         panel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 430, 160, -1));
 
         b1.setBackground(new java.awt.Color(255, 255, 255));
@@ -165,7 +168,10 @@ public class ElegirAsientos extends javax.swing.JFrame {
         b1.setForeground(new java.awt.Color(0, 0, 0));
         b1.setText("B1");
         b1.setToolTipText("");
+        b1.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/AsientoOcupado.png"))); // NOI18N
         b1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/Asiento.png"))); // NOI18N
+        b1.setRolloverEnabled(false);
+        b1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/AsientoSeleccionado.png"))); // NOI18N
         b1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b1ActionPerformed(evt);
@@ -178,7 +184,10 @@ public class ElegirAsientos extends javax.swing.JFrame {
         b3.setForeground(new java.awt.Color(0, 0, 0));
         b3.setText("B3");
         b3.setToolTipText("");
+        b3.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/AsientoOcupado.png"))); // NOI18N
         b3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/Asiento.png"))); // NOI18N
+        b3.setRolloverEnabled(false);
+        b3.setSelectedIcon(b1.getSelectedIcon());
         b3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b3ActionPerformed(evt);
@@ -191,7 +200,10 @@ public class ElegirAsientos extends javax.swing.JFrame {
         b4.setForeground(new java.awt.Color(0, 0, 0));
         b4.setText("B4");
         b4.setToolTipText("");
+        b4.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/AsientoOcupado.png"))); // NOI18N
         b4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/Asiento.png"))); // NOI18N
+        b4.setRolloverEnabled(false);
+        b4.setSelectedIcon(b1.getSelectedIcon());
         b4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b4ActionPerformed(evt);
@@ -204,7 +216,10 @@ public class ElegirAsientos extends javax.swing.JFrame {
         b6.setForeground(new java.awt.Color(0, 0, 0));
         b6.setText("B6");
         b6.setToolTipText("");
+        b6.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/AsientoOcupado.png"))); // NOI18N
         b6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/Asiento.png"))); // NOI18N
+        b6.setRolloverEnabled(false);
+        b6.setSelectedIcon(b1.getSelectedIcon());
         b6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b6ActionPerformed(evt);
@@ -217,7 +232,10 @@ public class ElegirAsientos extends javax.swing.JFrame {
         a2.setForeground(new java.awt.Color(0, 0, 0));
         a2.setText("A2");
         a2.setToolTipText("");
+        a2.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/AsientoOcupado.png"))); // NOI18N
         a2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/Asiento.png"))); // NOI18N
+        a2.setRolloverEnabled(false);
+        a2.setSelectedIcon(b1.getSelectedIcon());
         a2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 a2ActionPerformed(evt);
@@ -230,7 +248,11 @@ public class ElegirAsientos extends javax.swing.JFrame {
         a1.setForeground(new java.awt.Color(0, 0, 0));
         a1.setText("A1");
         a1.setToolTipText("A1");
+        a1.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/AsientoOcupado.png"))); // NOI18N
         a1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/Asiento.png"))); // NOI18N
+        a1.setRequestFocusEnabled(false);
+        a1.setRolloverEnabled(false);
+        a1.setSelectedIcon(b1.getSelectedIcon());
         a1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 a1ActionPerformed(evt);
@@ -243,7 +265,10 @@ public class ElegirAsientos extends javax.swing.JFrame {
         a6.setForeground(new java.awt.Color(0, 0, 0));
         a6.setText("A6");
         a6.setToolTipText("");
+        a6.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/AsientoOcupado.png"))); // NOI18N
         a6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/Asiento.png"))); // NOI18N
+        a6.setRolloverEnabled(false);
+        a6.setSelectedIcon(b1.getSelectedIcon());
         a6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 a6ActionPerformed(evt);
@@ -256,7 +281,10 @@ public class ElegirAsientos extends javax.swing.JFrame {
         a7.setForeground(new java.awt.Color(0, 0, 0));
         a7.setText("A7");
         a7.setToolTipText("");
+        a7.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/AsientoOcupado.png"))); // NOI18N
         a7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/Asiento.png"))); // NOI18N
+        a7.setRolloverEnabled(false);
+        a7.setSelectedIcon(b1.getSelectedIcon());
         a7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 a7ActionPerformed(evt);
@@ -269,7 +297,10 @@ public class ElegirAsientos extends javax.swing.JFrame {
         a12.setForeground(new java.awt.Color(0, 0, 0));
         a12.setText("A12");
         a12.setToolTipText("");
+        a12.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/AsientoOcupado.png"))); // NOI18N
         a12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/Asiento.png"))); // NOI18N
+        a12.setRolloverEnabled(false);
+        a12.setSelectedIcon(b1.getSelectedIcon());
         a12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 a12ActionPerformed(evt);
@@ -282,7 +313,10 @@ public class ElegirAsientos extends javax.swing.JFrame {
         a11.setForeground(new java.awt.Color(0, 0, 0));
         a11.setText("A11");
         a11.setToolTipText("");
+        a11.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/AsientoOcupado.png"))); // NOI18N
         a11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/Asiento.png"))); // NOI18N
+        a11.setRolloverEnabled(false);
+        a11.setSelectedIcon(b1.getSelectedIcon());
         a11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 a11ActionPerformed(evt);
@@ -295,7 +329,10 @@ public class ElegirAsientos extends javax.swing.JFrame {
         a13.setForeground(new java.awt.Color(0, 0, 0));
         a13.setText("A13");
         a13.setToolTipText("A1");
+        a13.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/AsientoOcupado.png"))); // NOI18N
         a13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/Asiento.png"))); // NOI18N
+        a13.setRolloverEnabled(false);
+        a13.setSelectedIcon(b1.getSelectedIcon());
         a13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 a13ActionPerformed(evt);
@@ -308,7 +345,10 @@ public class ElegirAsientos extends javax.swing.JFrame {
         a8.setForeground(new java.awt.Color(0, 0, 0));
         a8.setText("A8");
         a8.setToolTipText("");
+        a8.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/AsientoOcupado.png"))); // NOI18N
         a8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/Asiento.png"))); // NOI18N
+        a8.setRolloverEnabled(false);
+        a8.setSelectedIcon(b1.getSelectedIcon());
         a8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 a8ActionPerformed(evt);
@@ -321,7 +361,10 @@ public class ElegirAsientos extends javax.swing.JFrame {
         a15.setForeground(new java.awt.Color(0, 0, 0));
         a15.setText("A15");
         a15.setToolTipText("");
+        a15.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/AsientoOcupado.png"))); // NOI18N
         a15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/Asiento.png"))); // NOI18N
+        a15.setRolloverEnabled(false);
+        a15.setSelectedIcon(b1.getSelectedIcon());
         a15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 a15ActionPerformed(evt);
@@ -334,7 +377,10 @@ public class ElegirAsientos extends javax.swing.JFrame {
         a5.setForeground(new java.awt.Color(0, 0, 0));
         a5.setText("A5");
         a5.setToolTipText("");
+        a5.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/AsientoOcupado.png"))); // NOI18N
         a5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/Asiento.png"))); // NOI18N
+        a5.setRolloverEnabled(false);
+        a5.setSelectedIcon(b1.getSelectedIcon());
         a5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 a5ActionPerformed(evt);
@@ -347,7 +393,10 @@ public class ElegirAsientos extends javax.swing.JFrame {
         a10.setForeground(new java.awt.Color(0, 0, 0));
         a10.setText("A10");
         a10.setToolTipText("A1");
+        a10.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/AsientoOcupado.png"))); // NOI18N
         a10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/Asiento.png"))); // NOI18N
+        a10.setRolloverEnabled(false);
+        a10.setSelectedIcon(b1.getSelectedIcon());
         a10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 a10ActionPerformed(evt);
@@ -360,7 +409,10 @@ public class ElegirAsientos extends javax.swing.JFrame {
         c2.setForeground(new java.awt.Color(0, 0, 0));
         c2.setText("C2");
         c2.setToolTipText("");
+        c2.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/AsientoOcupado.png"))); // NOI18N
         c2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/Asiento.png"))); // NOI18N
+        c2.setRolloverEnabled(false);
+        c2.setSelectedIcon(b1.getSelectedIcon());
         c2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 c2ActionPerformed(evt);
@@ -373,7 +425,10 @@ public class ElegirAsientos extends javax.swing.JFrame {
         c1.setForeground(new java.awt.Color(0, 0, 0));
         c1.setText("C1");
         c1.setToolTipText("");
+        c1.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/AsientoOcupado.png"))); // NOI18N
         c1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/Asiento.png"))); // NOI18N
+        c1.setRolloverEnabled(false);
+        c1.setSelectedIcon(b1.getSelectedIcon());
         c1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 c1ActionPerformed(evt);
@@ -386,7 +441,10 @@ public class ElegirAsientos extends javax.swing.JFrame {
         c6.setForeground(new java.awt.Color(0, 0, 0));
         c6.setText("C6");
         c6.setToolTipText("");
+        c6.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/AsientoOcupado.png"))); // NOI18N
         c6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/Asiento.png"))); // NOI18N
+        c6.setRolloverEnabled(false);
+        c6.setSelectedIcon(b1.getSelectedIcon());
         c6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 c6ActionPerformed(evt);
@@ -399,7 +457,10 @@ public class ElegirAsientos extends javax.swing.JFrame {
         c7.setForeground(new java.awt.Color(0, 0, 0));
         c7.setText("C7");
         c7.setToolTipText("");
+        c7.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/AsientoOcupado.png"))); // NOI18N
         c7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/Asiento.png"))); // NOI18N
+        c7.setRolloverEnabled(false);
+        c7.setSelectedIcon(b1.getSelectedIcon());
         c7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 c7ActionPerformed(evt);
@@ -412,7 +473,10 @@ public class ElegirAsientos extends javax.swing.JFrame {
         c12.setForeground(new java.awt.Color(0, 0, 0));
         c12.setText("C12");
         c12.setToolTipText("");
+        c12.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/AsientoOcupado.png"))); // NOI18N
         c12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/Asiento.png"))); // NOI18N
+        c12.setRolloverEnabled(false);
+        c12.setSelectedIcon(b1.getSelectedIcon());
         c12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 c12ActionPerformed(evt);
@@ -425,7 +489,10 @@ public class ElegirAsientos extends javax.swing.JFrame {
         c11.setForeground(new java.awt.Color(0, 0, 0));
         c11.setText("C11");
         c11.setToolTipText("");
+        c11.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/AsientoOcupado.png"))); // NOI18N
         c11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/Asiento.png"))); // NOI18N
+        c11.setRolloverEnabled(false);
+        c11.setSelectedIcon(b1.getSelectedIcon());
         c11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 c11ActionPerformed(evt);
@@ -438,7 +505,10 @@ public class ElegirAsientos extends javax.swing.JFrame {
         c3.setForeground(new java.awt.Color(0, 0, 0));
         c3.setText("C3");
         c3.setToolTipText("");
+        c3.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/AsientoOcupado.png"))); // NOI18N
         c3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/Asiento.png"))); // NOI18N
+        c3.setRolloverEnabled(false);
+        c3.setSelectedIcon(b1.getSelectedIcon());
         c3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 c3ActionPerformed(evt);
@@ -451,7 +521,10 @@ public class ElegirAsientos extends javax.swing.JFrame {
         c8.setForeground(new java.awt.Color(0, 0, 0));
         c8.setText("C8");
         c8.setToolTipText("");
+        c8.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/AsientoOcupado.png"))); // NOI18N
         c8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/Asiento.png"))); // NOI18N
+        c8.setRolloverEnabled(false);
+        c8.setSelectedIcon(b1.getSelectedIcon());
         c8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 c8ActionPerformed(evt);
@@ -464,7 +537,10 @@ public class ElegirAsientos extends javax.swing.JFrame {
         c15.setForeground(new java.awt.Color(0, 0, 0));
         c15.setText("C15");
         c15.setToolTipText("");
+        c15.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/AsientoOcupado.png"))); // NOI18N
         c15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/Asiento.png"))); // NOI18N
+        c15.setRolloverEnabled(false);
+        c15.setSelectedIcon(b1.getSelectedIcon());
         c15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 c15ActionPerformed(evt);
@@ -477,7 +553,10 @@ public class ElegirAsientos extends javax.swing.JFrame {
         c5.setForeground(new java.awt.Color(0, 0, 0));
         c5.setText("C5");
         c5.setToolTipText("");
+        c5.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/AsientoOcupado.png"))); // NOI18N
         c5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/Asiento.png"))); // NOI18N
+        c5.setRolloverEnabled(false);
+        c5.setSelectedIcon(b1.getSelectedIcon());
         c5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 c5ActionPerformed(evt);
@@ -490,7 +569,10 @@ public class ElegirAsientos extends javax.swing.JFrame {
         c10.setForeground(new java.awt.Color(0, 0, 0));
         c10.setText("C10");
         c10.setToolTipText("");
+        c10.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/AsientoOcupado.png"))); // NOI18N
         c10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/Asiento.png"))); // NOI18N
+        c10.setRolloverEnabled(false);
+        c10.setSelectedIcon(b1.getSelectedIcon());
         c10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 c10ActionPerformed(evt);
@@ -503,7 +585,10 @@ public class ElegirAsientos extends javax.swing.JFrame {
         b8.setForeground(new java.awt.Color(0, 0, 0));
         b8.setText("B8");
         b8.setToolTipText("");
+        b8.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/AsientoOcupado.png"))); // NOI18N
         b8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/Asiento.png"))); // NOI18N
+        b8.setRolloverEnabled(false);
+        b8.setSelectedIcon(b1.getSelectedIcon());
         b8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b8ActionPerformed(evt);
@@ -516,7 +601,10 @@ public class ElegirAsientos extends javax.swing.JFrame {
         b7.setForeground(new java.awt.Color(0, 0, 0));
         b7.setText("B7");
         b7.setToolTipText("");
+        b7.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/AsientoOcupado.png"))); // NOI18N
         b7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/Asiento.png"))); // NOI18N
+        b7.setRolloverEnabled(false);
+        b7.setSelectedIcon(b1.getSelectedIcon());
         b7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b7ActionPerformed(evt);
@@ -529,7 +617,10 @@ public class ElegirAsientos extends javax.swing.JFrame {
         b9.setForeground(new java.awt.Color(0, 0, 0));
         b9.setText("B9");
         b9.setToolTipText("");
+        b9.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/AsientoOcupado.png"))); // NOI18N
         b9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/Asiento.png"))); // NOI18N
+        b9.setRolloverEnabled(false);
+        b9.setSelectedIcon(b1.getSelectedIcon());
         b9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b9ActionPerformed(evt);
@@ -542,7 +633,10 @@ public class ElegirAsientos extends javax.swing.JFrame {
         b10.setForeground(new java.awt.Color(0, 0, 0));
         b10.setText("B10");
         b10.setToolTipText("");
+        b10.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/AsientoOcupado.png"))); // NOI18N
         b10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/Asiento.png"))); // NOI18N
+        b10.setRolloverEnabled(false);
+        b10.setSelectedIcon(b1.getSelectedIcon());
         b10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b10ActionPerformed(evt);
@@ -555,7 +649,10 @@ public class ElegirAsientos extends javax.swing.JFrame {
         b12.setForeground(new java.awt.Color(0, 0, 0));
         b12.setText("B12");
         b12.setToolTipText("");
+        b12.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/AsientoOcupado.png"))); // NOI18N
         b12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/Asiento.png"))); // NOI18N
+        b12.setRolloverEnabled(false);
+        b12.setSelectedIcon(b1.getSelectedIcon());
         b12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b12ActionPerformed(evt);
@@ -568,7 +665,10 @@ public class ElegirAsientos extends javax.swing.JFrame {
         b11.setForeground(new java.awt.Color(0, 0, 0));
         b11.setText("B11");
         b11.setToolTipText("");
+        b11.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/AsientoOcupado.png"))); // NOI18N
         b11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/Asiento.png"))); // NOI18N
+        b11.setRolloverEnabled(false);
+        b11.setSelectedIcon(b1.getSelectedIcon());
         b11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b11ActionPerformed(evt);
@@ -596,7 +696,10 @@ public class ElegirAsientos extends javax.swing.JFrame {
         c4.setForeground(new java.awt.Color(0, 0, 0));
         c4.setText("C4");
         c4.setToolTipText("");
+        c4.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/AsientoOcupado.png"))); // NOI18N
         c4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/Asiento.png"))); // NOI18N
+        c4.setRolloverEnabled(false);
+        c4.setSelectedIcon(b1.getSelectedIcon());
         c4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 c4ActionPerformed(evt);
@@ -609,7 +712,10 @@ public class ElegirAsientos extends javax.swing.JFrame {
         c9.setForeground(new java.awt.Color(0, 0, 0));
         c9.setText("C9");
         c9.setToolTipText("");
+        c9.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/AsientoOcupado.png"))); // NOI18N
         c9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/Asiento.png"))); // NOI18N
+        c9.setRolloverEnabled(false);
+        c9.setSelectedIcon(b1.getSelectedIcon());
         c9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 c9ActionPerformed(evt);
@@ -622,7 +728,10 @@ public class ElegirAsientos extends javax.swing.JFrame {
         c14.setForeground(new java.awt.Color(0, 0, 0));
         c14.setText("C14");
         c14.setToolTipText("");
+        c14.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/AsientoOcupado.png"))); // NOI18N
         c14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/Asiento.png"))); // NOI18N
+        c14.setRolloverEnabled(false);
+        c14.setSelectedIcon(b1.getSelectedIcon());
         c14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 c14ActionPerformed(evt);
@@ -635,7 +744,10 @@ public class ElegirAsientos extends javax.swing.JFrame {
         c13.setForeground(new java.awt.Color(0, 0, 0));
         c13.setText("C13");
         c13.setToolTipText("");
+        c13.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/AsientoOcupado.png"))); // NOI18N
         c13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/Asiento.png"))); // NOI18N
+        c13.setRolloverEnabled(false);
+        c13.setSelectedIcon(b1.getSelectedIcon());
         c13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 c13ActionPerformed(evt);
@@ -648,7 +760,10 @@ public class ElegirAsientos extends javax.swing.JFrame {
         a14.setForeground(new java.awt.Color(0, 0, 0));
         a14.setText("A14");
         a14.setToolTipText("");
+        a14.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/AsientoOcupado.png"))); // NOI18N
         a14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/Asiento.png"))); // NOI18N
+        a14.setRolloverEnabled(false);
+        a14.setSelectedIcon(b1.getSelectedIcon());
         a14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 a14ActionPerformed(evt);
@@ -661,7 +776,10 @@ public class ElegirAsientos extends javax.swing.JFrame {
         a9.setForeground(new java.awt.Color(0, 0, 0));
         a9.setText("A9");
         a9.setToolTipText("");
+        a9.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/AsientoOcupado.png"))); // NOI18N
         a9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/Asiento.png"))); // NOI18N
+        a9.setRolloverEnabled(false);
+        a9.setSelectedIcon(b1.getSelectedIcon());
         a9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 a9ActionPerformed(evt);
@@ -674,7 +792,10 @@ public class ElegirAsientos extends javax.swing.JFrame {
         a4.setForeground(new java.awt.Color(0, 0, 0));
         a4.setText("A4");
         a4.setToolTipText("");
+        a4.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/AsientoOcupado.png"))); // NOI18N
         a4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/Asiento.png"))); // NOI18N
+        a4.setRolloverEnabled(false);
+        a4.setSelectedIcon(b1.getSelectedIcon());
         a4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 a4ActionPerformed(evt);
@@ -687,7 +808,10 @@ public class ElegirAsientos extends javax.swing.JFrame {
         a3.setForeground(new java.awt.Color(0, 0, 0));
         a3.setText("A3");
         a3.setToolTipText("");
+        a3.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/AsientoOcupado.png"))); // NOI18N
         a3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/Asiento.png"))); // NOI18N
+        a3.setRolloverEnabled(false);
+        a3.setSelectedIcon(b1.getSelectedIcon());
         a3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 a3ActionPerformed(evt);
@@ -700,7 +824,10 @@ public class ElegirAsientos extends javax.swing.JFrame {
         b5.setForeground(new java.awt.Color(0, 0, 0));
         b5.setText("B5");
         b5.setToolTipText("");
+        b5.setDisabledIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/AsientoOcupado.png"))); // NOI18N
         b5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/Asiento.png"))); // NOI18N
+        b5.setRolloverEnabled(false);
+        b5.setSelectedIcon(b1.getSelectedIcon());
         b5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b5ActionPerformed(evt);
@@ -715,131 +842,111 @@ public class ElegirAsientos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void b11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b11ActionPerformed
-        ativarcosas(b11);
+
     }//GEN-LAST:event_b11ActionPerformed
 
     private void b12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b12ActionPerformed
-        ativarcosas(b12);
+
     }//GEN-LAST:event_b12ActionPerformed
 
     private void b10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b10ActionPerformed
-        ativarcosas(b10);
+
     }//GEN-LAST:event_b10ActionPerformed
 
     private void b9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b9ActionPerformed
-        ativarcosas(b9);
     }//GEN-LAST:event_b9ActionPerformed
 
     private void b7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b7ActionPerformed
-       ativarcosas(b7);
     }//GEN-LAST:event_b7ActionPerformed
 
     private void b8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b8ActionPerformed
-        ativarcosas(b8);
     }//GEN-LAST:event_b8ActionPerformed
 
     private void c10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c10ActionPerformed
-        ativarcosas(c10);
+
     }//GEN-LAST:event_c10ActionPerformed
 
     private void c5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c5ActionPerformed
-        ativarcosas(c5);
     }//GEN-LAST:event_c5ActionPerformed
 
     private void c15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c15ActionPerformed
-        ativarcosas(c15);
+
     }//GEN-LAST:event_c15ActionPerformed
 
     private void c8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c8ActionPerformed
-        ativarcosas(c8);
     }//GEN-LAST:event_c8ActionPerformed
 
     private void c3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c3ActionPerformed
-        ativarcosas(c3);
     }//GEN-LAST:event_c3ActionPerformed
 
     private void c11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c11ActionPerformed
-        ativarcosas(c11);
+
     }//GEN-LAST:event_c11ActionPerformed
 
     private void c12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c12ActionPerformed
-        ativarcosas(c12);
+
     }//GEN-LAST:event_c12ActionPerformed
 
     private void c7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c7ActionPerformed
-        ativarcosas(c7);
     }//GEN-LAST:event_c7ActionPerformed
 
     private void c6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c6ActionPerformed
-        ativarcosas(c6);
     }//GEN-LAST:event_c6ActionPerformed
 
     private void c1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c1ActionPerformed
-        ativarcosas(c1);
     }//GEN-LAST:event_c1ActionPerformed
 
     private void c2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c2ActionPerformed
-        ativarcosas(c2);
     }//GEN-LAST:event_c2ActionPerformed
 
     private void a10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a10ActionPerformed
-        ativarcosas(a10);
+
     }//GEN-LAST:event_a10ActionPerformed
 
     private void a5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a5ActionPerformed
-        ativarcosas(a5);
     }//GEN-LAST:event_a5ActionPerformed
 
     private void a15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a15ActionPerformed
-        ativarcosas(a15);
+
     }//GEN-LAST:event_a15ActionPerformed
 
     private void a8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a8ActionPerformed
-        ativarcosas(a8);
     }//GEN-LAST:event_a8ActionPerformed
 
     private void a13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a13ActionPerformed
-        ativarcosas(a13);
+
     }//GEN-LAST:event_a13ActionPerformed
 
     private void a11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a11ActionPerformed
-        ativarcosas(a11);
+
     }//GEN-LAST:event_a11ActionPerformed
 
     private void a12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a12ActionPerformed
-        ativarcosas(a12);
+
     }//GEN-LAST:event_a12ActionPerformed
 
     private void a7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a7ActionPerformed
-        ativarcosas(a7);
     }//GEN-LAST:event_a7ActionPerformed
 
     private void a6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a6ActionPerformed
-        ativarcosas(a6);
     }//GEN-LAST:event_a6ActionPerformed
 
     private void a1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a1ActionPerformed
-        ativarcosas(a1);
     }//GEN-LAST:event_a1ActionPerformed
 
     private void a2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a2ActionPerformed
-        ativarcosas(a2);
     }//GEN-LAST:event_a2ActionPerformed
 
     private void b6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b6ActionPerformed
-        ativarcosas(b6);
     }//GEN-LAST:event_b6ActionPerformed
 
     private void b4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b4ActionPerformed
-        ativarcosas(b4);
     }//GEN-LAST:event_b4ActionPerformed
 
     private void b3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b3ActionPerformed
-        ativarcosas(b3);
     }//GEN-LAST:event_b3ActionPerformed
 
     private void b1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b1ActionPerformed
-        ativarcosas(b1);
     }//GEN-LAST:event_b1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -847,59 +954,37 @@ public class ElegirAsientos extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void b2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b2ActionPerformed
-        ativarcosas(b2);
     }//GEN-LAST:event_b2ActionPerformed
 
     private void b5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b5ActionPerformed
-        ativarcosas(b5);
     }//GEN-LAST:event_b5ActionPerformed
 
     private void a3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a3ActionPerformed
-        ativarcosas(a3);
     }//GEN-LAST:event_a3ActionPerformed
 
     private void a4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a4ActionPerformed
-        ativarcosas(a4);
     }//GEN-LAST:event_a4ActionPerformed
 
     private void a9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a9ActionPerformed
-        ativarcosas(a9);
     }//GEN-LAST:event_a9ActionPerformed
 
     private void a14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_a14ActionPerformed
-        ativarcosas(a14);
+
     }//GEN-LAST:event_a14ActionPerformed
 
     private void c13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c13ActionPerformed
-        ativarcosas(c13);
+
     }//GEN-LAST:event_c13ActionPerformed
 
     private void c4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c4ActionPerformed
-        ativarcosas(c4);
     }//GEN-LAST:event_c4ActionPerformed
 
     private void c9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c9ActionPerformed
-        ativarcosas(c9);
     }//GEN-LAST:event_c9ActionPerformed
 
     private void c14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c14ActionPerformed
-        ativarcosas(c14);
+        
     }//GEN-LAST:event_c14ActionPerformed
-
-  //Metodos aparte  
-    public void ativarcosas(JCheckBox a){
-        if(a.isSelected() == true){
-               a.setIcon(imagen);
-           }
-           else{
-               a.setIcon(imagen2);
-           }
-    }
-    
-    
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -914,13 +999,13 @@ public class ElegirAsientos extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ElegirAsientos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ElegirAsiento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ElegirAsientos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ElegirAsiento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ElegirAsientos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ElegirAsiento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ElegirAsientos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ElegirAsiento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -928,7 +1013,7 @@ public class ElegirAsientos extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ElegirAsientos().setVisible(true);
+                new ElegirAsiento().setVisible(true);
             }
         });
     }

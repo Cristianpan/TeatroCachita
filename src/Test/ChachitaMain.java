@@ -1,12 +1,9 @@
 package Test;
 
 import Controlador.CtrlLogin;
-import Controlador.CtrlRegister;
-import Modelo.ConsultaUsuario;
+import DAO.ConsultaUsuario;
 import Modelo.User;
-import Recursos.Encrip;
 import Vista.Login;
-import Vista.Register;
 
 public class ChachitaMain {
     public static void main(String[] args) {

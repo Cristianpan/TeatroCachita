@@ -9,12 +9,12 @@ package Vista;
  *
  * @author diana
  */
-public class ModificarEliminarUsuarios extends javax.swing.JFrame {
+public class CambiosUsuario extends javax.swing.JFrame {
 
     /**
      * Creates new form VentanaModificarEliminarUsuarios
      */
-    public ModificarEliminarUsuarios() {
+    public CambiosUsuario() {
         initComponents();
     }
 
@@ -242,20 +242,8 @@ public class ModificarEliminarUsuarios extends javax.swing.JFrame {
 //        habilitarBoton();
     }//GEN-LAST:event_textfieldContraKeyReleased
 
-    private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
-        if(evt.getSource() == cancelar){
-            Login a= new Login();
-            a.setVisible(true);
-            this.setVisible(false);
-        }
-    }//GEN-LAST:event_cancelarActionPerformed
-
     private void registrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarseActionPerformed
-        if(evt.getSource() == registrarse){
-            Login a= new Login();
-            a.setVisible(true);
-            this.setVisible(false);
-        }
+
     }//GEN-LAST:event_registrarseActionPerformed
 
     private void textfieldNombre1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textfieldNombre1KeyReleased
@@ -265,6 +253,10 @@ public class ModificarEliminarUsuarios extends javax.swing.JFrame {
     private void cancelar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelar2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cancelar2ActionPerformed
+
+    private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
+
+    }//GEN-LAST:event_cancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -283,13 +275,13 @@ public class ModificarEliminarUsuarios extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ModificarEliminarUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CambiosUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ModificarEliminarUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CambiosUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ModificarEliminarUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CambiosUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ModificarEliminarUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CambiosUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -297,7 +289,7 @@ public class ModificarEliminarUsuarios extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ModificarEliminarUsuarios().setVisible(true);
+                new CambiosUsuario().setVisible(true);
             }
         });
     }
