@@ -8,7 +8,7 @@ import Modelo.User;
 import Recursos.Db;
 
 
-public class ConsultaUsuario extends Db {
+public class DAOUsuario extends Db {
 
 
     public boolean isLogin(User user){

@@ -5,6 +5,9 @@
  */
 package Vista;
 
+import java.awt.Color;
+import Recursos.MyRender; 
+
 /**
  *
  * @author diana
@@ -30,17 +33,14 @@ public class Reportes extends javax.swing.JFrame {
         panel17 = new java.awt.Panel();
         panel16 = new java.awt.Panel();
         jLabel20 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
         jLabel13 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        textArea1 = new java.awt.TextArea();
-        textArea2 = new java.awt.TextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tableReporte = new javax.swing.JTable();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jLabel14 = new javax.swing.JLabel();
         jComboBox3 = new javax.swing.JComboBox<>();
-        jComboBox4 = new javax.swing.JComboBox<>();
-        jLabel16 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         panel4 = new java.awt.Panel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -54,15 +54,16 @@ public class Reportes extends javax.swing.JFrame {
         jLabel20.setBackground(new java.awt.Color(25, 43, 55));
         jLabel20.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel20.setText("Reporte mensual y anual");
+        jLabel20.setText("Reporte de ventas");
 
         javax.swing.GroupLayout panel16Layout = new javax.swing.GroupLayout(panel16);
         panel16.setLayout(panel16Layout);
         panel16Layout.setHorizontalGroup(
             panel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel16Layout.createSequentialGroup()
-                .addGap(0, 467, Short.MAX_VALUE)
-                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(563, Short.MAX_VALUE)
+                .addComponent(jLabel20)
+                .addGap(16, 16, 16))
         );
         panel16Layout.setVerticalGroup(
             panel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -74,31 +75,10 @@ public class Reportes extends javax.swing.JFrame {
 
         panel17.add(panel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 50));
 
-        jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(25, 43, 55));
-        jLabel5.setText("REPORTE ANUAL");
-        panel17.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 80, -1, -1));
-
-        jComboBox1.setBackground(new java.awt.Color(255, 255, 255));
-        jComboBox1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(0, 0, 0));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 1", "Item 2", "Item 3", "Item 4" }));
-        panel17.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 130, 140, -1));
-
-        jLabel13.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(25, 43, 55));
-        jLabel13.setText("Mes");
-        panel17.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
-
-        jLabel6.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(25, 43, 55));
-        jLabel6.setText("REPORTE MENSUAL");
-        panel17.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
-
-        jLabel15.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(25, 43, 55));
-        jLabel15.setText("Año");
-        panel17.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 110, -1, -1));
+        jLabel13.setText("Dia");
+        panel17.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 170, -1, -1));
 
         jButton2.setBackground(new java.awt.Color(255, 102, 0));
         jButton2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -106,25 +86,115 @@ public class Reportes extends javax.swing.JFrame {
         jButton2.setText("Regresar");
         jButton2.setToolTipText("Regresar");
         panel17.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 440, 90, 30));
-        panel17.add(textArea1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 170, 320, 250));
-        panel17.add(textArea2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 320, 250));
+
+        tableReporte.setAutoCreateRowSorter(true);
+        tableReporte.setBackground(new java.awt.Color(255, 255, 255));
+        tableReporte.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        tableReporte.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "N. de Venta", "Fecha ", "Obra", "Boletos", "T. Vendido"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tableReporte.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        tableReporte.setShowGrid(true);
+        jScrollPane2.setViewportView(tableReporte);
+        if (tableReporte.getColumnModel().getColumnCount() > 0) {
+            tableReporte.getColumnModel().getColumn(0).setResizable(false);
+            tableReporte.getColumnModel().getColumn(0).setHeaderValue("N. de Venta");
+            tableReporte.getColumnModel().getColumn(1).setResizable(false);
+            tableReporte.getColumnModel().getColumn(1).setHeaderValue("Fecha ");
+            tableReporte.getColumnModel().getColumn(2).setResizable(false);
+            tableReporte.getColumnModel().getColumn(2).setHeaderValue("Obra");
+            tableReporte.getColumnModel().getColumn(3).setResizable(false);
+            tableReporte.getColumnModel().getColumn(3).setHeaderValue("Boletos");
+            tableReporte.getColumnModel().getColumn(4).setResizable(false);
+            tableReporte.getColumnModel().getColumn(4).setHeaderValue("T. Vendido");
+        }
+        for (int i = 0; i < 5; i++){
+            tableReporte.getColumnModel().getColumn(i).setHeaderRenderer(new MyRender(new java.awt.Color(25,43,55),Color.white));
+        }
+
+        panel17.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 480, 370));
+
+        jComboBox2.setBackground(new java.awt.Color(255, 255, 255));
+        jComboBox2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jComboBox2.setForeground(new java.awt.Color(0, 0, 0));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccione un dia-" }));
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
+        panel17.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 200, 200, 30));
+
+        jLabel14.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(25, 43, 55));
+        jLabel14.setText("Mes");
+        panel17.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 100, -1, -1));
 
         jComboBox3.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox3.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jComboBox3.setForeground(new java.awt.Color(0, 0, 0));
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 1", "Item 2", "Item 3", "Item 4" }));
-        panel17.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 140, -1));
+        jComboBox3.setMaximumRowCount(3);
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccione un mes-", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
+        jComboBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox3ActionPerformed(evt);
+            }
+        });
+        panel17.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 130, 200, 30));
 
-        jComboBox4.setBackground(new java.awt.Color(255, 255, 255));
-        jComboBox4.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jComboBox4.setForeground(new java.awt.Color(0, 0, 0));
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 1", "Item 2", "Item 3", "Item 4" }));
-        panel17.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 140, -1));
-
-        jLabel16.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(25, 43, 55));
-        jLabel16.setText("Año");
-        panel17.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, -1, -1));
+        jButton1.setBackground(jButton2.getBackground());
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("BUSCAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        panel17.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 260, 200, 30));
 
         getContentPane().add(panel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 490));
 
@@ -146,6 +216,18 @@ public class Reportes extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -184,20 +266,17 @@ public class Reportes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JScrollPane jScrollPane2;
     private java.awt.Panel panel16;
     private java.awt.Panel panel17;
     private java.awt.Panel panel4;
-    private java.awt.TextArea textArea1;
-    private java.awt.TextArea textArea2;
+    private javax.swing.JTable tableReporte;
     // End of variables declaration//GEN-END:variables
 }
