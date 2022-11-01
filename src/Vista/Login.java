@@ -122,7 +122,7 @@ public class Login extends javax.swing.JFrame {
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 51, 0));
+        jLabel4.setForeground(new java.awt.Color(255, 102, 0));
         jLabel4.setText("Teatro Chachita");
         panel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, 150, 30));
 
@@ -171,7 +171,7 @@ public class Login extends javax.swing.JFrame {
         jPanel2.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 201, 30));
         txtUsuario.getAccessibleContext().setAccessibleName("");
 
-        btnIngresar.setBackground(new java.awt.Color(255, 51, 0));
+        btnIngresar.setBackground(new java.awt.Color(255, 102, 0));
         btnIngresar.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         btnIngresar.setForeground(new java.awt.Color(255, 255, 255));
         btnIngresar.setText("Ingresar");
@@ -203,9 +203,8 @@ public class Login extends javax.swing.JFrame {
         });
         jPanel2.add(txtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 200, 30));
 
-        txtWarning.setBackground(null);
         txtWarning.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jPanel2.add(txtWarning, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 130, -1));
+        jPanel2.add(txtWarning, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 200, -1));
 
         panel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 300, 310));
 

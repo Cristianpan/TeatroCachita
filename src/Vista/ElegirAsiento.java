@@ -32,12 +32,13 @@ public class ElegirAsiento extends javax.swing.JFrame {
 
         panel1 = new java.awt.Panel();
         panel2 = new java.awt.Panel();
-        jLabel5 = new javax.swing.JLabel();
+        btnRegresarMenu = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
         b2 = new javax.swing.JCheckBox();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
+        btnAceptar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtPrecioPagar = new javax.swing.JTextField();
         b1 = new javax.swing.JCheckBox();
         b3 = new javax.swing.JCheckBox();
         b4 = new javax.swing.JCheckBox();
@@ -80,6 +81,8 @@ public class ElegirAsiento extends javax.swing.JFrame {
         a4 = new javax.swing.JCheckBox();
         a3 = new javax.swing.JCheckBox();
         b5 = new javax.swing.JCheckBox();
+        jLabel5 = new javax.swing.JLabel();
+        txtMontoPagar = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Elegir asientos");
@@ -91,26 +94,38 @@ public class ElegirAsiento extends javax.swing.JFrame {
 
         panel2.setBackground(new java.awt.Color(25, 43, 55));
 
-        jLabel5.setBackground(new java.awt.Color(255, 51, 0));
-        jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Precio a pagar: $");
+        btnRegresarMenu.setBackground(new java.awt.Color(25, 43, 55));
+        btnRegresarMenu.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        btnRegresarMenu.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegresarMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/regreso2.png"))); // NOI18N
+        btnRegresarMenu.setToolTipText("Regresar");
+        btnRegresarMenu.setBorder(null);
+
+        jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Menú");
 
         javax.swing.GroupLayout panel2Layout = new javax.swing.GroupLayout(panel2);
         panel2.setLayout(panel2Layout);
         panel2Layout.setHorizontalGroup(
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel2Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(492, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(btnRegresarMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
+                .addComponent(jLabel4)
+                .addGap(0, 666, Short.MAX_VALUE))
         );
         panel2Layout.setVerticalGroup(
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel2Layout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
-                .addComponent(jLabel5)
-                .addGap(16, 16, 16))
+                .addContainerGap(15, Short.MAX_VALUE)
+                .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnRegresarMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel2Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(6, 6, 6)))
+                .addContainerGap())
         );
 
         panel1.add(panel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, -1));
@@ -131,37 +146,38 @@ public class ElegirAsiento extends javax.swing.JFrame {
         });
         panel1.add(b2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, -1, -1));
 
-        jButton1.setBackground(new java.awt.Color(153, 153, 153));
-        jButton1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Cancelar");
-        jButton1.setToolTipText("Aceptar");
-        jButton1.setRolloverEnabled(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnCancelar.setBackground(new java.awt.Color(153, 153, 153));
+        btnCancelar.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancelar.setText("Cancelar");
+        btnCancelar.setToolTipText("Aceptar");
+        btnCancelar.setRolloverEnabled(false);
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnCancelarActionPerformed(evt);
             }
         });
-        panel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 470, 120, 32));
+        panel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 480, 120, 32));
 
-        jButton2.setBackground(new java.awt.Color(255, 102, 0));
-        jButton2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Aceptar");
-        jButton2.setToolTipText("Aceptar");
-        jButton2.setRolloverEnabled(false);
-        panel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 470, 120, 32));
+        btnAceptar.setBackground(new java.awt.Color(255, 102, 0));
+        btnAceptar.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        btnAceptar.setForeground(new java.awt.Color(255, 255, 255));
+        btnAceptar.setText("Aceptar");
+        btnAceptar.setToolTipText("Aceptar");
+        btnAceptar.setRolloverEnabled(false);
+        panel1.add(btnAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 480, 120, 32));
 
         jLabel7.setBackground(new java.awt.Color(255, 51, 0));
         jLabel7.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Monto a pagar: ");
-        panel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 430, -1, -1));
+        panel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 450, 110, -1));
 
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jTextField1.setFocusable(false);
-        panel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 430, 160, -1));
+        txtPrecioPagar.setBackground(new java.awt.Color(255, 255, 255));
+        txtPrecioPagar.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtPrecioPagar.setEnabled(false);
+        txtPrecioPagar.setFocusable(false);
+        panel1.add(txtPrecioPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 420, 160, -1));
 
         b1.setBackground(new java.awt.Color(255, 255, 255));
         b1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -835,7 +851,18 @@ public class ElegirAsiento extends javax.swing.JFrame {
         });
         panel1.add(b5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));
 
-        getContentPane().add(panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 520));
+        jLabel5.setBackground(new java.awt.Color(255, 51, 0));
+        jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setText("Precio a pagar: ");
+        panel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 420, 120, -1));
+
+        txtMontoPagar.setBackground(new java.awt.Color(255, 255, 255));
+        txtMontoPagar.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtMontoPagar.setFocusable(false);
+        panel1.add(txtMontoPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 450, 160, -1));
+
+        getContentPane().add(panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 530));
 
         pack();
         setLocationRelativeTo(null);
@@ -949,9 +976,9 @@ public class ElegirAsiento extends javax.swing.JFrame {
     private void b1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b1ActionPerformed
     }//GEN-LAST:event_b1ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void b2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b2ActionPerformed
     }//GEN-LAST:event_b2ActionPerformed
@@ -1046,6 +1073,9 @@ public class ElegirAsiento extends javax.swing.JFrame {
     private javax.swing.JCheckBox b7;
     private javax.swing.JCheckBox b8;
     private javax.swing.JCheckBox b9;
+    private javax.swing.JButton btnAceptar;
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnRegresarMenu;
     private javax.swing.JCheckBox c1;
     private javax.swing.JCheckBox c10;
     private javax.swing.JCheckBox c11;
@@ -1061,13 +1091,13 @@ public class ElegirAsiento extends javax.swing.JFrame {
     private javax.swing.JCheckBox c7;
     private javax.swing.JCheckBox c8;
     private javax.swing.JCheckBox c9;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
     private java.awt.Panel panel1;
     private java.awt.Panel panel2;
+    private javax.swing.JTextField txtMontoPagar;
+    private javax.swing.JTextField txtPrecioPagar;
     // End of variables declaration//GEN-END:variables
 }

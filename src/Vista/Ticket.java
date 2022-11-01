@@ -66,7 +66,7 @@ public class Ticket extends javax.swing.JFrame {
         funcion.setText("Alicia en el pais de las maravillas");
 
         label8.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
-        label8.setForeground(new java.awt.Color(255, 153, 0));
+        label8.setForeground(new java.awt.Color(255, 102, 0));
         label8.setText("CHACHITA");
 
         lineas.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -95,7 +95,7 @@ public class Ticket extends javax.swing.JFrame {
 
         boletos.setFont(new java.awt.Font("Century Gothic", 0, 10)); // NOI18N
         boletos.setForeground(new java.awt.Color(0, 0, 0));
-        boletos.setText("A1-3, A6, B7");
+        boletos.setText("A1, A6, B7");
 
         lineas1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         lineas1.setForeground(new java.awt.Color(0, 0, 0));
