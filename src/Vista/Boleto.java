@@ -34,10 +34,11 @@ public class Boleto extends javax.swing.JFrame {
         label5 = new java.awt.Label();
         label6 = new java.awt.Label();
         jLabel5 = new javax.swing.JLabel();
-        label7 = new java.awt.Label();
+        LabelAsiento = new java.awt.Label();
         label8 = new java.awt.Label();
         label9 = new java.awt.Label();
         label10 = new java.awt.Label();
+        label11 = new java.awt.Label();
 
         jButton2.setBackground(new java.awt.Color(255, 102, 0));
         jButton2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -65,12 +66,12 @@ public class Boleto extends javax.swing.JFrame {
         panel1.add(label6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, -1, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/Imagen1.png"))); // NOI18N
-        panel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, 100));
+        panel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, 100));
 
-        label7.setFont(new java.awt.Font("Century Gothic", 0, 48)); // NOI18N
-        label7.setForeground(new java.awt.Color(255, 153, 0));
-        label7.setText("CHACHITA");
-        panel1.add(label7, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, -1, -1));
+        LabelAsiento.setFont(new java.awt.Font("Century Gothic", 1, 48)); // NOI18N
+        LabelAsiento.setForeground(new java.awt.Color(255, 153, 0));
+        LabelAsiento.setText("A1");
+        panel1.add(LabelAsiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 160, -1, -1));
 
         label8.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         label8.setForeground(new java.awt.Color(255, 255, 255));
@@ -86,6 +87,11 @@ public class Boleto extends javax.swing.JFrame {
         label10.setForeground(new java.awt.Color(255, 255, 255));
         label10.setText("12/12/12");
         panel1.add(label10, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, -1, -1));
+
+        label11.setFont(new java.awt.Font("Century Gothic", 0, 48)); // NOI18N
+        label11.setForeground(new java.awt.Color(255, 153, 0));
+        label11.setText("CHACHITA");
+        panel1.add(label11, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, -1, -1));
 
         getContentPane().add(panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 240));
 
@@ -130,13 +136,14 @@ public class Boleto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.awt.Label LabelAsiento;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane2;
     private java.awt.Label label10;
+    private java.awt.Label label11;
     private java.awt.Label label5;
     private java.awt.Label label6;
-    private java.awt.Label label7;
     private java.awt.Label label8;
     private java.awt.Label label9;
     private java.awt.Panel panel1;

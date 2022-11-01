@@ -30,17 +30,17 @@ public class MenuAdmi extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         panel1 = new java.awt.Panel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        btnModificarFunciones = new javax.swing.JButton();
+        btnAgregarFunciones = new javax.swing.JButton();
+        btnAgregarObras = new javax.swing.JButton();
+        btnModificarObras = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
+        btnModificarUsuarios = new javax.swing.JButton();
+        btnAgregarUsuarios = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
+        btnVenderBoletos = new javax.swing.JButton();
+        btnReportes = new javax.swing.JButton();
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagenes/imagen2.png"))); // NOI18N
 
@@ -52,87 +52,87 @@ public class MenuAdmi extends javax.swing.JFrame {
 
         panel1.setBackground(new java.awt.Color(255, 255, 254));
 
-        jButton2.setBackground(new java.awt.Color(25, 43, 55));
-        jButton2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Modificar Funciones");
-        jButton2.setToolTipText("");
-        jButton2.setBorder(null);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnModificarFunciones.setBackground(new java.awt.Color(25, 43, 55));
+        btnModificarFunciones.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        btnModificarFunciones.setForeground(new java.awt.Color(255, 255, 255));
+        btnModificarFunciones.setText("Modificar Funciones");
+        btnModificarFunciones.setToolTipText("");
+        btnModificarFunciones.setBorder(null);
+        btnModificarFunciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnModificarFuncionesActionPerformed(evt);
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(25, 43, 55));
-        jButton3.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Agregar Funciones");
-        jButton3.setToolTipText("");
-        jButton3.setBorder(null);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnAgregarFunciones.setBackground(new java.awt.Color(25, 43, 55));
+        btnAgregarFunciones.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        btnAgregarFunciones.setForeground(new java.awt.Color(255, 255, 255));
+        btnAgregarFunciones.setText("Agregar Funciones");
+        btnAgregarFunciones.setToolTipText("");
+        btnAgregarFunciones.setBorder(null);
+        btnAgregarFunciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnAgregarFuncionesActionPerformed(evt);
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(25, 43, 55));
-        jButton4.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("Agregar Obras");
-        jButton4.setToolTipText("");
-        jButton4.setBorder(null);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnAgregarObras.setBackground(new java.awt.Color(25, 43, 55));
+        btnAgregarObras.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        btnAgregarObras.setForeground(new java.awt.Color(255, 255, 255));
+        btnAgregarObras.setText("Agregar Obras");
+        btnAgregarObras.setToolTipText("");
+        btnAgregarObras.setBorder(null);
+        btnAgregarObras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnAgregarObrasActionPerformed(evt);
             }
         });
 
-        jButton5.setBackground(new java.awt.Color(25, 43, 55));
-        jButton5.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Modificar Obras");
-        jButton5.setToolTipText("");
-        jButton5.setBorder(null);
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btnModificarObras.setBackground(new java.awt.Color(25, 43, 55));
+        btnModificarObras.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        btnModificarObras.setForeground(new java.awt.Color(255, 255, 255));
+        btnModificarObras.setText("Modificar Obras");
+        btnModificarObras.setToolTipText("");
+        btnModificarObras.setBorder(null);
+        btnModificarObras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btnModificarObrasActionPerformed(evt);
             }
         });
 
-        jButton6.setBackground(new java.awt.Color(102, 102, 102));
-        jButton6.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("Salir");
-        jButton6.setToolTipText("");
-        jButton6.setBorder(null);
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        btnSalir.setBackground(new java.awt.Color(102, 102, 102));
+        btnSalir.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
+        btnSalir.setText("Salir");
+        btnSalir.setToolTipText("");
+        btnSalir.setBorder(null);
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                btnSalirActionPerformed(evt);
             }
         });
 
-        jButton7.setBackground(new java.awt.Color(25, 43, 55));
-        jButton7.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(255, 255, 255));
-        jButton7.setText("Modificar Usuarios");
-        jButton7.setToolTipText("");
-        jButton7.setBorder(null);
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        btnModificarUsuarios.setBackground(new java.awt.Color(25, 43, 55));
+        btnModificarUsuarios.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        btnModificarUsuarios.setForeground(new java.awt.Color(255, 255, 255));
+        btnModificarUsuarios.setText("Modificar Usuarios");
+        btnModificarUsuarios.setToolTipText("");
+        btnModificarUsuarios.setBorder(null);
+        btnModificarUsuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                btnModificarUsuariosActionPerformed(evt);
             }
         });
 
-        jButton8.setBackground(new java.awt.Color(25, 43, 55));
-        jButton8.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(255, 255, 255));
-        jButton8.setText("Agregar Usuarios");
-        jButton8.setToolTipText("");
-        jButton8.setBorder(null);
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        btnAgregarUsuarios.setBackground(new java.awt.Color(25, 43, 55));
+        btnAgregarUsuarios.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        btnAgregarUsuarios.setForeground(new java.awt.Color(255, 255, 255));
+        btnAgregarUsuarios.setText("Agregar Usuarios");
+        btnAgregarUsuarios.setToolTipText("");
+        btnAgregarUsuarios.setBorder(null);
+        btnAgregarUsuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                btnAgregarUsuariosActionPerformed(evt);
             }
         });
 
@@ -140,27 +140,27 @@ public class MenuAdmi extends javax.swing.JFrame {
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/imagen3.png"))); // NOI18N
 
-        jButton9.setBackground(new java.awt.Color(25, 43, 55));
-        jButton9.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jButton9.setForeground(new java.awt.Color(255, 255, 255));
-        jButton9.setText("Vender Boletos");
-        jButton9.setToolTipText("");
-        jButton9.setBorder(null);
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        btnVenderBoletos.setBackground(new java.awt.Color(25, 43, 55));
+        btnVenderBoletos.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        btnVenderBoletos.setForeground(new java.awt.Color(255, 255, 255));
+        btnVenderBoletos.setText("Vender Boletos");
+        btnVenderBoletos.setToolTipText("");
+        btnVenderBoletos.setBorder(null);
+        btnVenderBoletos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                btnVenderBoletosActionPerformed(evt);
             }
         });
 
-        jButton10.setBackground(new java.awt.Color(25, 43, 55));
-        jButton10.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jButton10.setForeground(new java.awt.Color(255, 255, 255));
-        jButton10.setText("Reportes");
-        jButton10.setToolTipText("");
-        jButton10.setBorder(null);
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
+        btnReportes.setBackground(new java.awt.Color(25, 43, 55));
+        btnReportes.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        btnReportes.setForeground(new java.awt.Color(255, 255, 255));
+        btnReportes.setText("Reportes");
+        btnReportes.setToolTipText("");
+        btnReportes.setBorder(null);
+        btnReportes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
+                btnReportesActionPerformed(evt);
             }
         });
 
@@ -170,15 +170,15 @@ public class MenuAdmi extends javax.swing.JFrame {
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel1Layout.createSequentialGroup()
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAgregarUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnModificarUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnReportes, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAgregarFunciones, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAgregarObras, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnModificarObras, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnModificarFunciones, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnVenderBoletos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -191,27 +191,27 @@ public class MenuAdmi extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel1Layout.createSequentialGroup()
-                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAgregarUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnModificarUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAgregarFunciones, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnModificarFunciones, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panel1Layout.createSequentialGroup()
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAgregarObras, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnModificarObras, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnVenderBoletos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnReportes, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
@@ -230,41 +230,41 @@ public class MenuAdmi extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnModificarFuncionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarFuncionesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnModificarFuncionesActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnAgregarFuncionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarFuncionesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnAgregarFuncionesActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btnAgregarObrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarObrasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_btnAgregarObrasActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void btnModificarObrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarObrasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_btnModificarObrasActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_btnSalirActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void btnModificarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarUsuariosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_btnModificarUsuariosActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void btnAgregarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarUsuariosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_btnAgregarUsuariosActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+    private void btnVenderBoletosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVenderBoletosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
+    }//GEN-LAST:event_btnVenderBoletosActionPerformed
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+    private void btnReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton10ActionPerformed
+    }//GEN-LAST:event_btnReportesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -303,15 +303,15 @@ public class MenuAdmi extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
+    private javax.swing.JButton btnAgregarFunciones;
+    private javax.swing.JButton btnAgregarObras;
+    private javax.swing.JButton btnAgregarUsuarios;
+    private javax.swing.JButton btnModificarFunciones;
+    private javax.swing.JButton btnModificarObras;
+    private javax.swing.JButton btnModificarUsuarios;
+    private javax.swing.JButton btnReportes;
+    private javax.swing.JButton btnSalir;
+    private javax.swing.JButton btnVenderBoletos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
