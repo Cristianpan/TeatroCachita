@@ -5,14 +5,14 @@ import Recursos.*;
 import Vista.*;
 import java.awt.event.*;
 
-import DAO.ConsultaUsuario; 
+import DAO.DAOUsuario; 
 
 public class CtrlLogin implements ActionListener{
     private User mod; 
-    private ConsultaUsuario modC; 
+    private DAOUsuario modC; 
     private Login frm; 
     
-    public CtrlLogin(User mod, ConsultaUsuario modC, Login frm){
+    public CtrlLogin(User mod, DAOUsuario modC, Login frm){
         this.mod = mod; 
         this.modC = modC; 
         this.frm  = frm; 
