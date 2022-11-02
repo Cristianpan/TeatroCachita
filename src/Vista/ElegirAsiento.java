@@ -155,7 +155,7 @@ public class ElegirAsiento extends javax.swing.JFrame {
         jLabel7.setBackground(new java.awt.Color(255, 51, 0));
         jLabel7.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel7.setText("Monto a pagar: ");
+        jLabel7.setText("Importe a pagar: ");
         panel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 430, -1, -1));
 
         jTextField1.setBackground(new java.awt.Color(255, 255, 255));
