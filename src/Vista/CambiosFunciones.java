@@ -46,8 +46,6 @@ public class CambiosFunciones extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         comboBoxHorarioNuevo = new javax.swing.JComboBox<>();
-        jDateFechaNueva = new com.toedter.calendar.JDateChooser();
-        jDateFecha = new com.toedter.calendar.JDateChooser();
         panel4 = new java.awt.Panel();
         panel5 = new java.awt.Panel();
         jLabel4 = new javax.swing.JLabel();
@@ -156,14 +154,6 @@ public class CambiosFunciones extends javax.swing.JFrame {
         comboBoxHorarioNuevo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 1", "Item 2", "Item 3", "Item 4" }));
         panel17.add(comboBoxHorarioNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, 110, -1));
 
-        jDateFechaNueva.setBackground(new java.awt.Color(255, 255, 255));
-        jDateFechaNueva.setForeground(new java.awt.Color(0, 0, 0));
-        panel17.add(jDateFechaNueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 110, 20));
-
-        jDateFecha.setBackground(new java.awt.Color(255, 255, 255));
-        jDateFecha.setForeground(new java.awt.Color(0, 0, 0));
-        panel17.add(jDateFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 110, 20));
-
         getContentPane().add(panel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, 360));
 
         panel4.setBackground(new java.awt.Color(0, 0, 0));
@@ -267,8 +257,6 @@ public class CambiosFunciones extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> comboBoxHorarioNuevo;
     private javax.swing.JComboBox<String> comboBoxObraNueva;
     private javax.swing.JComboBox<String> comboBoxObrasAgendadas;
-    private com.toedter.calendar.JDateChooser jDateFecha;
-    private com.toedter.calendar.JDateChooser jDateFechaNueva;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel19;

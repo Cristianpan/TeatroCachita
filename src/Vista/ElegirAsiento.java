@@ -82,7 +82,7 @@ public class ElegirAsiento extends javax.swing.JFrame {
         a3 = new javax.swing.JCheckBox();
         b5 = new javax.swing.JCheckBox();
         jLabel5 = new javax.swing.JLabel();
-        txtMontoPagar = new javax.swing.JTextField();
+        txtImporteAPagar = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Elegir asientos");
@@ -857,10 +857,10 @@ public class ElegirAsiento extends javax.swing.JFrame {
         jLabel5.setText("Precio a pagar: ");
         panel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 420, 120, -1));
 
-        txtMontoPagar.setBackground(new java.awt.Color(255, 255, 255));
-        txtMontoPagar.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        txtMontoPagar.setFocusable(false);
-        panel1.add(txtMontoPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 450, 160, -1));
+        txtImporteAPagar.setBackground(new java.awt.Color(255, 255, 255));
+        txtImporteAPagar.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtImporteAPagar.setFocusable(false);
+        panel1.add(txtImporteAPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 450, 160, -1));
 
         getContentPane().add(panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 530));
 
@@ -1097,7 +1097,7 @@ public class ElegirAsiento extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private java.awt.Panel panel1;
     private java.awt.Panel panel2;
-    private javax.swing.JTextField txtMontoPagar;
+    private javax.swing.JTextField txtImporteAPagar;
     private javax.swing.JTextField txtPrecioPagar;
     // End of variables declaration//GEN-END:variables
 }
