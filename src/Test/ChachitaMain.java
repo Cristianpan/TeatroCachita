@@ -1,7 +1,7 @@
 package Test;
 
 import Controlador.CtrlLogin;
-import DAO.ConsultaUsuario;
+import DAO.DAOUsuario;
 import Modelo.User;
 import Vista.Login;
 
@@ -9,7 +9,7 @@ public class ChachitaMain {
     public static void main(String[] args) {
         Login frmLog = new Login();
         //Register frmRegister = new Register();  
-        ConsultaUsuario consultas = new ConsultaUsuario(); 
+        DAOUsuario consultas = new DAOUsuario(); 
         User user = new User(); 
 
         //CtrlRegister ctrlRegister = new CtrlRegister(user, consultas, frmRegister); 

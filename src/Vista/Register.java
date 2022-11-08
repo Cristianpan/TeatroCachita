@@ -5,6 +5,8 @@
  */
 package Vista;
 
+import javax.swing.JPasswordField;
+
 
 /**
  *
@@ -53,11 +55,11 @@ public class Register extends javax.swing.JFrame {
         this.txtApellido = txtApellido;
     }
 
-    public javax.swing.JTextField getTxtContrasena() {
+    public JPasswordField getTxtContrasena() {
         return txtContrasena;
     }
 
-    public void setTxtContrasena(javax.swing.JTextField txtContrasena) {
+    public void setTxtContrasena(JPasswordField txtContrasena) {
         this.txtContrasena = txtContrasena;
     }
 
@@ -125,12 +127,14 @@ public class Register extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        txtContrasena = new javax.swing.JTextField();
         btnCancelar = new javax.swing.JButton();
         btnRegistrar = new javax.swing.JButton();
         boxTipoUsuario = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
         txtWarning = new javax.swing.JTextField();
+        btnRegresarMenu = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        txtContrasena = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Registro");
@@ -140,20 +144,20 @@ public class Register extends javax.swing.JFrame {
         panel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/imagen2.png"))); // NOI18N
-        panel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 50, 138, 192));
+        panel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 70, 138, 192));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/imagen3.png"))); // NOI18N
-        panel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 240, 138, 170));
+        panel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 260, 138, 170));
 
         jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 102, 0));
         jLabel3.setText("Tipo Usuario");
-        panel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 120, -1));
+        panel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 120, -1));
 
         jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 102, 0));
         jLabel4.setText("Registro");
-        panel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 162, 63));
+        panel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 162, 63));
 
         txtNombre.setBackground(new java.awt.Color(255, 255, 255));
         txtNombre.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -162,12 +166,12 @@ public class Register extends javax.swing.JFrame {
                 txtNombreKeyReleased(evt);
             }
         });
-        panel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 216, 32));
+        panel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 216, 32));
 
         jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 102, 0));
         jLabel5.setText("Apellido");
-        panel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 79, -1));
+        panel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 79, -1));
 
         txtApellido.setBackground(new java.awt.Color(255, 255, 255));
         txtApellido.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -176,12 +180,12 @@ public class Register extends javax.swing.JFrame {
                 txtApellidoKeyReleased(evt);
             }
         });
-        panel1.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 216, 32));
+        panel1.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 220, 216, 32));
 
         jLabel6.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 102, 0));
         jLabel6.setText("CURP");
-        panel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 79, -1));
+        panel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 79, -1));
 
         txtCurp.setBackground(new java.awt.Color(255, 255, 255));
         txtCurp.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -190,12 +194,12 @@ public class Register extends javax.swing.JFrame {
                 txtCurpKeyReleased(evt);
             }
         });
-        panel1.add(txtCurp, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 216, 32));
+        panel1.add(txtCurp, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 216, 32));
 
         jLabel7.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 102, 0));
         jLabel7.setText("Nombre de Usuario");
-        panel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, 150, -1));
+        panel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 270, 150, -1));
 
         txtUsuario.setBackground(new java.awt.Color(255, 255, 255));
         txtUsuario.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -204,21 +208,12 @@ public class Register extends javax.swing.JFrame {
                 txtUsuarioKeyReleased(evt);
             }
         });
-        panel1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 270, 216, 32));
+        panel1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 290, 216, 32));
 
         jLabel8.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 102, 0));
         jLabel8.setText("Contraseña");
-        panel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 79, -1));
-
-        txtContrasena.setBackground(new java.awt.Color(255, 255, 255));
-        txtContrasena.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        txtContrasena.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtContrasenaKeyReleased(evt);
-            }
-        });
-        panel1.add(txtContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 216, 32));
+        panel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 79, -1));
 
         btnCancelar.setBackground(new java.awt.Color(25, 43, 55));
         btnCancelar.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -229,7 +224,7 @@ public class Register extends javax.swing.JFrame {
                 btnCancelarActionPerformed(evt);
             }
         });
-        panel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 410, 100, 33));
+        panel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 430, 100, 33));
 
         btnRegistrar.setBackground(new java.awt.Color(255, 102, 0));
         btnRegistrar.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -241,18 +236,18 @@ public class Register extends javax.swing.JFrame {
                 btnRegistrarActionPerformed(evt);
             }
         });
-        panel1.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, 100, 33));
+        panel1.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 430, 100, 33));
 
         boxTipoUsuario.setBackground(new java.awt.Color(255, 255, 255));
         boxTipoUsuario.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         boxTipoUsuario.setForeground(new java.awt.Color(0, 0, 0));
         boxTipoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "Operador", "Administrador" }));
-        panel1.add(boxTipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 210, 30));
+        panel1.add(boxTipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 210, 30));
 
         jLabel10.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 102, 0));
         jLabel10.setText("Nombre");
-        panel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 79, -1));
+        panel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 79, -1));
 
         txtWarning.setEditable(false);
         txtWarning.setBackground(new java.awt.Color(255, 255, 255));
@@ -265,7 +260,24 @@ public class Register extends javax.swing.JFrame {
                 txtWarningActionPerformed(evt);
             }
         });
-        panel1.add(txtWarning, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 310, 200, 60));
+        panel1.add(txtWarning, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, 200, 60));
+
+        btnRegresarMenu.setBackground(new java.awt.Color(255, 255, 255));
+        btnRegresarMenu.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        btnRegresarMenu.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegresarMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/regreso.png"))); // NOI18N
+        btnRegresarMenu.setToolTipText("Regresar");
+        btnRegresarMenu.setBorder(null);
+        panel1.add(btnRegresarMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 30));
+
+        jLabel9.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel9.setText("Menú");
+        panel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
+
+        txtContrasena.setBackground(new java.awt.Color(255, 255, 255));
+        txtContrasena.setForeground(new java.awt.Color(0, 0, 0));
+        panel1.add(txtContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, 210, 30));
 
         getContentPane().add(panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 490));
 
@@ -288,10 +300,6 @@ public class Register extends javax.swing.JFrame {
     private void txtUsuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyReleased
         habilitarBoton();
     }//GEN-LAST:event_txtUsuarioKeyReleased
-
-    private void txtContrasenaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContrasenaKeyReleased
-        habilitarBoton();
-    }//GEN-LAST:event_txtContrasenaKeyReleased
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         /* if(evt.getSource() == btnCancelar){
@@ -353,6 +361,7 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> boxTipoUsuario;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnRegistrar;
+    private javax.swing.JButton btnRegresarMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -362,9 +371,10 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private java.awt.Panel panel1;
     private javax.swing.JTextField txtApellido;
-    private javax.swing.JTextField txtContrasena;
+    private javax.swing.JPasswordField txtContrasena;
     private javax.swing.JTextField txtCurp;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtUsuario;

@@ -6,15 +6,15 @@ import java.awt.event.*;
 
 import javax.swing.JOptionPane;
 
-import DAO.ConsultaUsuario;
+import DAO.DAOUsuario;
 import Recursos.*;
 
 public class CtrlRegister implements ActionListener {
     private User mod; 
-    private ConsultaUsuario modC; 
+    private DAOUsuario modC; 
     private Register frm; 
     
-    public CtrlRegister(User mod, ConsultaUsuario modC, Register frm){
+    public CtrlRegister(User mod, DAOUsuario modC, Register frm){
         this.mod = mod; 
         this.modC = modC; 
         this.frm  = frm; 

@@ -31,39 +31,34 @@ public class CambiosObra extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton3 = new javax.swing.JButton();
         panel4 = new java.awt.Panel();
         panel17 = new java.awt.Panel();
         panel16 = new java.awt.Panel();
         jLabel20 = new javax.swing.JLabel();
         jComboBox9 = new javax.swing.JComboBox<>();
-        textArea2 = new java.awt.TextArea();
+        btnResumenTematico = new java.awt.TextArea();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        btnModificar = new javax.swing.JButton();
+        txtNombre = new javax.swing.JTextField();
+        btnGenero = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
+        btnPrimerActor = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
+        btnSegundoActor = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
+        btnPrecio = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
+        btnDuracion = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
         panel18 = new java.awt.Panel();
-        jButton4 = new javax.swing.JButton();
-
-        jButton3.setBackground(new java.awt.Color(255, 102, 0));
-        jButton3.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/imagenes/regreso.png"))); // NOI18N
-        jButton3.setToolTipText("Regresar");
-        jButton3.setBorder(null);
+        btnRegresarMenu = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Modificar obras");
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -102,8 +97,8 @@ public class CambiosObra extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel16Layout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
-                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 155, Short.MAX_VALUE)
+                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         panel16Layout.setVerticalGroup(
@@ -117,7 +112,7 @@ public class CambiosObra extends javax.swing.JFrame {
         );
 
         panel17.add(panel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 50));
-        panel17.add(textArea2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 310, 170));
+        panel17.add(btnResumenTematico, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 310, 170));
 
         jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(25, 43, 55));
@@ -129,38 +124,38 @@ public class CambiosObra extends javax.swing.JFrame {
         jLabel6.setText("Resumen temático");
         panel17.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, 160, -1));
 
-        jButton2.setBackground(new java.awt.Color(255, 102, 0));
-        jButton2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Modificar");
-        jButton2.setToolTipText("Modificar");
-        panel17.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 290, 130, 30));
+        btnModificar.setBackground(new java.awt.Color(255, 102, 0));
+        btnModificar.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        btnModificar.setForeground(new java.awt.Color(255, 255, 255));
+        btnModificar.setText("Modificar");
+        btnModificar.setToolTipText("Modificar");
+        panel17.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 290, 90, 30));
 
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        panel17.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 240, -1));
+        txtNombre.setBackground(new java.awt.Color(255, 255, 255));
+        txtNombre.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        panel17.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 240, -1));
 
-        jTextField3.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField3.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        panel17.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 240, -1));
+        btnGenero.setBackground(new java.awt.Color(255, 255, 255));
+        btnGenero.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        panel17.add(btnGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 240, -1));
 
         jLabel9.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(25, 43, 55));
         jLabel9.setText("Género");
         panel17.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
 
-        jTextField9.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField9.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        panel17.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 240, -1));
+        btnPrimerActor.setBackground(new java.awt.Color(255, 255, 255));
+        btnPrimerActor.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        panel17.add(btnPrimerActor, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 240, -1));
 
         jLabel10.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(25, 43, 55));
         jLabel10.setText("Primer actor principal");
         panel17.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
 
-        jTextField10.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField10.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        panel17.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 240, -1));
+        btnSegundoActor.setBackground(new java.awt.Color(255, 255, 255));
+        btnSegundoActor.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        panel17.add(btnSegundoActor, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 240, -1));
 
         jLabel13.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(25, 43, 55));
@@ -168,55 +163,73 @@ public class CambiosObra extends javax.swing.JFrame {
         jLabel13.setToolTipText("");
         panel17.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
 
-        jTextField11.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField11.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        panel17.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, 110, -1));
+        btnPrecio.setBackground(new java.awt.Color(255, 255, 255));
+        btnPrecio.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        panel17.add(btnPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, 110, -1));
 
         jLabel14.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(25, 43, 55));
         jLabel14.setText("Precio");
         panel17.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, -1, -1));
 
-        jTextField12.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField12.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        panel17.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 110, -1));
+        btnDuracion.setBackground(new java.awt.Color(255, 255, 255));
+        btnDuracion.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        panel17.add(btnDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 110, -1));
 
         jLabel15.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(25, 43, 55));
         jLabel15.setText("Duración");
         panel17.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, -1, -1));
 
-        jButton1.setBackground(new java.awt.Color(25, 43, 55));
-        jButton1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Eliminar");
-        jButton1.setToolTipText("Eliminar");
-        panel17.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 290, 130, 30));
+        btnEliminar.setBackground(new java.awt.Color(25, 43, 55));
+        btnEliminar.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
+        btnEliminar.setText("Eliminar");
+        btnEliminar.setToolTipText("Eliminar");
+        panel17.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 290, 90, 30));
+
+        btnCancelar.setBackground(new java.awt.Color(25, 43, 55));
+        btnCancelar.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancelar.setText("Cancelar");
+        btnCancelar.setToolTipText("Cancelar");
+        panel17.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 290, 90, 30));
 
         getContentPane().add(panel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 690, 360));
 
         panel18.setBackground(new java.awt.Color(255, 102, 0));
 
-        jButton4.setBackground(new java.awt.Color(255, 102, 0));
-        jButton4.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/regreso.png"))); // NOI18N
-        jButton4.setToolTipText("Regresar");
-        jButton4.setBorder(null);
+        btnRegresarMenu.setBackground(new java.awt.Color(255, 102, 0));
+        btnRegresarMenu.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        btnRegresarMenu.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegresarMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/regreso.png"))); // NOI18N
+        btnRegresarMenu.setToolTipText("Regresar");
+        btnRegresarMenu.setBorder(null);
+
+        jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("Menú");
 
         javax.swing.GroupLayout panel18Layout = new javax.swing.GroupLayout(panel18);
         panel18.setLayout(panel18Layout);
         panel18Layout.setHorizontalGroup(
             panel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel18Layout.createSequentialGroup()
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 646, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(btnRegresarMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel4)
+                .addGap(0, 607, Short.MAX_VALUE))
         );
         panel18Layout.setVerticalGroup(
             panel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel18Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(8, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addContainerGap())
+            .addGroup(panel18Layout.createSequentialGroup()
+                .addComponent(btnRegresarMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         getContentPane().add(panel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 30));
@@ -262,29 +275,30 @@ public class CambiosObra extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JTextField btnDuracion;
+    private javax.swing.JButton btnEliminar;
+    private javax.swing.JTextField btnGenero;
+    private javax.swing.JButton btnModificar;
+    private javax.swing.JTextField btnPrecio;
+    private javax.swing.JTextField btnPrimerActor;
+    private javax.swing.JButton btnRegresarMenu;
+    private java.awt.TextArea btnResumenTematico;
+    private javax.swing.JTextField btnSegundoActor;
     private javax.swing.JComboBox<String> jComboBox9;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField9;
     private java.awt.Panel panel16;
     private java.awt.Panel panel17;
     private java.awt.Panel panel18;
     private java.awt.Panel panel4;
-    private java.awt.TextArea textArea2;
+    private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }
