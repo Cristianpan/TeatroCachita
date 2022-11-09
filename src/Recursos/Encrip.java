@@ -28,4 +28,23 @@ public class Encrip {
         }
         return encriptacion;
     }
+
+    public static String deecnode(String secretKey, String cadenaEncriptada) {
+        String desencriptacion = "";
+        try {
+            byte[] message = Base64.decodeBase64(cadenaEncriptada.getBytes("utf-8"));
+            MessageDigest md5 = MessageDigest.getInstance("MD5");
+            byte[] digestOfPassword = md5.digest(secretKey.getBytes("utf-8"));
+            byte[] keyBytes = Arrays.copyOf(digestOfPassword, 24);
+            SecretKey key = new SecretKeySpec(keyBytes, "DESede");
+            Cipher decipher = Cipher.getInstance("DESede");
+            decipher.init(Cipher.DECRYPT_MODE, key);
+            byte[] plainText = decipher.doFinal(message);
+            desencriptacion = new String(plainText, "UTF-8");
+
+        } catch (Exception ex) {
+            System.out.println("Algo salió mal"); 
+        }
+        return desencriptacion;
+    }
 }

@@ -46,7 +46,7 @@ public class CambiosUsuario extends javax.swing.JFrame {
         txtNombre = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        boxTipoUsuario = new javax.swing.JComboBox<>();
         jLabel12 = new javax.swing.JLabel();
         btnMenu = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
@@ -186,11 +186,11 @@ public class CambiosUsuario extends javax.swing.JFrame {
         jLabel11.setText("Nombre de usuario");
         panel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 170, -1));
 
-        jComboBox4.setBackground(new java.awt.Color(255, 255, 255));
-        jComboBox4.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jComboBox4.setForeground(new java.awt.Color(0, 0, 0));
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Selecionar --", "Operador", "Administrador" }));
-        panel1.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 360, 220, 30));
+        boxTipoUsuario.setBackground(new java.awt.Color(255, 255, 255));
+        boxTipoUsuario.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        boxTipoUsuario.setForeground(new java.awt.Color(0, 0, 0));
+        boxTipoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Selecionar --", "Operador", "Administrador" }));
+        panel1.add(boxTipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 360, 220, 30));
 
         jLabel12.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
@@ -323,6 +323,14 @@ public class CambiosUsuario extends javax.swing.JFrame {
 
     
 
+    public javax.swing.JComboBox<String> getBoxTipoUsuario() {
+        return boxTipoUsuario;
+    }
+
+    public void setBoxTipoUsuario(javax.swing.JComboBox<String> boxTipoUsuario) {
+        this.boxTipoUsuario = boxTipoUsuario;
+    }
+
     public javax.swing.JButton getBtnBuscar() {
         return btnBuscar;
     }
@@ -414,12 +422,12 @@ public class CambiosUsuario extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> boxTipoUsuario;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnMenu;
     private javax.swing.JButton btnModificar;
-    private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

@@ -95,16 +95,6 @@ public class Register extends javax.swing.JFrame {
         this.txtWarning = txtWarning;
     }
 
-    public void habilitarBoton(){
-        if(!txtNombre.getText().isEmpty() && !txtApellido.getText().isEmpty() && !txtCurp.getText().isEmpty()
-                && !txtUsuario.getText().isEmpty() && !txtContrasena.getText().isEmpty()){
-            btnRegistrar.setEnabled(true);
-        }
-        else{
-            btnRegistrar.setEnabled(false);
-        }
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -230,7 +220,6 @@ public class Register extends javax.swing.JFrame {
         btnRegistrar.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         btnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistrar.setText("Registrar");
-        btnRegistrar.setEnabled(false);
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarActionPerformed(evt);
@@ -287,35 +276,26 @@ public class Register extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyReleased
-        habilitarBoton();
+
     }//GEN-LAST:event_txtNombreKeyReleased
 
     private void txtApellidoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidoKeyReleased
-        habilitarBoton();
+
     }//GEN-LAST:event_txtApellidoKeyReleased
 
     private void txtCurpKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCurpKeyReleased
-        habilitarBoton();
+
     }//GEN-LAST:event_txtCurpKeyReleased
 
     private void txtUsuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyReleased
-        habilitarBoton();
+ 
     }//GEN-LAST:event_txtUsuarioKeyReleased
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        /* if(evt.getSource() == btnCancelar){
-            Login a= new Login();
-            a.setVisible(true);
-            this.setVisible(false);
-        } */
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        /* if(evt.getSource() == btnRegistrar){
-           Login a= new Login();
-            a.setVisible(true);
-            this.setVisible(false);
-        } */
+
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void txtWarningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtWarningActionPerformed

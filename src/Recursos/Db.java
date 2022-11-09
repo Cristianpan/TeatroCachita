@@ -15,7 +15,6 @@ public class Db {
             Class.forName("com.mysql.cj.jdbc.Driver");
             this.con = DriverManager.getConnection("");
         } catch (Exception e) {
-            System.out.println(e);
             JOptionPane.showMessageDialog(null, "Asegurese de tener una conexión a la red");
         }
 

@@ -33,7 +33,7 @@ public class CtrlRegister implements ActionListener {
                 JOptionPane.showMessageDialog(this.frmRegister, "Todos los campos son obligatorios");
             } else {
                 DAOUsuario daoUsuario = new DAOUsuario();
-                if (daoUsuario.buscarUsuario(this.frmRegister.getTxtUsuario().getText()) == null) {
+                if (daoUsuario.buscarUsuario(this.frmRegister.getTxtUsuario().getText().trim()) == null) {
 
                     obtenerDatosRegistro();
                     limpiarCampos();
@@ -44,11 +44,15 @@ public class CtrlRegister implements ActionListener {
                         JOptionPane.showMessageDialog(null, "Ha ocurrido un error");
 
                 } else {
-                    this.frmRegister.getTxtWarning().setText("Usuario existente. Ingrese otro");
+                    this.frmRegister.getTxtWarning().setText("Nombre de usuario existente. Ingrese otro");
                 }
             }
         } else if (e.getSource() == this.frmRegister.getBtnCancelar()) {
-            limpiarCampos();
+            int opcion = JOptionPane.showConfirmDialog(frmRegister, "¿Desea cancelar la acción?", null,
+                    JOptionPane.YES_NO_OPTION, -1);
+            if (opcion == 0) {
+                limpiarCampos();
+            }
 
         } else if (e.getSource() == this.frmRegister.getBtnMenu()) {
             new CtrlMenu(new MenuAdmi());
@@ -59,8 +63,10 @@ public class CtrlRegister implements ActionListener {
 
     // Retorna verdadero si algun textField es vacio, falso en caso contrario
     public boolean esVacioInput() {
-        return (frmRegister.getTxtNombre().getText().isEmpty() || frmRegister.getTxtApellido().getText().isEmpty()
-                || frmRegister.getTxtUsuario().getText().isEmpty() || frmRegister.getTxtCurp().getText().isEmpty()
+        return (frmRegister.getTxtNombre().getText().isEmpty()
+                || frmRegister.getTxtApellido().getText().isEmpty()
+                || frmRegister.getTxtUsuario().getText().isEmpty()
+                || frmRegister.getTxtCurp().getText().isEmpty()
                 || frmRegister.getTxtContrasena().getText().isEmpty()
                 || frmRegister.getBoxTipoUsuario().getSelectedIndex() == 0);
     }
@@ -68,12 +74,13 @@ public class CtrlRegister implements ActionListener {
     // Obtiene todos los datos proporcionados en la ventana de registro de usuario y
     // los agrega al modelUser
     public void obtenerDatosRegistro() {
-        modelUser.setNombre(frmRegister.getTxtNombre().getText());
-        modelUser.setApellido(frmRegister.getTxtApellido().getText());
-        modelUser.setNombreUsuario(frmRegister.getTxtUsuario().getText());
+        modelUser.setNombre(frmRegister.getTxtNombre().getText().trim());
+        modelUser.setApellido(frmRegister.getTxtApellido().getText().trim());
+        modelUser.setNombreUsuario(frmRegister.getTxtUsuario().getText().trim());
         modelUser.setTipo(frmRegister.getBoxTipoUsuario().getSelectedItem().toString());
-        modelUser.setCurp(frmRegister.getTxtCurp().getText());
-        modelUser.setContrasena(Encrip.ecnode(modelUser.getNombreUsuario(), frmRegister.getTxtContrasena().getText()));
+        modelUser.setCurp(frmRegister.getTxtCurp().getText().trim());
+        modelUser.setContrasena(
+                Encrip.ecnode(modelUser.getNombreUsuario(), frmRegister.getTxtContrasena().getText().trim()));
     }
 
     // Limpia todos los textFields tras un registro exitoso o no

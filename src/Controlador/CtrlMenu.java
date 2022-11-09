@@ -12,6 +12,8 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author diana
@@ -56,7 +58,8 @@ public class CtrlMenu implements ActionListener {
                 cerrarVentana();
 
             } else if (event.getSource() == this.panelMenu.getBtnModificar()){
-                
+                new CtrlCambiosUsuario(new User(), new CambiosUsuario()); 
+                cerrarVentana();
                 
             }
 
@@ -83,10 +86,16 @@ public class CtrlMenu implements ActionListener {
             // IR A LOS REPORTES
 
         } else if (event.getSource() == menu.getBtnSalir()) {
-            Login frmLogin = new Login();
-            User modelUser = new User();
-            new CtrlLogin(modelUser, frmLogin);
-            cerrarVentana();
+            int opcion = JOptionPane.showConfirmDialog(menu, "¿Desea cerrar sesión?", null,
+                    JOptionPane.YES_NO_OPTION, 1);
+
+            if (opcion == 0){
+                Login frmLogin = new Login();
+                User modelUser = new User();
+                new CtrlLogin(modelUser, frmLogin);
+                cerrarVentana();
+            }
+            
         }
 
     }
