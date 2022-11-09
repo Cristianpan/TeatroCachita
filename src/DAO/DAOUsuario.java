@@ -26,12 +26,6 @@ public class DAOUsuario extends Db {
             rs = ps.executeQuery(); 
 
             if(rs.next()){
-                user.setId(Integer.parseInt(rs.getString("id")));
-                user.setNombre(rs.getString("nombre"));
-                user.setApellido(rs.getString("apellido"));
-                user.setNombreUsuario(rs.getString("nombreUsuario"));
-                user.setTipo(rs.getString("tipo"));
-                user.setContrasena(rs.getString("contrasena"));
                 isLogin = true; 
             }
 
@@ -64,15 +58,15 @@ public class DAOUsuario extends Db {
             ps.setString(6, user.getContrasena());
 
             ps.execute();
-            
             isRegister = true; 
-        } catch (Exception e) {
-            System.out.println(e);
+
+        } catch (Exception event) {
+            event.printStackTrace();
         } finally {
             try{
                 con.close();
             } catch(Exception e){
-                System.out.println(e);
+                e.printStackTrace();
             }
         }
         return isRegister; 

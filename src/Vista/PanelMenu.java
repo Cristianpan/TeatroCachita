@@ -11,29 +11,29 @@ import javax.swing.JButton;
  *
  * @author diana
  */
-public class PanelDelMenu extends javax.swing.JPanel {
+public class PanelMenu extends javax.swing.JPanel {
 
     /**
      * Creates new form PanelDelMenu
      */
-    public PanelDelMenu() {
+    public PanelMenu() {
         initComponents();
     }
 
-    public JButton getBtnAgregarMenu() {
-        return btnAgregarMenu;
+    public JButton getBtnAgregar() {
+        return btnAgregar;
     }
 
-    public void setBtnAgregarMenu(JButton btnAgregarMenu) {
-        this.btnAgregarMenu = btnAgregarMenu;
+    public void setBtnAgregar(JButton btnAgregar) {
+        this.btnAgregar = btnAgregar;
     }
 
-    public JButton getBtnModificarMenu() {
-        return btnModificarMenu;
+    public JButton getBtnModificar() {
+        return btnModificar;
     }
 
-    public void setBtnModificarMenu(JButton btnModificarMenu) {
-        this.btnModificarMenu = btnModificarMenu;
+    public void setBtnModificar(JButton btnModificar) {
+        this.btnModificar = btnModificar;
     }
     
     
@@ -48,30 +48,30 @@ public class PanelDelMenu extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btnModificarMenu = new javax.swing.JButton();
-        btnAgregarMenu = new javax.swing.JButton();
+        btnModificar = new javax.swing.JButton();
+        btnAgregar = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        btnModificarMenu.setBackground(new java.awt.Color(255, 255, 255));
-        btnModificarMenu.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        btnModificarMenu.setForeground(new java.awt.Color(0, 0, 0));
-        btnModificarMenu.setText("Modificar/Eliminar");
-        btnModificarMenu.setBorder(null);
-        btnModificarMenu.addActionListener(new java.awt.event.ActionListener() {
+        btnModificar.setBackground(new java.awt.Color(255, 255, 255));
+        btnModificar.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        btnModificar.setForeground(new java.awt.Color(0, 0, 0));
+        btnModificar.setText("Modificar/Eliminar");
+        btnModificar.setBorder(null);
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModificarMenuActionPerformed(evt);
+                btnModificarActionPerformed(evt);
             }
         });
 
-        btnAgregarMenu.setBackground(new java.awt.Color(255, 255, 255));
-        btnAgregarMenu.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        btnAgregarMenu.setForeground(new java.awt.Color(0, 0, 0));
-        btnAgregarMenu.setText("Agregar");
-        btnAgregarMenu.setBorder(null);
-        btnAgregarMenu.addActionListener(new java.awt.event.ActionListener() {
+        btnAgregar.setBackground(new java.awt.Color(255, 255, 255));
+        btnAgregar.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        btnAgregar.setForeground(new java.awt.Color(0, 0, 0));
+        btnAgregar.setText("Agregar");
+        btnAgregar.setBorder(null);
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarMenuActionPerformed(evt);
+                btnAgregarActionPerformed(evt);
             }
         });
 
@@ -79,16 +79,16 @@ public class PanelDelMenu extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnModificarMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnAgregarMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+            .addComponent(btnModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAgregarMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnModificarMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -104,18 +104,18 @@ public class PanelDelMenu extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAgregarMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarMenuActionPerformed
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         
-    }//GEN-LAST:event_btnAgregarMenuActionPerformed
+    }//GEN-LAST:event_btnAgregarActionPerformed
 
-    private void btnModificarMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarMenuActionPerformed
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarMenuActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnModificarMenuActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAgregarMenu;
-    private javax.swing.JButton btnModificarMenu;
+    private javax.swing.JButton btnAgregar;
+    private javax.swing.JButton btnModificar;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
