@@ -52,8 +52,8 @@ public class CtrlLogin implements ActionListener {
      */
     public void obtenerDatos() {
         String contrasena = null;
-        modelUser.setNombreUsuario(frmLogin.getTxtUsuario().getText());
-        contrasena = Encrip.ecnode(modelUser.getNombreUsuario(), String.valueOf(frmLogin.getTxtContra().getPassword()));
+        modelUser.setNombreUsuario(frmLogin.getTxtUsuario().getText().trim());
+        contrasena = Encrip.ecnode(modelUser.getNombreUsuario(), String.valueOf(frmLogin.getTxtContra().getPassword()).trim());
         modelUser.setContrasena(contrasena);
     }
 
