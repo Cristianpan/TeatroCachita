@@ -41,7 +41,7 @@ public class CrearFuncion extends javax.swing.JFrame {
         comboBoxHora = new javax.swing.JComboBox<>();
         comboBoxObra = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
-        jDateFecha = new com.toedter.calendar.JDateChooser();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         panel4 = new java.awt.Panel();
         btnRegresarMenu = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
@@ -119,9 +119,9 @@ public class CrearFuncion extends javax.swing.JFrame {
         jButton1.setToolTipText("Cancelar");
         panel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, 130, 30));
 
-        jDateFecha.setBackground(new java.awt.Color(255, 255, 255));
-        jDateFecha.setForeground(new java.awt.Color(0, 0, 0));
-        panel1.add(jDateFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 240, 30));
+        jDateChooser1.setBackground(new java.awt.Color(255, 255, 255));
+        jDateChooser1.setForeground(new java.awt.Color(0, 0, 0));
+        panel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 240, -1));
 
         getContentPane().add(panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, 290));
 
@@ -222,7 +222,7 @@ public class CrearFuncion extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> comboBoxHora;
     private javax.swing.JComboBox<String> comboBoxObra;
     private javax.swing.JButton jButton1;
-    private com.toedter.calendar.JDateChooser jDateFecha;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

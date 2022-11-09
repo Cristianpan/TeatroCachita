@@ -70,6 +70,11 @@ public class CambiosUsuario extends javax.swing.JFrame {
 
         textfieldNombre.setBackground(new java.awt.Color(255, 255, 255));
         textfieldNombre.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        textfieldNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textfieldNombreActionPerformed(evt);
+            }
+        });
         textfieldNombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 textfieldNombreKeyReleased(evt);
@@ -139,7 +144,6 @@ public class CambiosUsuario extends javax.swing.JFrame {
         btnModificar.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         btnModificar.setForeground(new java.awt.Color(255, 255, 255));
         btnModificar.setText("Modificar");
-        btnModificar.setEnabled(false);
         btnModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnModificarActionPerformed(evt);
@@ -275,6 +279,10 @@ public class CambiosUsuario extends javax.swing.JFrame {
     private void txtContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContrasenaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtContrasenaActionPerformed
+
+    private void textfieldNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfieldNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textfieldNombreActionPerformed
 
     /**
      * @param args the command line arguments
