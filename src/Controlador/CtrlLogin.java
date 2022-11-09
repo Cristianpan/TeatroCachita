@@ -1,50 +1,74 @@
-package Controlador; 
+package Controlador;
 
 import Modelo.*;
 import Recursos.*;
 import Vista.*;
 import java.awt.event.*;
 
-import DAO.DAOUsuario; 
+import javax.swing.JOptionPane;
+import DAO.DAOUsuario;
 
-public class CtrlLogin implements ActionListener{
-    private User mod; 
-    private DAOUsuario modC; 
-    private Login frm; 
-    
-    public CtrlLogin(User mod, DAOUsuario modC, Login frm){
-        this.mod = mod; 
-        this.modC = modC; 
-        this.frm  = frm; 
-        this.frm.getBtnIngresar().addActionListener(this);
-        this.frm.getTxtContra().addActionListener(this); 
-        this.frm.getTxtUsuario().addActionListener(this); 
-        this.frm.getTxtWarning().addActionListener(this);
+public class CtrlLogin implements ActionListener {
+    private User modelUser;
+    private Login frmLogin;
+
+    public CtrlLogin(User modUser, Login frmLogin) {
+        this.modelUser = modUser;
+        this.frmLogin = frmLogin;
+        this.frmLogin.getBtnIngresar().addActionListener(this);
+        this.frmLogin.getTxtContra().addActionListener(this);
+        this.frmLogin.getTxtUsuario().addActionListener(this);
+        this.frmLogin.getTxtWarning().addActionListener(this);
+        this.frmLogin.setVisible(true);
     }
 
-    public void iniciar(){
-        frm.setLocationRelativeTo(null);
-    }
+    @Override
+    public void actionPerformed(ActionEvent event) {
 
-    @Override 
-    public void actionPerformed(ActionEvent e){
-        String contrasena = null; 
-        if (e.getSource() == frm.getBtnIngresar()){
-            mod.setNombreUsuario(frm.getTxtUsuario().getText());
-            contrasena = Encrip.ecnode(mod.getNombreUsuario(), String.valueOf(frm.getTxtContra().getPassword()));
-            System.out.println(String.valueOf(frm.getTxtContra().getPassword())); 
-            mod.setContrasena(contrasena);
-
-            if (modC.isLogin(mod)){
-                frm.getTxtWarning().setText("Login exitoso");
+        if (event.getSource() == frmLogin.getBtnIngresar()) {
+            if (frmLogin.getTxtUsuario().getText().isEmpty() || String.valueOf(frmLogin.getTxtContra().getPassword()).isEmpty()) {
+                JOptionPane.showMessageDialog(frmLogin, "Todos los campos son obligatorios");
             } else {
-                frm.getTxtWarning().setText("Usuario o contraseña incorrectos**"); 
-            }
+                obtenerDatos();
 
-            frm.getTxtUsuario().setText(null);
-            frm.getTxtContra().setText(null);
+                DAOUsuario daoUsuario = new DAOUsuario();
+                if (daoUsuario.isLogin(modelUser)) {
+                    if (modelUser.getTipo().equals("Administrador")) {
+                        cerrarVentana();
+                        new CtrlMenu(new MenuAdmi());
+                    } else {
+                        
+                    }
+                } else {
+                    frmLogin.getTxtWarning().setText("Usuario o contraseña incorrectos");
+                }
+            }
         }
     }
 
+    /*
+     * Captura los datos en el textField de Usuario y contraseña,
+     * enviandoselo al modelUser a través del setter correspondiente
+     */
+    public void obtenerDatos() {
+        String contrasena = null;
+        modelUser.setNombreUsuario(frmLogin.getTxtUsuario().getText());
+        contrasena = Encrip.ecnode(modelUser.getNombreUsuario(), String.valueOf(frmLogin.getTxtContra().getPassword()));
+        modelUser.setContrasena(contrasena);
+    }
+
+    /*
+     * Limpia los campos de usuario y contraseña después de
+     * apretar el boton de ingresar
+     */
+    public void limpiarCampos() {
+        frmLogin.getTxtUsuario().setText(null);
+        frmLogin.getTxtContra().setText(null);
+    }
+
+    public void cerrarVentana() {
+        frmLogin.setVisible(false);
+        frmLogin.dispose();
+    }
 
 }

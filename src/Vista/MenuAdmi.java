@@ -177,7 +177,7 @@ public class MenuAdmi extends javax.swing.JFrame {
             .addGap(0, 110, Short.MAX_VALUE)
         );
 
-        panel1.add(panelSubmenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, 190, 110));
+        panel1.add(panelSubmenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, 190, 110));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/imagen2.png"))); // NOI18N
         panel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 200, 180));

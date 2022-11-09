@@ -132,7 +132,7 @@ public class Register extends javax.swing.JFrame {
         boxTipoUsuario = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
         txtWarning = new javax.swing.JTextField();
-        btnRegresarMenu = new javax.swing.JButton();
+        btnMenu = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         txtContrasena = new javax.swing.JPasswordField();
 
@@ -262,16 +262,17 @@ public class Register extends javax.swing.JFrame {
         });
         panel1.add(txtWarning, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, 200, 60));
 
-        btnRegresarMenu.setBackground(new java.awt.Color(255, 255, 255));
-        btnRegresarMenu.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        btnRegresarMenu.setForeground(new java.awt.Color(255, 255, 255));
-        btnRegresarMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/regreso.png"))); // NOI18N
-        btnRegresarMenu.setToolTipText("Regresar");
-        btnRegresarMenu.setBorder(null);
-        panel1.add(btnRegresarMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 30));
+        btnMenu.setBackground(new java.awt.Color(255, 255, 255));
+        btnMenu.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        btnMenu.setForeground(new java.awt.Color(255, 255, 255));
+        btnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/regreso.png"))); // NOI18N
+        btnMenu.setToolTipText("Regresar");
+        btnMenu.setBorder(null);
+        panel1.add(btnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 30));
 
         jLabel9.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel9.setLabelFor(btnMenu);
         jLabel9.setText("Menú");
         panel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
 
@@ -360,8 +361,8 @@ public class Register extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> boxTipoUsuario;
     private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnMenu;
     private javax.swing.JButton btnRegistrar;
-    private javax.swing.JButton btnRegresarMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -380,4 +381,11 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JTextField txtUsuario;
     private javax.swing.JTextField txtWarning;
     // End of variables declaration//GEN-END:variables
+    public javax.swing.JButton getBtnMenu() {
+        return btnMenu;
+    }
+
+    public void setBtnMenu(javax.swing.JButton btnMenu) {
+        this.btnMenu = btnMenu;
+    }
 }
