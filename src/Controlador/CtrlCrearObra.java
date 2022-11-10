@@ -73,31 +73,32 @@ public class CtrlCrearObra implements ActionListener{
     
     public boolean esVacioInput(){
         return(frmCrearObra.getTxtNombre().getText().isEmpty() |
-        frmCrearObra.getTxtDuracion().getText().isEmpty()|
-        frmCrearObra.getTxtGenero().getText().isEmpty()|
-        frmCrearObra.getTxtPrecio().getText().isEmpty()|
-        frmCrearObra.getTxtPrimerActor().getText().isEmpty()|
-        frmCrearObra.getTxtSegundoActor().getText().isEmpty());
+        this.frmCrearObra.getTxtDuracion().getText().isEmpty()|
+        this.frmCrearObra.getTxtGenero().getText().isEmpty()|
+        this.frmCrearObra.getTxtPrecio().getText().isEmpty()|
+        this.frmCrearObra.getTxtPrimerActor().getText().isEmpty()|
+        this.frmCrearObra.getTxtSegundoActor().getText().isEmpty()) |
+        this.frmCrearObra.getTxtResumenTematico().getText().isEmpty();
     }
     
     public void obtenerDatosRegistro() {
-        obra.setNombre(frmCrearObra.getTxtNombre().getText().trim());
-        obra.setDuracion(Double.parseDouble(frmCrearObra.getTxtDuracion().getText().trim()));
-        obra.setGenero(frmCrearObra.getTxtGenero().getText().trim());
-        obra.setPrecioBoleto(Double.parseDouble(frmCrearObra.getTxtPrecio().getText().trim()));
-        obra.setPrimerActor(frmCrearObra.getTxtPrimerActor().getText().trim());
-        obra.setSegundoActor(frmCrearObra.getTxtSegundoActor().getText().trim());
-        obra.setResumen(frmCrearObra.getTxtResumenTematico().getText().trim());
+        this.obra.setNombre(frmCrearObra.getTxtNombre().getText().trim());
+        this.obra.setDuracion(Double.parseDouble(frmCrearObra.getTxtDuracion().getText().trim()));
+        this.obra.setGenero(frmCrearObra.getTxtGenero().getText().trim());
+        this.obra.setPrecioBoleto(Double.parseDouble(frmCrearObra.getTxtPrecio().getText().trim()));
+        this.obra.setPrimerActor(frmCrearObra.getTxtPrimerActor().getText().trim());
+        this.obra.setSegundoActor(frmCrearObra.getTxtSegundoActor().getText().trim());
+        this.obra.setResumen(frmCrearObra.getTxtResumenTematico().getText().trim());
     }
     
     public void limpiarCampos(){
-        frmCrearObra.getTxtNombre().setText(null);
-        frmCrearObra.getTxtDuracion().setText(null);
-        frmCrearObra.getTxtGenero().setText(null);
-        frmCrearObra.getTxtPrecio().setText(null);
-        frmCrearObra.getTxtPrimerActor().setText(null);
-        frmCrearObra.getTxtSegundoActor().setText(null);
-        frmCrearObra.getTxtResumenTematico().setText(null);
+        this.frmCrearObra.getTxtNombre().setText(null);
+        this.frmCrearObra.getTxtDuracion().setText(null);
+        this.frmCrearObra.getTxtGenero().setText(null);
+        this.frmCrearObra.getTxtPrecio().setText(null);
+        this.frmCrearObra.getTxtPrimerActor().setText(null);
+        this.frmCrearObra.getTxtSegundoActor().setText(null);
+        this.frmCrearObra.getTxtResumenTematico().setText(null);
     }
     
 }

@@ -31,7 +31,7 @@ public class CtrlCambiosObra implements ActionListener{
         this.frmCambiosObra.getBtnEliminar().addActionListener(this);
         this.frmCambiosObra.getBtnModificar().addActionListener(this);
         this.frmCambiosObra.getBtnRegresarMenu().addActionListener(this);
-        this.frmCambiosObra.getComboBoxObra().addActionListener(this);
+        this.frmCambiosObra.getBtnBuscar().addActionListener(this);
         this.frmCambiosObra.setVisible(true);
         
         
@@ -40,6 +40,7 @@ public class CtrlCambiosObra implements ActionListener{
     public void agregarObrasComboBox(){
         DAOObra daoObras= new DAOObra();
         ArrayList<Obra> obras= daoObras.obrasRegistradas();
+        this.frmCambiosObra.getComboBoxObra().addItem("-Seleccionar Obra-");
         
         for (int i = 0; i < obras.size(); i++) {
             this.frmCambiosObra.getComboBoxObra().addItem(obras.get(i).getNombre());
@@ -49,12 +50,14 @@ public class CtrlCambiosObra implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         //agregar todos los datos
-        if(e.getSource() == this.frmCambiosObra.getComboBoxObra()){
+        if(e.getSource() == this.frmCambiosObra.getBtnBuscar()){
             String obraSeleccionada= this.frmCambiosObra.getComboBoxObra().getSelectedItem().toString();
             if(obraSeleccionada != "-Seleccionar Obra-"){
                 DAOObra daoObra= new DAOObra();
                 Obra obra= daoObra.buscarObra(obraSeleccionada);
                 rellenarCampos(obra);
+            }else{
+                JOptionPane.showMessageDialog(frmCambiosObra, "No se ha seleccionado alguna obra");
             }
         }
         
@@ -80,32 +83,68 @@ public class CtrlCambiosObra implements ActionListener{
         
         //modificar
         if (e.getSource() == this.frmCambiosObra.getBtnModificar()){
-                if(!esVacioInput())  {
-                    //me falta verificar que la obra no exista ya
+                if(!esVacioInput()){
                     String obraSeleccionada= this.frmCambiosObra.getComboBoxObra().getSelectedItem().toString();
-                    DAOObra daoObra= new DAOObra();
-                    Obra obra= daoObra.buscarObra(obraSeleccionada);
-                    
-                    if (daoObra.actualizarObra(obra)) {
-                            JOptionPane.showMessageDialog(frmCambiosObra, "Actualización exitosa");
-                            limpiarCampos();
-                        } else {
-                            JOptionPane.showMessageDialog(frmCambiosObra, "Algo ha salido mal");
+                    if(obraSeleccionada != "-Seleccionar Obra-"){
+                        DAOObra daoObra= new DAOObra();
+                        Obra obra= daoObra.buscarObra(obraSeleccionada);
+                        obtenerDatosRegistro(); //la this,obra va a tener los datos de registro
+                        this.obra.setId(obra.getId());
+                        
+                        if(this.obra.getNombre().equals(obra.getNombre()) || daoObra.buscarObra(this.obra.getNombre())==  null){
+                            if (daoObra.actualizarObra(this.obra)) {
+                                JOptionPane.showMessageDialog(frmCambiosObra, "Actualización exitosa");
+                                this.frmCambiosObra.getComboBoxObra().setSelectedItem(this.obra.getNombre());
+                                this.frmCambiosObra.getComboBoxObra().removeAllItems();
+                                agregarObrasComboBox();
+                                limpiarCampos();
+                                
+                                }else {
+                                    JOptionPane.showMessageDialog(frmCambiosObra, "Algo ha salido mal");
+                                }
+                        }else{
+                            JOptionPane.showMessageDialog(frmCambiosObra, "Obra existente. Ingrese otro");
                         }
+                    }else{
+                        JOptionPane.showMessageDialog(frmCambiosObra, "No se ha seleccionado alguna obra");
+                    }
                 }else{
                      JOptionPane.showMessageDialog(frmCambiosObra, "Todos los campos son obligatorios");
                 }           
+        }
+        
+        //eliminar
+        if (e.getSource() == this.frmCambiosObra.getBtnEliminar()){
+            String obraSeleccionada= this.frmCambiosObra.getComboBoxObra().getSelectedItem().toString();
+            if(obraSeleccionada != "-Seleccionar Obra-"){
+                DAOObra daoObra= new DAOObra();
+                Obra obra= daoObra.buscarObra(obraSeleccionada);
+                
+                int opcion = JOptionPane.showConfirmDialog(frmCambiosObra,
+                        "¿Desea eliminar la Obra " + obra.getNombre()+ "?", null,
+                        JOptionPane.YES_NO_OPTION, 2);
+
+                if (opcion == 0) {
+                    if (daoObra.eliminarObra(this.obra.getId())) {
+                        JOptionPane.showMessageDialog(frmCambiosObra, "Obra Eliminada");
+                        this.frmCambiosObra.getComboBoxObra().removeItem(this.frmCambiosObra.getComboBoxObra().getSelectedItem());
+                        limpiarCampos();
+                    } else {
+                        JOptionPane.showMessageDialog(frmCambiosObra, "Algo ha salido mal");
+                    }
+                }
+            }
         }
     }
     
     
     
     public boolean esVacioInput(){
-        return(frmCambiosObra.getTxtNombre().getText().isEmpty() |
-        frmCambiosObra.getTxtDuracion().getText().isEmpty()|
-        frmCambiosObra.getTxtGenero().getText().isEmpty()|
-        frmCambiosObra.getTxtPrecio().getText().isEmpty()|
-        frmCambiosObra.getTxtPrimerActor().getText().isEmpty()|
+        return(frmCambiosObra.getTxtNombre().getText().isEmpty() ||
+        frmCambiosObra.getTxtDuracion().getText().isEmpty()||
+        frmCambiosObra.getTxtGenero().getText().isEmpty()||
+        frmCambiosObra.getTxtPrecio().getText().isEmpty()||
+        frmCambiosObra.getTxtPrimerActor().getText().isEmpty()||
         frmCambiosObra.getTxtSegundoActor().getText().isEmpty());
     }
     
@@ -129,6 +168,16 @@ public class CtrlCambiosObra implements ActionListener{
         frmCambiosObra.getTxtPrimerActor().setText(obra.getPrimerActor());
         frmCambiosObra.getTxtSegundoActor().setText(obra.getSegundoActor());
         frmCambiosObra.getTxtResumenTematico().setText(obra.getResumen());
+    }
+    
+     public void obtenerDatosRegistro() {
+        obra.setNombre(frmCambiosObra.getTxtNombre().getText().trim());
+        obra.setDuracion(Double.parseDouble(frmCambiosObra.getTxtDuracion().getText().trim()));
+        obra.setGenero(frmCambiosObra.getTxtGenero().getText().trim());
+        obra.setPrecioBoleto(Double.parseDouble(frmCambiosObra.getTxtPrecio().getText().trim()));
+        obra.setPrimerActor(frmCambiosObra.getTxtPrimerActor().getText().trim());
+        obra.setSegundoActor(frmCambiosObra.getTxtSegundoActor().getText().trim());
+        obra.setResumen(frmCambiosObra.getTxtResumenTematico().getText().trim());
     }
     
 }
