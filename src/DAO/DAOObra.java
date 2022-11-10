@@ -126,15 +126,15 @@ public class DAOObra extends Db{
         return fueActualizado;
     }
     
-    public boolean eliminarUsuario(String nombre){
+    public boolean eliminarObra(int idObra){
         boolean fueEliminado = false; 
         PreparedStatement ps;
         Connection con = getConexion();
-        String sql = "DELETE FROM obra WHERE nombre = ?";
+        String sql = "DELETE FROM obra WHERE id = ?";
         
         try {
             ps= con.prepareStatement(sql);
-            ps.setString(1, nombre);
+            ps.setInt(1, idObra);
             
             ps.executeUpdate();
             fueEliminado= true;
@@ -150,7 +150,7 @@ public class DAOObra extends Db{
         return fueEliminado;
     }
     
-    public ArrayList obrasRegistradas(){
+    public ArrayList<Obra> obrasRegistradas(){
         ArrayList<Obra> obras= new ArrayList<>();
         PreparedStatement ps;
         Connection con = getConexion(); 

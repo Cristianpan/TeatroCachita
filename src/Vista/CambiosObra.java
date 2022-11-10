@@ -22,7 +22,6 @@ public class CambiosObra extends javax.swing.JFrame {
      * Creates new form VentanaModificarObra
      */
     public CambiosObra() {
-        
         initComponents();
     }
 
@@ -40,14 +39,6 @@ public class CambiosObra extends javax.swing.JFrame {
 
     public void setBtnEliminar(JButton btnEliminar) {
         this.btnEliminar = btnEliminar;
-    }
-
-    public JButton getBtnModificar() {
-        return btnModificar;
-    }
-
-    public void setBtnModificar(JButton btnModificar) {
-        this.btnModificar = btnModificar;
     }
 
     public JButton getBtnRegresarMenu() {
@@ -121,6 +112,28 @@ public class CambiosObra extends javax.swing.JFrame {
     public void setTxtSegundoActor(JTextField txtSegundoActor) {
         this.txtSegundoActor = txtSegundoActor;
     }
+
+    public JButton getBtnBuscar() {
+        return btnBuscar;
+    }
+
+    public void setBtnBuscar(JButton btnBuscar) {
+        this.btnBuscar = btnBuscar;
+    }
+
+    public JButton getBtnModificar() {
+        return btnModificar;
+    }
+
+    public void setBtnModificar(JButton btnModificar) {
+        this.btnModificar = btnModificar;
+    }
+
+    
+    
+    
+    
+    
     
     
 
@@ -138,10 +151,10 @@ public class CambiosObra extends javax.swing.JFrame {
         panel16 = new java.awt.Panel();
         jLabel20 = new javax.swing.JLabel();
         comboBoxObra = new javax.swing.JComboBox<>();
+        btnBuscar = new javax.swing.JButton();
         txtResumenTematico = new java.awt.TextArea();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        btnModificar = new javax.swing.JButton();
         txtNombre = new javax.swing.JTextField();
         txtGenero = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
@@ -155,6 +168,7 @@ public class CambiosObra extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         btnEliminar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
+        btnModificar = new javax.swing.JButton();
         panel18 = new java.awt.Panel();
         btnRegresarMenu = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
@@ -191,11 +205,20 @@ public class CambiosObra extends javax.swing.JFrame {
 
         comboBoxObra.setBackground(new java.awt.Color(255, 255, 255));
         comboBoxObra.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        comboBoxObra.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccionar Obra-" }));
         comboBoxObra.setToolTipText("");
         comboBoxObra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboBoxObraActionPerformed(evt);
+            }
+        });
+
+        btnBuscar.setBackground(new java.awt.Color(255, 102, 0));
+        btnBuscar.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        btnBuscar.setForeground(new java.awt.Color(255, 255, 255));
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
             }
         });
 
@@ -206,7 +229,9 @@ public class CambiosObra extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel16Layout.createSequentialGroup()
                 .addGap(38, 38, 38)
                 .addComponent(comboBoxObra, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnBuscar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
                 .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -216,11 +241,14 @@ public class CambiosObra extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(panel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-                    .addComponent(comboBoxObra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboBoxObra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscar))
                 .addContainerGap())
         );
 
         panel17.add(panel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 50));
+
+        txtResumenTematico.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         panel17.add(txtResumenTematico, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 310, 170));
 
         jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
@@ -232,13 +260,6 @@ public class CambiosObra extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(25, 43, 55));
         jLabel6.setText("Resumen temático");
         panel17.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, 160, -1));
-
-        btnModificar.setBackground(new java.awt.Color(255, 102, 0));
-        btnModificar.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        btnModificar.setForeground(new java.awt.Color(255, 255, 255));
-        btnModificar.setText("Modificar");
-        btnModificar.setToolTipText("Modificar");
-        panel17.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 290, 90, 30));
 
         txtNombre.setBackground(new java.awt.Color(255, 255, 255));
         txtNombre.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -295,14 +316,25 @@ public class CambiosObra extends javax.swing.JFrame {
         btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
         btnEliminar.setText("Eliminar");
         btnEliminar.setToolTipText("Eliminar");
-        panel17.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 290, 90, 30));
+        panel17.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 290, 90, 30));
 
         btnCancelar.setBackground(new java.awt.Color(25, 43, 55));
         btnCancelar.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar.setText("Cancelar");
         btnCancelar.setToolTipText("Cancelar");
-        panel17.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 290, 90, 30));
+        panel17.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 290, 90, 30));
+
+        btnModificar.setBackground(new java.awt.Color(255, 102, 0));
+        btnModificar.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        btnModificar.setForeground(new java.awt.Color(255, 255, 255));
+        btnModificar.setText("Modificar");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
+        panel17.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 290, 100, 30));
 
         getContentPane().add(panel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 680, 360));
 
@@ -332,13 +364,13 @@ public class CambiosObra extends javax.swing.JFrame {
         );
         panel18Layout.setVerticalGroup(
             panel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel18Layout.createSequentialGroup()
-                .addContainerGap(8, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addContainerGap())
             .addGroup(panel18Layout.createSequentialGroup()
                 .addComponent(btnRegresarMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 1, Short.MAX_VALUE))
+            .addGroup(panel18Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(panel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 30));
@@ -350,6 +382,14 @@ public class CambiosObra extends javax.swing.JFrame {
     private void comboBoxObraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxObraActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_comboBoxObraActionPerformed
+
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnModificarActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -388,6 +428,7 @@ public class CambiosObra extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnModificar;
