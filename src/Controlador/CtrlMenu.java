@@ -5,99 +5,121 @@
  */
 package Controlador;
 
-import DAO.DAOUsuario;
-import Modelo.User;
-import Vista.Login;
-import Vista.MenuAdmi;
-import Vista.PanelDelMenu;
+import Modelo.*;
+import Vista.*;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author diana
  */
-public class CtrlMenu implements ActionListener{
+public class CtrlMenu implements ActionListener {
     private MenuAdmi menu;
+    private PanelMenu panelMenu = new PanelMenu();
+    private int indexBoton;
 
     public CtrlMenu(MenuAdmi menu) {
         this.menu = menu;
-        
+
         this.menu.getBtnUsuarios().addActionListener(this);
         this.menu.getBtnObras().addActionListener(this);
         this.menu.getBtnFunciones().addActionListener(this);
         this.menu.getBtnReportes().addActionListener(this);
         this.menu.getBtnSalir().addActionListener(this);
+        this.panelMenu.getBtnAgregar().addActionListener(this);
+        this.panelMenu.getBtnModificar().addActionListener(this);
+    
+        this.menu.setVisible(true);
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == menu.getBtnUsuarios()) {
-            menu.getBtnUsuarios().setBackground(new Color(255,102,0));
-            menu.getBtnObras().setBackground(new Color(32,58,74));
-            menu.getBtnFunciones().setBackground(new Color(32,58,74));
-            PanelDelMenu panel= new PanelDelMenu();
-            panel.setSize(190,110); //191, 92
-            panel.setLocation(0, 0);
-            menu.getPanelSubmenu().removeAll();
-            menu.getPanelSubmenu().add(panel, BorderLayout.CENTER);
-            menu.getPanelSubmenu().revalidate();
-            menu.getPanelSubmenu().repaint();
-            CtrlPanelMenuUsuarios menuUsuarios= new CtrlPanelMenuUsuarios(panel);
-        }
-        
-        if (e.getSource() == menu.getBtnObras()) {
-            menu.getBtnUsuarios().setBackground(new Color(32,58,74));
-            menu.getBtnObras().setBackground(new Color(255,102,0));
-            menu.getBtnFunciones().setBackground(new Color(32,58,74));
-            PanelDelMenu panel= new PanelDelMenu();
-            panel.setSize(190,110); //191, 92
-            panel.setLocation(0, 0);
-            menu.getPanelSubmenu().removeAll();
-            menu.getPanelSubmenu().add(panel, BorderLayout.CENTER);
-            menu.getPanelSubmenu().revalidate();
-            menu.getPanelSubmenu().repaint();
-            CtrlPanelMenuObras menuUsuarios= new CtrlPanelMenuObras(panel);
-        }
-        
-        if (e.getSource() == menu.getBtnFunciones()) {
-            menu.getBtnUsuarios().setBackground(new Color(32,58,74));
-            menu.getBtnObras().setBackground(new Color(32,58,74));
-            menu.getBtnFunciones().setBackground(new Color(255,102,0));
-            PanelDelMenu panel= new PanelDelMenu();
-            panel.setSize(190,110); //191, 92
-            panel.setLocation(0, 0);
-            menu.getPanelSubmenu().removeAll();
-            menu.getPanelSubmenu().add(panel, BorderLayout.CENTER);
-            menu.getPanelSubmenu().revalidate();
-            menu.getPanelSubmenu().repaint();
-            CtrlPanelMenuFunciones menuUsuarios= new CtrlPanelMenuFunciones(panel);
-        }
-        
-        if (e.getSource() == menu.getBtnReportes()) {
-            //IR A LOS REPORTES
-            
-        }
-        
-        if (e.getSource() == menu.getBtnSalir()) {
-            this.menu.setVisible(false);
-            
-            Login frmLog = new Login();
-            //Register frmRegister = new Register();  
-            DAOUsuario consultas = new DAOUsuario(); 
-            User user = new User(); 
+    public void actionPerformed(ActionEvent event) {
+        Color colorBotonSeleccionado = new Color(255, 102, 0);
+        Color colorBotonNormal = new Color(32, 58, 74);
 
-            //CtrlRegister ctrlRegister = new CtrlRegister(user, consultas, frmRegister); 
-            //frmRegister.setVisible(true);
+        if (event.getSource() == this.menu.getBtnUsuarios())
+            indexBoton = 1;
+        else if (event.getSource() == this.menu.getBtnObras())
+            indexBoton = 2;
+        else if (event.getSource() == this.menu.getBtnFunciones())
+            indexBoton = 3;
 
-            CtrlLogin ctrl = new CtrlLogin(user, consultas, frmLog);
-            frmLog.setVisible(true); 
+        if (indexBoton == 1) {
+            agregarPanel();
+            marcarBoton(colorBotonSeleccionado, colorBotonNormal, colorBotonNormal);
+            
+            if (event.getSource() == this.panelMenu.getBtnAgregar()){
+                new CtrlRegister(new User(), new Register()); 
+                cerrarVentana();
+
+            } else if (event.getSource() == this.panelMenu.getBtnModificar()){
+                new CtrlCambiosUsuario(new User(), new CambiosUsuario()); // Aqui hay una variable que falta por igualarse
+                cerrarVentana();
+                
+            }
+
+        } else if (indexBoton == 2) {
+
+            agregarPanel();
+            marcarBoton(colorBotonNormal, colorBotonSeleccionado, colorBotonNormal);
+
+            if (event.getSource() == this.panelMenu.getBtnAgregar()){
+
+            } else if (event.getSource() == this.panelMenu.getBtnModificar()){
+                
+            }
+        } else if (indexBoton == 3) {
+            agregarPanel();
+            marcarBoton(colorBotonNormal, colorBotonNormal, colorBotonSeleccionado);
+
+            if (event.getSource() == this.panelMenu.getBtnAgregar()){
+
+            } else if (event.getSource() == this.panelMenu.getBtnModificar()){
+
+            }
+        } else if (event.getSource() == menu.getBtnReportes()) {
+            // IR A LOS REPORTES
+
+        } else if (event.getSource() == menu.getBtnSalir()) {
+            int opcion = JOptionPane.showConfirmDialog(menu, "¿Desea cerrar sesión?", null,
+                    JOptionPane.YES_NO_OPTION, 1);
+
+            if (opcion == 0){
+                Login frmLogin = new Login();
+                User modelUser = new User();
+                new CtrlLogin(modelUser, frmLogin);
+                cerrarVentana();
+            }
             
         }
-        
-        
+
     }
-    
+
+    // Resalta el boton presionado sobre los demás
+    public void marcarBoton(Color color1, Color color2, Color color3) {
+        this.menu.getBtnUsuarios().setBackground(color1);
+        this.menu.getBtnObras().setBackground(color2);
+        this.menu.getBtnFunciones().setBackground(color3);
+    }
+
+    // Agrega el panel con las opciones de Agregar, Modificar/Eliminar
+    public void agregarPanel() {
+        this.panelMenu.setSize(190, 110); // 191, 92
+        this.panelMenu.setLocation(0, 0);
+        this.menu.getPanelSubmenu().removeAll();
+        this.menu.getPanelSubmenu().add(this.panelMenu, BorderLayout.CENTER);
+        this.menu.getPanelSubmenu().revalidate();
+        this.menu.getPanelSubmenu().repaint();
+    }
+
+    public void cerrarVentana() {
+        this.menu.setVisible(false);
+        this.menu.dispose();
+    }
+
 }

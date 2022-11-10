@@ -31,24 +31,24 @@ public class CambiosUsuario extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        textfieldNombre = new javax.swing.JTextField();
+        txtNombreUser = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        textfieldApellido = new javax.swing.JTextField();
+        txtApellido = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        textfieldCURP = new javax.swing.JTextField();
+        txtCurp = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        textfieldNombreU = new javax.swing.JTextField();
+        txtUsuario = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         btnCancelar = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        textfieldNombre1 = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        boxTipoUsuario = new javax.swing.JComboBox<>();
         jLabel12 = new javax.swing.JLabel();
-        btnRegresarMenu = new javax.swing.JButton();
+        btnMenu = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         txtContrasena = new javax.swing.JPasswordField();
 
@@ -68,61 +68,61 @@ public class CambiosUsuario extends javax.swing.JFrame {
         jLabel4.setText("Modificar Usuario");
         panel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 340, 63));
 
-        textfieldNombre.setBackground(new java.awt.Color(255, 255, 255));
-        textfieldNombre.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        textfieldNombre.addActionListener(new java.awt.event.ActionListener() {
+        txtNombreUser.setBackground(new java.awt.Color(255, 255, 255));
+        txtNombreUser.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtNombreUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textfieldNombreActionPerformed(evt);
+                txtNombreUserActionPerformed(evt);
             }
         });
-        textfieldNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtNombreUser.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                textfieldNombreKeyReleased(evt);
+                txtNombreUserKeyReleased(evt);
             }
         });
-        panel1.add(textfieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 216, 32));
+        panel1.add(txtNombreUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 216, 32));
 
         jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 102, 0));
         jLabel5.setText("Apellido");
         panel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 200, 79, -1));
 
-        textfieldApellido.setBackground(new java.awt.Color(255, 255, 255));
-        textfieldApellido.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        textfieldApellido.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtApellido.setBackground(new java.awt.Color(255, 255, 255));
+        txtApellido.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtApellido.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                textfieldApellidoKeyReleased(evt);
+                txtApellidoKeyReleased(evt);
             }
         });
-        panel1.add(textfieldApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 220, 216, 32));
+        panel1.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 220, 216, 32));
 
         jLabel6.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 102, 0));
         jLabel6.setText("CURP");
         panel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 79, -1));
 
-        textfieldCURP.setBackground(new java.awt.Color(255, 255, 255));
-        textfieldCURP.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        textfieldCURP.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtCurp.setBackground(new java.awt.Color(255, 255, 255));
+        txtCurp.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtCurp.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                textfieldCURPKeyReleased(evt);
+                txtCurpKeyReleased(evt);
             }
         });
-        panel1.add(textfieldCURP, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 216, 32));
+        panel1.add(txtCurp, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 216, 32));
 
         jLabel7.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 102, 0));
         jLabel7.setText("Nombre de Usuario");
         panel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 270, 150, -1));
 
-        textfieldNombreU.setBackground(new java.awt.Color(255, 255, 255));
-        textfieldNombreU.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        textfieldNombreU.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtUsuario.setBackground(new java.awt.Color(255, 255, 255));
+        txtUsuario.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                textfieldNombreUKeyReleased(evt);
+                txtUsuarioKeyReleased(evt);
             }
         });
-        panel1.add(textfieldNombreU, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, 216, 32));
+        panel1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, 216, 32));
 
         jLabel8.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 102, 0));
@@ -161,14 +161,14 @@ public class CambiosUsuario extends javax.swing.JFrame {
         jLabel9.setText("Tipo Usuario");
         panel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 340, 120, -1));
 
-        textfieldNombre1.setBackground(new java.awt.Color(255, 255, 255));
-        textfieldNombre1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        textfieldNombre1.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtNombre.setBackground(new java.awt.Color(255, 255, 255));
+        txtNombre.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                textfieldNombre1KeyReleased(evt);
+                txtNombreKeyReleased(evt);
             }
         });
-        panel1.add(textfieldNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 216, 32));
+        panel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 216, 32));
 
         btnBuscar.setBackground(new java.awt.Color(255, 102, 0));
         btnBuscar.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -186,24 +186,25 @@ public class CambiosUsuario extends javax.swing.JFrame {
         jLabel11.setText("Nombre de usuario");
         panel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 170, -1));
 
-        jComboBox4.setBackground(new java.awt.Color(255, 255, 255));
-        jComboBox4.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jComboBox4.setForeground(new java.awt.Color(0, 0, 0));
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Operador", "Administrador", " ", " " }));
-        panel1.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 360, 220, 30));
+        boxTipoUsuario.setBackground(new java.awt.Color(255, 255, 255));
+        boxTipoUsuario.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        boxTipoUsuario.setForeground(new java.awt.Color(0, 0, 0));
+        boxTipoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Selecionar --", "Operador", "Administrador" }));
+        panel1.add(boxTipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 360, 220, 30));
 
         jLabel12.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel12.setLabelFor(btnMenu);
         jLabel12.setText("Menú");
         panel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
 
-        btnRegresarMenu.setBackground(new java.awt.Color(255, 255, 255));
-        btnRegresarMenu.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        btnRegresarMenu.setForeground(new java.awt.Color(255, 255, 255));
-        btnRegresarMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/regreso.png"))); // NOI18N
-        btnRegresarMenu.setToolTipText("Regresar");
-        btnRegresarMenu.setBorder(null);
-        panel1.add(btnRegresarMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 30));
+        btnMenu.setBackground(new java.awt.Color(255, 255, 255));
+        btnMenu.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        btnMenu.setForeground(new java.awt.Color(255, 255, 255));
+        btnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/regreso.png"))); // NOI18N
+        btnMenu.setToolTipText("Regresar");
+        btnMenu.setBorder(null);
+        panel1.add(btnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 30));
 
         btnEliminar.setBackground(new java.awt.Color(102, 102, 102));
         btnEliminar.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -240,29 +241,29 @@ public class CambiosUsuario extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void textfieldNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textfieldNombreKeyReleased
+    private void txtNombreUserKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreUserKeyReleased
 //        habilitarBoton();
-    }//GEN-LAST:event_textfieldNombreKeyReleased
+    }//GEN-LAST:event_txtNombreUserKeyReleased
 
-    private void textfieldApellidoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textfieldApellidoKeyReleased
+    private void txtApellidoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidoKeyReleased
 //        habilitarBoton();
-    }//GEN-LAST:event_textfieldApellidoKeyReleased
+    }//GEN-LAST:event_txtApellidoKeyReleased
 
-    private void textfieldCURPKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textfieldCURPKeyReleased
+    private void txtCurpKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCurpKeyReleased
 //        habilitarBoton();
-    }//GEN-LAST:event_textfieldCURPKeyReleased
+    }//GEN-LAST:event_txtCurpKeyReleased
 
-    private void textfieldNombreUKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textfieldNombreUKeyReleased
+    private void txtUsuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyReleased
 //        habilitarBoton();
-    }//GEN-LAST:event_textfieldNombreUKeyReleased
+    }//GEN-LAST:event_txtUsuarioKeyReleased
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
 
     }//GEN-LAST:event_btnModificarActionPerformed
 
-    private void textfieldNombre1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textfieldNombre1KeyReleased
+    private void txtNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_textfieldNombre1KeyReleased
+    }//GEN-LAST:event_txtNombreKeyReleased
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
@@ -280,9 +281,9 @@ public class CambiosUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtContrasenaActionPerformed
 
-    private void textfieldNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfieldNombreActionPerformed
+    private void txtNombreUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreUserActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textfieldNombreActionPerformed
+    }//GEN-LAST:event_txtNombreUserActionPerformed
 
     /**
      * @param args the command line arguments
@@ -320,13 +321,113 @@ public class CambiosUsuario extends javax.swing.JFrame {
         });
     }
 
+    
+
+    public javax.swing.JComboBox<String> getBoxTipoUsuario() {
+        return boxTipoUsuario;
+    }
+
+    public void setBoxTipoUsuario(javax.swing.JComboBox<String> boxTipoUsuario) {
+        this.boxTipoUsuario = boxTipoUsuario;
+    }
+
+    public javax.swing.JButton getBtnBuscar() {
+        return btnBuscar;
+    }
+
+    public void setBtnBuscar(javax.swing.JButton btnBuscar) {
+        this.btnBuscar = btnBuscar;
+    }
+
+    public javax.swing.JButton getBtnCancelar() {
+        return btnCancelar;
+    }
+
+    public void setBtnCancelar(javax.swing.JButton btnCancelar) {
+        this.btnCancelar = btnCancelar;
+    }
+
+    public javax.swing.JButton getBtnEliminar() {
+        return btnEliminar;
+    }
+
+    public void setBtnEliminar(javax.swing.JButton btnEliminar) {
+        this.btnEliminar = btnEliminar;
+    }
+
+    public javax.swing.JButton getBtnMenu() {
+        return btnMenu;
+    }
+
+    public void setBtnMenu(javax.swing.JButton btnMenu) {
+        this.btnMenu = btnMenu;
+    }
+
+    public javax.swing.JButton getBtnModificar() {
+        return btnModificar;
+    }
+
+    public void setBtnModificar(javax.swing.JButton btnModificar) {
+        this.btnModificar = btnModificar;
+    }
+
+    public javax.swing.JTextField getTxtApellido() {
+        return txtApellido;
+    }
+
+    public void setTxtApellido(javax.swing.JTextField txtApellido) {
+        this.txtApellido = txtApellido;
+    }
+
+    public javax.swing.JPasswordField getTxtContrasena() {
+        return txtContrasena;
+    }
+
+    public void setTxtContrasena(javax.swing.JPasswordField txtContrasena) {
+        this.txtContrasena = txtContrasena;
+    }
+
+    public javax.swing.JTextField getTxtCurp() {
+        return txtCurp;
+    }
+
+    public void setTxtCurp(javax.swing.JTextField txtCurp) {
+        this.txtCurp = txtCurp;
+    }
+
+    public javax.swing.JTextField getTxtNombre() {
+        return txtNombre;
+    }
+
+    public void setTxtNombre(javax.swing.JTextField txtNombre) {
+        this.txtNombre = txtNombre;
+    }
+
+    public javax.swing.JTextField getTxtNombreUser() {
+        return txtNombreUser;
+    }
+
+    public void setTxtNombreUser(javax.swing.JTextField txtNombreUser) {
+        this.txtNombreUser = txtNombreUser;
+    }
+
+    public javax.swing.JTextField getTxtUsuario() {
+        return txtUsuario;
+    }
+
+    public void setTxtUsuario(javax.swing.JTextField txtUsuario) {
+        this.txtUsuario = txtUsuario;
+    }
+
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> boxTipoUsuario;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnMenu;
     private javax.swing.JButton btnModificar;
-    private javax.swing.JButton btnRegresarMenu;
-    private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -339,11 +440,11 @@ public class CambiosUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private java.awt.Panel panel1;
-    private javax.swing.JTextField textfieldApellido;
-    private javax.swing.JTextField textfieldCURP;
-    private javax.swing.JTextField textfieldNombre;
-    private javax.swing.JTextField textfieldNombre1;
-    private javax.swing.JTextField textfieldNombreU;
+    private javax.swing.JTextField txtApellido;
     private javax.swing.JPasswordField txtContrasena;
+    private javax.swing.JTextField txtCurp;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtNombreUser;
+    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

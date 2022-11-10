@@ -5,7 +5,7 @@
  */
 package Controlador;
 
-import Vista.PanelDelMenu;
+import Vista.PanelMenu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -14,18 +14,18 @@ import java.awt.event.ActionListener;
  * @author diana
  */
 public class CtrlPanelMenuFunciones implements ActionListener{
-    private PanelDelMenu panelMenu;
+    private PanelMenu panelMenu;
     
-    public CtrlPanelMenuFunciones(PanelDelMenu panelMenu) {
+    public CtrlPanelMenuFunciones(PanelMenu panelMenu) {
         this.panelMenu = panelMenu;
         
-        this.panelMenu.getBtnAgregarMenu().addActionListener(this);
-        this.panelMenu.getBtnModificarMenu().addActionListener(this);
+        this.panelMenu.getBtnAgregar().addActionListener(this);
+        this.panelMenu.getBtnModificar().addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == panelMenu.getBtnAgregarMenu()){
+        if(e.getSource() == this.panelMenu.getBtnAgregar()){
              // System.out.println("IR A LA VENTANA AGREGAR FUNCIONES");  
         }
     }
