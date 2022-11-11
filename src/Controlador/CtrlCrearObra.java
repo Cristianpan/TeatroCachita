@@ -43,13 +43,15 @@ public class CtrlCrearObra implements ActionListener{
             }else{
                 DAOObra daoObra= new DAOObra();
                 if(daoObra.buscarObra(this.frmCrearObra.getTxtNombre().getText().trim()) == null){
-                    obtenerDatosRegistro();
-                    limpiarCampos();
-
-                    if (daoObra.agregarObra(this.obra))
+                    boolean checar=obtenerDatosRegistro();
+                    
+                    if(checar==true){
+                        limpiarCampos();
+                        if (daoObra.agregarObra(this.obra))
                         JOptionPane.showMessageDialog(null, "Registro exitoso");
-                    else
-                        JOptionPane.showMessageDialog(null, "Ha ocurrido un error");
+                        else
+                            JOptionPane.showMessageDialog(null, "Ha ocurrido un error");
+                        }
                 }
             }
         }
@@ -81,14 +83,20 @@ public class CtrlCrearObra implements ActionListener{
         this.frmCrearObra.getTxtResumenTematico().getText().isEmpty();
     }
     
-    public void obtenerDatosRegistro() {
-        this.obra.setNombre(frmCrearObra.getTxtNombre().getText().trim());
-        this.obra.setDuracion(Double.parseDouble(frmCrearObra.getTxtDuracion().getText().trim()));
-        this.obra.setGenero(frmCrearObra.getTxtGenero().getText().trim());
-        this.obra.setPrecioBoleto(Double.parseDouble(frmCrearObra.getTxtPrecio().getText().trim()));
-        this.obra.setPrimerActor(frmCrearObra.getTxtPrimerActor().getText().trim());
-        this.obra.setSegundoActor(frmCrearObra.getTxtSegundoActor().getText().trim());
-        this.obra.setResumen(frmCrearObra.getTxtResumenTematico().getText().trim());
+    public boolean obtenerDatosRegistro() {
+        try {
+            this.obra.setNombre(frmCrearObra.getTxtNombre().getText().trim());
+            this.obra.setDuracion(Double.parseDouble(frmCrearObra.getTxtDuracion().getText().trim()));
+            this.obra.setGenero(frmCrearObra.getTxtGenero().getText().trim());
+            this.obra.setPrecioBoleto(Double.parseDouble(frmCrearObra.getTxtPrecio().getText().trim()));
+            this.obra.setPrimerActor(frmCrearObra.getTxtPrimerActor().getText().trim());
+            this.obra.setSegundoActor(frmCrearObra.getTxtSegundoActor().getText().trim());
+            this.obra.setResumen(frmCrearObra.getTxtResumenTematico().getText().trim());
+            return true;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(frmCrearObra, "Algún dato no corresponde al campo");
+             return false;
+        }
     }
     
     public void limpiarCampos(){
