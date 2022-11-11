@@ -10,6 +10,6 @@ public class ChachitaMain {
     public static void main(String[] args) {
         Login frmLogin = new Login();
         User modelUser = new User();
-        CtrlLogin ctrlLogin = new CtrlLogin(modelUser, frmLogin);     
+        CtrlLogin ctrlLogin = new CtrlLogin(modelUser, frmLogin);
     }
 }

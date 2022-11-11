@@ -88,10 +88,11 @@ public class CtrlCambiosObra implements ActionListener{
                     if(obraSeleccionada != "-Seleccionar Obra-"){
                         DAOObra daoObra= new DAOObra();
                         Obra obra= daoObra.buscarObra(obraSeleccionada);
-                        obtenerDatosRegistro(); //la this,obra va a tener los datos de registro
+                        boolean modificar= obtenerDatosRegistro(); //la this,obra va a tener los datos de registro
                         this.obra.setId(obra.getId());
                         
-                        if(this.obra.getNombre().equals(obra.getNombre()) || daoObra.buscarObra(this.obra.getNombre())==  null){
+                        if(modificar== true){
+                            if(this.obra.getNombre().equals(obra.getNombre()) || daoObra.buscarObra(this.obra.getNombre())==  null){
                             if (daoObra.actualizarObra(this.obra)) {
                                 JOptionPane.showMessageDialog(frmCambiosObra, "Actualización exitosa");
                                 this.frmCambiosObra.getComboBoxObra().setSelectedItem(this.obra.getNombre());
@@ -102,8 +103,9 @@ public class CtrlCambiosObra implements ActionListener{
                                 }else {
                                     JOptionPane.showMessageDialog(frmCambiosObra, "Algo ha salido mal");
                                 }
-                        }else{
-                            JOptionPane.showMessageDialog(frmCambiosObra, "Obra existente. Ingrese otro");
+                            }else{
+                                JOptionPane.showMessageDialog(frmCambiosObra, "Obra existente. Ingrese otro");
+                            }
                         }
                     }else{
                         JOptionPane.showMessageDialog(frmCambiosObra, "No se ha seleccionado alguna obra");
@@ -170,14 +172,20 @@ public class CtrlCambiosObra implements ActionListener{
         frmCambiosObra.getTxtResumenTematico().setText(obra.getResumen());
     }
     
-     public void obtenerDatosRegistro() {
-        obra.setNombre(frmCambiosObra.getTxtNombre().getText().trim());
-        obra.setDuracion(Double.parseDouble(frmCambiosObra.getTxtDuracion().getText().trim()));
-        obra.setGenero(frmCambiosObra.getTxtGenero().getText().trim());
-        obra.setPrecioBoleto(Double.parseDouble(frmCambiosObra.getTxtPrecio().getText().trim()));
-        obra.setPrimerActor(frmCambiosObra.getTxtPrimerActor().getText().trim());
-        obra.setSegundoActor(frmCambiosObra.getTxtSegundoActor().getText().trim());
-        obra.setResumen(frmCambiosObra.getTxtResumenTematico().getText().trim());
+     public boolean obtenerDatosRegistro() {
+         try {
+             obra.setNombre(frmCambiosObra.getTxtNombre().getText().trim());
+            obra.setDuracion(Double.parseDouble(frmCambiosObra.getTxtDuracion().getText().trim()));
+            obra.setGenero(frmCambiosObra.getTxtGenero().getText().trim());
+            obra.setPrecioBoleto(Double.parseDouble(frmCambiosObra.getTxtPrecio().getText().trim()));
+            obra.setPrimerActor(frmCambiosObra.getTxtPrimerActor().getText().trim());
+            obra.setSegundoActor(frmCambiosObra.getTxtSegundoActor().getText().trim());
+            obra.setResumen(frmCambiosObra.getTxtResumenTematico().getText().trim());
+            return true;
+         } catch (Exception e) {
+             JOptionPane.showMessageDialog(frmCambiosObra, "Algún dato no corresponde al campo");
+             return false;
+         }
     }
     
 }
