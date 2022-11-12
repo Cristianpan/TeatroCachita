@@ -1,82 +1,67 @@
 package Controlador;
 
+import java.sql.*;
+import java.text.*;
 import java.awt.event.*;
-import java.sql.Date;
-import java.sql.Time;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
-import DAO.DAOFuncion;
-import DAO.DAOObra;
-import Modelo.Funcion;
-import Modelo.Obra;
+import DAO.*;
+import Modelo.*;
 import Vista.CrearFuncion;
-
 
 public class CtrlAgregarFunciones implements ActionListener {
 	
-	private Funcion funcion;
 	private CrearFuncion vista;
+	ArrayList<Funcion> funciones;
+	private String obraSeleccionada;
 	
-	public CtrlAgregarFunciones(Funcion funcion, CrearFuncion vista) {
-		this.funcion = funcion;
+	DAOObra daoObra = new DAOObra();
+	DAOFuncion daoFuncion = new DAOFuncion();
+	
+	public CtrlAgregarFunciones(CrearFuncion vista) {
 		this.vista = vista;
 		agregarObrasComboBox();
+
+		vista.getBtnAgregar().addActionListener(this);
+        vista.getBtnRegresarMenu().addActionListener(this);
+        vista.getComboBoxHora().addActionListener(this);
+        vista.getComboBoxObra().addActionListener(this);
 	}
 
 	public void agregarObrasComboBox() {
         DAOObra daoObras= new DAOObra();
         ArrayList<Obra> obras = daoObras.obrasRegistradas();
-        this.vista.getComboBoxObra().addItem("-Seleccionar Obra-");
+        vista.getComboBoxObra().addItem("-Seleccionar Obra-");
         
         for (int i = 0; i < obras.size(); i++) {
-            this.vista.getComboBoxObra().addItem(obras.get(i).getNombre());
+            vista.getComboBoxObra().addItem(obras.get(i).getNombre());
         }
     }
 
 	@Override
 	public void actionPerformed(ActionEvent event) {
-		if (event.getSource() == this.vista.getjDateChooser1()) {
-            String obraSeleccionada = this.vista.getComboBoxObra().getSelectedItem().toString();
 
-			if (!"-Seleccionar Obra-".equals(obraSeleccionada)) {
-				SimpleDateFormat Format = new SimpleDateFormat("yyyy-MM-dd");
-				SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:ss");
-				String fecha = Format.format(this.vista.getjDateChooser1().getDate());
-                
-				DAOObra daoObra = new DAOObra();
-				DAOFuncion daoFuncion = new DAOFuncion();
+		if (event.getSource() == vista.getComboBoxObra()) {
+            obraSeleccionada = vista.getComboBoxObra().getSelectedItem().toString();
 
-                Obra obra = daoObra.buscarObra(obraSeleccionada);
-				ArrayList<Funcion> funciones = daoFuncion.buscarPorFecha(fecha);
+			if (!("-Seleccionar Obra-".equals(obraSeleccionada))) {/*  */}
+		}
 
-				if (funciones.isEmpty()) {
-					Funcion nuevaFuncion = new Funcion();
+		if (event.getSource() == vista.getBtnAgregar()) {
+			Funcion nuevaFuncion = new Funcion();
+			SimpleDateFormat timeFormater = new SimpleDateFormat("HH:mm");
+			Obra obra = daoObra.buscarObra(vista.getComboBoxObra().getSelectedItem().toString());
 
-					try {
-						nuevaFuncion.setFechaPresentacion(new Date(vista.getjDateChooser1().getDate().getTime()));
-						nuevaFuncion.setHoraPresentacion(new Time(sdf.parse(vista.getComboBoxHora().toString()).getTime()));
-						nuevaFuncion.setObraTeatral(obraSeleccionada);
-					} catch (Exception e) {
-						System.out.println("Error while parsing creating a new funcion");
-					}
-
-					daoFuncion.agregarFuncion(nuevaFuncion, obra.getId());
-				}
-
-				if (funciones.size() == 2) {
-					this.vista.getBtnAgregar().setEnabled(false);
-					// Implementar JOPTIONPane alerta de no horarios disponibles
-				}
-
-				// Si ya existe la de las 6 y la función tarda más de 2.5 horas no muestra nada el combobox de horas.
-				for (Funcion funcionIt : funciones) {
-					if ((funcionIt.getHoraPresentacion().equals(new Time(18, 0, 0))) && (obra.getDuracion() > 2.5)) {
-						this.vista.getBtnAgregar().setEnabled(false);
-						// Implementar JOPTIONPane alerta de no horarios disponibles
-					}
-				}
+			try {
+				nuevaFuncion.setFechaPresentacion(new Date(vista.getjDateChooser1().getDate().getTime()));
+				nuevaFuncion.setHoraPresentacion(new Time(timeFormater.parse(vista.getComboBoxHora().getSelectedItem().toString()).getTime()));
+				nuevaFuncion.setObraTeatral(obraSeleccionada);
+			} catch (Exception e) {
+				JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios.");
 			}
+
+			daoFuncion.agregarFuncion(nuevaFuncion, obra.getId());
 		}
 	}
 }

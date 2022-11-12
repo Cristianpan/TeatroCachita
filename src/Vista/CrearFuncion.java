@@ -1,25 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Vista;
 
-import java.awt.Color;
-import javax.swing.plaf.basic.BasicMenuBarUI;
+import java.sql.Time;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
+
+import DAO.DAOFuncion;
+import DAO.DAOObra;
+import Modelo.Funcion;
+import Modelo.Obra;
 
 /**
  *
  * @author diana
  */
 public class CrearFuncion extends javax.swing.JFrame {
-
     /**
      * Creates new form VentanaCrearFuncion
      */
     public CrearFuncion() {
         initComponents();
-        
     }
 
     /**
@@ -104,12 +105,12 @@ public class CrearFuncion extends javax.swing.JFrame {
 
         comboBoxHora.setBackground(new java.awt.Color(255, 255, 255));
         comboBoxHora.setForeground(new java.awt.Color(0, 0, 0));
-        comboBoxHora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboBoxHora.setModel(new javax.swing.DefaultComboBoxModel<>());
         panel1.add(comboBoxHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 240, -1));
 
         comboBoxObra.setBackground(new java.awt.Color(255, 255, 255));
         comboBoxObra.setForeground(new java.awt.Color(0, 0, 0));
-        comboBoxObra.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboBoxObra.setModel(new javax.swing.DefaultComboBoxModel<>());
         panel1.add(comboBoxObra, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 240, -1));
 
         jButton1.setBackground(new java.awt.Color(25, 43, 55));
@@ -178,6 +179,40 @@ public class CrearFuncion extends javax.swing.JFrame {
 
         pack();
         setLocationRelativeTo(null);
+
+        jDateChooser1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                try {
+                    SimpleDateFormat dateFormater = new SimpleDateFormat("yyyy-MM-dd");
+
+                    DAOObra daoObra = new DAOObra();
+                    DAOFuncion daoFuncion = new DAOFuncion();
+            
+                    String fecha = dateFormater.format(getjDateChooser1().getDate());
+            
+                    Obra obra = daoObra.buscarObra(getComboBoxObra().getSelectedItem().toString());
+                    ArrayList<Funcion> funciones = daoFuncion.buscarPorFecha(fecha);
+            
+                    if (funciones.isEmpty()) {
+                        getBtnAgregar().setEnabled(true);
+                        getComboBoxHora().addItem("18:00");
+                        getComboBoxHora().addItem("20:30");
+                    }
+            
+                    if (funciones.size() == 2) {
+                        JOptionPane.showMessageDialog(null, "Ambos horarios han sido registrados previamente. Por favor, seleccione otro día.");
+                        getBtnAgregar().setEnabled(false);
+                    }
+                    
+                    for (Funcion funcionIt : funciones) {
+                        if ((funcionIt.getHoraPresentacion().equals(new Time(18, 0, 0))) && (obra.getDuracion() > 150)) {
+                            JOptionPane.showMessageDialog(null, "No hay horarios disponibles.");
+                            getBtnAgregar().setEnabled(false);
+                        }
+                    }
+                } catch (Exception e) {/* Void */}
+            }
+          });
     }// </editor-fold>//GEN-END:initComponents
 
     /**
@@ -353,6 +388,4 @@ public class CrearFuncion extends javax.swing.JFrame {
     public void setPanel5(java.awt.Panel panel5) {
         this.panel5 = panel5;
     }
-
-    
 }
