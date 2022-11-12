@@ -20,16 +20,16 @@ import java.util.logging.Logger;
  *
  * @author diana
  */
-public class DAOObra extends Db{
-    
-    public boolean agregarObra(Obra obra){
-        boolean obraAgregada= false;
-        PreparedStatement ps = null; 
-        Connection con = getConexion(); 
+public class DAOObra extends Db {
+
+    public boolean agregarObra(Obra obra) {
+        boolean obraAgregada = false;
+        PreparedStatement ps = null;
+        Connection con = getConexion();
         String sql = "INSERT INTO obra (nombre, genero, primerActor, segundoActor, precioBoleto, duracion, resumen) VALUES (?,?,?,?,?,?,?)";
-        
+
         try {
-            ps= con.prepareStatement(sql);
+            ps = con.prepareStatement(sql);
             ps.setString(1, obra.getNombre());
             ps.setString(2, obra.getGenero());
             ps.setString(3, obra.getPrimerActor());
@@ -38,10 +38,10 @@ public class DAOObra extends Db{
             ps.setString(6, Double.toString(obra.getDuracion()));
             ps.setString(7, obra.getResumen());
             ps.execute();
-            obraAgregada=true;
+            obraAgregada = true;
         } catch (Exception e) {
             System.out.println(e);
-        } finally{
+        } finally {
             try {
                 con.close();
             } catch (Exception e) {
@@ -50,39 +50,36 @@ public class DAOObra extends Db{
         }
         return obraAgregada;
     }
-    
-    public Obra buscarObra(String nombreObra){
-        Obra obra= null;
+
+    public Obra buscarObra(String nombreObra) {
+        Obra obra = null;
         PreparedStatement ps;
-        Connection con = getConexion(); 
-        ResultSet rs = null; 
-        
-        String sql = "SELECT * FROM obra WHERE nombre = ?"; 
-        
+        Connection con = getConexion();
+        ResultSet rs = null;
+
+        String sql = "SELECT * FROM obra WHERE nombre = ?";
+
         try {
             ps = con.prepareStatement(sql);
             ps.setString(1, nombreObra);
-            rs = ps.executeQuery(); //trae resultados de la consulta
-            
-            if(rs.next()){
-                obra = new Obra(); 
+            rs = ps.executeQuery(); // trae resultados de la consulta
+
+            if (rs.next()) {
+                obra = new Obra();
                 obra.setId(Integer.parseInt(rs.getString("id")));
-                obra.setNombre(rs.getString("nombre")); 
+                obra.setNombre(rs.getString("nombre"));
                 obra.setPrimerActor(rs.getString("primerActor"));
                 obra.setSegundoActor(rs.getString("segundoActor"));
                 obra.setGenero(rs.getString("genero"));
-                obra.setDuracion(Double.parseDouble(rs.getString("duracion")));
+                obra.setDuracion(Integer.parseInt(rs.getString("duracion")));
                 obra.setPrecioBoleto(Double.parseDouble(rs.getString("precioBoleto")));
-                 
-                obra.setResumen(rs.getString("resumen")); 
+
+                obra.setResumen(rs.getString("resumen"));
             }
-            
-            
+
         } catch (Exception e) {
             e.printStackTrace();
-            e.printStackTrace();
-            
-        }finally{
+        } finally {
             try {
                 con.close();
             } catch (Exception e) {
@@ -91,16 +88,16 @@ public class DAOObra extends Db{
         }
         return obra;
     }
-    
-    public boolean actualizarObra(Obra obra){
+
+    public boolean actualizarObra(Obra obra) {
         boolean fueActualizado = false;
         PreparedStatement ps;
         Connection con = getConexion();
-        
+
         String sql = "UPDATE obra SET nombre = ?, genero = ?, primerActor = ?, segundoActor = ?, precioBoleto = ?, duracion = ?, resumen = ? WHERE id = ?";
-        
+
         try {
-            ps= con.prepareStatement(sql);
+            ps = con.prepareStatement(sql);
             ps.setString(1, obra.getNombre());
             ps.setString(2, obra.getGenero());
             ps.setString(3, obra.getPrimerActor());
@@ -109,77 +106,81 @@ public class DAOObra extends Db{
             ps.setString(6, Double.toString(obra.getDuracion()));
             ps.setString(7, obra.getResumen());
             ps.setInt(8, obra.getId());
-            
+
             ps.executeUpdate();
-            fueActualizado= true;
-            
+            fueActualizado = true;
+
         } catch (SQLException ex) {
             Logger.getLogger(DAOObra.class.getName()).log(Level.SEVERE, null, ex);
-        }finally{
+        } finally {
             try {
-               con.close(); 
+                con.close();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-            
+
         return fueActualizado;
     }
-    
-    public boolean eliminarObra(int idObra){
-        boolean fueEliminado = false; 
+
+    public boolean eliminarObra(int idObra) {
+        boolean fueEliminado = false;
         PreparedStatement ps;
         Connection con = getConexion();
         String sql = "DELETE FROM obra WHERE id = ?";
-        
+
         try {
-            ps= con.prepareStatement(sql);
+            ps = con.prepareStatement(sql);
             ps.setInt(1, idObra);
-            
+
             ps.executeUpdate();
-            fueEliminado= true;
+            fueEliminado = true;
         } catch (SQLException ex) {
             Logger.getLogger(DAOObra.class.getName()).log(Level.SEVERE, null, ex);
-        }finally{
+        } finally {
             try {
                 con.close();
             } catch (Exception e) {
-                 e.printStackTrace();
+                e.printStackTrace();
             }
         }
         return fueEliminado;
     }
-    
-    public ArrayList<Obra> obrasRegistradas(){
-        ArrayList<Obra> obras= new ArrayList<>();
-        PreparedStatement ps;
-        Connection con = getConexion(); 
-        ResultSet rs = null; 
-        
-       String sql = "SELECT * FROM obra";
-       
+
+    public ArrayList<Obra> obtenerObrasRegistradas() {
+        ArrayList<Obra> obras = new ArrayList<>();
+        PreparedStatement ps = null;
+        Connection con = getConexion();
+        ResultSet rs = null;
+
+        String sql = "SELECT * FROM obra";
+
         try {
             ps = con.prepareStatement(sql);
-            rs= ps.executeQuery();
-            
-            while(rs.next()){
-               Obra obra= new Obra();
-               obra.setId(rs.getInt("id"));
-               obra.setNombre(rs.getString("nombre"));
-               obra.setGenero(rs.getString("genero"));
-               obra.setDuracion(rs.getDouble("duracion"));
-               obra.setPrimerActor(rs.getString("primerActor"));
-               obra.setSegundoActor(rs.getString("segundoActor"));
-               obra.setPrecioBoleto(rs.getDouble("precioBoleto"));
-               obra.setResumen(rs.getString("resumen"));
-               obras.add(obra);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Obra obra = new Obra();
+                obra.setId(rs.getInt("id"));
+                obra.setNombre(rs.getString("nombre"));
+                obra.setGenero(rs.getString("genero"));
+                obra.setDuracion(rs.getInt("duracion"));
+                obra.setPrimerActor(rs.getString("primerActor"));
+                obra.setSegundoActor(rs.getString("segundoActor"));
+                obra.setPrecioBoleto(rs.getDouble("precioBoleto"));
+                obra.setResumen(rs.getString("resumen"));
+                obras.add(obra);
             }
-            
-            ps.close();
         } catch (SQLException ex) {
             Logger.getLogger(DAOObra.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         return obras;
     }
-    
+
 }

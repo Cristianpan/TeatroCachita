@@ -14,7 +14,7 @@ public class Obra {
     private String nombre;
     private String genero;
     private  String resumen;
-    private double duracion;
+    private int duracion;
     private String primerActor;
     private String segundoActor;
     private double precioBoleto;
@@ -51,11 +51,11 @@ public class Obra {
         this.resumen = resumen;
     }
 
-    public double getDuracion() {
+    public int getDuracion() {
         return duracion;
     }
 
-    public void setDuracion(double duracion) {
+    public void setDuracion(int duracion) {
         this.duracion = duracion;
     }
 
