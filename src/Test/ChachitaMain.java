@@ -10,5 +10,6 @@ public class ChachitaMain {
         Login frmLogin = new Login();
         User modelUser = new User();
         CtrlLogin ctrlLogin = new CtrlLogin(modelUser, frmLogin);
+
     }
 }
