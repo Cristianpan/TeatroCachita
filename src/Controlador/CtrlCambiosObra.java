@@ -32,9 +32,7 @@ public class CtrlCambiosObra implements ActionListener{
         this.frmCambiosObra.getBtnModificar().addActionListener(this);
         this.frmCambiosObra.getBtnRegresarMenu().addActionListener(this);
         this.frmCambiosObra.getBtnBuscar().addActionListener(this);
-        this.frmCambiosObra.setVisible(true);
-        
-        
+        this.frmCambiosObra.setVisible(true);  
     }
     
     public void agregarObrasComboBox(){
