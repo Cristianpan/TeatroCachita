@@ -58,7 +58,7 @@ public class CtrlMenu implements ActionListener {
                 cerrarVentana();
 
             } else if (event.getSource() == this.panelMenu.getBtnModificar()){
-                new CtrlCambiosUsuario(new User(), new CambiosUsuario()); 
+                new CtrlCambiosUsuario(new User(), new CambiosUsuario()); // Aqui hay una variable que falta por igualarse
                 cerrarVentana();
                 
             }
