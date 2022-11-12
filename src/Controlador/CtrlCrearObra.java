@@ -8,7 +8,6 @@ package Controlador;
 import Modelo.*;
 import DAO.*;
 import Vista.CrearObra;
-import Vista.CrearObra;
 import Vista.MenuAdmi;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -43,9 +42,9 @@ public class CtrlCrearObra implements ActionListener{
             }else{
                 DAOObra daoObra= new DAOObra();
                 if(daoObra.buscarObra(this.frmCrearObra.getTxtNombre().getText().trim()) == null){
-                    boolean checar=obtenerDatosRegistro();
+                    obtenerDatosRegistro();
                     
-                    if(checar==true){
+                    if(obtenerDatosRegistro()){
                         limpiarCampos();
                         if (daoObra.agregarObra(this.obra))
                         JOptionPane.showMessageDialog(null, "Registro exitoso");
@@ -74,27 +73,29 @@ public class CtrlCrearObra implements ActionListener{
     }
     
     public boolean esVacioInput(){
-        return(frmCrearObra.getTxtNombre().getText().isEmpty() |
-        this.frmCrearObra.getTxtDuracion().getText().isEmpty()|
-        this.frmCrearObra.getTxtGenero().getText().isEmpty()|
-        this.frmCrearObra.getTxtPrecio().getText().isEmpty()|
-        this.frmCrearObra.getTxtPrimerActor().getText().isEmpty()|
-        this.frmCrearObra.getTxtSegundoActor().getText().isEmpty()) |
+        return(frmCrearObra.getTxtNombre().getText().isEmpty() ||
+        this.frmCrearObra.getTxtDuracion().getText().isEmpty()||
+        this.frmCrearObra.getTxtGenero().getText().isEmpty()||
+        this.frmCrearObra.getTxtPrecio().getText().isEmpty()||
+        this.frmCrearObra.getTxtPrimerActor().getText().isEmpty()||
+        this.frmCrearObra.getTxtSegundoActor().getText().isEmpty()) || 
         this.frmCrearObra.getTxtResumenTematico().getText().isEmpty();
     }
     
     public boolean obtenerDatosRegistro() {
+
+        this.obra.setNombre(frmCrearObra.getTxtNombre().getText().trim());
+        this.obra.setGenero(frmCrearObra.getTxtGenero().getText().trim());
+        this.obra.setPrimerActor(frmCrearObra.getTxtPrimerActor().getText().trim());
+        this.obra.setSegundoActor(frmCrearObra.getTxtSegundoActor().getText().trim());
+        this.obra.setResumen(frmCrearObra.getTxtResumenTematico().getText().trim());
+        
         try {
-            this.obra.setNombre(frmCrearObra.getTxtNombre().getText().trim());
-            this.obra.setDuracion(Double.parseDouble(frmCrearObra.getTxtDuracion().getText().trim()));
-            this.obra.setGenero(frmCrearObra.getTxtGenero().getText().trim());
             this.obra.setPrecioBoleto(Double.parseDouble(frmCrearObra.getTxtPrecio().getText().trim()));
-            this.obra.setPrimerActor(frmCrearObra.getTxtPrimerActor().getText().trim());
-            this.obra.setSegundoActor(frmCrearObra.getTxtSegundoActor().getText().trim());
-            this.obra.setResumen(frmCrearObra.getTxtResumenTematico().getText().trim());
+            this.obra.setDuracion(Integer.parseInt(frmCrearObra.getTxtDuracion().getText().trim()));
             return true;
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(frmCrearObra, "Algún dato no corresponde al campo");
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(frmCrearObra, "El dato precio o duración es incorrecto");
              return false;
         }
     }
