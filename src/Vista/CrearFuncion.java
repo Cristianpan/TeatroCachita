@@ -233,4 +233,126 @@ public class CrearFuncion extends javax.swing.JFrame {
     private java.awt.Panel panel4;
     private java.awt.Panel panel5;
     // End of variables declaration//GEN-END:variables
+    
+    public javax.swing.JButton getBtnAgregar() {
+        return btnAgregar;
+    }
+
+    public void setBtnAgregar(javax.swing.JButton btnAgregar) {
+        this.btnAgregar = btnAgregar;
+    }
+
+    public javax.swing.JButton getBtnRegresarMenu() {
+        return btnRegresarMenu;
+    }
+
+    public void setBtnRegresarMenu(javax.swing.JButton btnRegresarMenu) {
+        this.btnRegresarMenu = btnRegresarMenu;
+    }
+
+    public javax.swing.JComboBox<String> getComboBoxHora() {
+        return comboBoxHora;
+    }
+
+    public void setComboBoxHora(javax.swing.JComboBox<String> comboBoxHora) {
+        this.comboBoxHora = comboBoxHora;
+    }
+
+    public javax.swing.JComboBox<String> getComboBoxObra() {
+        return comboBoxObra;
+    }
+
+    public void setComboBoxObra(javax.swing.JComboBox<String> comboBoxObra) {
+        this.comboBoxObra = comboBoxObra;
+    }
+
+    public javax.swing.JButton getjButton1() {
+        return jButton1;
+    }
+
+    public void setjButton1(javax.swing.JButton jButton1) {
+        this.jButton1 = jButton1;
+    }
+
+    public com.toedter.calendar.JDateChooser getjDateChooser1() {
+        return jDateChooser1;
+    }
+
+    public void setjDateChooser1(com.toedter.calendar.JDateChooser jDateChooser1) {
+        this.jDateChooser1 = jDateChooser1;
+    }
+
+    public javax.swing.JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public void setjLabel1(javax.swing.JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
+    }
+
+    public javax.swing.JLabel getjLabel11() {
+        return jLabel11;
+    }
+
+    public void setjLabel11(javax.swing.JLabel jLabel11) {
+        this.jLabel11 = jLabel11;
+    }
+
+    public javax.swing.JLabel getjLabel12() {
+        return jLabel12;
+    }
+
+    public void setjLabel12(javax.swing.JLabel jLabel12) {
+        this.jLabel12 = jLabel12;
+    }
+
+    public javax.swing.JLabel getjLabel2() {
+        return jLabel2;
+    }
+
+    public void setjLabel2(javax.swing.JLabel jLabel2) {
+        this.jLabel2 = jLabel2;
+    }
+
+    public javax.swing.JLabel getjLabel4() {
+        return jLabel4;
+    }
+
+    public void setjLabel4(javax.swing.JLabel jLabel4) {
+        this.jLabel4 = jLabel4;
+    }
+
+    public java.awt.Panel getPanel1() {
+        return panel1;
+    }
+
+    public void setPanel1(java.awt.Panel panel1) {
+        this.panel1 = panel1;
+    }
+
+    public java.awt.Panel getPanel2() {
+        return panel2;
+    }
+
+    public void setPanel2(java.awt.Panel panel2) {
+        this.panel2 = panel2;
+    }
+
+    public java.awt.Panel getPanel4() {
+        return panel4;
+    }
+
+    public void setPanel4(java.awt.Panel panel4) {
+        this.panel4 = panel4;
+    }
+
+    public java.awt.Panel getPanel5() {
+        return panel5;
+    }
+
+    public void setPanel5(java.awt.Panel panel5) {
+        this.panel5 = panel5;
+    }
+
+    
 }
