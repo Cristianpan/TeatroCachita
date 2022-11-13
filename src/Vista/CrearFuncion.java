@@ -105,11 +105,28 @@ public class CrearFuncion extends javax.swing.JFrame {
         comboBoxHora.setBackground(new java.awt.Color(255, 255, 255));
         comboBoxHora.setForeground(new java.awt.Color(0, 0, 0));
         comboBoxHora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboBoxHora.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBoxHoraActionPerformed(evt);
+            }
+        });
         panel1.add(comboBoxHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 240, -1));
 
         comboBoxObra.setBackground(new java.awt.Color(255, 255, 255));
         comboBoxObra.setForeground(new java.awt.Color(0, 0, 0));
         comboBoxObra.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboBoxObra.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                comboBoxObraInputMethodTextChanged(evt);
+            }
+        });
+        comboBoxObra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBoxObraActionPerformed(evt);
+            }
+        });
         panel1.add(comboBoxObra, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 240, -1));
 
         jButton1.setBackground(new java.awt.Color(25, 43, 55));
@@ -179,6 +196,18 @@ public class CrearFuncion extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void comboBoxObraInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_comboBoxObraInputMethodTextChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboBoxObraInputMethodTextChanged
+
+    private void comboBoxObraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxObraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboBoxObraActionPerformed
+
+    private void comboBoxHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxHoraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboBoxHoraActionPerformed
 
     /**
      * @param args the command line arguments
