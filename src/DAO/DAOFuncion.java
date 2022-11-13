@@ -4,6 +4,7 @@ import java.sql.*;
 import java.util.logging.*;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 
 import java.util.ArrayList;
 
@@ -154,5 +155,43 @@ public class DAOFuncion extends Db {
             return false;
         }
     }
+
+    /*
+    public Funcion regresarDatosEnCasillas(JTable tblObra) {
+        Funcion funcion = new Funcion();
+
+        try {
+
+            int fila = tblObra.getSelectedRow();
+            int id = Integer.parseInt(tblObra.getValueAt(fila, 5).toString());
+
+            PreparedStatement ps;
+            ResultSet rs;
+            Connection conexion = getConexion();
+
+            ps = conexion.prepareStatement(
+                    "SELECT nombre, genero, primerActor, segundoActor, precioBoleto, duracion, resumen FROM obra WHERE id = ?");
+            ps.setInt(1, id);
+
+            // Ejecutar consulta
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                obra.setID(id);
+                obra.setNombreObra(rs.getString("nombre"));
+                obra.setGenero(rs.getString("genero"));
+                obra.setResumen(rs.getString("resumen"));
+                obra.setDuracion(rs.getInt("duracion"));
+                obra.setActorPrincipal(rs.getString("actorPrincipal"));
+                obra.setActorSecundario(rs.getString("actorSecundario"));
+                obra.setPrecioBoleto(rs.getDouble("precioBoleto"));
+
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+        }
+
+        return funcion;
+    } */
 	
 }
