@@ -9,10 +9,9 @@ import javax.swing.JOptionPane;
 public class Db {
 
     private Connection myDbConn = null;
-    String url ="jdbc:mysql://cecatidb.mysql.database.azure.com:3306/cachita?useSSL=true&requireSSL=false";
+    String url = "jdbc:mysql://cecatidb.mysql.database.azure.com:3306/cachita?useSSL=true&requireSSL=false";
     
-
-
+    // Se agrego la nueva base de datos
     public Connection getConexion(){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");

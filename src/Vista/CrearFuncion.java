@@ -178,9 +178,13 @@ public class CrearFuncion extends javax.swing.JFrame {
         getContentPane().add(panel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 480, 30));
 
         pack();
+
         setLocationRelativeTo(null);
 
+
+        // Agregar obras ------------------------------------------------------------------------------------------------------------------------------------
         jDateChooser1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 try {
                     SimpleDateFormat dateFormater = new SimpleDateFormat("yyyy-MM-dd");
@@ -210,7 +214,9 @@ public class CrearFuncion extends javax.swing.JFrame {
                             getBtnAgregar().setEnabled(false);
                         }
                     }
-                } catch (Exception e) {/* Void */}
+                } catch (Exception e) {/* Void */
+                    System.out.println(e);
+                }
             }
           });
     }// </editor-fold>//GEN-END:initComponents
