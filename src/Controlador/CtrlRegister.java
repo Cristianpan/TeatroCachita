@@ -55,9 +55,13 @@ public class CtrlRegister implements ActionListener {
             }
 
         } else if (e.getSource() == this.frmRegister.getBtnMenu()) {
-            new CtrlMenu(new MenuAdmi());
-            this.frmRegister.setVisible(false);
-            this.frmRegister.dispose();
+            int opcion = JOptionPane.showConfirmDialog(frmRegister, "¿Está seguro de regresar al menú?", null,
+                    JOptionPane.YES_NO_OPTION, 1);
+            if (opcion == 0) {
+                new CtrlMenu(new MenuAdmi());
+                this.frmRegister.setVisible(false);
+                this.frmRegister.dispose();
+            }
         }
     }
 
