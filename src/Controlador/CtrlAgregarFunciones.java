@@ -31,7 +31,7 @@ public class CtrlAgregarFunciones implements ActionListener {
 
     public void agregarObrasComboBox() {
         DAOObra daoObras = new DAOObra();
-        ArrayList<Obra> obras = daoObras.obrasRegistradas();
+        ArrayList<Obra> obras = daoObras.obtenerObrasRegistradas();
         vista.getComboBoxObra().addItem("-Seleccionar Obra-");
 
         for (int i = 0; i < obras.size(); i++) {
