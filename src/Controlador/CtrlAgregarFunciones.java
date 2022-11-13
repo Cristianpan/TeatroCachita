@@ -3,13 +3,12 @@ package Controlador;
 import java.sql.*;
 import java.text.*;
 import java.awt.event.*;
-import java.beans.PropertyChangeEvent;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 import DAO.*;
 import Modelo.*;
-import Vista.CrearFuncion;
+import Vista.*;
 
 public class CtrlAgregarFunciones implements ActionListener {
 
@@ -40,55 +39,25 @@ public class CtrlAgregarFunciones implements ActionListener {
         }
     }
 
-    public void iniciar() {
-        vista.getjDateChooser1().addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-
-            @Override
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                try {
-                    SimpleDateFormat dateFormater = new SimpleDateFormat("yyyy-MM-dd");
-
-                    DAOObra daoObra = new DAOObra();
-                    DAOFuncion daoFuncion = new DAOFuncion();
-            
-                    String fecha = dateFormater.format(vista.getjDateChooser1().getDate());
-            
-                    Obra obra = daoObra.buscarObra(vista.getComboBoxObra().getSelectedItem().toString());
-                    ArrayList<Funcion> funciones = daoFuncion.buscarPorFecha(fecha);
-            
-                    if (funciones.isEmpty()) {
-                        vista.getBtnAgregar().setEnabled(true);
-                        vista.getComboBoxHora().addItem("18:00");
-                        vista.getComboBoxHora().addItem("20:30");
-                    }
-            
-                    if (funciones.size() == 2) {
-                        JOptionPane.showMessageDialog(null, "Ambos horarios han sido registrados previamente. Por favor, seleccione otro día.");
-                        vista.getBtnAgregar().setEnabled(false);
-                    }
-                    
-                    for (Funcion funcionIt : funciones) {
-                        if ((funcionIt.getHoraPresentacion().equals(new Time(18, 0, 0))) && (obra.getDuracion() > 150)) {
-                            JOptionPane.showMessageDialog(null, "No hay horarios disponibles.");
-                            vista.getBtnAgregar().setEnabled(false);
-                        }
-                    }
-                } catch (Exception e) {
-                    /* Void */
-                }
-            }
-            
-        });
-    }
-
     @Override
     public void actionPerformed(ActionEvent event) {
+
+        if (event.getSource() == this.vista.getBtnRegresarMenu()) {
+            int opcion = JOptionPane.showConfirmDialog(vista, "¿Está seguro de regresar al menú?", null,
+                    JOptionPane.YES_NO_OPTION, 1);
+
+            if (opcion == 0) {
+                new CtrlMenu(new MenuAdmi());
+
+                this.vista.setVisible(false);
+                this.vista.dispose();
+            }
+        }
 
         if (event.getSource() == vista.getComboBoxObra()) {
             obraSeleccionada = vista.getComboBoxObra().getSelectedItem().toString();
 
-            if (!("-Seleccionar Obra-".equals(obraSeleccionada))) {/*  */
-            }
+            if (!("-Seleccionar Obra-".equals(obraSeleccionada))) {/*  */}
         }
 
         if (event.getSource() == vista.getBtnAgregar()) {
@@ -105,6 +74,8 @@ public class CtrlAgregarFunciones implements ActionListener {
             }
 
             daoFuncion.agregarFuncion(nuevaFuncion, obra.getId());
+            JOptionPane.showMessageDialog(null, "Función agregada correctamente.");
+            this.vista.limpiarCampos();
         }
     }
 }

@@ -6,12 +6,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 import javax.swing.JOptionPane;
-import javax.swing.table.TableColumn;
 
 import DAO.DAOFuncion;
 import DAO.DAOObra;
 import Modelo.Funcion;
-import Modelo.Obra;
 import Vista.CambiosFunciones;
 import Vista.MenuAdmi;
 

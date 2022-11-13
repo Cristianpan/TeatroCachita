@@ -6,12 +6,8 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
-import DAO.DAOFuncion;
-import DAO.DAOObra;
-import Modelo.Funcion;
-import Modelo.Obra;
-import javax.accessibility.AccessibleContext;
-import javax.swing.JRootPane;
+import DAO.*;
+import Modelo.*;
 
 /**
  *
@@ -107,12 +103,7 @@ public class CrearFuncion extends javax.swing.JFrame {
 
         comboBoxHora.setBackground(new java.awt.Color(255, 255, 255));
         comboBoxHora.setForeground(new java.awt.Color(0, 0, 0));
-        comboBoxHora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 1", "Item 2", "Item 3", "Item 4" }));
-        comboBoxHora.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboBoxHoraActionPerformed(evt);
-            }
-        });
+        comboBoxHora.setModel(new javax.swing.DefaultComboBoxModel<>());
         panel1.add(comboBoxHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 240, -1));
 
         comboBoxObra.setBackground(new java.awt.Color(255, 255, 255));
@@ -188,10 +179,8 @@ public class CrearFuncion extends javax.swing.JFrame {
 
         setLocationRelativeTo(null);
 
-
         // Agregar obras ------------------------------------------------------------------------------------------------------------------------------------
         jDateChooser1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 try {
                     SimpleDateFormat dateFormater = new SimpleDateFormat("yyyy-MM-dd");
@@ -213,20 +202,33 @@ public class CrearFuncion extends javax.swing.JFrame {
                     if (funciones.size() == 2) {
                         JOptionPane.showMessageDialog(null, "Ambos horarios han sido registrados previamente. Por favor, seleccione otro día.");
                         getBtnAgregar().setEnabled(false);
-                    }
-                    
-                    for (Funcion funcionIt : funciones) {
-                        if ((funcionIt.getHoraPresentacion().equals(new Time(18, 0, 0))) && (obra.getDuracion() > 150)) {
-                            JOptionPane.showMessageDialog(null, "No hay horarios disponibles.");
-                            getBtnAgregar().setEnabled(false);
+                        limpiarCampos();
+                    } else {
+                        if (funciones.get(0).getHoraPresentacion().equals(new Time(18, 0, 0))) {
+                            if (obra.getDuracion() > 150) {
+                                JOptionPane.showInputDialog(null, "No existe un horario disponible. Por favor, seleccione otro día.");
+                                limpiarCampos();
+
+                            } else {
+                                getComboBoxHora().addItem("20:30");
+                            }
+                        } else {
+                            getComboBoxHora().addItem("18:00");
                         }
                     }
+
                 } catch (Exception e) {/* Void */
                     System.out.println(e);
                 }
             }
           });
     }// </editor-fold>//GEN-END:initComponents
+
+    public void limpiarCampos() {
+        getComboBoxHora().setSelectedItem(null);
+        getComboBoxObra().setSelectedItem(null);
+        getjDateChooser1().setDate(null);
+    }
 
     private void comboBoxObraInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_comboBoxObraInputMethodTextChanged
         
