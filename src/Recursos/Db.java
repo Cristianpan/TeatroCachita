@@ -8,17 +8,19 @@ import javax.swing.JOptionPane;
 
 public class Db {
 
-    private Connection con = null; 
-
+    private Connection myDbConn = null;
+    String url = "jdbc:mysql://cecatidb.mysql.database.azure.com:3306/cachita?useSSL=true&requireSSL=false";
+    
+    // Se agrego la nueva base de datos
     public Connection getConexion(){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            this.con = DriverManager.getConnection("");
+            this.myDbConn = DriverManager.getConnection(url, "AbrahamXTS@cecatidb", "Hey?llego?el?sensei");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Asegurese de tener una conexión a la red");
         }
 
-        return this.con;
+        return this.myDbConn;
     }
 
 }

@@ -32,8 +32,8 @@ public class CtrlCambiosObra implements ActionListener {
         this.frmCambiosObra.getBtnModificar().addActionListener(this);
         this.frmCambiosObra.getBtnRegresarMenu().addActionListener(this);
         this.frmCambiosObra.getBtnBuscar().addActionListener(this);
+        
         this.frmCambiosObra.setVisible(true);
-
     }
 
     public void agregarObrasComboBox() {
@@ -118,6 +118,7 @@ public class CtrlCambiosObra implements ActionListener {
         // eliminar
         if (e.getSource() == this.frmCambiosObra.getBtnEliminar()) {
             String obraSeleccionada = this.frmCambiosObra.getComboBoxObra().getSelectedItem().toString();
+            
             if (obraSeleccionada != "-Seleccionar Obra-") {
                 DAOObra daoObra = new DAOObra();
                 Obra obra = daoObra.buscarObra(obraSeleccionada);
