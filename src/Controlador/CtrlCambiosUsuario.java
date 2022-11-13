@@ -25,6 +25,8 @@ public class CtrlCambiosUsuario implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent event) {
+
+        //boton buscar
         if (event.getSource() == this.frmCUsuario.getBtnBuscar()) {
 
             if (this.frmCUsuario.getTxtNombreUser().getText().isEmpty()) {
@@ -39,7 +41,9 @@ public class CtrlCambiosUsuario implements ActionListener {
                 }
             }
 
-        } else if (event.getSource() == this.frmCUsuario.getBtnModificar()) {
+        } 
+        //boton modificar
+        if (event.getSource() == this.frmCUsuario.getBtnModificar()) {
             if (modelUser == null) {
                 JOptionPane.showMessageDialog(frmCUsuario, "Busque un usuario existente", null, 0);
             } else {
@@ -63,7 +67,9 @@ public class CtrlCambiosUsuario implements ActionListener {
 
                 }
             }
-        } else if (event.getSource() == this.frmCUsuario.getBtnEliminar()) {
+        } 
+        //boton modificar
+        if (event.getSource() == this.frmCUsuario.getBtnEliminar()) {
             if (modelUser == null) {
                 JOptionPane.showMessageDialog(frmCUsuario, "Busque un usuario existente", null, 0);
             } else {
@@ -82,14 +88,18 @@ public class CtrlCambiosUsuario implements ActionListener {
                 }
             }
 
-        } else if (event.getSource() == this.frmCUsuario.getBtnCancelar()) {
+        } 
+        //boton cancelar
+        if (event.getSource() == this.frmCUsuario.getBtnCancelar()) {
             int opcion = JOptionPane.showConfirmDialog(frmCUsuario, "¿Desea cancelar la acción?", null,
                     JOptionPane.YES_NO_OPTION, -1);
             if (opcion == 0) {
                 limpiarCampos();
             }
 
-        } else if (event.getSource() == this.frmCUsuario.getBtnMenu()) {
+        } 
+        //boton
+        if (event.getSource() == this.frmCUsuario.getBtnMenu()) {
             int opcion = JOptionPane.showConfirmDialog(frmCUsuario, "¿Está seguro de regresar al menú?", null,
                     JOptionPane.YES_NO_OPTION, 1);
             if (opcion == 0) {
@@ -101,8 +111,7 @@ public class CtrlCambiosUsuario implements ActionListener {
         }
     }
 
-    // Muestra en el frame los datos obtenidos tras haber realizado la busqueda del
-    // usuario
+    // Muestra en el frame los datos obtenidos tras haber realizado la busqueda del usuario
     public void mostrarDatos() {
         this.frmCUsuario.getTxtNombre().setText(this.modelUser.getNombre());
         this.frmCUsuario.getTxtApellido().setText(this.modelUser.getApellido());
@@ -120,7 +129,7 @@ public class CtrlCambiosUsuario implements ActionListener {
                 || this.frmCUsuario.getTxtApellido().getText().isEmpty()
                 || this.frmCUsuario.getTxtUsuario().getText().isEmpty()
                 || this.frmCUsuario.getTxtCurp().getText().isEmpty()
-                || this.frmCUsuario.getTxtContrasena().getText().isEmpty()
+                || this.frmCUsuario.getTxtContrasena().getPassword().toString().isEmpty()
                 || this.frmCUsuario.getBoxTipoUsuario().getSelectedIndex() == 0);
     }
 

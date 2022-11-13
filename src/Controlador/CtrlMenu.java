@@ -49,6 +49,7 @@ public class CtrlMenu implements ActionListener {
         else if (event.getSource() == this.menu.getBtnFunciones())
             indexBoton = 3;
 
+         // boton usaurios => agregar/modificar
         if (indexBoton == 1) {
             agregarPanel();
             marcarBoton(colorBotonSeleccionado, colorBotonNormal, colorBotonNormal);
@@ -63,17 +64,24 @@ public class CtrlMenu implements ActionListener {
                 
             }
 
-        } else if (indexBoton == 2) {
+        } 
+         // boton obras => agregar/modificar
+        if (indexBoton == 2) {
 
             agregarPanel();
             marcarBoton(colorBotonNormal, colorBotonSeleccionado, colorBotonNormal);
 
             if (event.getSource() == this.panelMenu.getBtnAgregar()){
-
+                new CtrlCrearObra(new Obra(), new CrearObra()); 
+                cerrarVentana();
             } else if (event.getSource() == this.panelMenu.getBtnModificar()){
-                
+                new CtrlCambiosObra(new Obra(), new CambiosObra()); 
+                cerrarVentana();
             }
-        } else if (indexBoton == 3) {
+            
+        } 
+        // boton funciones => agregar/modificar
+        if (indexBoton == 3) {
             agregarPanel();
             marcarBoton(colorBotonNormal, colorBotonNormal, colorBotonSeleccionado);
 
@@ -82,10 +90,14 @@ public class CtrlMenu implements ActionListener {
             } else if (event.getSource() == this.panelMenu.getBtnModificar()){
 
             }
-        } else if (event.getSource() == menu.getBtnReportes()) {
+        } 
+        //boton reportes
+        if (event.getSource() == menu.getBtnReportes()) {
             // IR A LOS REPORTES
 
-        } else if (event.getSource() == menu.getBtnSalir()) {
+        } 
+        //boton salir 
+        if (event.getSource() == menu.getBtnSalir()) {
             int opcion = JOptionPane.showConfirmDialog(menu, "¿Desea cerrar sesión?", null,
                     JOptionPane.YES_NO_OPTION, 1);
 
@@ -123,3 +135,5 @@ public class CtrlMenu implements ActionListener {
     }
 
 }
+
+
