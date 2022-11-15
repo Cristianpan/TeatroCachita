@@ -5,6 +5,11 @@ import java.util.logging.*;
 
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
+import com.mysql.cj.protocol.Resultset;
+import com.mysql.cj.x.protobuf.MysqlxPrepare.Prepare;
+import com.mysql.cj.xdevapi.Result;
 
 import java.util.ArrayList;
 
@@ -123,14 +128,31 @@ public class DAOFuncion extends Db {
             e.printStackTrace();
 
             return idObra;
-        }
-        finally {
+        } finally {
             try {
                 con.close();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
+    }
+    
+    // Esta funcion retorna una obra con todos sus datos desde la base de datos
+    public ResultSet getDatosObra(int idObra) {
+        Connection con = getConexion();
+        PreparedStatement ps;
+        ResultSet rs = null; // Falta debuguear que ocurre cuando no existe el id de la obra que se pide
+        String sql = "SELECT nombre, genero, primerActor, duracion WHERE id = ?";
+
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, idObra);
+            rs = ps.executeQuery();
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+        }
+
+        return rs;
     }
     
     public boolean modificarFuncion(Funcion funcion, Funcion funcionModificada) {
@@ -159,23 +181,23 @@ public class DAOFuncion extends Db {
     /*
     public Funcion regresarDatosEnCasillas(JTable tblObra) {
         Funcion funcion = new Funcion();
-
+    
         try {
-
+    
             int fila = tblObra.getSelectedRow();
             int id = Integer.parseInt(tblObra.getValueAt(fila, 5).toString());
-
+    
             PreparedStatement ps;
             ResultSet rs;
             Connection conexion = getConexion();
-
+    
             ps = conexion.prepareStatement(
                     "SELECT nombre, genero, primerActor, segundoActor, precioBoleto, duracion, resumen FROM obra WHERE id = ?");
             ps.setInt(1, id);
-
+    
             // Ejecutar consulta
             rs = ps.executeQuery();
-
+    
             while (rs.next()) {
                 obra.setID(id);
                 obra.setNombreObra(rs.getString("nombre"));
@@ -185,13 +207,42 @@ public class DAOFuncion extends Db {
                 obra.setActorPrincipal(rs.getString("actorPrincipal"));
                 obra.setActorSecundario(rs.getString("actorSecundario"));
                 obra.setPrecioBoleto(rs.getDouble("precioBoleto"));
-
+    
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.toString());
         }
-
+    
         return funcion;
     } */
+    
+    // Cargara los datos de funciones en la jtable de la vista con ayuda del controlador
+    // No terminado
+    public JTable cargarTabla(JTable tblFunciones) {
+        DefaultTableModel modtabla = (DefaultTableModel) tblFunciones.getModel();
+        PreparedStatement ps;
+        Resultset rs;
+        ResultSetMetaData rsMd;
+        Connection con = getConexion();
+        String sql = "SELECT funcion id = ?";
+
+        modtabla.setRowCount(0);
+        int columnas;
+
+        try {
+            ps = con.prepareStatement(sql);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        finally {
+            try {
+                con.close();
+            } catch (Exception exception) {
+                exception.printStackTrace();
+            }
+        }
+
+        return tblFunciones;
+    }
 	
 }

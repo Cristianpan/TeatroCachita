@@ -88,6 +88,7 @@ public class CtrlModificarEliminarFunciones implements ActionListener, MouseList
     }
 
     // Esto esta bugueado, no sirve jiji
+    // No esta declarado el MouseListener
     @Override
     public void mouseClicked(MouseEvent event) {
 
