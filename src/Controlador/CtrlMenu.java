@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controlador;
 
 import Modelo.*;
@@ -14,10 +9,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author diana
- */
 public class CtrlMenu implements ActionListener {
     private MenuAdmi menu;
     private PanelMenu panelMenu = new PanelMenu();
@@ -60,8 +51,7 @@ public class CtrlMenu implements ActionListener {
 
             } else if (event.getSource() == this.panelMenu.getBtnModificar()){
                 new CtrlCambiosUsuario(new User(), new CambiosUsuario()); // Aqui hay una variable que falta por igualarse
-                cerrarVentana();
-                
+                cerrarVentana(); 
             }
 
         } 
@@ -86,14 +76,21 @@ public class CtrlMenu implements ActionListener {
             marcarBoton(colorBotonNormal, colorBotonNormal, colorBotonSeleccionado);
 
             if (event.getSource() == this.panelMenu.getBtnAgregar()){
+                new CtrlAgregarFunciones(new CrearFuncion(), new Funcion()); 
+                cerrarVentana();
 
             } else if (event.getSource() == this.panelMenu.getBtnModificar()){
 
+                new CtrlModificarEliminarFunciones(new CambiosFunciones(), new Funcion()); 
+                cerrarVentana();
             }
         } 
+        
         //boton reportes
         if (event.getSource() == menu.getBtnReportes()) {
             // IR A LOS REPORTES
+            cerrarVentana();
+            new CtrlReportes(new Reportes()); 
 
         } 
         //boton salir 

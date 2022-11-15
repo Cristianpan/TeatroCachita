@@ -29,6 +29,9 @@ public class CtrlRegister implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         if (e.getSource() == this.frmRegister.getBtnRegistrar()) {
+
+            
+
             if (esVacioInput()) {
                 JOptionPane.showMessageDialog(this.frmRegister, "Todos los campos son obligatorios");
             } else {
@@ -47,14 +50,20 @@ public class CtrlRegister implements ActionListener {
                     this.frmRegister.getTxtWarning().setText("Nombre de usuario existente. Ingrese otro");
                 }
             }
-        } else if (e.getSource() == this.frmRegister.getBtnCancelar()) {
+        } 
+        
+        //boton cancelar 
+        if (e.getSource() == this.frmRegister.getBtnCancelar()) {
             int opcion = JOptionPane.showConfirmDialog(frmRegister, "¿Desea cancelar la acción?", null,
                     JOptionPane.YES_NO_OPTION, -1);
             if (opcion == 0) {
                 limpiarCampos();
             }
 
-        } else if (e.getSource() == this.frmRegister.getBtnMenu()) {
+        } 
+        
+        //boton regresar menu
+        if (e.getSource() == this.frmRegister.getBtnMenu()) {
             int opcion = JOptionPane.showConfirmDialog(frmRegister, "¿Está seguro de regresar al menú?", null,
                     JOptionPane.YES_NO_OPTION, 1);
             if (opcion == 0) {

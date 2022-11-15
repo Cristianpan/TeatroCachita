@@ -3,9 +3,6 @@ package DAO;
 import java.sql.*;
 import java.util.logging.*;
 
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-
 import java.util.ArrayList;
 
 import Modelo.Funcion;
@@ -14,22 +11,30 @@ import Recursos.Db;
 
 public class DAOFuncion extends Db {
 
-    public boolean agregarFuncion(Funcion funcion, int idObra){
-        boolean funcionAgregada= false;
+    public int agregarFuncion(Funcion funcion){
+        int idNuevaFuncion = 0; 
         PreparedStatement ps = null; 
         Connection con = getConexion(); 
         String sql = "INSERT INTO funcion (obraId, fechaPresentacion, horaPresentacion) VALUES (?,?,?)";
+
+        ResultSet result = null; 
         
         try {
-            ps= con.prepareStatement(sql);
-            ps.setInt(1, idObra);
+            ps = (PreparedStatement) con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            ps.setInt(1, funcion.getObra().getId());
             ps.setDate(2, funcion.getFechaPresentacion());
             ps.setTime(3, funcion.getHoraPresentacion());
-            ps.execute();
             
-            funcionAgregada = true;
+            ps.executeUpdate();
+
+            result = ps.getGeneratedKeys(); 
+
+            if (result.next()){
+                idNuevaFuncion = result.getInt(1);  
+            } 
+
         } catch (Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
         } finally{
             try {
                 con.close();
@@ -37,10 +42,10 @@ public class DAOFuncion extends Db {
                 System.out.println(e);
             }
         }
-        return funcionAgregada;
+        return idNuevaFuncion; 
     }
 
-    public ArrayList<Funcion> buscarPorFecha(String fecha) {
+    public ArrayList<Funcion> buscarPorFecha(Date fecha) {
         ArrayList<Funcion> funciones = new ArrayList<>();
         PreparedStatement ps;
         Connection con = getConexion();
@@ -50,13 +55,17 @@ public class DAOFuncion extends Db {
 
         try {
             ps = con.prepareStatement(sql);
-            ps.setString(1, fecha);
+            ps.setDate(1, fecha);
             rs = ps.executeQuery();
 
             while (rs.next()) {
                 Funcion funcion = new Funcion();
+                Obra obra = new Obra(); 
                 funcion.setId(rs.getInt("id"));
-                funcion.setObraTeatral(rs.getString("nombre"));
+                obra.setId(rs.getInt("obraId"));
+                obra.setDuracion(rs.getInt("duracion"));
+                obra.setNombre(rs.getString("nombre"));
+                funcion.setObra(obra); 
                 funcion.setFechaPresentacion(rs.getDate("fechaPresentacion"));
                 funcion.setHoraPresentacion(rs.getTime("horaPresentacion"));
 
@@ -102,96 +111,71 @@ public class DAOFuncion extends Db {
         return fueEliminado;
     }
 
-    // Busca a una obra por su nombre y retorna en un int en a su key
-    public int obraId(Funcion funcion) {
+    public ArrayList<Funcion> obtenerFuncionesRegistradas(){
+        ArrayList<Funcion> funcionesRegistradas = new ArrayList<>(); 
         PreparedStatement ps;
         Connection con = getConexion();
-        String sql = "SELECT id FROM obra WHERE nombre = ?";
         ResultSet rs = null;
-        int idObra = 0;
 
+        String sql = "SELECT * FROM funcion INNER JOIN obra ON funcion.obraId = obra.id"; 
         try {
             ps = con.prepareStatement(sql);
-            ps.setString(1, funcion.getObraTeatral());
-
             rs = ps.executeQuery();
-            idObra = ((Number) rs.getObject(1)).intValue();
 
-            return idObra;
+            while (rs.next()) {
+                Funcion funcion = new Funcion();
+                Obra obra = new Obra(); 
+                funcion.setId(rs.getInt("id"));
+                obra.setId(rs.getInt("obraId"));
+                obra.setNombre(rs.getString("nombre"));
+                funcion.setObra(obra); 
+                funcion.setFechaPresentacion(rs.getDate("fechaPresentacion"));
+                funcion.setHoraPresentacion(rs.getTime("horaPresentacion"));
 
-        } catch (Exception e) {
-            e.printStackTrace();
+                funcionesRegistradas.add(funcion);
+            }
 
-            return idObra;
-        }
-        finally {
+            ps.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOObra.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
             try {
                 con.close();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-    }
-    
-    public boolean modificarFuncion(Funcion funcion, Funcion funcionModificada) {
-        PreparedStatement ps;
-        Connection con = getConexion();
-        String sql = "UPDATE funcion SET fechaPresentacion = ?, horaPresentacion = ?, obraId = ? WHERE id = ?";
 
-        try {
-            ps = con.prepareStatement(sql);
-            ps.setDate(1, funcionModificada.getFechaPresentacion());
-            ps.setTime(2, funcionModificada.getHoraPresentacion());
-
-            // Buscar el id de la obra en su tabla y usarlo para modificar la obra en la tabla de funcion
-            int idObraModificada = this.obraId(funcionModificada);
-            ps.setInt(3, idObraModificada);
-
-            ps.executeUpdate();
-
-            return true;
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Ocurrio un error al modificar la función");
-            return false;
-        }
+        return funcionesRegistradas; 
     }
 
-    /*
-    public Funcion regresarDatosEnCasillas(JTable tblObra) {
-        Funcion funcion = new Funcion();
+    public boolean modificarFuncion(Funcion funcion){
+        PreparedStatement ps; 
+        Connection con = getConexion(); 
+
+        String sql = "UPDATE funcion SET fechaPresentacion = ?, horaPresentacion = ?, obraId = ? WHERE id = ?"; 
+
+        
 
         try {
+            ps = con.prepareStatement(sql); 
+            ps.setDate(1, funcion.getFechaPresentacion());
+            ps.setTime(2, funcion.getHoraPresentacion()); 
+            ps.setInt(3, funcion.getObra().getId());
+            ps.setInt(4, funcion.getId()); 
+            ps.executeUpdate(); 
 
-            int fila = tblObra.getSelectedRow();
-            int id = Integer.parseInt(tblObra.getValueAt(fila, 5).toString());
+            return true; 
 
-            PreparedStatement ps;
-            ResultSet rs;
-            Connection conexion = getConexion();
-
-            ps = conexion.prepareStatement(
-                    "SELECT nombre, genero, primerActor, segundoActor, precioBoleto, duracion, resumen FROM obra WHERE id = ?");
-            ps.setInt(1, id);
-
-            // Ejecutar consulta
-            rs = ps.executeQuery();
-
-            while (rs.next()) {
-                obra.setID(id);
-                obra.setNombreObra(rs.getString("nombre"));
-                obra.setGenero(rs.getString("genero"));
-                obra.setResumen(rs.getString("resumen"));
-                obra.setDuracion(rs.getInt("duracion"));
-                obra.setActorPrincipal(rs.getString("actorPrincipal"));
-                obra.setActorSecundario(rs.getString("actorSecundario"));
-                obra.setPrecioBoleto(rs.getDouble("precioBoleto"));
-
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOObra.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e.toString());
         }
-
-        return funcion;
-    } */
-	
+        return false; 
+    }
 }
