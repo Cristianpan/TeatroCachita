@@ -1,17 +1,10 @@
 package Controlador;
 
 import java.awt.event.*;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-
+import java.text.*;
 import javax.swing.JOptionPane;
-import javax.swing.table.TableColumn;
-
-import DAO.DAOFuncion;
-import DAO.DAOObra;
-import Modelo.Funcion;
-import Modelo.Obra;
+import DAO.*;
+import Modelo.*;
 import Vista.CambiosFunciones;
 import Vista.MenuAdmi;
 

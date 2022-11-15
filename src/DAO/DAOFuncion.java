@@ -2,40 +2,32 @@ package DAO;
 
 import java.sql.*;
 import java.util.logging.*;
-
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-
 import com.mysql.cj.protocol.Resultset;
-import com.mysql.cj.x.protobuf.MysqlxPrepare.Prepare;
-import com.mysql.cj.xdevapi.Result;
-
-import java.util.ArrayList;
-
-import Modelo.Funcion;
-import Modelo.Obra;
+import java.util.*;
+import Modelo.*;
 import Recursos.Db;
 
 public class DAOFuncion extends Db {
 
-    public boolean agregarFuncion(Funcion funcion, int idObra){
-        boolean funcionAgregada= false;
-        PreparedStatement ps = null; 
-        Connection con = getConexion(); 
+    public boolean agregarFuncion(Funcion funcion, int idObra) {
+        boolean funcionAgregada = false;
+        PreparedStatement ps = null;
+        Connection con = getConexion();
         String sql = "INSERT INTO funcion (obraId, fechaPresentacion, horaPresentacion) VALUES (?,?,?)";
-        
+
         try {
-            ps= con.prepareStatement(sql);
+            ps = con.prepareStatement(sql);
             ps.setInt(1, idObra);
             ps.setDate(2, funcion.getFechaPresentacion());
             ps.setTime(3, funcion.getHoraPresentacion());
             ps.execute();
-            
+
             funcionAgregada = true;
         } catch (Exception e) {
             System.out.println(e);
-        } finally{
+        } finally {
             try {
                 con.close();
             } catch (Exception e) {
@@ -43,6 +35,59 @@ public class DAOFuncion extends Db {
             }
         }
         return funcionAgregada;
+    }
+    
+    public boolean eliminarFuncion(int idFuncion) {
+        boolean fueEliminado = false;
+        PreparedStatement ps;
+        Connection con = getConexion();
+        String sql = "DELETE FROM  funcion WHERE id = ?";
+
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, idFuncion);
+            ps.executeUpdate();
+            fueEliminado = true;
+
+        } catch (Exception exception) {
+            Logger.getLogger(DAOFuncion.class.getName()).log(Level.SEVERE, null, exception);
+        } finally {
+            try {
+                con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        return fueEliminado;
+    }
+
+    public boolean modificarFuncion(Funcion funcion, Funcion funcionModificada) {
+        PreparedStatement ps;
+        Connection con = getConexion();
+        String sql = "UPDATE funcion SET fechaPresentacion = ?, horaPresentacion = ?, obraId = ? WHERE id = ?";
+
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setDate(1, funcionModificada.getFechaPresentacion());
+            ps.setTime(2, funcionModificada.getHoraPresentacion());
+
+            // Buscar el id de la obra en su tabla y usarlo para modificar la obra en la
+            // tabla de funcion
+            int idObraModificada = this.obraId(funcionModificada);
+            ps.setInt(3, idObraModificada);
+
+            ps.executeUpdate();
+
+            return true;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Ocurrio un error al modificar la función");
+            return false;
+        }
+    }
+
+    public void consultarFuncion() {
+        
     }
 
     public ArrayList<Funcion> buscarPorFecha(String fecha) {
@@ -80,31 +125,6 @@ public class DAOFuncion extends Db {
         }
 
         return funciones;
-    }
-    
-    public boolean eliminarFuncion(int idFuncion) {
-        boolean fueEliminado = false;
-        PreparedStatement ps;
-        Connection con = getConexion();
-        String sql = "DELETE FROM  funcion WHERE id = ?";
-
-        try {
-            ps = con.prepareStatement(sql);
-            ps.setInt(1, idFuncion);
-            ps.executeUpdate();
-            fueEliminado = true;
-
-        } catch (Exception exception) {
-            Logger.getLogger(DAOFuncion.class.getName()).log(Level.SEVERE, null, exception);
-        } finally {
-            try {
-                con.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-
-        return fueEliminado;
     }
 
     // Busca a una obra por su nombre y retorna en un int en a su key
@@ -155,28 +175,7 @@ public class DAOFuncion extends Db {
         return rs;
     }
     
-    public boolean modificarFuncion(Funcion funcion, Funcion funcionModificada) {
-        PreparedStatement ps;
-        Connection con = getConexion();
-        String sql = "UPDATE funcion SET fechaPresentacion = ?, horaPresentacion = ?, obraId = ? WHERE id = ?";
-
-        try {
-            ps = con.prepareStatement(sql);
-            ps.setDate(1, funcionModificada.getFechaPresentacion());
-            ps.setTime(2, funcionModificada.getHoraPresentacion());
-
-            // Buscar el id de la obra en su tabla y usarlo para modificar la obra en la tabla de funcion
-            int idObraModificada = this.obraId(funcionModificada);
-            ps.setInt(3, idObraModificada);
-
-            ps.executeUpdate();
-
-            return true;
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Ocurrio un error al modificar la función");
-            return false;
-        }
-    }
+    
 
     /*
     public Funcion regresarDatosEnCasillas(JTable tblObra) {
