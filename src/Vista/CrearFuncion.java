@@ -1,25 +1,28 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Vista;
 
-import java.awt.Color;
-import javax.swing.plaf.basic.BasicMenuBarUI;
+import java.sql.Time;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
+
+import DAO.DAOFuncion;
+import DAO.DAOObra;
+import Modelo.Funcion;
+import Modelo.Obra;
+import javax.accessibility.AccessibleContext;
+import javax.swing.JRootPane;
 
 /**
  *
  * @author diana
  */
 public class CrearFuncion extends javax.swing.JFrame {
-
     /**
      * Creates new form VentanaCrearFuncion
      */
     public CrearFuncion() {
         initComponents();
-        
     }
 
     /**
@@ -41,6 +44,7 @@ public class CrearFuncion extends javax.swing.JFrame {
         comboBoxHora = new javax.swing.JComboBox<>();
         comboBoxObra = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         panel4 = new java.awt.Panel();
         btnRegresarMenu = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
@@ -104,11 +108,16 @@ public class CrearFuncion extends javax.swing.JFrame {
         comboBoxHora.setBackground(new java.awt.Color(255, 255, 255));
         comboBoxHora.setForeground(new java.awt.Color(0, 0, 0));
         comboBoxHora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboBoxHora.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBoxHoraActionPerformed(evt);
+            }
+        });
         panel1.add(comboBoxHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 240, -1));
 
         comboBoxObra.setBackground(new java.awt.Color(255, 255, 255));
         comboBoxObra.setForeground(new java.awt.Color(0, 0, 0));
-        comboBoxObra.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboBoxObra.setModel(new javax.swing.DefaultComboBoxModel<>());
         panel1.add(comboBoxObra, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 240, -1));
 
         jButton1.setBackground(new java.awt.Color(25, 43, 55));
@@ -117,6 +126,10 @@ public class CrearFuncion extends javax.swing.JFrame {
         jButton1.setText("Cancelar");
         jButton1.setToolTipText("Cancelar");
         panel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, 130, 30));
+
+        jDateFecha.setBackground(new java.awt.Color(255, 255, 255));
+        jDateFecha.setForeground(new java.awt.Color(0, 0, 0));
+        panel1.add(jDateFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 240, 30));
 
         getContentPane().add(panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, 290));
 
@@ -172,8 +185,60 @@ public class CrearFuncion extends javax.swing.JFrame {
         getContentPane().add(panel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 480, 30));
 
         pack();
+
         setLocationRelativeTo(null);
+
+
+        // Agregar obras ------------------------------------------------------------------------------------------------------------------------------------
+        jDateChooser1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                try {
+                    SimpleDateFormat dateFormater = new SimpleDateFormat("yyyy-MM-dd");
+
+                    DAOObra daoObra = new DAOObra();
+                    DAOFuncion daoFuncion = new DAOFuncion();
+            
+                    String fecha = dateFormater.format(getjDateChooser1().getDate());
+            
+                    Obra obra = daoObra.buscarObra(getComboBoxObra().getSelectedItem().toString());
+                    ArrayList<Funcion> funciones = daoFuncion.buscarPorFecha(fecha);
+            
+                    if (funciones.isEmpty()) {
+                        getBtnAgregar().setEnabled(true);
+                        getComboBoxHora().addItem("18:00");
+                        getComboBoxHora().addItem("20:30");
+                    }
+            
+                    if (funciones.size() == 2) {
+                        JOptionPane.showMessageDialog(null, "Ambos horarios han sido registrados previamente. Por favor, seleccione otro día.");
+                        getBtnAgregar().setEnabled(false);
+                    }
+                    
+                    for (Funcion funcionIt : funciones) {
+                        if ((funcionIt.getHoraPresentacion().equals(new Time(18, 0, 0))) && (obra.getDuracion() > 150)) {
+                            JOptionPane.showMessageDialog(null, "No hay horarios disponibles.");
+                            getBtnAgregar().setEnabled(false);
+                        }
+                    }
+                } catch (Exception e) {/* Void */
+                    System.out.println(e);
+                }
+            }
+          });
     }// </editor-fold>//GEN-END:initComponents
+
+    private void comboBoxObraInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_comboBoxObraInputMethodTextChanged
+        
+    }//GEN-LAST:event_comboBoxObraInputMethodTextChanged
+
+    private void comboBoxObraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxObraActionPerformed
+        
+    }//GEN-LAST:event_comboBoxObraActionPerformed
+
+    private void comboBoxHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxHoraActionPerformed
+        
+    }//GEN-LAST:event_comboBoxHoraActionPerformed
 
     /**
      * @param args the command line arguments
@@ -217,6 +282,7 @@ public class CrearFuncion extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> comboBoxHora;
     private javax.swing.JComboBox<String> comboBoxObra;
     private javax.swing.JButton jButton1;
+    private com.toedter.calendar.JDateChooser jDateFecha;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -227,4 +293,124 @@ public class CrearFuncion extends javax.swing.JFrame {
     private java.awt.Panel panel4;
     private java.awt.Panel panel5;
     // End of variables declaration//GEN-END:variables
+    
+    public javax.swing.JButton getBtnAgregar() {
+        return btnAgregar;
+    }
+
+    public void setBtnAgregar(javax.swing.JButton btnAgregar) {
+        this.btnAgregar = btnAgregar;
+    }
+
+    public javax.swing.JButton getBtnRegresarMenu() {
+        return btnRegresarMenu;
+    }
+
+    public void setBtnRegresarMenu(javax.swing.JButton btnRegresarMenu) {
+        this.btnRegresarMenu = btnRegresarMenu;
+    }
+
+    public javax.swing.JComboBox<String> getComboBoxHora() {
+        return comboBoxHora;
+    }
+
+    public void setComboBoxHora(javax.swing.JComboBox<String> comboBoxHora) {
+        this.comboBoxHora = comboBoxHora;
+    }
+
+    public javax.swing.JComboBox<String> getComboBoxObra() {
+        return comboBoxObra;
+    }
+
+    public void setComboBoxObra(javax.swing.JComboBox<String> comboBoxObra) {
+        this.comboBoxObra = comboBoxObra;
+    }
+
+    public javax.swing.JButton getjButton1() {
+        return jButton1;
+    }
+
+    public void setjButton1(javax.swing.JButton jButton1) {
+        this.jButton1 = jButton1;
+    }
+
+    public com.toedter.calendar.JDateChooser getjDateChooser1() {
+        return jDateChooser1;
+    }
+
+    public void setjDateChooser1(com.toedter.calendar.JDateChooser jDateChooser1) {
+        this.jDateChooser1 = jDateChooser1;
+    }
+
+    public javax.swing.JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public void setjLabel1(javax.swing.JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
+    }
+
+    public javax.swing.JLabel getjLabel11() {
+        return jLabel11;
+    }
+
+    public void setjLabel11(javax.swing.JLabel jLabel11) {
+        this.jLabel11 = jLabel11;
+    }
+
+    public javax.swing.JLabel getjLabel12() {
+        return jLabel12;
+    }
+
+    public void setjLabel12(javax.swing.JLabel jLabel12) {
+        this.jLabel12 = jLabel12;
+    }
+
+    public javax.swing.JLabel getjLabel2() {
+        return jLabel2;
+    }
+
+    public void setjLabel2(javax.swing.JLabel jLabel2) {
+        this.jLabel2 = jLabel2;
+    }
+
+    public javax.swing.JLabel getjLabel4() {
+        return jLabel4;
+    }
+
+    public void setjLabel4(javax.swing.JLabel jLabel4) {
+        this.jLabel4 = jLabel4;
+    }
+
+    public java.awt.Panel getPanel1() {
+        return panel1;
+    }
+
+    public void setPanel1(java.awt.Panel panel1) {
+        this.panel1 = panel1;
+    }
+
+    public java.awt.Panel getPanel2() {
+        return panel2;
+    }
+
+    public void setPanel2(java.awt.Panel panel2) {
+        this.panel2 = panel2;
+    }
+
+    public java.awt.Panel getPanel4() {
+        return panel4;
+    }
+
+    public void setPanel4(java.awt.Panel panel4) {
+        this.panel4 = panel4;
+    }
+
+    public java.awt.Panel getPanel5() {
+        return panel5;
+    }
+
+    public void setPanel5(java.awt.Panel panel5) {
+        this.panel5 = panel5;
+    }
 }

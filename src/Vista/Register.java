@@ -95,16 +95,6 @@ public class Register extends javax.swing.JFrame {
         this.txtWarning = txtWarning;
     }
 
-    public void habilitarBoton(){
-        if(!txtNombre.getText().isEmpty() && !txtApellido.getText().isEmpty() && !txtCurp.getText().isEmpty()
-                && !txtUsuario.getText().isEmpty() && !txtContrasena.getText().isEmpty()){
-            btnRegistrar.setEnabled(true);
-        }
-        else{
-            btnRegistrar.setEnabled(false);
-        }
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -132,7 +122,7 @@ public class Register extends javax.swing.JFrame {
         boxTipoUsuario = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
         txtWarning = new javax.swing.JTextField();
-        btnRegresarMenu = new javax.swing.JButton();
+        btnMenu = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         txtContrasena = new javax.swing.JPasswordField();
 
@@ -230,7 +220,6 @@ public class Register extends javax.swing.JFrame {
         btnRegistrar.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         btnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistrar.setText("Registrar");
-        btnRegistrar.setEnabled(false);
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarActionPerformed(evt);
@@ -262,16 +251,17 @@ public class Register extends javax.swing.JFrame {
         });
         panel1.add(txtWarning, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, 200, 60));
 
-        btnRegresarMenu.setBackground(new java.awt.Color(255, 255, 255));
-        btnRegresarMenu.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        btnRegresarMenu.setForeground(new java.awt.Color(255, 255, 255));
-        btnRegresarMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/regreso.png"))); // NOI18N
-        btnRegresarMenu.setToolTipText("Regresar");
-        btnRegresarMenu.setBorder(null);
-        panel1.add(btnRegresarMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 30));
+        btnMenu.setBackground(new java.awt.Color(255, 255, 255));
+        btnMenu.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        btnMenu.setForeground(new java.awt.Color(255, 255, 255));
+        btnMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/regreso.png"))); // NOI18N
+        btnMenu.setToolTipText("Regresar");
+        btnMenu.setBorder(null);
+        panel1.add(btnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 30));
 
         jLabel9.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel9.setLabelFor(btnMenu);
         jLabel9.setText("Menú");
         panel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
 
@@ -286,35 +276,26 @@ public class Register extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyReleased
-        habilitarBoton();
+
     }//GEN-LAST:event_txtNombreKeyReleased
 
     private void txtApellidoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidoKeyReleased
-        habilitarBoton();
+
     }//GEN-LAST:event_txtApellidoKeyReleased
 
     private void txtCurpKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCurpKeyReleased
-        habilitarBoton();
+
     }//GEN-LAST:event_txtCurpKeyReleased
 
     private void txtUsuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyReleased
-        habilitarBoton();
+ 
     }//GEN-LAST:event_txtUsuarioKeyReleased
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        /* if(evt.getSource() == btnCancelar){
-            Login a= new Login();
-            a.setVisible(true);
-            this.setVisible(false);
-        } */
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        /* if(evt.getSource() == btnRegistrar){
-           Login a= new Login();
-            a.setVisible(true);
-            this.setVisible(false);
-        } */
+
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void txtWarningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtWarningActionPerformed
@@ -360,8 +341,8 @@ public class Register extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> boxTipoUsuario;
     private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnMenu;
     private javax.swing.JButton btnRegistrar;
-    private javax.swing.JButton btnRegresarMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -380,4 +361,11 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JTextField txtUsuario;
     private javax.swing.JTextField txtWarning;
     // End of variables declaration//GEN-END:variables
+    public javax.swing.JButton getBtnMenu() {
+        return btnMenu;
+    }
+
+    public void setBtnMenu(javax.swing.JButton btnMenu) {
+        this.btnMenu = btnMenu;
+    }
 }

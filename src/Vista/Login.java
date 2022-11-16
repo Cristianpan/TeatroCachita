@@ -55,15 +55,6 @@ public class Login extends javax.swing.JFrame {
         
         initComponents();
     }
-    
-    public void habilitarBoton(){
-        if(!txtUsuario.getText().isEmpty() && !txtContra.getText().isEmpty()){
-            btnIngresar.setEnabled(true);
-        }
-        else{
-            btnIngresar.setEnabled(false);
-        }
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -175,7 +166,6 @@ public class Login extends javax.swing.JFrame {
         btnIngresar.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         btnIngresar.setForeground(new java.awt.Color(255, 255, 255));
         btnIngresar.setText("Ingresar");
-        btnIngresar.setEnabled(false);
         btnIngresar.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 btnIngresarStateChanged(evt);
@@ -249,11 +239,9 @@ public class Login extends javax.swing.JFrame {
 
     //función que se llama cada vez que una tecla pulsada se libera en un teclado 
     private void txtUsuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyReleased
-        habilitarBoton();
     }//GEN-LAST:event_txtUsuarioKeyReleased
 
     private void txtContraKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraKeyReleased
-        habilitarBoton();
     }//GEN-LAST:event_txtContraKeyReleased
 
     /**

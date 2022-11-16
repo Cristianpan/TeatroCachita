@@ -6,6 +6,9 @@
 package Vista;
 
 import java.awt.Color;
+import java.awt.TextArea;
+import javax.swing.JButton;
+import javax.swing.JTextField;
 import javax.swing.plaf.basic.BasicMenuBarUI;
 
 /**
@@ -21,6 +24,89 @@ public class CrearObra extends javax.swing.JFrame {
         initComponents();
     }
 
+    public JButton getBtnAgregar() {
+        return btnAgregar;
+    }
+
+    public void setBtnAgregar(JButton btnAgregar) {
+        this.btnAgregar = btnAgregar;
+    }
+
+    public JButton getBtnCancelar() {
+        return btnCancelar;
+    }
+
+    public void setBtnCancelar(JButton btnCancelar) {
+        this.btnCancelar = btnCancelar;
+    }
+
+    public JButton getBtnRegresarMenu() {
+        return btnRegresarMenu;
+    }
+
+    public void setBtnRegresarMenu(JButton btnRegresarMenu) {
+        this.btnRegresarMenu = btnRegresarMenu;
+    }
+
+    public JTextField getTxtDuracion() {
+        return txtDuracion;
+    }
+
+    public void setTxtDuracion(JTextField txtDuracion) {
+        this.txtDuracion = txtDuracion;
+    }
+
+    public JTextField getTxtGenero() {
+        return txtGenero;
+    }
+
+    public void setTxtGenero(JTextField txtGenero) {
+        this.txtGenero = txtGenero;
+    }
+
+    public JTextField getTxtNombre() {
+        return txtNombre;
+    }
+
+    public void setTxtNombre(JTextField txtNombre) {
+        this.txtNombre = txtNombre;
+    }
+
+    public JTextField getTxtPrecio() {
+        return txtPrecio;
+    }
+
+    public void setTxtPrecio(JTextField txtPrecio) {
+        this.txtPrecio = txtPrecio;
+    }
+
+    public JTextField getTxtPrimerActor() {
+        return txtPrimerActor;
+    }
+
+    public void setTxtPrimerActor(JTextField txtPrimerActor) {
+        this.txtPrimerActor = txtPrimerActor;
+    }
+
+    public TextArea getTxtResumenTematico() {
+        return txtResumenTematico;
+    }
+
+    public void setTxtResumenTematico(TextArea txtResumenTematico) {
+        this.txtResumenTematico = txtResumenTematico;
+    }
+
+    public JTextField getTxtSegundoActor() {
+        return txtSegundoActor;
+    }
+
+    public void setTxtSegundoActor(JTextField txtSegundoActor) {
+        this.txtSegundoActor = txtSegundoActor;
+    }
+    
+    
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -30,7 +116,6 @@ public class CrearObra extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenu1 = new javax.swing.JMenu();
         panel7 = new java.awt.Panel();
         panel6 = new java.awt.Panel();
         jLabel5 = new javax.swing.JLabel();
@@ -54,8 +139,6 @@ public class CrearObra extends javax.swing.JFrame {
         panel8 = new java.awt.Panel();
         jLabel4 = new javax.swing.JLabel();
         btnRegresarMenu = new javax.swing.JButton();
-
-        jMenu1.setText("jMenu1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Agregar obras");
@@ -272,7 +355,6 @@ public class CrearObra extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JMenu jMenu1;
     private java.awt.Panel panel4;
     private java.awt.Panel panel6;
     private java.awt.Panel panel7;

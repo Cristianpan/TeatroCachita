@@ -5,7 +5,15 @@
  */
 package Vista;
 
+import com.toedter.calendar.JDateChooser;
+import com.toedter.calendar.JDayChooser;
 import java.awt.Color;
+import java.awt.Panel;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.plaf.basic.BasicMenuBarUI;
 
 /**
@@ -30,6 +38,7 @@ public class CambiosFunciones extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDayChooser1 = new com.toedter.calendar.JDayChooser();
         panel17 = new java.awt.Panel();
         panel16 = new java.awt.Panel();
         jLabel20 = new javax.swing.JLabel();
@@ -46,6 +55,10 @@ public class CambiosFunciones extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         comboBoxHorarioNuevo = new javax.swing.JComboBox<>();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         panel4 = new java.awt.Panel();
         panel5 = new java.awt.Panel();
         jLabel4 = new javax.swing.JLabel();
@@ -71,7 +84,7 @@ public class CambiosFunciones extends javax.swing.JFrame {
         panel16Layout.setHorizontalGroup(
             panel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel16Layout.createSequentialGroup()
-                .addContainerGap(221, Short.MAX_VALUE)
+                .addContainerGap(551, Short.MAX_VALUE)
                 .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -83,7 +96,7 @@ public class CambiosFunciones extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        panel17.add(panel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 50));
+        panel17.add(panel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 50));
 
         btnModificar.setBackground(new java.awt.Color(255, 102, 0));
         btnModificar.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -97,6 +110,11 @@ public class CambiosFunciones extends javax.swing.JFrame {
         btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
         btnEliminar.setText("Eliminar");
         btnEliminar.setToolTipText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
         panel17.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 130, 30));
 
         jLabel12.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
@@ -152,7 +170,37 @@ public class CambiosFunciones extends javax.swing.JFrame {
         comboBoxHorarioNuevo.setBackground(new java.awt.Color(255, 255, 255));
         comboBoxHorarioNuevo.setForeground(new java.awt.Color(0, 0, 0));
         comboBoxHorarioNuevo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboBoxHorarioNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBoxHorarioNuevoActionPerformed(evt);
+            }
+        });
         panel17.add(comboBoxHorarioNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, 110, -1));
+        panel17.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 110, -1));
+        panel17.add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 110, -1));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Título", "Género", "Actor principal", "Duración", "id"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class
+            };
+
+        jDateFechaNueva.setBackground(new java.awt.Color(255, 255, 255));
+        jDateFechaNueva.setForeground(new java.awt.Color(0, 0, 0));
+        panel17.add(jDateFechaNueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 110, 20));
+
+        jDateFecha.setBackground(new java.awt.Color(255, 255, 255));
+        jDateFecha.setForeground(new java.awt.Color(0, 0, 0));
+        panel17.add(jDateFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 110, 20));
 
         getContentPane().add(panel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, 360));
 
@@ -162,14 +210,14 @@ public class CambiosFunciones extends javax.swing.JFrame {
         panel4.setLayout(panel4Layout);
         panel4Layout.setHorizontalGroup(
             panel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+            .addGap(0, 830, Short.MAX_VALUE)
         );
         panel4Layout.setVerticalGroup(
             panel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 30, Short.MAX_VALUE)
         );
 
-        getContentPane().add(panel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 500, 30));
+        getContentPane().add(panel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 830, 30));
 
         panel5.setBackground(new java.awt.Color(255, 102, 0));
 
@@ -193,7 +241,7 @@ public class CambiosFunciones extends javax.swing.JFrame {
                 .addComponent(btnRegresarMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
-                .addGap(0, 417, Short.MAX_VALUE))
+                .addGap(0, 746, Short.MAX_VALUE))
         );
         panel5Layout.setVerticalGroup(
             panel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,11 +254,19 @@ public class CambiosFunciones extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        getContentPane().add(panel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 30));
+        getContentPane().add(panel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 30));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void comboBoxHorarioNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxHorarioNuevoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboBoxHorarioNuevoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -248,6 +304,190 @@ public class CambiosFunciones extends javax.swing.JFrame {
         });
     }
 
+    public JButton getBtnCancelar() {
+        return btnCancelar;
+    }
+
+    public void setBtnCancelar(JButton btnCancelar) {
+        this.btnCancelar = btnCancelar;
+    }
+
+    public JButton getBtnEliminar() {
+        return btnEliminar;
+    }
+
+    public void setBtnEliminar(JButton btnEliminar) {
+        this.btnEliminar = btnEliminar;
+    }
+
+    public JButton getBtnModificar() {
+        return btnModificar;
+    }
+
+    public void setBtnModificar(JButton btnModificar) {
+        this.btnModificar = btnModificar;
+    }
+
+    public JButton getBtnRegresarMenu() {
+        return btnRegresarMenu;
+    }
+
+    public void setBtnRegresarMenu(JButton btnRegresarMenu) {
+        this.btnRegresarMenu = btnRegresarMenu;
+    }
+
+    public JComboBox<String> getComboBoxHorario() {
+        return comboBoxHorario;
+    }
+
+    public void setComboBoxHorario(JComboBox<String> comboBoxHorario) {
+        this.comboBoxHorario = comboBoxHorario;
+    }
+
+    public JComboBox<String> getComboBoxHorarioNuevo() {
+        return comboBoxHorarioNuevo;
+    }
+
+    public void setComboBoxHorarioNuevo(JComboBox<String> comboBoxHorarioNuevo) {
+        this.comboBoxHorarioNuevo = comboBoxHorarioNuevo;
+    }
+
+    public JComboBox<String> getComboBoxObraNueva() {
+        return comboBoxObraNueva;
+    }
+
+    public void setComboBoxObraNueva(JComboBox<String> comboBoxObraNueva) {
+        this.comboBoxObraNueva = comboBoxObraNueva;
+    }
+
+    public JComboBox<String> getComboBoxObrasAgendadas() {
+        return comboBoxObrasAgendadas;
+    }
+
+    public void setComboBoxObrasAgendadas(JComboBox<String> comboBoxObrasAgendadas) {
+        this.comboBoxObrasAgendadas = comboBoxObrasAgendadas;
+    }
+
+    public JDateChooser getjDateChooser1() {
+        return jDateChooser1;
+    }
+
+    public void setjDateChooser1(JDateChooser jDateChooser1) {
+        this.jDateChooser1 = jDateChooser1;
+    }
+
+    public JDateChooser getjDateChooser2() {
+        return jDateChooser2;
+    }
+
+    public void setjDateChooser2(JDateChooser jDateChooser2) {
+        this.jDateChooser2 = jDateChooser2;
+    }
+
+    public JDayChooser getjDayChooser1() {
+        return jDayChooser1;
+    }
+
+    public void setjDayChooser1(JDayChooser jDayChooser1) {
+        this.jDayChooser1 = jDayChooser1;
+    }
+
+    public JLabel getjLabel12() {
+        return jLabel12;
+    }
+
+    public void setjLabel12(JLabel jLabel12) {
+        this.jLabel12 = jLabel12;
+    }
+
+    public JLabel getjLabel16() {
+        return jLabel16;
+    }
+
+    public void setjLabel16(JLabel jLabel16) {
+        this.jLabel16 = jLabel16;
+    }
+
+    public JLabel getjLabel19() {
+        return jLabel19;
+    }
+
+    public void setjLabel19(JLabel jLabel19) {
+        this.jLabel19 = jLabel19;
+    }
+
+    public JLabel getjLabel20() {
+        return jLabel20;
+    }
+
+    public void setjLabel20(JLabel jLabel20) {
+        this.jLabel20 = jLabel20;
+    }
+
+    public JLabel getjLabel23() {
+        return jLabel23;
+    }
+
+    public void setjLabel23(JLabel jLabel23) {
+        this.jLabel23 = jLabel23;
+    }
+
+    public JLabel getjLabel24() {
+        return jLabel24;
+    }
+
+    public void setjLabel24(JLabel jLabel24) {
+        this.jLabel24 = jLabel24;
+    }
+
+    public JLabel getjLabel25() {
+        return jLabel25;
+    }
+
+    public void setjLabel25(JLabel jLabel25) {
+        this.jLabel25 = jLabel25;
+    }
+
+    public JLabel getjLabel4() {
+        return jLabel4;
+    }
+
+    public void setjLabel4(JLabel jLabel4) {
+        this.jLabel4 = jLabel4;
+    }
+
+    public Panel getPanel16() {
+        return panel16;
+    }
+
+    public void setPanel16(Panel panel16) {
+        this.panel16 = panel16;
+    }
+
+    public Panel getPanel17() {
+        return panel17;
+    }
+
+    public void setPanel17(Panel panel17) {
+        this.panel17 = panel17;
+    }
+
+    public Panel getPanel4() {
+        return panel4;
+    }
+
+    public void setPanel4(Panel panel4) {
+        this.panel4 = panel4;
+    }
+
+    public Panel getPanel5() {
+        return panel5;
+    }
+
+    public void setPanel5(Panel panel5) {
+        this.panel5 = panel5;
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnEliminar;
@@ -257,6 +497,8 @@ public class CambiosFunciones extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> comboBoxHorarioNuevo;
     private javax.swing.JComboBox<String> comboBoxObraNueva;
     private javax.swing.JComboBox<String> comboBoxObrasAgendadas;
+    private com.toedter.calendar.JDateChooser jDateFecha;
+    private com.toedter.calendar.JDateChooser jDateFechaNueva;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel19;
@@ -265,9 +507,27 @@ public class CambiosFunciones extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private java.awt.Panel panel16;
     private java.awt.Panel panel17;
     private java.awt.Panel panel4;
     private java.awt.Panel panel5;
     // End of variables declaration//GEN-END:variables
+
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public void setjScrollPane1(JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    public JTable getTablaObras() {
+        return jTable1;
+    }
+
+    public void setTablaObras(JTable tablaObras) {
+        this.jTable1 = tablaObras;
+    }
 }
