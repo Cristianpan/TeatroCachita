@@ -12,7 +12,13 @@ public class Funcion {
     private boolean[] AsientoA;
     private boolean[] AsientoB;
     private boolean[] AsientoC;
+    private double precioA;
+    private double precioB;
 
+    public Funcion() {
+        this.precioB= 0.1;
+        this.precioA= 0.2;
+    }
     public void setId(int id) {
         this.id = id;
     }
@@ -68,4 +74,22 @@ public class Funcion {
     public boolean[] getAsientoC() {
         return AsientoC;
     }
+
+    public double getPrecioA() {
+        return precioA;
+    }
+
+    public void setPrecioA(double precioA) {
+        this.precioA = precioA;
+    }
+
+    public double getPrecioB() {
+        return precioB;
+    }
+
+    public void setPrecioB(double precioB) {
+        this.precioB = precioB;
+    }
+    
+    
 }

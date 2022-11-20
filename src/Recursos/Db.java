@@ -10,12 +10,15 @@ public class Db {
 
     private Connection myDbConn = null;
     
-    String url="jdbc:mysql://localhost:3306/chachita";
     // Se agrego la nueva base de datos
     public Connection getConexion(){
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            this. myDbConn=DriverManager.getConnection(url, "root", "Gatosinbotas1");
+//            String url="jdbc:mysql://root:L28JEQ3krzHvVLJtk1IR@containers-us-west-114.railway.app:7595/railway"; 
+//            Class.forName("com.mysql.cj.jdbc.Driver");
+//            this.myDbConn=DriverManager.getConnection(url);
+            
+            String url=""; 
+            myDbConn=DriverManager.getConnection(url, "", "");
     
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Asegurese de tener una conexión a la red");
