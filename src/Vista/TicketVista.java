@@ -9,12 +9,12 @@ package Vista;
  *
  * @author diana
  */
-public class Ticket extends javax.swing.JFrame {
+public class TicketVista extends javax.swing.JFrame {
 
     /**
-     * Creates new form VentanaTicket
+     * Creates new form TicketVista
      */
-    public Ticket() {
+    public TicketVista() {
         initComponents();
     }
 
@@ -32,24 +32,22 @@ public class Ticket extends javax.swing.JFrame {
         a = new javax.swing.JLabel();
         funcion = new javax.swing.JLabel();
         label8 = new java.awt.Label();
-        lineas = new javax.swing.JLabel();
         a1 = new javax.swing.JLabel();
         fecha = new javax.swing.JLabel();
         a3 = new javax.swing.JLabel();
         hora = new javax.swing.JLabel();
         a4 = new javax.swing.JLabel();
         boletos = new javax.swing.JLabel();
-        lineas1 = new javax.swing.JLabel();
         a6 = new javax.swing.JLabel();
         boletos1 = new javax.swing.JLabel();
         a7 = new javax.swing.JLabel();
         boletos2 = new javax.swing.JLabel();
         a8 = new javax.swing.JLabel();
         boletos3 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Ticket");
-        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -68,10 +66,6 @@ public class Ticket extends javax.swing.JFrame {
         label8.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
         label8.setForeground(new java.awt.Color(255, 102, 0));
         label8.setText("CHACHITA");
-
-        lineas.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        lineas.setForeground(new java.awt.Color(0, 0, 0));
-        lineas.setText("--------------------------------------------------------------");
 
         a1.setFont(new java.awt.Font("Century Gothic", 0, 10)); // NOI18N
         a1.setForeground(new java.awt.Color(0, 0, 0));
@@ -96,10 +90,6 @@ public class Ticket extends javax.swing.JFrame {
         boletos.setFont(new java.awt.Font("Century Gothic", 0, 10)); // NOI18N
         boletos.setForeground(new java.awt.Color(0, 0, 0));
         boletos.setText("A1, A6, B7");
-
-        lineas1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        lineas1.setForeground(new java.awt.Color(0, 0, 0));
-        lineas1.setText("--------------------------------------------------------------");
 
         a6.setFont(new java.awt.Font("Century Gothic", 0, 10)); // NOI18N
         a6.setForeground(new java.awt.Color(0, 0, 0));
@@ -134,44 +124,48 @@ public class Ticket extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lineas)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(a)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(funcion))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(a1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(fecha))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(a3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(hora))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(a4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(boletos))
-                            .addComponent(lineas1)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(a6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(boletos1))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(a8)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(boletos3))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(a7)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(boletos2)))))
+                                    .addComponent(a6)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(boletos1))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(a8)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(boletos3))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(a7)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(boletos2))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(a)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(funcion))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(a1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(fecha))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(a3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(hora))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(a4)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(boletos))
+                                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(4, 4, 4))
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(80, 80, 80)
                         .addComponent(label8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(113, 113, 113)
                         .addComponent(numVenta)))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,8 +174,8 @@ public class Ticket extends javax.swing.JFrame {
                 .addComponent(label8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(4, 4, 4)
                 .addComponent(numVenta)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lineas)
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(a)
@@ -198,8 +192,8 @@ public class Ticket extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(a4)
                     .addComponent(boletos))
-                .addGap(1, 1, 1)
-                .addComponent(lineas1)
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(a6)
@@ -212,7 +206,7 @@ public class Ticket extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(a8)
                     .addComponent(boletos3))
-                .addContainerGap(137, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -223,11 +217,10 @@ public class Ticket extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
@@ -247,21 +240,20 @@ public class Ticket extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Ticket.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TicketVista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Ticket.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TicketVista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Ticket.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TicketVista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Ticket.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TicketVista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Ticket().setVisible(true);
+                new TicketVista().setVisible(true);
             }
         });
     }
@@ -282,9 +274,9 @@ public class Ticket extends javax.swing.JFrame {
     private javax.swing.JLabel funcion;
     private javax.swing.JLabel hora;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private java.awt.Label label8;
-    private javax.swing.JLabel lineas;
-    private javax.swing.JLabel lineas1;
     private javax.swing.JLabel numVenta;
     // End of variables declaration//GEN-END:variables
 }
