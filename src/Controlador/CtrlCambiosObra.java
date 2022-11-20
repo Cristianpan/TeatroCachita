@@ -83,7 +83,9 @@ public class CtrlCambiosObra implements ActionListener {
         // modificar
         if (e.getSource() == this.frmCambiosObra.getBtnModificar()) {
             if (!esVacioInput()) {
+                
                 String obraSeleccionada = this.frmCambiosObra.getComboBoxObra().getSelectedItem().toString();
+
                 if (obraSeleccionada != "-Seleccionar Obra-") {
                     DAOObra daoObra = new DAOObra();
                     Obra obra = daoObra.buscarObra(obraSeleccionada);
@@ -122,9 +124,9 @@ public class CtrlCambiosObra implements ActionListener {
             if (obraSeleccionada != "-Seleccionar Obra-") {
                 DAOObra daoObra = new DAOObra();
                 Obra obra = daoObra.buscarObra(obraSeleccionada);
+                String msg = "¿Desea eliminar la obra " + obra.getNombre() + "?\nSi se elimina, se eliminaran las funciones asociadas"; 
 
-                int opcion = JOptionPane.showConfirmDialog(frmCambiosObra,
-                        "¿Desea eliminar la Obra " + obra.getNombre() + "?", null,
+                int opcion = JOptionPane.showConfirmDialog(frmCambiosObra, msg , null,
                         JOptionPane.YES_NO_OPTION, 2);
 
                 if (opcion == 0) {
