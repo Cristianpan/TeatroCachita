@@ -3,8 +3,7 @@ package Controlador;
 import java.sql.*;
 import java.awt.event.*;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
-import java.awt.event.MouseEvent;
+import javax.swing.JOptionPane; 
 import java.text.SimpleDateFormat;
 
 import javax.swing.table.DefaultTableModel;
@@ -161,9 +160,9 @@ public class CtrlModificarEliminarFunciones implements ActionListener, MouseList
     public void agregarObrasComboBox() {
         DAOObra daoObras = new DAOObra();
         this.obras = daoObras.obtenerObrasRegistradas();
-        vista.getComboBoxObraNueva().addItem("-Seleccionar Obra-");
+        this.vista.getComboBoxObraNueva().addItem("-Seleccionar Obra-");
         for (Obra obra : this.obras) {
-            vista.getComboBoxObraNueva().addItem(obra.getNombre());
+            this.vista.getComboBoxObraNueva().addItem(obra.getNombre());
         }
     }
 
