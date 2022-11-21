@@ -146,7 +146,7 @@ public class CambiosObra extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panel4 = new java.awt.Panel();
+        ticketBoletos = new java.awt.Panel();
         panel17 = new java.awt.Panel();
         panel16 = new java.awt.Panel();
         jLabel20 = new javax.swing.JLabel();
@@ -178,20 +178,21 @@ public class CambiosObra extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        panel4.setBackground(new java.awt.Color(0, 0, 0));
+        ticketBoletos.setBackground(new java.awt.Color(0, 0, 0));
+        ticketBoletos.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
 
-        javax.swing.GroupLayout panel4Layout = new javax.swing.GroupLayout(panel4);
-        panel4.setLayout(panel4Layout);
-        panel4Layout.setHorizontalGroup(
-            panel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 690, Short.MAX_VALUE)
+        javax.swing.GroupLayout ticketBoletosLayout = new javax.swing.GroupLayout(ticketBoletos);
+        ticketBoletos.setLayout(ticketBoletosLayout);
+        ticketBoletosLayout.setHorizontalGroup(
+            ticketBoletosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 680, Short.MAX_VALUE)
         );
-        panel4Layout.setVerticalGroup(
-            panel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        ticketBoletosLayout.setVerticalGroup(
+            ticketBoletosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 30, Short.MAX_VALUE)
         );
 
-        getContentPane().add(panel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 690, 30));
+        getContentPane().add(ticketBoletos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 680, 30));
 
         panel17.setBackground(new java.awt.Color(255, 255, 254));
         panel17.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -446,7 +447,7 @@ public class CambiosObra extends javax.swing.JFrame {
     private java.awt.Panel panel16;
     private java.awt.Panel panel17;
     private java.awt.Panel panel18;
-    private java.awt.Panel panel4;
+    private java.awt.Panel ticketBoletos;
     private javax.swing.JTextField txtDuracion;
     private javax.swing.JTextField txtGenero;
     private javax.swing.JTextField txtNombre;
