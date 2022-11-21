@@ -2,14 +2,6 @@ package Controlador;
 
 import java.sql.*;
 import java.awt.event.*;
-<<<<<<< HEAD
-import java.text.*;
-import javax.swing.JOptionPane;
-import DAO.*;
-import Modelo.*;
-import Vista.CambiosFunciones;
-import Vista.MenuAdmi;
-=======
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import java.awt.event.MouseEvent;
@@ -21,7 +13,6 @@ import DAO.*;
 import Modelo.*; 
 import Vista.*;
 
->>>>>>> 1a54b4c9437f67878b638242bd0ebd2b602113f7
 
 public class CtrlModificarEliminarFunciones implements ActionListener, MouseListener {
     private CambiosFunciones vista;
@@ -139,19 +130,12 @@ public class CtrlModificarEliminarFunciones implements ActionListener, MouseList
         }
     }
 
-<<<<<<< HEAD
-    // Esto esta bugueado, no sirve jiji
-    // No esta declarado el MouseListener
-    @Override
-    public void mouseClicked(MouseEvent event) {
-=======
     /*
      * Obtiene todos los datos en en los campos Obra, fecha, horario
      * Retorna falso si algún campo es vacio
      */
     public boolean obtenerDatos(int fila) {
         SimpleDateFormat timeFormater = new SimpleDateFormat("HH:mm");
->>>>>>> 1a54b4c9437f67878b638242bd0ebd2b602113f7
 
         try {
             this.funcion.setId(this.funciones.get(fila).getId());
