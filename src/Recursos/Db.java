@@ -13,12 +13,13 @@ public class Db {
     // Se agrego la nueva base de datos
     public Connection getConexion(){
         try {
-//            String url="jdbc:mysql://root:L28JEQ3krzHvVLJtk1IR@containers-us-west-114.railway.app:7595/railway"; 
-//            Class.forName("com.mysql.cj.jdbc.Driver");
-//            this.myDbConn=DriverManager.getConnection(url);
+           String url="jdbc:mysql://chachitauady.mysql.database.azure.com:3306/chachita?useSSL=true";
+           myDbConn=DriverManager.getConnection(url, "CristianPan", "Chachita1"); 
+           Class.forName("com.mysql.cj.jdbc.Driver");
+           this.myDbConn=DriverManager.getConnection(url);
             
-            String url=""; 
-            myDbConn=DriverManager.getConnection(url, "", "");
+            // String url=""; 
+            // myDbConn=DriverManager.getConnection(url, "CristianPan", "Chachita1");
     
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Asegurese de tener una conexión a la red");

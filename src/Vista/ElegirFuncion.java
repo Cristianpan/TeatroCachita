@@ -131,13 +131,13 @@ public class ElegirFuncion extends javax.swing.JFrame {
         comboBoxFecha.setBackground(new java.awt.Color(255, 255, 255));
         comboBoxFecha.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         comboBoxFecha.setForeground(new java.awt.Color(0, 0, 0));
-        comboBoxFecha.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboBoxFecha.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {}));
         panel19.add(comboBoxFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 250, -1));
 
         comboBoxObra.setBackground(new java.awt.Color(255, 255, 255));
         comboBoxObra.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         comboBoxObra.setForeground(new java.awt.Color(0, 0, 0));
-        comboBoxObra.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboBoxObra.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {}));
         panel19.add(comboBoxObra, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 250, -1));
 
         jLabel13.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
@@ -153,7 +153,7 @@ public class ElegirFuncion extends javax.swing.JFrame {
         comboBoxHorario.setBackground(new java.awt.Color(255, 255, 255));
         comboBoxHorario.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         comboBoxHorario.setForeground(new java.awt.Color(0, 0, 0));
-        comboBoxHorario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboBoxHorario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-"}));
         panel19.add(comboBoxHorario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 250, -1));
 
         jLabel15.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N

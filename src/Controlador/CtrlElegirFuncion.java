@@ -1,6 +1,7 @@
 package Controlador;
 
 import java.awt.event.*;
+import java.sql.Date;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
@@ -10,7 +11,7 @@ import Vista.ElegirFuncion;
 import Vista.MenuAdmi;
 import Modelo.*;
 
-public class CtrlElegirFuncion implements ActionListener {
+public class CtrlElegirFuncion implements ActionListener, ItemListener {
     Ticket ticket;
     ElegirFuncion vista;
     DAOFuncion dao;
@@ -28,11 +29,6 @@ public class CtrlElegirFuncion implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent event) {
-
-        // Escuchar cuando se selecciono un item y traer la fecha y actualizar la ventana conforme esa fecha
-        if (this.vista.getComboBoxFecha() == event.getSource()) {
-            
-        }
 
         // Regresar al menu
         if (this.vista.getBtnRegresarMenu() == event.getSource()) {
@@ -62,8 +58,30 @@ public class CtrlElegirFuncion implements ActionListener {
             this.vista.getComboBoxFecha().addItem(funcion.getFechaPresentacion().toString());
         });
     }
+
+    public void iniciarBoxObrasPorFecha(ArrayList<Funcion> funcionesEnFechaSelec) {
+        this.vista.getComboBoxObra().addItem("-Seleccionar Obra-");
+
+        funcionesEnFechaSelec.forEach(funcion -> {
+            this.vista.getComboBoxObra().addItem(funcion.getObra().getNombre());
+        });
+    }
     
     public void limpiarVentana() {
+        
+    }
+
+    @Override
+    public void itemStateChanged(ItemEvent event) {
+        // Escuchar cuando se selecciono un item y traer la fecha y actualizar la
+        // ventana conforme esa fecha
+        if (this.vista.getComboBoxFecha() == event.getSource()) {
+            Date fechaSeleccionada = (java.sql.Date) this.vista.getComboBoxFecha().getSelectedItem();
+
+            dao = new DAOFuncion();
+            ArrayList<Funcion> funcionesEnFechaSelec = dao.buscarPorFecha(fechaSeleccionada);
+            iniciarBoxObrasPorFecha(funcionesEnFechaSelec);
+        }
         
     }
     

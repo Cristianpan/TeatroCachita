@@ -28,7 +28,6 @@ public class CtrlAgregarFunciones implements ActionListener {
         agregarHorariosComboBox(); 
 
     }
-
     
     @Override
     public void actionPerformed(ActionEvent event) {
