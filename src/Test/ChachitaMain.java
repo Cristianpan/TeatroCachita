@@ -1,13 +1,11 @@
 package Test;
 
 import Controlador.*;
+import Modelo.User;
 import Vista.*;
 
 public class ChachitaMain {
     public static void main(String[] args) {
-        CrearFuncion vista = new CrearFuncion();
-        new CtrlAgregarFunciones(vista);
-
-        vista.setVisible(true);
+       new CtrlLogin(new User(), new Login());  
     }
 }

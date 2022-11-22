@@ -6,7 +6,7 @@ import java.sql.Time;
 // Falta agregar el campo de duracion en la ventana de agregar funcion
 public class Funcion {
     private int id;
-    private String obraTeatral;
+    private Obra obra;
     private Date fechaPresentacion;
     private Time horaPresentacion;
     private boolean[] AsientoA;
@@ -17,8 +17,8 @@ public class Funcion {
         this.id = id;
     }
 
-    public void setObraTeatral(String obraTeatral) {
-        this.obraTeatral = obraTeatral;
+    public void setObra(Obra obra) {
+        this.obra = obra; 
     }
 
     public void setFechaPresentacion(Date fechaPresentacion) {
@@ -45,8 +45,8 @@ public class Funcion {
         return id;
     }
 
-    public String getObraTeatral() {
-        return obraTeatral;
+    public Obra getObra() {
+        return obra;
     }
 
     public Date getFechaPresentacion() {

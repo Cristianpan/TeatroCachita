@@ -68,7 +68,7 @@ public class CtrlCambiosUsuario implements ActionListener {
                 }
             }
         } 
-        //boton modificar
+        //boton eliminar
         if (event.getSource() == this.frmCUsuario.getBtnEliminar()) {
             if (modelUser == null) {
                 JOptionPane.showMessageDialog(frmCUsuario, "Busque un usuario existente", null, 0);
@@ -98,7 +98,7 @@ public class CtrlCambiosUsuario implements ActionListener {
             }
 
         } 
-        //boton
+        //boton regresar menu
         if (event.getSource() == this.frmCUsuario.getBtnMenu()) {
             int opcion = JOptionPane.showConfirmDialog(frmCUsuario, "¿Está seguro de regresar al menú?", null,
                     JOptionPane.YES_NO_OPTION, 1);
