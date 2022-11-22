@@ -25,6 +25,5 @@ public class ChachitaMain {
 
         ElegirFuncion vista = new ElegirFuncion();
         CtrlElegirFuncion control = new CtrlElegirFuncion(vista);
-        vista.setVisible(true);
     }
 }

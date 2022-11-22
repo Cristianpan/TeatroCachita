@@ -11,7 +11,7 @@ import Vista.ElegirFuncion;
 import Vista.MenuAdmi;
 import Modelo.*;
 
-public class CtrlElegirFuncion implements ActionListener, ItemListener {
+public class CtrlElegirFuncion implements ActionListener{
     Ticket ticket;
     ElegirFuncion vista;
     DAOFuncion dao;
@@ -25,10 +25,24 @@ public class CtrlElegirFuncion implements ActionListener, ItemListener {
         this.vista.getjButton1().addActionListener(this); // Boton de cancelar en la vista
 
         iniciarBoxFechas();
+
+        this.vista.setVisible(true);
     }
 
     @Override
     public void actionPerformed(ActionEvent event) {
+
+        // Escuchar cuando se selecciono un item y traer la fecha y actualizar la
+        // ventana conforme esa fecha
+        if (this.vista.getComboBoxFecha() == event.getSource()) {
+            String fechaSeleccionadaS = this.vista.getComboBoxFecha().getSelectedItem().toString();
+            Date fechaSeleccionada = Date.valueOf(fechaSeleccionadaS);
+
+            dao = new DAOFuncion();
+            ArrayList<Funcion> funcionesEnFechaSelec = dao.buscarPorFecha(fechaSeleccionada);
+            iniciarBoxObrasPorFecha(funcionesEnFechaSelec);
+            System.out.println("Hello, no entre al evento");
+        }
 
         // Regresar al menu
         if (this.vista.getBtnRegresarMenu() == event.getSource()) {
@@ -68,20 +82,6 @@ public class CtrlElegirFuncion implements ActionListener, ItemListener {
     }
     
     public void limpiarVentana() {
-        
-    }
-
-    @Override
-    public void itemStateChanged(ItemEvent event) {
-        // Escuchar cuando se selecciono un item y traer la fecha y actualizar la
-        // ventana conforme esa fecha
-        if (this.vista.getComboBoxFecha() == event.getSource()) {
-            Date fechaSeleccionada = (java.sql.Date) this.vista.getComboBoxFecha().getSelectedItem();
-
-            dao = new DAOFuncion();
-            ArrayList<Funcion> funcionesEnFechaSelec = dao.buscarPorFecha(fechaSeleccionada);
-            iniciarBoxObrasPorFecha(funcionesEnFechaSelec);
-        }
         
     }
     
