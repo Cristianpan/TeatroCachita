@@ -259,4 +259,156 @@ public class ElegirFuncion extends javax.swing.JFrame {
     private java.awt.TextArea textArea2;
     private javax.swing.JTextField txtPrecio;
     // End of variables declaration//GEN-END:variables
+    
+    public javax.swing.JButton getBtnElegirAsientos() {
+        return btnElegirAsientos;
+    }
+
+    public void setBtnElegirAsientos(javax.swing.JButton btnElegirAsientos) {
+        this.btnElegirAsientos = btnElegirAsientos;
+    }
+
+    public javax.swing.JButton getBtnRegresarMenu() {
+        return btnRegresarMenu;
+    }
+
+    public void setBtnRegresarMenu(javax.swing.JButton btnRegresarMenu) {
+        this.btnRegresarMenu = btnRegresarMenu;
+    }
+
+    public javax.swing.JComboBox<String> getComboBoxFecha() {
+        return comboBoxFecha;
+    }
+
+    public void setComboBoxFecha(javax.swing.JComboBox<String> comboBoxFecha) {
+        this.comboBoxFecha = comboBoxFecha;
+    }
+
+    public javax.swing.JComboBox<String> getComboBoxHorario() {
+        return comboBoxHorario;
+    }
+
+    public void setComboBoxHorario(javax.swing.JComboBox<String> comboBoxHorario) {
+        this.comboBoxHorario = comboBoxHorario;
+    }
+
+    public javax.swing.JComboBox<String> getComboBoxObra() {
+        return comboBoxObra;
+    }
+
+    public void setComboBoxObra(javax.swing.JComboBox<String> comboBoxObra) {
+        this.comboBoxObra = comboBoxObra;
+    }
+
+    public javax.swing.JButton getjButton1() {
+        return jButton1;
+    }
+
+    public void setjButton1(javax.swing.JButton jButton1) {
+        this.jButton1 = jButton1;
+    }
+
+    public javax.swing.JLabel getjLabel13() {
+        return jLabel13;
+    }
+
+    public void setjLabel13(javax.swing.JLabel jLabel13) {
+        this.jLabel13 = jLabel13;
+    }
+
+    public javax.swing.JLabel getjLabel14() {
+        return jLabel14;
+    }
+
+    public void setjLabel14(javax.swing.JLabel jLabel14) {
+        this.jLabel14 = jLabel14;
+    }
+
+    public javax.swing.JLabel getjLabel15() {
+        return jLabel15;
+    }
+
+    public void setjLabel15(javax.swing.JLabel jLabel15) {
+        this.jLabel15 = jLabel15;
+    }
+
+    public javax.swing.JLabel getjLabel21() {
+        return jLabel21;
+    }
+
+    public void setjLabel21(javax.swing.JLabel jLabel21) {
+        this.jLabel21 = jLabel21;
+    }
+
+    public javax.swing.JLabel getjLabel4() {
+        return jLabel4;
+    }
+
+    public void setjLabel4(javax.swing.JLabel jLabel4) {
+        this.jLabel4 = jLabel4;
+    }
+
+    public javax.swing.JLabel getjLabel5() {
+        return jLabel5;
+    }
+
+    public void setjLabel5(javax.swing.JLabel jLabel5) {
+        this.jLabel5 = jLabel5;
+    }
+
+    public javax.swing.JLabel getjLabel6() {
+        return jLabel6;
+    }
+
+    public void setjLabel6(javax.swing.JLabel jLabel6) {
+        this.jLabel6 = jLabel6;
+    }
+
+    public java.awt.Panel getPanel18() {
+        return panel18;
+    }
+
+    public void setPanel18(java.awt.Panel panel18) {
+        this.panel18 = panel18;
+    }
+
+    public java.awt.Panel getPanel19() {
+        return panel19;
+    }
+
+    public void setPanel19(java.awt.Panel panel19) {
+        this.panel19 = panel19;
+    }
+
+    public java.awt.Panel getPanel4() {
+        return panel4;
+    }
+
+    public void setPanel4(java.awt.Panel panel4) {
+        this.panel4 = panel4;
+    }
+
+    public java.awt.Panel getPanel5() {
+        return panel5;
+    }
+
+    public void setPanel5(java.awt.Panel panel5) {
+        this.panel5 = panel5;
+    }
+
+    public java.awt.TextArea getTextArea2() {
+        return textArea2;
+    }
+
+    public void setTextArea2(java.awt.TextArea textArea2) {
+        this.textArea2 = textArea2;
+    }
+
+    public javax.swing.JTextField getTxtPrecio() {
+        return txtPrecio;
+    }
+
+    public void setTxtPrecio(javax.swing.JTextField txtPrecio) {
+        this.txtPrecio = txtPrecio;
+    }
 }
