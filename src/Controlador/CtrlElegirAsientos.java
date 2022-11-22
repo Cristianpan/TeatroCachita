@@ -31,8 +31,6 @@ public class CtrlElegirAsientos implements ActionListener{
     private double precioApagarC=0;
     private double precioApagarB=0;
     private ArrayList<String> NombreAsientos= new ArrayList<>();
-    
-    
 
     public CtrlElegirAsientos(Ticket ticket, ElegirAsientos frmElegirAsiento, Funcion funcion) {
         this.ticket = ticket;
@@ -274,7 +272,6 @@ public class CtrlElegirAsientos implements ActionListener{
         
     }
     
-    
     public boolean existenAsientosSeleccionados(){
         //checa que asientos del Arreglo A estan seleccionados
         for (int i = 0; i < 3; i++) {
@@ -448,8 +445,5 @@ public class CtrlElegirAsientos implements ActionListener{
     public void setPrecioApagarB(double precioApagarB) {
         this.precioApagarB = precioApagarB;
     }
-
-    
-   
-    
+     
 }
