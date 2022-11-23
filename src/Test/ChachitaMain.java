@@ -24,6 +24,6 @@ public class ChachitaMain {
         // CtrlElegirAsientos b = new CtrlElegirAsientos(ticket, a, funcion);
 
         ElegirFuncion vista = new ElegirFuncion();
-        CtrlElegirFuncion control = new CtrlElegirFuncion(vista);
+        new CtrlElegirFuncion(vista);
     }
 }

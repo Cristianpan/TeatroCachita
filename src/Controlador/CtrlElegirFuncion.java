@@ -1,7 +1,6 @@
 package Controlador;
 
 import java.awt.event.*;
-import java.sql.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -69,9 +68,22 @@ public class CtrlElegirFuncion implements ActionListener{
                 this.vista.dispose();
             }
         }
+
+        // Ir a la ventana elegir asientos / No esta funcionando correctamente por los argumentos del constructor
+        if (this.vista.getBtnElegirAsientos() == event.getSource()) {
+            int opcion = JOptionPane.showConfirmDialog(vista, "¿Seguro desea elegir asientos en este momento?", null,
+                    JOptionPane.YES_NO_OPTION, 1);
+            
+            if (opcion == 0) {
+                new CtrlElegirAsientos(ticket, null, null); // Todavia no se le envian los datos completos
+                this.vista.setVisible(false);
+                this.vista.dispose();
+            }        
+        }
         
+        // Button Cancelar / Cancela la operacion y limpia todos los datos en la ventana
         if (this.vista.getjButton1() == event.getSource()) {
-            limpiarVentana(); // No se ha implementado el limpiar ventana
+            limpiarVentana(); // Errores al reiniciar el comboBox de fechas
         }
     }
     
@@ -109,11 +121,11 @@ public class CtrlElegirFuncion implements ActionListener{
         this.vista.getComboBoxObra().removeAllItems();
         this.vista.getComboBoxHorario().removeAllItems();
 
-        this.vista.getComboBoxHorario().addItem("-");
+        this.vista.getComboBoxObra().addItem("-");
         this.vista.getComboBoxHorario().addItem("-");
     }
 
     public void limpiarVentana() {
-
+        this.defaultBoxObraHorario();
     }
 }
