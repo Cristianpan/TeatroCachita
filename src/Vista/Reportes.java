@@ -5,18 +5,13 @@
  */
 package Vista;
 
-import java.awt.Color;
-import Recursos.MyRender; 
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JTable;
+import javax.swing.JTextField;
 
-/**
- *
- * @author diana
- */
 public class Reportes extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VentanaReportes
-     */
     public Reportes() {
         initComponents();
     }
@@ -34,13 +29,15 @@ public class Reportes extends javax.swing.JFrame {
         panel16 = new java.awt.Panel();
         jLabel20 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        btnRegresar = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tableReporte = new javax.swing.JTable();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        comboBoxDia = new javax.swing.JComboBox<>();
         jLabel14 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        comboBoxMes = new javax.swing.JComboBox<>();
+        btnBuscar = new javax.swing.JButton();
+        txtVentaPromedio = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
         panel4 = new java.awt.Panel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -80,43 +77,19 @@ public class Reportes extends javax.swing.JFrame {
         jLabel13.setText("Dia");
         panel17.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 170, -1, -1));
 
-        jButton2.setBackground(new java.awt.Color(255, 102, 0));
-        jButton2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Regresar");
-        jButton2.setToolTipText("Regresar");
-        panel17.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 440, 90, 30));
+        btnRegresar.setBackground(new java.awt.Color(255, 102, 0));
+        btnRegresar.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        btnRegresar.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegresar.setText("Regresar");
+        btnRegresar.setToolTipText("Regresar");
+        panel17.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 440, 90, 30));
 
         tableReporte.setAutoCreateRowSorter(true);
         tableReporte.setBackground(new java.awt.Color(255, 255, 255));
         tableReporte.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         tableReporte.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "N. de Venta", "Fecha ", "Obra", "Boletos", "T. Vendido"
@@ -142,59 +115,61 @@ public class Reportes extends javax.swing.JFrame {
         jScrollPane2.setViewportView(tableReporte);
         if (tableReporte.getColumnModel().getColumnCount() > 0) {
             tableReporte.getColumnModel().getColumn(0).setResizable(false);
-            tableReporte.getColumnModel().getColumn(0).setHeaderValue("N. de Venta");
             tableReporte.getColumnModel().getColumn(1).setResizable(false);
-            tableReporte.getColumnModel().getColumn(1).setHeaderValue("Fecha ");
             tableReporte.getColumnModel().getColumn(2).setResizable(false);
-            tableReporte.getColumnModel().getColumn(2).setHeaderValue("Obra");
             tableReporte.getColumnModel().getColumn(3).setResizable(false);
-            tableReporte.getColumnModel().getColumn(3).setHeaderValue("Boletos");
             tableReporte.getColumnModel().getColumn(4).setResizable(false);
-            tableReporte.getColumnModel().getColumn(4).setHeaderValue("T. Vendido");
-        }
-        for (int i = 0; i < 5; i++){
-            tableReporte.getColumnModel().getColumn(i).setHeaderRenderer(new MyRender(new java.awt.Color(25,43,55),Color.white));
         }
 
         panel17.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 480, 370));
 
-        jComboBox2.setBackground(new java.awt.Color(255, 255, 255));
-        jComboBox2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jComboBox2.setForeground(new java.awt.Color(0, 0, 0));
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccione un dia-" }));
-        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+        comboBoxDia.setBackground(new java.awt.Color(255, 255, 255));
+        comboBoxDia.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        comboBoxDia.setForeground(new java.awt.Color(0, 0, 0));
+        comboBoxDia.setMaximumRowCount(5);
+        comboBoxDia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccione un dia-" }));
+        comboBoxDia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox2ActionPerformed(evt);
+                comboBoxDiaActionPerformed(evt);
             }
         });
-        panel17.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 200, 200, 30));
+        panel17.add(comboBoxDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 200, 200, 30));
 
         jLabel14.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(25, 43, 55));
         jLabel14.setText("Mes");
         panel17.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 100, -1, -1));
 
-        jComboBox3.setBackground(new java.awt.Color(255, 255, 255));
-        jComboBox3.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jComboBox3.setForeground(new java.awt.Color(0, 0, 0));
-        jComboBox3.setMaximumRowCount(3);
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccione un mes-", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
-        jComboBox3.addActionListener(new java.awt.event.ActionListener() {
+        comboBoxMes.setBackground(new java.awt.Color(255, 255, 255));
+        comboBoxMes.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        comboBoxMes.setForeground(new java.awt.Color(0, 0, 0));
+        comboBoxMes.setMaximumRowCount(4);
+        comboBoxMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccione un mes-", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
+        comboBoxMes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox3ActionPerformed(evt);
+                comboBoxMesActionPerformed(evt);
             }
         });
-        panel17.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 130, 200, 30));
+        panel17.add(comboBoxMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 130, 200, 30));
 
-        jButton1.setBackground(jButton2.getBackground());
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("BUSCAR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnBuscar.setBackground(btnRegresar.getBackground());
+        btnBuscar.setForeground(new java.awt.Color(255, 255, 255));
+        btnBuscar.setText("BUSCAR");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnBuscarActionPerformed(evt);
             }
         });
-        panel17.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 260, 200, 30));
+        panel17.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 260, 200, 30));
+
+        txtVentaPromedio.setEditable(false);
+        txtVentaPromedio.setBackground(new java.awt.Color(255, 255, 255));
+        panel17.add(txtVentaPromedio, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 330, 200, 30));
+
+        jLabel1.setFont(jLabel13.getFont());
+        jLabel1.setForeground(new java.awt.Color(25, 43, 55));
+        jLabel1.setText("Venta Promedio");
+        panel17.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 300, -1, -1));
 
         getContentPane().add(panel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 490));
 
@@ -217,17 +192,17 @@ public class Reportes extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+    private void comboBoxDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxDiaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox2ActionPerformed
+    }//GEN-LAST:event_comboBoxDiaActionPerformed
 
-    private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
+    private void comboBoxMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxMesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox3ActionPerformed
+    }//GEN-LAST:event_comboBoxMesActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnBuscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -265,11 +240,61 @@ public class Reportes extends javax.swing.JFrame {
         });
     }
 
+    public JTextField getTxtVentaPromedio() {
+        return txtVentaPromedio;
+    }
+
+    public void setTxtVentaPromedio(JTextField txtVentaPromedio) {
+        this.txtVentaPromedio = txtVentaPromedio;
+    }
+
+    public JButton getBtnBuscar() {
+        return btnBuscar;
+    }
+
+    public void setBtnBuscar(JButton btnBuscar) {
+        this.btnBuscar = btnBuscar;
+    }
+
+    public JButton getBtnRegresar() {
+        return btnRegresar;
+    }
+
+    public void setBtnRegresar(JButton btnRegresar) {
+        this.btnRegresar = btnRegresar;
+    }
+
+    public JComboBox<String> getComboBoxDia() {
+        return comboBoxDia;
+    }
+
+    public void setComboBoxDia(JComboBox<String> comboBoxDia) {
+        this.comboBoxDia = comboBoxDia;
+    }
+
+    public JComboBox<String> getComboBoxMes() {
+        return comboBoxMes;
+    }
+
+    public void setComboBoxMes(JComboBox<String> comboBoxMes) {
+        this.comboBoxMes = comboBoxMes;
+    }
+
+    public JTable getTableReporte() {
+        return tableReporte;
+    }
+
+    public void setTableReporte(JTable tableReporte) {
+        this.tableReporte = tableReporte;
+    }
+
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnRegresar;
+    private javax.swing.JComboBox<String> comboBoxDia;
+    private javax.swing.JComboBox<String> comboBoxMes;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel20;
@@ -278,5 +303,6 @@ public class Reportes extends javax.swing.JFrame {
     private java.awt.Panel panel17;
     private java.awt.Panel panel4;
     private javax.swing.JTable tableReporte;
+    private javax.swing.JTextField txtVentaPromedio;
     // End of variables declaration//GEN-END:variables
 }
