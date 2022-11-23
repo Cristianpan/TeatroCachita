@@ -153,7 +153,7 @@ public class ElegirFuncion extends javax.swing.JFrame {
         comboBoxHorario.setBackground(new java.awt.Color(255, 255, 255));
         comboBoxHorario.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         comboBoxHorario.setForeground(new java.awt.Color(0, 0, 0));
-        comboBoxHorario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-"}));
+        comboBoxHorario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {}));
         panel19.add(comboBoxHorario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 250, -1));
 
         jLabel15.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
