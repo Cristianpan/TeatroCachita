@@ -17,7 +17,7 @@ public class CtrlAgregarFunciones implements ActionListener {
     private Funcion funcion; 
     ArrayList<Obra> obras; 
 
-    public CtrlAgregarFunciones(CrearFuncion vista, Funcion funcion) {
+    public Ct   rlAgregarFunciones(CrearFuncion vista, Funcion funcion) {
         this.funcion = funcion; 
         this.vista = vista;
         this.vista.getBtnAgregar().addActionListener(this);
