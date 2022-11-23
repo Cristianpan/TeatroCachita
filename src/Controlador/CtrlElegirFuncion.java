@@ -39,10 +39,13 @@ public class CtrlElegirFuncion implements ActionListener{
         // Escuchar cuando se selecciono un item y traer la fecha y actualizar la
         // ventana conforme esa fecha
         if (this.vista.getComboBoxFecha() == event.getSource()) {
+            this.defaultBoxObraHorario();
+
+            // Se captura la fecha del comboBox para hacer la consulta a la base de datos
             String fechaSeleccionadaS = this.vista.getComboBoxFecha().getSelectedItem().toString();
             java.sql.Date sqlDate = null;
 
-            try {
+            try { // Este parseo se logro con la obra de Dios, sepa como es que salio
                 DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
                 java.util.Date utilDate = format.parse(fechaSeleccionadaS);
                 sqlDate = new java.sql.Date(utilDate.getTime());
@@ -51,8 +54,8 @@ public class CtrlElegirFuncion implements ActionListener{
             }
 
             ArrayList<Funcion> funcionesEnFechaSelec = dao.buscarPorFecha(sqlDate);
-            iniciarBoxObrasPorFecha(funcionesEnFechaSelec);
-            System.out.println("Hello, no entre al evento");
+            this.iniciarBoxObrasPorFecha(funcionesEnFechaSelec);
+            this.iniciarBoxHorarioPorFecha(funcionesEnFechaSelec);
         }
 
         // Regresar al menu
@@ -84,6 +87,7 @@ public class CtrlElegirFuncion implements ActionListener{
     }
 
     public void iniciarBoxObrasPorFecha(ArrayList<Funcion> funcionesEnFechaSelec) {
+        this.vista.getComboBoxObra().removeAllItems();
         this.vista.getComboBoxObra().addItem("-Seleccionar Obra-");
 
         funcionesEnFechaSelec.forEach(funcion -> {
@@ -91,8 +95,25 @@ public class CtrlElegirFuncion implements ActionListener{
         });
     }
     
-    public void limpiarVentana() {
-        
+    public void iniciarBoxHorarioPorFecha(ArrayList<Funcion> funcionesEnFechaSelec) {
+        this.vista.getComboBoxHorario().removeAllItems();
+        this.vista.getComboBoxHorario().addItem("Seleccionar Horario");
+
+        funcionesEnFechaSelec.forEach(funcion -> {
+            this.vista.getComboBoxHorario().addItem(funcion.getHoraPresentacion().toString());
+        });
     }
     
+    // Hace que el comboBox de horario y obra regresen a un estado inicial
+    public void defaultBoxObraHorario() {
+        this.vista.getComboBoxObra().removeAllItems();
+        this.vista.getComboBoxHorario().removeAllItems();
+
+        this.vista.getComboBoxHorario().addItem("-");
+        this.vista.getComboBoxHorario().addItem("-");
+    }
+
+    public void limpiarVentana() {
+
+    }
 }
