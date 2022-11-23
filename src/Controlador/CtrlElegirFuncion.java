@@ -2,6 +2,9 @@ package Controlador;
 
 import java.awt.event.*;
 import java.sql.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
@@ -18,6 +21,7 @@ public class CtrlElegirFuncion implements ActionListener{
 
     public CtrlElegirFuncion(ElegirFuncion vista) {
         this.vista = vista;
+        dao = new DAOFuncion();
 
         this.vista.getBtnElegirAsientos().addActionListener(this);
         this.vista.getBtnRegresarMenu().addActionListener(this);
@@ -36,10 +40,17 @@ public class CtrlElegirFuncion implements ActionListener{
         // ventana conforme esa fecha
         if (this.vista.getComboBoxFecha() == event.getSource()) {
             String fechaSeleccionadaS = this.vista.getComboBoxFecha().getSelectedItem().toString();
-            Date fechaSeleccionada = Date.valueOf(fechaSeleccionadaS);
+            java.sql.Date sqlDate = null;
 
-            dao = new DAOFuncion();
-            ArrayList<Funcion> funcionesEnFechaSelec = dao.buscarPorFecha(fechaSeleccionada);
+            try {
+                DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+                java.util.Date utilDate = format.parse(fechaSeleccionadaS);
+                sqlDate = new java.sql.Date(utilDate.getTime());
+            } catch (ParseException exception) {
+                System.out.println("Error en el parseo de String a java.util.Date");
+            }
+
+            ArrayList<Funcion> funcionesEnFechaSelec = dao.buscarPorFecha(sqlDate);
             iniciarBoxObrasPorFecha(funcionesEnFechaSelec);
             System.out.println("Hello, no entre al evento");
         }
@@ -62,7 +73,6 @@ public class CtrlElegirFuncion implements ActionListener{
     }
     
     public void iniciarBoxFechas() {
-        dao = new DAOFuncion();
         ArrayList<Funcion> funcionesRegistradas = dao.obtenerFuncionesRegistradas();
 
         this.vista.getComboBoxFecha().addItem("-Seleccionar fecha-");

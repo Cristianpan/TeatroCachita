@@ -147,9 +147,9 @@ public class CrearFuncion extends javax.swing.JFrame {
         btnCancelar.setToolTipText("Cancelar");
         panel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, 130, 30));
 
-        jDateFecha.setBackground(new java.awt.Color(255, 255, 255));
-        jDateFecha.setForeground(new java.awt.Color(0, 0, 0));
-        panel1.add(jDateFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 240, 30));
+        // jDateFecha.setBackground(new java.awt.Color(255, 255, 255));
+        // jDateFecha.setForeground(new java.awt.Color(0, 0, 0));
+        // panel1.add(jDateFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 240, 30));
 
         getContentPane().add(panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, 290));
 
