@@ -28,7 +28,6 @@ public class CtrlAgregarFunciones implements ActionListener {
         agregarHorariosComboBox(); 
 
     }
-
     
     @Override
     public void actionPerformed(ActionEvent event) {
@@ -122,6 +121,7 @@ public class CtrlAgregarFunciones implements ActionListener {
         DAOObra daoObras = new DAOObra();
         this.obras = daoObras.obtenerObrasRegistradas();
         vista.getComboBoxObra().addItem("-Seleccionar Obra-");
+        
         for (Obra obra : obras) {
             vista.getComboBoxObra().addItem(obra.getNombre());
         }

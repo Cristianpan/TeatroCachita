@@ -134,7 +134,7 @@ public class CtrlCambiosObra implements ActionListener {
                         JOptionPane.showMessageDialog(frmCambiosObra, "Obra Eliminada");
                         this.frmCambiosObra.getComboBoxObra()
                                 .removeItem(this.frmCambiosObra.getComboBoxObra().getSelectedItem());
-                        limpiarCampos();
+                            limpiarCampos();
                     } else {
                         JOptionPane.showMessageDialog(frmCambiosObra, "Algo ha salido mal");
                     }

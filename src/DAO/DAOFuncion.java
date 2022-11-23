@@ -3,6 +3,8 @@ package DAO;
 import java.sql.*;
 import java.util.logging.*;
 
+import com.mysql.cj.x.protobuf.MysqlxPrepare.Prepare;
+
 import java.util.ArrayList;
 
 import Modelo.Funcion;
@@ -43,6 +45,36 @@ public class DAOFuncion extends Db {
             }
         }
         return idNuevaFuncion; 
+    }
+    
+    public boolean eliminarFuncion(int idFuncion) {
+        boolean fueEliminado = false;
+        PreparedStatement ps;
+        Connection con = getConexion();
+        String sql = "DELETE FROM  funcion WHERE id = ?";
+
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, idFuncion);
+            ps.executeUpdate();
+            fueEliminado = true;
+
+        } catch (Exception exception) {
+            Logger.getLogger(DAOFuncion.class.getName()).log(Level.SEVERE, null, exception);
+        } finally {
+            try {
+                con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        return fueEliminado;
+    }
+
+    // No se tiene asociado ninguna funcionalidad a la funcion de consulta
+    public void consultarFuncion() {
+        
     }
 
     public ArrayList<Funcion> buscarPorFecha(Date fecha) {
@@ -85,31 +117,6 @@ public class DAOFuncion extends Db {
 
         return funciones;
     }
-    
-    public boolean eliminarFuncion(int idFuncion) {
-        boolean fueEliminado = false;
-        PreparedStatement ps;
-        Connection con = getConexion();
-        String sql = "DELETE FROM  funcion WHERE id = ?";
-
-        try {
-            ps = con.prepareStatement(sql);
-            ps.setInt(1, idFuncion);
-            ps.executeUpdate();
-            fueEliminado = true;
-
-        } catch (Exception exception) {
-            Logger.getLogger(DAOFuncion.class.getName()).log(Level.SEVERE, null, exception);
-        } finally {
-            try {
-                con.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-
-        return fueEliminado;
-    }
 
     public ArrayList<Funcion> obtenerFuncionesRegistradas(){
         ArrayList<Funcion> funcionesRegistradas = new ArrayList<>(); 
@@ -141,31 +148,29 @@ public class DAOFuncion extends Db {
         } finally {
             try {
                 con.close();
-            } catch (Exception e) {
+            } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
 
         return funcionesRegistradas; 
     }
+    
+    public boolean modificarFuncion(Funcion funcion) {
+        PreparedStatement ps;
+        Connection con = getConexion();
 
-    public boolean modificarFuncion(Funcion funcion){
-        PreparedStatement ps; 
-        Connection con = getConexion(); 
-
-        String sql = "UPDATE funcion SET fechaPresentacion = ?, horaPresentacion = ?, obraId = ? WHERE id = ?"; 
-
-        
+        String sql = "UPDATE funcion SET fechaPresentacion = ?, horaPresentacion = ?, obraId = ? WHERE id = ?";
 
         try {
-            ps = con.prepareStatement(sql); 
+            ps = con.prepareStatement(sql);
             ps.setDate(1, funcion.getFechaPresentacion());
-            ps.setTime(2, funcion.getHoraPresentacion()); 
+            ps.setTime(2, funcion.getHoraPresentacion());
             ps.setInt(3, funcion.getObra().getId());
-            ps.setInt(4, funcion.getId()); 
-            ps.executeUpdate(); 
+            ps.setInt(4, funcion.getId());
+            ps.executeUpdate();
 
-            return true; 
+            return true;
 
         } catch (SQLException ex) {
             Logger.getLogger(DAOObra.class.getName()).log(Level.SEVERE, null, ex);
@@ -176,6 +181,12 @@ public class DAOFuncion extends Db {
                 e.printStackTrace();
             }
         }
-        return false; 
+        return false;
+    }
+    
+    public void consultarFechasFuncionesExistente() {
+        Date date = null;
+        PreparedStatement ps = null;
+        ResultSet rs;
     }
 }
