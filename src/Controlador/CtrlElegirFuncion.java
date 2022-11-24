@@ -22,16 +22,19 @@ public class CtrlElegirFuncion implements ActionListener{
 
     public CtrlElegirFuncion(ElegirFuncion vista) {
         this.vista = vista;
+
         dao = new DAOFuncion();
         daoObra = new DAOObra();
+
+        iniciarBoxFechas();
+        defaultBoxObraHorario();
 
         this.vista.getBtnElegirAsientos().addActionListener(this);
         this.vista.getBtnRegresarMenu().addActionListener(this);
         this.vista.getComboBoxFecha().addActionListener(this);
-        this.vista.getjButton1().addActionListener(this); // Boton de cancelar en la vista
         this.vista.getComboBoxObra().addActionListener(this);
-
-        iniciarBoxFechas();
+        this.vista.getComboBoxObra().setEnabled(false);
+        this.vista.getjButton1().addActionListener(this); // Boton de cancelar en la vista
 
         this.vista.setVisible(true);
     }
@@ -58,6 +61,8 @@ public class CtrlElegirFuncion implements ActionListener{
 
             ArrayList<Funcion> funcionesEnFechaSelec = dao.buscarPorFecha(sqlDate);
             this.iniciarBoxObrasPorFecha(funcionesEnFechaSelec);
+            System.out.println("estoy vivo");
+            this.vista.getComboBoxObra().setEnabled(true);
         }
 
         // Listener para el comboBox de la Obra, se inicializara el Box de horario y seteara el precio y descripcion de la obra
