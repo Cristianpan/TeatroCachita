@@ -29,6 +29,7 @@ public class CtrlElegirFuncion implements ActionListener{
         this.vista.getBtnRegresarMenu().addActionListener(this);
         this.vista.getComboBoxFecha().addActionListener(this);
         this.vista.getjButton1().addActionListener(this); // Boton de cancelar en la vista
+        this.vista.getComboBoxObra().addActionListener(this);
 
         iniciarBoxFechas();
 
@@ -59,12 +60,11 @@ public class CtrlElegirFuncion implements ActionListener{
             this.iniciarBoxObrasPorFecha(funcionesEnFechaSelec);
         }
 
+        // Listener para el comboBox de la Obra, se inicializara el Box de horario y seteara el precio y descripcion de la obra
         if (this.vista.getComboBoxObra() == event.getSource()) {
-            Obra obra = new Obra();
 
             // Obteniendo el nombre de la obra del comboBox
             String nombreObraSelec = this.vista.getComboBoxObra().getSelectedItem().toString();
-            obra = daoObra.buscarObra(nombreObraSelec); // Conseguimos los datos de la obra seleccionada en el box
 
             // Se consigue la sql.Date del comboBox de fecha
             String fechaSeleccionadaS = this.vista.getComboBoxFecha().getSelectedItem().toString();
@@ -82,8 +82,7 @@ public class CtrlElegirFuncion implements ActionListener{
             ArrayList<Funcion> funcionCoincidencia = new ArrayList<>(); // Guarda las funciones en donde hay coincidencia de nombre de obra y fecha
 
             for (Funcion funcion : funcionEnFechaSelec) {
-
-                if (obra.getNombre() == funcion.getObra().getNombre()) {
+                if (nombreObraSelec == funcion.getObra().getNombre()) {
                     funcionCoincidencia.add(funcion);
 
                     // Agregar en el field de precio el costo de la funcion seleccionada
