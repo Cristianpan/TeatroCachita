@@ -52,7 +52,7 @@ public class CtrlElegirFuncion implements ActionListener{
                 java.util.Date utilDate = format.parse(fechaSeleccionadaS);
                 sqlDate = new java.sql.Date(utilDate.getTime());
             } catch (ParseException exception) {
-                System.out.println("Error en el parseo de String a java.util.Date");
+                System.out.println("Error en el parseo de String a java.util.Date / Combo de Fecha");
             }
 
             ArrayList<Funcion> funcionesEnFechaSelec = dao.buscarPorFecha(sqlDate);
@@ -75,17 +75,19 @@ public class CtrlElegirFuncion implements ActionListener{
                 java.util.Date utilDate = format.parse(fechaSeleccionadaS);
                 sqlDate = new java.sql.Date(utilDate.getTime());
             } catch (ParseException exception) {
-                System.out.println("Error en el parseo de String a java.util.Date");
+                System.out.println("Error en el parseo de String a java.util.Date / Combo de Obra");
             }
 
             ArrayList<Funcion> funcionEnFechaSelec = dao.buscarPorFecha(sqlDate); // Se trajeron las funciones en la fecha dada
             ArrayList<Funcion> funcionCoincidencia = new ArrayList<>(); // Guarda las funciones en donde hay coincidencia de nombre de obra y fecha
 
             for (Funcion funcion : funcionEnFechaSelec) {
-                
-                if (nombreObraSelec == funcion.getObra().getNombre()) {
+
+                if (obra.getNombre() == funcion.getObra().getNombre()) {
                     funcionCoincidencia.add(funcion);
-                    this.vista.getTxtPrecio();
+
+                    // Agregar en el field de precio el costo de la funcion seleccionada
+                    this.vista.getTxtPrecio().setText(Double.toString(funcion.getObra().getPrecioBoleto()));
                 }
             }
 
