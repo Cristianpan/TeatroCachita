@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 import DAO.DAOFuncion;
+import DAO.DAOObra;
 import Vista.ElegirFuncion;
 import Vista.MenuAdmi;
 import Modelo.*;
@@ -17,10 +18,12 @@ public class CtrlElegirFuncion implements ActionListener{
     Ticket ticket;
     ElegirFuncion vista;
     DAOFuncion dao;
+    DAOObra daoObra;
 
     public CtrlElegirFuncion(ElegirFuncion vista) {
         this.vista = vista;
         dao = new DAOFuncion();
+        daoObra = new DAOObra();
 
         this.vista.getBtnElegirAsientos().addActionListener(this);
         this.vista.getBtnRegresarMenu().addActionListener(this);
@@ -54,9 +57,45 @@ public class CtrlElegirFuncion implements ActionListener{
 
             ArrayList<Funcion> funcionesEnFechaSelec = dao.buscarPorFecha(sqlDate);
             this.iniciarBoxObrasPorFecha(funcionesEnFechaSelec);
-            this.iniciarBoxHorarioPorFecha(funcionesEnFechaSelec);
         }
 
+        if (this.vista.getComboBoxObra() == event.getSource()) {
+            Obra obra = new Obra();
+
+            // Obteniendo el nombre de la obra del comboBox
+            String nombreObraSelec = this.vista.getComboBoxObra().getSelectedItem().toString();
+            obra = daoObra.buscarObra(nombreObraSelec); // Conseguimos los datos de la obra seleccionada en el box
+
+            // Se consigue la sql.Date del comboBox de fecha
+            String fechaSeleccionadaS = this.vista.getComboBoxFecha().getSelectedItem().toString();
+            java.sql.Date sqlDate = null;
+
+            try { 
+                DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+                java.util.Date utilDate = format.parse(fechaSeleccionadaS);
+                sqlDate = new java.sql.Date(utilDate.getTime());
+            } catch (ParseException exception) {
+                System.out.println("Error en el parseo de String a java.util.Date");
+            }
+
+            ArrayList<Funcion> funcionEnFechaSelec = dao.buscarPorFecha(sqlDate); // Se trajeron las funciones en la fecha dada
+            ArrayList<Funcion> funcionCoincidencia = new ArrayList<>(); // Guarda las funciones en donde hay coincidencia de nombre de obra y fecha
+
+            for (Funcion funcion : funcionEnFechaSelec) {
+                
+                if (nombreObraSelec == funcion.getObra().getNombre()) {
+                    funcionCoincidencia.add(funcion);
+                    this.vista.getTxtPrecio();
+                }
+            }
+
+            /* 
+             * Se inicia el box de horario conforme a la coincidencia de nombre de obra y la fecha,
+             * se deben poder colocar mas de dos fechas en el boxHorario
+             */
+            this.iniciarBoxHorarioPorFecha(funcionCoincidencia);
+        }
+        
         // Regresar al menu
         if (this.vista.getBtnRegresarMenu() == event.getSource()) {
             int opcion = JOptionPane.showConfirmDialog(vista, "¿Está seguro de regresar al menú?", null,
