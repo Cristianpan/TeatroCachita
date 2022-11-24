@@ -29,6 +29,7 @@ public class CtrlElegirFuncion implements ActionListener{
         this.vista.getBtnRegresarMenu().addActionListener(this);
         this.vista.getComboBoxFecha().addActionListener(this);
         this.vista.getjButton1().addActionListener(this); // Boton de cancelar en la vista
+        this.vista.getComboBoxObra().addActionListener(this);
 
         iniciarBoxFechas();
 
