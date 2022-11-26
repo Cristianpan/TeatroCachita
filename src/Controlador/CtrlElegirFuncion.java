@@ -58,11 +58,12 @@ public class CtrlElegirFuncion implements ActionListener{
             } catch (ParseException exception) {
                 System.out.println("Error en el parseo de String a java.util.Date / Combo de Fecha");
             }
-
+            
+            this.vista.getComboBoxObra().setEnabled(true);
             ArrayList<Funcion> funcionesEnFechaSelec = dao.buscarPorFecha(sqlDate);
             this.iniciarBoxObrasPorFecha(funcionesEnFechaSelec);
             System.out.println("estoy vivo");
-            this.vista.getComboBoxObra().setEnabled(true);
+            
         }
 
         // Listener para el comboBox de la Obra, se inicializara el Box de horario y seteara el precio y descripcion de la obra
