@@ -180,9 +180,9 @@ public class CambiosFunciones extends javax.swing.JFrame {
             tabla.getColumnModel().getColumn(3).setPreferredWidth(50);
         }
 
-        panel17.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 470, 340));
+        panel17.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 60, 360, 290));
 
-        getContentPane().add(panel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 830, 430));
+        getContentPane().add(panel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 830, 360));
 
         panel4.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -356,8 +356,13 @@ public class CambiosFunciones extends javax.swing.JFrame {
     private javax.swing.JButton btnRegresarMenu;
     private javax.swing.JComboBox<String> comboBoxHorarioNuevo;
     private javax.swing.JComboBox<String> comboBoxObraNueva;
+    private javax.swing.JComboBox<String> comboBoxObrasAgendadas;
     private com.toedter.calendar.JDateChooser jDateChooser1;
+    private com.toedter.calendar.JDateChooser jDateChooser2;
     private com.toedter.calendar.JDayChooser jDayChooser1;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
