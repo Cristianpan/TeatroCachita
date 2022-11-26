@@ -6,17 +6,13 @@
 package Controlador;
 
 import DAO.*;
-import Modelo.Funcion;
-import Modelo.Obra;
+import Modelo.*;
 import Vista.ElegirAsientos;
-import Modelo.Ticket;
 import Vista.ImprimirTicketBoletos;
-import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 
 /**
@@ -27,9 +23,7 @@ public class CtrlElegirAsientos implements ActionListener{
     private Ticket ticket;
     private ElegirAsientos frmElegirAsiento;
     private Funcion funcionActual;
-    private double precioApagarA=0;
-    private double precioApagarC=0;
-    private double precioApagarB=0;
+    private double precioTotal=0;
     private ArrayList<String> NombreAsientos= new ArrayList<>();
     
     
@@ -211,30 +205,27 @@ public class CtrlElegirAsientos implements ActionListener{
         
        
         //TXTPRECIOAPAGAR
-            double aumentoA=0;
-            double aumentoB=0;
-            double precioBase=0;
-            double precioTotal=0;
+            DecimalFormat formatoPrecio= new DecimalFormat("#.00");
             Funcion f= new Funcion();
             DAOObra daoObra= new DAOObra();
-            
+             Obra obra= new Obra();
         try {
-             Obra obra= daoObra.buscarObra(this.ticket.getNombreObra());
-             aumentoA= f.getPrecioA();
-             aumentoB= f.getPrecioB();
-             precioBase= obra.getPrecioBoleto();
-             precioTotal=0;
+             obra= daoObra.buscarObra(this.ticket.getNombreObra());
+             
         } catch (Exception ex) {
-            System.out.println("aqui");
+            System.out.println(ex);
         }
         
         //ASIENTOS A
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 5; j++) {
                 if(e.getSource() == this.frmElegirAsiento.getAsientosA()[i][j]){
-                    double apagar= precioAsientosAseleccionados(precioBase, aumentoA);
-                    setPrecioApagarA(apagar);
-                    this.frmElegirAsiento.getTxtPrecioPagar().setText(""+precioAsientosTotal());
+                    if(this.frmElegirAsiento.getAsientosA()[i][j].isSelected()){
+                        this.precioTotal= this.precioTotal+obra.getPrecioBoleto()+obra.getPrecioBoleto()*this.funcionActual.getPrecioA();
+                    }else{
+                        this.precioTotal= this.precioTotal-obra.getPrecioBoleto()-obra.getPrecioBoleto()*this.funcionActual.getPrecioA();
+                    }
+                    this.frmElegirAsiento.getTxtPrecioPagar().setText(formatoPrecio.format(this.precioTotal));
                 }
             }
         }
@@ -243,9 +234,12 @@ public class CtrlElegirAsientos implements ActionListener{
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 5; j++) {
                 if(e.getSource() == this.frmElegirAsiento.getAsientosC()[i][j]){
-                    double apagar= precioAsientosCseleccionados(precioBase);
-                    setPrecioApagarC(apagar);
-                    this.frmElegirAsiento.getTxtPrecioPagar().setText(""+precioAsientosTotal());
+                    if(this.frmElegirAsiento.getAsientosC()[i][j].isSelected()){
+                        this.precioTotal= this.precioTotal+obra.getPrecioBoleto()+obra.getPrecioBoleto();
+                    }else{
+                        this.precioTotal= this.precioTotal-obra.getPrecioBoleto()-obra.getPrecioBoleto();
+                    }
+                    this.frmElegirAsiento.getTxtPrecioPagar().setText(formatoPrecio.format(this.precioTotal));
                 }
             }
         }
@@ -254,9 +248,12 @@ public class CtrlElegirAsientos implements ActionListener{
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 2; j++) {
                 if(e.getSource() == this.frmElegirAsiento.getAsientosB1()[i][j]){
-                    double apagar= precioAsientosBseleccionados(precioBase, aumentoB);
-                    setPrecioApagarB(apagar);
-                    this.frmElegirAsiento.getTxtPrecioPagar().setText(""+precioAsientosTotal());
+                    if(this.frmElegirAsiento.getAsientosB1()[i][j].isSelected()){
+                        this.precioTotal= this.precioTotal+obra.getPrecioBoleto()+obra.getPrecioBoleto()*this.funcionActual.getPrecioB();
+                    }else{
+                        this.precioTotal= this.precioTotal-obra.getPrecioBoleto()-obra.getPrecioBoleto()*this.funcionActual.getPrecioB();
+                    }
+                    this.frmElegirAsiento.getTxtPrecioPagar().setText(formatoPrecio.format(this.precioTotal));
                 }
             }
         }
@@ -265,9 +262,12 @@ public class CtrlElegirAsientos implements ActionListener{
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 2; j++) {
                 if(e.getSource() == this.frmElegirAsiento.getAsientosB2()[i][j]){
-                    double apagar= precioAsientosBseleccionados(precioBase, aumentoB);
-                    setPrecioApagarB(apagar);
-                    this.frmElegirAsiento.getTxtPrecioPagar().setText(""+precioAsientosTotal());
+                    if(this.frmElegirAsiento.getAsientosB2()[i][j].isSelected()){
+                        this.precioTotal= this.precioTotal+obra.getPrecioBoleto()+obra.getPrecioBoleto()*this.funcionActual.getPrecioB();
+                    }else{
+                        this.precioTotal= this.precioTotal-obra.getPrecioBoleto()-obra.getPrecioBoleto()*this.funcionActual.getPrecioB();
+                    }
+                    this.frmElegirAsiento.getTxtPrecioPagar().setText(formatoPrecio.format(this.precioTotal));
                 }
             }
         }
@@ -311,41 +311,6 @@ public class CtrlElegirAsientos implements ActionListener{
         return false;
     }
     
-    public double precioAsientosTotal(){
-       double precio= getPrecioApagarA()+getPrecioApagarC()+getPrecioApagarB();
-       return precio;
-    }
-    
-    public double precioAsientosAseleccionados(double precioBase, double aumento){
-        int asientos=0;
-        double precio=0;
-        //checa que asientos del Arreglo A estan seleccionados
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 5; j++) {
-                if(this.frmElegirAsiento.getAsientosA()[i][j].isSelected()){
-                    asientos++;
-                }
-            }
-        }
-        precio= precioBase*asientos + precioBase*asientos*aumento;
-        return precio;
-    }
-    
-    public double precioAsientosCseleccionados(double precioBase){
-        int asientos=0;
-        double precio=0;
-        //checa que asientos del Arreglo A estan seleccionados
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 5; j++) {
-                if(this.frmElegirAsiento.getAsientosC()[i][j].isSelected()){
-                    asientos++;
-                }
-            }
-        }
-        precio= precioBase*asientos;
-        return precio;
-    }
-    
     public void deseleccionarAsientos(){
         //asientosA
         for (int i = 0; i < 3; i++) {
@@ -374,32 +339,8 @@ public class CtrlElegirAsientos implements ActionListener{
                 this.frmElegirAsiento.getAsientosB2()[i][j].setSelected(false);
             }
         }
-        this.precioApagarA=0;
-        this.precioApagarB=0;
-        this.precioApagarC=0;
+        this.precioTotal=0;
         this.frmElegirAsiento.getTxtPrecioPagar().setText("");
-    }
-    
-    public double precioAsientosBseleccionados(double precioBase, double aumento){
-        int asientos=0;
-        double precio=0;
-        //checa que asientos del Arreglo A estan seleccionados
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 2; j++) {
-                if(this.frmElegirAsiento.getAsientosB1()[i][j].isSelected()){
-                    asientos++;
-                }
-            }
-        }
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 2; j++) {
-                if(this.frmElegirAsiento.getAsientosB2()[i][j].isSelected()){
-                    asientos++;
-                }
-            }
-        }
-        precio= precioBase*asientos + precioBase*asientos*aumento;
-        return precio;
     }
     
     public void crearTicket(){
@@ -408,7 +349,7 @@ public class CtrlElegirAsientos implements ActionListener{
             this.ticket.setFechaVenta(this.funcionActual.getFechaPresentacion());
             this.ticket.setHorario(this.funcionActual.getHoraPresentacion());
             this.ticket.setBoletosVendidos(NombreAsientos);
-            double total= precioAsientosTotal();
+            double total= this.precioTotal;
             this.ticket.setTotalVenta(total);
             double entregado=Double.parseDouble(this.frmElegirAsiento.getTxtMontoPagar().getText());
             this.ticket.setMontoEntregado(entregado);
@@ -423,33 +364,5 @@ public class CtrlElegirAsientos implements ActionListener{
         System.out.println(NombreAsientos+ " " + this.funcionActual.getId());
         daoSala.ocuparAsiento(NombreAsientos, this.funcionActual.getId());        
     }
-    
-
-    public double getPrecioApagarA() {
-        return precioApagarA;
-    }
-
-    public void setPrecioApagarA(double precioApagarA) {
-        this.precioApagarA = precioApagarA;
-    }
-
-    public double getPrecioApagarC() {
-        return precioApagarC;
-    }
-
-    public void setPrecioApagarC(double precioApagarC) {
-        this.precioApagarC = precioApagarC;
-    }
-
-    public double getPrecioApagarB() {
-        return precioApagarB;
-    }
-
-    public void setPrecioApagarB(double precioApagarB) {
-        this.precioApagarB = precioApagarB;
-    }
-
-    
-   
     
 }
