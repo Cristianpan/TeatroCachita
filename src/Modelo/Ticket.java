@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Modelo;
 
 import java.sql.Date;
@@ -16,16 +11,13 @@ import java.util.ArrayList;
 public class Ticket {
     //nombre ya está por defecto
     private int numVenta;
-    private Time horario;
+    private Time horaVenta; 
     private String nombreObra;
     private Date fechaVenta;
     private ArrayList <String> boletosVendidos;
     private double totalVenta;
     private double montoEntregado;
     private double cambio;
-
-    public Ticket() {
-    }
 
     //get y set
     public int getNumVenta() {
@@ -77,12 +69,12 @@ public class Ticket {
         this.cambio = cambio;
     }
 
-    public Time getHorario() {
-        return horario;
+    public Time getHoraVenta() {
+        return horaVenta; 
     }
 
-    public void setHorario(Time horario) {
-        this.horario = horario;
+    public void setHoraVenta(Time horaVenta) {
+        this.horaVenta = horaVenta; 
     }
 
     public String getNombreObra() {
@@ -91,6 +83,10 @@ public class Ticket {
 
     public void setNombreObra(String nombreObra) {
         this.nombreObra = nombreObra;
+    }
+
+    public void obtenerCambio(){
+        this.cambio = this.montoEntregado - this.totalVenta;  
     }
     
     

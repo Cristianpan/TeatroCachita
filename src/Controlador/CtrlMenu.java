@@ -81,7 +81,7 @@ public class CtrlMenu implements ActionListener {
 
             } else if (event.getSource() == this.panelMenu.getBtnModificar()){
 
-                new CtrlModificarEliminarFunciones(new CambiosFunciones(), new Funcion()); 
+                new CtrlcambiosFunciones(new CambiosFunciones(), new Funcion()); 
                 cerrarVentana();
             }
         } 

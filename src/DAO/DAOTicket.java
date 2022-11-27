@@ -9,8 +9,7 @@ import Modelo.Ticket;
 import Recursos.Db;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
+
 
 /**
  *
@@ -38,7 +37,7 @@ public class DAOTicket extends Db{
             ps.setDouble(4, ticket.getCambio());
 
             ps.setString(5, boletos);
-            ps.setTime(6, ticket.getHorario());
+            ps.setTime(6, ticket.getHoraVenta());
             ps.setString(7, ticket.getNombreObra());
             ps.executeUpdate();
             

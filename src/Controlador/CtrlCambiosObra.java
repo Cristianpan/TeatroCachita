@@ -14,10 +14,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author diana
- */
+
 public class CtrlCambiosObra implements ActionListener {
     private Obra obra;
     private CambiosObra frmCambiosObra;
@@ -123,7 +120,7 @@ public class CtrlCambiosObra implements ActionListener {
             
             if (obraSeleccionada != "-Seleccionar Obra-") {
                 DAOObra daoObra = new DAOObra();
-                Obra obra = daoObra.buscarObra(obraSeleccionada);
+                this.obra = daoObra.buscarObra(obraSeleccionada);
                 String msg = "¿Desea eliminar la obra " + obra.getNombre() + "?\nSi se elimina, se eliminaran las funciones asociadas"; 
 
                 int opcion = JOptionPane.showConfirmDialog(frmCambiosObra, msg , null,

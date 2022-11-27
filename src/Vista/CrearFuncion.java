@@ -1,24 +1,7 @@
 package Vista;
 
-import java.sql.Time;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-
-import javax.swing.JOptionPane;
-
-import DAO.DAOFuncion;
-import DAO.DAOObra;
-import Modelo.Funcion;
-import Modelo.Obra;
-import javax.accessibility.AccessibleContext;
 import javax.swing.JButton;
-import javax.swing.JRootPane;
 
-
-/**
- *
- * @author diana
- */
 public class CrearFuncion extends javax.swing.JFrame {
     /**
      * Creates new form VentanaCrearFuncion
@@ -117,6 +100,7 @@ public class CrearFuncion extends javax.swing.JFrame {
 
         comboBoxHora.setBackground(new java.awt.Color(255, 255, 255));
         comboBoxHora.setForeground(new java.awt.Color(0, 0, 0));
+        comboBoxHora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Seleccionar horario--", "18:00", "20:30" }));
         comboBoxHora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboBoxHoraActionPerformed(evt);
@@ -126,6 +110,7 @@ public class CrearFuncion extends javax.swing.JFrame {
 
         comboBoxObra.setBackground(new java.awt.Color(255, 255, 255));
         comboBoxObra.setForeground(new java.awt.Color(0, 0, 0));
+        comboBoxObra.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Selecionar obra--" }));
         comboBoxObra.addInputMethodListener(new java.awt.event.InputMethodListener() {
             public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }

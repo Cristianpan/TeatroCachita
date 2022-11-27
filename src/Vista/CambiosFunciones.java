@@ -117,6 +117,7 @@ public class CambiosFunciones extends javax.swing.JFrame {
         panel17.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 130, -1, -1));
 
         comboBoxObraNueva.setBackground(new java.awt.Color(255, 255, 255));
+        comboBoxObraNueva.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Seleccionar Obra--" }));
         panel17.add(comboBoxObraNueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 160, 240, -1));
 
         jLabel24.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
@@ -131,6 +132,7 @@ public class CambiosFunciones extends javax.swing.JFrame {
 
         comboBoxHorarioNuevo.setBackground(new java.awt.Color(255, 255, 255));
         comboBoxHorarioNuevo.setForeground(new java.awt.Color(0, 0, 0));
+        comboBoxHorarioNuevo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccionar-", "18:00", "20:30" }));
         comboBoxHorarioNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboBoxHorarioNuevoActionPerformed(evt);

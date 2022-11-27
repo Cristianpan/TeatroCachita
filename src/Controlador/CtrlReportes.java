@@ -1,6 +1,7 @@
 package Controlador;
 
 import java.awt.event.*;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
@@ -96,6 +97,7 @@ public class CtrlReportes implements ActionListener {
         Calendar dateToday = Calendar.getInstance(); 
         int year = dateToday.get(Calendar.YEAR); 
         String auxDate = year + date; 
+        DecimalFormat formatoPrecio = new DecimalFormat("#.00");
         
         DAOTicket daoTicket = new DAOTicket(); 
         ArrayList<Ticket> tickets = daoTicket.obtenerTickets(auxDate); 
@@ -124,7 +126,9 @@ public class CtrlReportes implements ActionListener {
             tabla.addRow(fila);
         }
 
-        this.vista.getTxtVentaPromedio().setText("$" + String.valueOf(ventaPromedio));
+
+
+        this.vista.getTxtVentaPromedio().setText("$" + formatoPrecio.format(ventaPromedio));
         this.vista.getTableReporte().setModel(tabla);
     }
 

@@ -1,3 +1,4 @@
+
 package Recursos;
 
 import java.sql.Connection;
@@ -11,9 +12,9 @@ public class Db {
 
     public Connection getConexion() {
         try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
             String url = "";
             myDbConn = DriverManager.getConnection(url, "", "");
-
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Asegurese de tener una conexión a la red");
         }
