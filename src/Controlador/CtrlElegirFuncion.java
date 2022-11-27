@@ -57,15 +57,18 @@ public class CtrlElegirFuncion implements ActionListener, ItemListener {
         // btn Elegir asientos
         if (event.getSource() == this.vista.getBtnElegirAsientos()) {
            if (this.vista.getComboBoxObra().getSelectedIndex() != 0 && !this.funcionesDisponibles.isEmpty()){
-                Ticket ticket = new Ticket(); 
-                ticket.setNombreObra(this.vista.getComboBoxObra().getSelectedItem().toString());
-                
-                new CtrlElegirAsientos(ticket, new ElegirAsientos(), obtenerFuncionSeleccionada()); 
-                this.vista.setVisible(false);
-                this.vista.dispose();
+                if(this.vista.getComboBoxHorario().getSelectedIndex() != 0 ){
+                    Ticket ticket = new Ticket(); 
+                    ticket.setNombreObra(this.vista.getComboBoxObra().getSelectedItem().toString());
+                    new CtrlElegirAsientos(ticket, new ElegirAsientos(), obtenerFuncionSeleccionada()); 
+                    this.vista.setVisible(false);
+                    this.vista.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(this.vista, "Por favor seleccione el horario disponible.");
+                }
 
            } else {
-                JOptionPane.showMessageDialog(this.vista, "Por favor seleccione una función disponible");
+                JOptionPane.showMessageDialog(this.vista, "Por favor seleccione una función disponible.");
            } 
         }
     }
@@ -83,8 +86,8 @@ public class CtrlElegirFuncion implements ActionListener, ItemListener {
 
     public void agregarHorarios(int index) {
         this.vista.getComboBoxHorario().removeAllItems();
+        this.vista.getComboBoxHorario().addItem("-Seleccionar-");
         if (this.funcionesDisponibles.size() == 2 && this.vista.getComboBoxObra().getItemCount() == 2) {
-            this.vista.getComboBoxHorario().addItem("-Seleccionar-");
             for (Funcion funcion : funcionesDisponibles) {
                 this.vista.getComboBoxHorario().addItem(String.valueOf(funcion.getHoraPresentacion()));
             }
@@ -111,7 +114,7 @@ public class CtrlElegirFuncion implements ActionListener, ItemListener {
                 obra = funcion.getObra().getNombre();
             }
         } else {
-            JOptionPane.showMessageDialog(this.vista, "No existen funciones registradas para la fecha seleccionada");
+            JOptionPane.showMessageDialog(this.vista, "No existen funciones registradas para la fecha seleccionada.");
         }
     }
 
