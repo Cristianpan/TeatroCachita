@@ -1,177 +1,118 @@
 package Controlador;
 
 import java.awt.event.*;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.beans.PropertyChangeListener;
+import java.sql.Date;
 import java.util.ArrayList;
+import java.util.EventListener;
 
 import javax.swing.JOptionPane;
 
 import DAO.DAOFuncion;
-import DAO.DAOObra;
+import Modelo.Funcion;
+import Modelo.Ticket;
+import Vista.ElegirAsientos;
 import Vista.ElegirFuncion;
-import Vista.MenuAdmi;
-import Modelo.*;
 
-public class CtrlElegirFuncion implements ActionListener{
-    Ticket ticket;
-    ElegirFuncion vista;
-    DAOFuncion dao;
-    DAOObra daoObra;
+public class CtrlElegirFuncion implements ActionListener, ItemListener {
+    private ElegirFuncion vista;
+    private ArrayList<Funcion> funcionesDisponibles = new ArrayList<>();
 
     public CtrlElegirFuncion(ElegirFuncion vista) {
         this.vista = vista;
-
-        dao = new DAOFuncion();
-        daoObra = new DAOObra();
-
-        iniciarBoxFechas();
-        defaultBoxObraHorario();
-
         this.vista.getBtnElegirAsientos().addActionListener(this);
         this.vista.getBtnRegresarMenu().addActionListener(this);
-        this.vista.getComboBoxFecha().addActionListener(this);
-        this.vista.getComboBoxObra().addActionListener(this);
-        this.vista.getComboBoxObra().setEnabled(false);
-        this.vista.getjButton1().addActionListener(this); // Boton de cancelar en la vista
-
+        this.vista.getCancelar().addActionListener(this);
+        this.vista.getComboBoxObra().addItemListener(this);
         this.vista.setVisible(true);
+        agregarObras();
+
+        // Agregando action listener al calendar
+        this.vista.getCalendar().addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            @Override
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                agregarObras();
+            }
+        });
+    }
+
+    @Override
+    public void itemStateChanged(ItemEvent e) {
+        int indexObra = this.vista.getComboBoxObra().getSelectedIndex();
+
+        if (indexObra != 0 && indexObra != -1) {
+            agregarHorarios(indexObra);
+            this.vista.getTxtPrecio()
+                    .setText(String.valueOf(this.funcionesDisponibles.get(indexObra - 1).getObra().getPrecioBoleto()));
+            this.vista.getTxtResumen().setText(this.funcionesDisponibles.get(indexObra - 1).getObra().getResumen());
+        } else {
+            this.vista.getComboBoxHorario().removeAllItems();
+            this.vista.getTxtPrecio().setText(null);
+            this.vista.getTxtResumen().setText(null);
+        }
     }
 
     @Override
     public void actionPerformed(ActionEvent event) {
+        // btn Elegir asientos
+        if (event.getSource() == this.vista.getBtnElegirAsientos()) {
+           if (this.vista.getComboBoxObra().getSelectedIndex() != 0 && !this.funcionesDisponibles.isEmpty()){
+                Ticket ticket = new Ticket(); 
+                ticket.setNombreObra(this.vista.getComboBoxObra().getSelectedItem().toString());
+                
+                new CtrlElegirAsientos(ticket, new ElegirAsientos(), obtenerFuncionSeleccionada()); 
+                this.vista.setVisible(false);
+                this.vista.dispose();
 
-        // Escuchar cuando se selecciono un item y traer la fecha y actualizar la
-        // ventana conforme esa fecha
-        if (this.vista.getComboBoxFecha() == event.getSource()) {
-            this.defaultBoxObraHorario();
-
-            // Se captura la fecha del comboBox para hacer la consulta a la base de datos
-            String fechaSeleccionadaS = this.vista.getComboBoxFecha().getSelectedItem().toString();
-            java.sql.Date sqlDate = null;
-
-            try { // Este parseo se logro con la obra de Dios, sepa como es que salio
-                DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-                java.util.Date utilDate = format.parse(fechaSeleccionadaS);
-                sqlDate = new java.sql.Date(utilDate.getTime());
-            } catch (ParseException exception) {
-                System.out.println("Error en el parseo de String a java.util.Date / Combo de Fecha");
-            }
-            
-            this.vista.getComboBoxObra().setEnabled(true);
-            ArrayList<Funcion> funcionesEnFechaSelec = dao.buscarPorFecha(sqlDate);
-            this.iniciarBoxObrasPorFecha(funcionesEnFechaSelec);
-            System.out.println("estoy vivo");
-            
+           } else {
+                JOptionPane.showMessageDialog(this.vista, "Por favor seleccione una función disponible");
+           } 
         }
+    }
 
-        // Listener para el comboBox de la Obra, se inicializara el Box de horario y seteara el precio y descripcion de la obra
-        if (this.vista.getComboBoxObra() == event.getSource()) {
+    public Funcion obtenerFuncionSeleccionada(){
 
-            // Obteniendo el nombre de la obra del comboBox
-            String nombreObraSelec = this.vista.getComboBoxObra().getSelectedItem().toString();
-
-            // Se consigue la sql.Date del comboBox de fecha
-            String fechaSeleccionadaS = this.vista.getComboBoxFecha().getSelectedItem().toString();
-            java.sql.Date sqlDate = null;
-
-            try { 
-                DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-                java.util.Date utilDate = format.parse(fechaSeleccionadaS);
-                sqlDate = new java.sql.Date(utilDate.getTime());
-            } catch (ParseException exception) {
-                System.out.println("Error en el parseo de String a java.util.Date / Combo de Obra");
+        for (Funcion funcion: funcionesDisponibles){
+            if (this.vista.getComboBoxHorario().getSelectedItem().toString().equals(String.valueOf(funcion.getHoraPresentacion())) && this.vista.getComboBoxObra().getSelectedItem().toString().equals(funcion.getObra().getNombre())){
+                return funcion; 
             }
+        }
+        
+        return null;
+    }
 
-            ArrayList<Funcion> funcionEnFechaSelec = dao.buscarPorFecha(sqlDate); // Se trajeron las funciones en la fecha dada
-            ArrayList<Funcion> funcionCoincidencia = new ArrayList<>(); // Guarda las funciones en donde hay coincidencia de nombre de obra y fecha
+    public void agregarHorarios(int index) {
+        this.vista.getComboBoxHorario().removeAllItems();
+        if (this.funcionesDisponibles.size() == 2 && this.vista.getComboBoxObra().getItemCount() == 2) {
+            this.vista.getComboBoxHorario().addItem("-Seleccionar-");
+            for (Funcion funcion : funcionesDisponibles) {
+                this.vista.getComboBoxHorario().addItem(String.valueOf(funcion.getHoraPresentacion()));
+            }
+        } else {
+            this.vista.getComboBoxHorario()
+                    .addItem(String.valueOf(this.funcionesDisponibles.get(index - 1).getHoraPresentacion()));
+        }
+    }
 
-            for (Funcion funcion : funcionEnFechaSelec) {
-                if (nombreObraSelec == funcion.getObra().getNombre()) {
-                    funcionCoincidencia.add(funcion);
+    public void agregarObras() {
+        DAOFuncion daoFuncion = new DAOFuncion();
+        this.funcionesDisponibles = daoFuncion
+                .obtenerFuncionPorFecha(new Date(this.vista.getCalendar().getDate().getTime()));
 
-                    // Agregar en el field de precio el costo de la funcion seleccionada
-                    this.vista.getTxtPrecio().setText(Double.toString(funcion.getObra().getPrecioBoleto()));
+        this.vista.getComboBoxObra().removeAllItems();
+        this.vista.getComboBoxObra().addItem("--Selecionar obra--");
+
+        if (!funcionesDisponibles.isEmpty()) {
+            String obra = null;
+            for (Funcion funcion : funcionesDisponibles) {
+                if (!funcion.getObra().getNombre().equals(obra)) {
+                    this.vista.getComboBoxObra().addItem(funcion.getObra().getNombre());
                 }
+                obra = funcion.getObra().getNombre();
             }
-
-            /* 
-             * Se inicia el box de horario conforme a la coincidencia de nombre de obra y la fecha,
-             * se deben poder colocar mas de dos fechas en el boxHorario
-             */
-            this.iniciarBoxHorarioPorFecha(funcionCoincidencia);
-        }
-        
-        // Regresar al menu
-        if (this.vista.getBtnRegresarMenu() == event.getSource()) {
-            int opcion = JOptionPane.showConfirmDialog(vista, "¿Está seguro de regresar al menú?", null,
-                    JOptionPane.YES_NO_OPTION, 1);
-
-            if (opcion == 0) {
-                new CtrlMenu(new MenuAdmi());
-                this.vista.setVisible(false);
-                this.vista.dispose();
-            }
-        }
-
-        // Ir a la ventana elegir asientos / No esta funcionando correctamente por los argumentos del constructor
-        if (this.vista.getBtnElegirAsientos() == event.getSource()) {
-            int opcion = JOptionPane.showConfirmDialog(vista, "¿Seguro desea elegir asientos en este momento?", null,
-                    JOptionPane.YES_NO_OPTION, 1);
-            
-            if (opcion == 0) {
-                new CtrlElegirAsientos(ticket, null, null); // Todavia no se le envian los datos completos
-                this.vista.setVisible(false);
-                this.vista.dispose();
-            }        
-        }
-        
-        // Button Cancelar / Cancela la operacion y limpia todos los datos en la ventana
-        if (this.vista.getjButton1() == event.getSource()) {
-            limpiarVentana(); // Errores al reiniciar el comboBox de fechas
+        } else {
+            JOptionPane.showMessageDialog(this.vista, "No existen funciones registradas para la fecha seleccionada");
         }
     }
-    
-    public void iniciarBoxFechas() {
-        ArrayList<Funcion> funcionesRegistradas = dao.obtenerFuncionesRegistradas();
 
-        this.vista.getComboBoxFecha().addItem("-Seleccionar fecha-");
-
-        // Agregar las fechas de presentacion de las obras existentes
-        funcionesRegistradas.forEach(funcion -> {
-            this.vista.getComboBoxFecha().addItem(funcion.getFechaPresentacion().toString());
-        });
-    }
-
-    public void iniciarBoxObrasPorFecha(ArrayList<Funcion> funcionesEnFechaSelec) {
-        this.vista.getComboBoxObra().removeAllItems();
-        this.vista.getComboBoxObra().addItem("-Seleccionar Obra-");
-
-        funcionesEnFechaSelec.forEach(funcion -> {
-            this.vista.getComboBoxObra().addItem(funcion.getObra().getNombre());
-        });
-    }
-    
-    public void iniciarBoxHorarioPorFecha(ArrayList<Funcion> funcionesEnFechaSelec) {
-        this.vista.getComboBoxHorario().removeAllItems();
-        this.vista.getComboBoxHorario().addItem("Seleccionar Horario");
-
-        funcionesEnFechaSelec.forEach(funcion -> {
-            this.vista.getComboBoxHorario().addItem(funcion.getHoraPresentacion().toString());
-        });
-    }
-    
-    // Hace que el comboBox de horario y obra regresen a un estado inicial
-    public void defaultBoxObraHorario() {
-        this.vista.getComboBoxObra().removeAllItems();
-        this.vista.getComboBoxHorario().removeAllItems();
-
-        this.vista.getComboBoxObra().addItem("-");
-        this.vista.getComboBoxHorario().addItem("-");
-    }
-
-    public void limpiarVentana() {
-        this.defaultBoxObraHorario();
-    }
 }

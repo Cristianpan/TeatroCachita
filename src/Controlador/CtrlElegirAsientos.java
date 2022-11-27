@@ -27,9 +27,9 @@ public class CtrlElegirAsientos implements ActionListener{
     private Ticket ticket;
     private ElegirAsientos frmElegirAsiento;
     private Funcion funcionActual;
-    private double precioApagarA=0;
-    private double precioApagarC=0;
-    private double precioApagarB=0;
+    private double precioApagarA = 0;
+    private double precioApagarC = 0;
+    private double precioApagarB = 0;
     private ArrayList<String> NombreAsientos= new ArrayList<>();
 
     public CtrlElegirAsientos(Ticket ticket, ElegirAsientos frmElegirAsiento, Funcion funcion) {

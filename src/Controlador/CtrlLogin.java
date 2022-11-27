@@ -38,7 +38,7 @@ public class CtrlLogin implements ActionListener {
                         new CtrlMenu(new MenuAdmi());
                     } else {
                         cerrarVentana();
-                        new CtrlEligegirFuncion(new ElegirFuncion()); 
+                        new CtrlElegirFuncion(new ElegirFuncion()); 
                     }
                 } else {
                     frmLogin.getTxtWarning().setText("Usuario o contraseña incorrectos");

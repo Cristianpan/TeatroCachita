@@ -23,9 +23,8 @@ public class CtrlAgregarFunciones implements ActionListener {
         this.vista.getBtnAgregar().addActionListener(this);
         this.vista.getBtnRegresarMenu().addActionListener(this);
         this.vista.getBtnCancelar().addActionListener(this);
+        agregarObrasComboBox(); 
         this.vista.setVisible(true);
-        agregarObrasComboBox();
-        agregarHorariosComboBox(); 
 
     }
     
@@ -94,7 +93,7 @@ public class CtrlAgregarFunciones implements ActionListener {
     //Verifica que no haya más de dos obras en el dia o que no interfiera una con otra
     public boolean validarDisponibilidadHorario() {
         DAOFuncion daoFuncion = new DAOFuncion();
-        ArrayList<Funcion> funciones = daoFuncion.buscarPorFecha(this.funcion.getFechaPresentacion());
+        ArrayList<Funcion> funciones = daoFuncion.obtenerFuncionPorFecha(this.funcion.getFechaPresentacion());
 
         if (funciones.isEmpty()) {
             return true;
@@ -120,18 +119,10 @@ public class CtrlAgregarFunciones implements ActionListener {
     public void agregarObrasComboBox() {
         DAOObra daoObras = new DAOObra();
         this.obras = daoObras.obtenerObrasRegistradas();
-        vista.getComboBoxObra().addItem("-Seleccionar Obra-");
         
         for (Obra obra : obras) {
             vista.getComboBoxObra().addItem(obra.getNombre());
         }
-    }
-    
-    //Agrega horarios disponibles
-    public void agregarHorariosComboBox(){
-        this.vista.getComboBoxHora().addItem("-Seleccionar horario-");
-        this.vista.getComboBoxHora().addItem("18:00");
-        this.vista.getComboBoxHora().addItem("20:30");
     }
 
     public void limpiarCampos() {

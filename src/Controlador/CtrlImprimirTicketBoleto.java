@@ -5,16 +5,11 @@
  */
 package Controlador;
 
-import DAO.DAOSala;
 import DAO.DAOTicket;
 import Modelo.*;
-import Vista.BoletoVista;
 import Vista.ImprimirTicketBoletos;
-import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-
 /**
  *
  * @author diana
@@ -29,8 +24,8 @@ public class CtrlImprimirTicketBoleto implements ActionListener{
 
     public CtrlImprimirTicketBoleto(Ticket ticket, ImprimirTicketBoletos frmImprimirTicketBoleto, Funcion funcion) {
         this.ticket = ticket;
-        this.frmImprimirTicketBoleto= frmImprimirTicketBoleto;
-        this.funcion=funcion;        
+        this.frmImprimirTicketBoleto = frmImprimirTicketBoleto;
+        this.funcion = funcion;        
         agregarBoletoInicial(this.frmImprimirTicketBoleto);
         agregarTicket(this.frmImprimirTicketBoleto);
         this.indiceBoletoFinal= this.ticket.getBoletosVendidos().size()-1;
