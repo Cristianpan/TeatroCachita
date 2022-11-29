@@ -9,6 +9,8 @@ import java.sql.Date;
 import java.util.Calendar;
 
 import com.toedter.calendar.JDateChooser;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 
 /**
  *
@@ -38,8 +40,8 @@ public class ElegirFuncion extends javax.swing.JFrame {
         panel19 = new java.awt.Panel();
         panel18 = new java.awt.Panel();
         jLabel21 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        btnRegresarMenu = new javax.swing.JButton();
+        labelRegresar = new javax.swing.JLabel();
+        btnRegresar = new javax.swing.JButton();
         txtResumen = new java.awt.TextArea();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -70,16 +72,16 @@ public class ElegirFuncion extends javax.swing.JFrame {
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));
         jLabel21.setText("Elegir Función");
 
-        jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Menú");
+        labelRegresar.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        labelRegresar.setForeground(new java.awt.Color(255, 255, 255));
+        labelRegresar.setText("-");
 
-        btnRegresarMenu.setBackground(new java.awt.Color(25, 43, 55));
-        btnRegresarMenu.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        btnRegresarMenu.setForeground(new java.awt.Color(255, 255, 255));
-        btnRegresarMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/regreso2.png"))); // NOI18N
-        btnRegresarMenu.setToolTipText("Regresar");
-        btnRegresarMenu.setBorder(null);
+        btnRegresar.setBackground(new java.awt.Color(25, 43, 55));
+        btnRegresar.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        btnRegresar.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/regreso2.png"))); // NOI18N
+        btnRegresar.setToolTipText("Regresar");
+        btnRegresar.setBorder(null);
 
         javax.swing.GroupLayout panel18Layout = new javax.swing.GroupLayout(panel18);
         panel18.setLayout(panel18Layout);
@@ -87,10 +89,10 @@ public class ElegirFuncion extends javax.swing.JFrame {
             panel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel18Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnRegresarMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 418, Short.MAX_VALUE)
+                .addComponent(labelRegresar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 446, Short.MAX_VALUE)
                 .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         panel18Layout.setVerticalGroup(
@@ -100,10 +102,10 @@ public class ElegirFuncion extends javax.swing.JFrame {
                 .addGroup(panel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel18Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnRegresarMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-                        .addComponent(jLabel4)))
+                        .addComponent(labelRegresar)))
                 .addContainerGap())
         );
 
@@ -247,7 +249,7 @@ public class ElegirFuncion extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnElegirAsientos;
-    private javax.swing.JButton btnRegresarMenu;
+    private javax.swing.JButton btnRegresar;
     private com.toedter.calendar.JDateChooser calendar;
     private javax.swing.JComboBox<String> comboBoxHorario;
     private javax.swing.JComboBox<String> comboBoxObra;
@@ -255,9 +257,9 @@ public class ElegirFuncion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel labelRegresar;
     private java.awt.Panel panel18;
     private java.awt.Panel panel19;
     private java.awt.Panel panel4;
@@ -274,12 +276,12 @@ public class ElegirFuncion extends javax.swing.JFrame {
         this.btnElegirAsientos = btnElegirAsientos;
     }
 
-    public javax.swing.JButton getBtnRegresarMenu() {
-        return btnRegresarMenu;
+    public javax.swing.JButton getBtnRegresar() {
+        return btnRegresar;
     }
 
-    public void setBtnRegresarMenu(javax.swing.JButton btnRegresarMenu) {
-        this.btnRegresarMenu = btnRegresarMenu;
+    public void setBtnRegresar(javax.swing.JButton btnRegresarMenu) {
+        this.btnRegresar = btnRegresarMenu;
     }
 
     public javax.swing.JComboBox<String> getComboBoxHorario() {
@@ -296,14 +298,6 @@ public class ElegirFuncion extends javax.swing.JFrame {
 
     public void setComboBoxObra(javax.swing.JComboBox<String> comboBoxObra) {
         this.comboBoxObra = comboBoxObra;
-    }
-
-    public javax.swing.JButton getCancelar() {
-        return btnCancelar;
-    }
-
-    public void setCancelar(javax.swing.JButton jButton1) {
-        this.btnCancelar = jButton1;
     }
 
     public java.awt.TextArea getTxtResumen() {
@@ -329,5 +323,23 @@ public class ElegirFuncion extends javax.swing.JFrame {
     public void setCalendar(JDateChooser calendar) {
         this.calendar = calendar;
     }
+
+    public JButton getBtnCancelar() {
+        return btnCancelar;
+    }
+
+    public void setBtnCancelar(JButton btnCancelar) {
+        this.btnCancelar = btnCancelar;
+    }
+
+    public JLabel getLabelRegresar() {
+        return labelRegresar;
+    }
+
+    public void setLabelRegresar(JLabel labelRegresar) {
+        this.labelRegresar = labelRegresar;
+    }
+    
+    
     
 }

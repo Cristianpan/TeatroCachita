@@ -69,6 +69,15 @@ public class MenuAdmi extends javax.swing.JFrame {
     public void setPanelSubmenu(Panel panelSubmenu) {
         this.panelSubmenu = panelSubmenu;
     }
+
+    public JButton getBtnVenderBoletos() {
+        return btnVenderBoletos;
+    }
+
+    public void setBtnVenderBoletos(JButton btnVenderBoletos) {
+        this.btnVenderBoletos = btnVenderBoletos;
+    }
+    
     
     
 
@@ -88,6 +97,7 @@ public class MenuAdmi extends javax.swing.JFrame {
         btnReportes = new javax.swing.JButton();
         btnFunciones = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
+        btnVenderBoletos = new javax.swing.JButton();
         panelSubmenu = new java.awt.Panel();
         checkbox1 = new java.awt.Checkbox();
         jLabel1 = new javax.swing.JLabel();
@@ -136,6 +146,12 @@ public class MenuAdmi extends javax.swing.JFrame {
         btnSalir.setText("Salir");
         btnSalir.setBorder(null);
 
+        btnVenderBoletos.setBackground(new java.awt.Color(34, 58, 74));
+        btnVenderBoletos.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        btnVenderBoletos.setForeground(new java.awt.Color(255, 255, 255));
+        btnVenderBoletos.setText("Vender Boletos");
+        btnVenderBoletos.setBorder(null);
+
         javax.swing.GroupLayout panel2Layout = new javax.swing.GroupLayout(panel2);
         panel2.setLayout(panel2Layout);
         panel2Layout.setHorizontalGroup(
@@ -145,6 +161,7 @@ public class MenuAdmi extends javax.swing.JFrame {
             .addComponent(btnFunciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnReportes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnVenderBoletos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         panel2Layout.setVerticalGroup(
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,8 +175,10 @@ public class MenuAdmi extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnReportes, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnVenderBoletos, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(7, 7, 7)
                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(110, Short.MAX_VALUE))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
 
         panel1.add(panel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 350));
@@ -243,6 +262,7 @@ public class MenuAdmi extends javax.swing.JFrame {
     private javax.swing.JButton btnReportes;
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnUsuarios;
+    private javax.swing.JButton btnVenderBoletos;
     private java.awt.Checkbox checkbox1;
     private javax.swing.JLabel jLabel1;
     private java.awt.Panel panel1;

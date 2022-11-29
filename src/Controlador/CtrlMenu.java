@@ -6,28 +6,32 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JOptionPane;
 
 public class CtrlMenu implements ActionListener {
     private MenuAdmi menu;
     private PanelMenu panelMenu = new PanelMenu();
     private int indexBoton;
+    private static String tipoUsuario;
 
-    public CtrlMenu(MenuAdmi menu) {
+    public CtrlMenu(MenuAdmi menu){
         this.menu = menu;
-
         this.menu.getBtnUsuarios().addActionListener(this);
         this.menu.getBtnObras().addActionListener(this);
         this.menu.getBtnFunciones().addActionListener(this);
         this.menu.getBtnReportes().addActionListener(this);
         this.menu.getBtnSalir().addActionListener(this);
+        this.menu.getBtnVenderBoletos().addActionListener(this);
         this.panelMenu.getBtnAgregar().addActionListener(this);
         this.panelMenu.getBtnModificar().addActionListener(this);
-    
         this.menu.setVisible(true);
     }
-
+    
+    public CtrlMenu(MenuAdmi menu, String tipoUsuario) {
+        this(menu);
+        this.tipoUsuario= tipoUsuario;
+    }
+    
     @Override
     public void actionPerformed(ActionEvent event) {
         Color colorBotonSeleccionado = new Color(255, 102, 0);
@@ -105,6 +109,12 @@ public class CtrlMenu implements ActionListener {
                 cerrarVentana();
             }
             
+        }
+        
+        //Boton vender boletos
+        if (event.getSource() == menu.getBtnVenderBoletos()) {
+            new CtrlElegirFuncion(new ElegirFuncion(), tipoUsuario);
+            cerrarVentana();
         }
 
     }

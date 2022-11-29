@@ -68,15 +68,20 @@ public class CtrlcambiosFunciones implements ActionListener, MouseListener {
 
             if (opcion == 0) {
                 DAOFuncion daoFuncion = new DAOFuncion();
-
-                if (daoFuncion.eliminarFuncion(funciones.get(fila).getId())) {
+                
+                if (existenBoletosVendidos(funciones.get(fila).getId())) {
+                      JOptionPane.showMessageDialog(this.vista, "La función ya tiene boletos vendidos, no es posible eliminarla");
+                }else{
+                    if (daoFuncion.eliminarFuncion(funciones.get(fila).getId())) {
                     ((DefaultTableModel) this.vista.getTabla().getModel()).removeRow(fila);
                     funciones.remove(fila);
                     JOptionPane.showMessageDialog(this.vista, "La función ha sido eliminada");
                     limpiarCampos();
-                } else {
-                    JOptionPane.showMessageDialog(this.vista, "Ha habido un error. Por favor intente nuevamente");
+                    } else {
+                        JOptionPane.showMessageDialog(this.vista, "Ha habido un error. Por favor intente nuevamente");
+                    }
                 }
+                
 
             }
         }
@@ -126,6 +131,12 @@ public class CtrlcambiosFunciones implements ActionListener, MouseListener {
             this.vista.getComboBoxHorarioNuevo()
                     .setSelectedItem(String.valueOf(this.funciones.get(fila).getHoraPresentacion()).substring(0, 5));
         }
+    }
+    
+    public boolean existenBoletosVendidos(int idFuncion){
+         DAOSala daoSala= new DAOSala();
+         ArrayList<Integer> asientos = daoSala.obtenerAsientos(idFuncion);
+        return asientos.contains(1);
     }
 
     /*

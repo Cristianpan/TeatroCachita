@@ -5,7 +5,10 @@
  */
 package Controlador;
 
+import DAO.DAOFuncion;
 import DAO.DAOObra;
+import DAO.DAOSala;
+import Modelo.Funcion;
 import Modelo.Obra;
 import Vista.CambiosObra;
 import Vista.MenuAdmi;
@@ -121,25 +124,31 @@ public class CtrlCambiosObra implements ActionListener {
             if (obraSeleccionada != "-Seleccionar Obra-") {
                 DAOObra daoObra = new DAOObra();
                 this.obra = daoObra.buscarObra(obraSeleccionada);
-                String msg = "¿Desea eliminar la obra " + obra.getNombre() + "?\nSi se elimina, se eliminaran las funciones asociadas"; 
+                String msg = "¿Desea eliminar la obra " + obra.getNombre() + "?"; 
 
                 int opcion = JOptionPane.showConfirmDialog(frmCambiosObra, msg , null,
                         JOptionPane.YES_NO_OPTION, 2);
-
+                
+                
                 if (opcion == 0) {
-                    if (daoObra.eliminarObra(this.obra.getId())) {
+                    DAOFuncion daoFuncion = new DAOFuncion();
+                    if(daoFuncion.obtenerFuncionesVigentes(this.obra.getId())){
+                        JOptionPane.showMessageDialog(frmCambiosObra, "No se puede eliminar la obra, ya existen funciones");
+                    }else{
+                        if (daoObra.eliminarObra(this.obra.getId())) {
                         JOptionPane.showMessageDialog(frmCambiosObra, "Obra Eliminada");
                         this.frmCambiosObra.getComboBoxObra()
                                 .removeItem(this.frmCambiosObra.getComboBoxObra().getSelectedItem());
                             limpiarCampos();
-                    } else {
-                        JOptionPane.showMessageDialog(frmCambiosObra, "Algo ha salido mal");
+                        } else {
+                            JOptionPane.showMessageDialog(frmCambiosObra, "Algo ha salido mal");
+                        }
                     }
                 }
             }
         }
     }
-
+    
     public boolean esVacioInput() {
         return (frmCambiosObra.getTxtNombre().getText().isEmpty() ||
                 frmCambiosObra.getTxtDuracion().getText().isEmpty() ||
