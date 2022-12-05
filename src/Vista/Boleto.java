@@ -7,7 +7,7 @@ package Vista;
 
 /**
  *
- * @author diana
+ * @author 
  */
 public class Boleto extends javax.swing.JFrame {
 

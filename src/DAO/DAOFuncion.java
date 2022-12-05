@@ -194,8 +194,8 @@ public class DAOFuncion extends Db {
         return false;
     }
 
-    public ArrayList<Funcion> obtenerFuncionesVigentes(){
-        ArrayList<Funcion> funcionesVigentes = new ArrayList<>(); 
+    public boolean  obtenerFuncionesVigentes(int idObra){
+            boolean funcionesVigentes = false;
 
         PreparedStatement ps;
         Connection con = getConexion(); 
@@ -207,36 +207,19 @@ public class DAOFuncion extends Db {
 
 
         //Query
-        String sql = "SELECT * FROM funcion JOIN obra ON funcion.obraId = obra.id WHERE fechaPresentacion >= ? ORDER BY fechapresentacion ASC"; 
+        String sql = "SELECT * FROM funcion JOIN obra ON obra.id = ? WHERE fechaPresentacion >= \"?\" ORDER BY fechaPresentacion ASC"; 
 
         try {
         
             ps = con.prepareStatement(sql); 
-            ps.setDate(1, fecha);
+            ps.setDate(2, fecha);
+            ps.setInt(1, idObra);
 
             rs = ps.executeQuery(); 
 
 
             while (rs.next()){
-                Funcion funcion = new Funcion(); 
-                Obra obra = new Obra(); 
-
-                /*Obtencion de datos de la obra*/
-                obra.setId(rs.getInt("obraId"));
-                obra.setNombre(rs.getString("nombre"));
-                obra.setGenero(rs.getString("genero"));
-                obra.setPrimerActor(rs.getString("primerActor"));
-                obra.setSegundoActor(rs.getString("segundoActor"));
-                obra.setDuracion(rs.getInt("duracion"));
-                obra.setPrecioBoleto(rs.getDouble("precioBoleto"));
-                obra.setResumen(rs.getString("resumen"));
-
-                funcion.setObra(obra);
-                funcion.setFechaPresentacion(rs.getDate("fechaPresentacion"));
-                funcion.setHoraPresentacion(rs.getTime("horaPresentacion"));
-
-                funcionesVigentes.add(funcion); 
-
+                funcionesVigentes= true;
             }
 
         } catch (Exception e) {
