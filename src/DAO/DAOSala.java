@@ -1,11 +1,11 @@
 package DAO;
-import Modelo.Obra;
+
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
 import Recursos.*;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.*;
 
@@ -42,12 +42,12 @@ public class DAOSala extends Db {
                 set= set +" "+ asiento.get(i)+"=1,";
             }
         }
-        String sql = "UPDATE sala SET " + set + "WHERE funcionId =" +idFuncion;
+        String sql = "UPDATE sala SET " + set + "WHERE funcionId = " + idFuncion;
         
         try {
             ps = con.prepareStatement(sql);
             ps.executeUpdate();
-            asientoOcupado=true;
+            asientoOcupado = true;
         } catch (Exception ex) {
             Logger.getLogger(DAOObra.class.getName()).log(Level.SEVERE, null, ex);
         }finally {
@@ -59,28 +59,6 @@ public class DAOSala extends Db {
         }
         return asientoOcupado;
     }
-    
-//    public boolean desocuparAsiento(String asiento, int funcion){
-//        boolean asientoDesocupado= false;
-//        Connection con = getConexion(); 
-//        PreparedStatement ps = null;
-//        String sql = "UPDATE sala SET " + " =0 WHERE funcionId =" +funcion;
-//        
-//        try {
-//            ps = con.prepareStatement(sql);
-//            ps.executeUpdate();
-//            asientoDesocupado=true;
-//        } catch (Exception ex) {
-//            Logger.getLogger(DAOObra.class.getName()).log(Level.SEVERE, null, ex);
-//        }finally {
-//            try {
-//                con.close();
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//        }
-//        return asientoDesocupado;
-//    }
     
     public ArrayList<Integer> obtenerAsientos(int funcionId){
         ArrayList<Integer> asientos = new ArrayList<>(); 

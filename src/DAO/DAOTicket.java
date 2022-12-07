@@ -6,11 +6,10 @@
 package DAO;
 
 import Modelo.Ticket;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import Recursos.Db;
 import java.sql.*;
+import java.util.ArrayList;
+
 
 /**
  *
@@ -20,10 +19,15 @@ public class DAOTicket extends Db{
     
     public int agregarTicket(Ticket ticket) {
         int idTicketAgregado = 0;
-        PreparedStatement ps = null;
+        String boletos = null; 
+        PreparedStatement ps;
         Connection con = getConexion();
         String sql = "INSERT INTO ticket (fechaVenta, totalVenta, montoEntregado, cambio, asientos, horaVenta, nombreObra) VALUES (?,?,?,?,?,?,?)";
-        ResultSet result=null;
+        ResultSet result = null;
+        
+        for (String boleto : ticket.getBoletosVendidos()) {
+            boletos = boleto + "," + boleto; 
+        }
 
         try {
             ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -31,8 +35,9 @@ public class DAOTicket extends Db{
             ps.setDouble(2, ticket.getTotalVenta());
             ps.setDouble(3, ticket.getMontoEntregado());
             ps.setDouble(4, ticket.getCambio());
-            ps.setString(5, ticket.getBoletosVendidos().toString());
-            ps.setTime(6, ticket.getHorario());
+
+            ps.setString(5, boletos);
+            ps.setTime(6, ticket.getHoraVenta());
             ps.setString(7, ticket.getNombreObra());
             ps.executeUpdate();
             
@@ -53,14 +58,35 @@ public class DAOTicket extends Db{
         return idTicketAgregado;
     }
     
-    public int obtenerID(){
-        int ticketID=0;
-        PreparedStatement ps = null;
-        Connection con = getConexion();
-        ResultSet rs = null;
+
+    public ArrayList<Ticket> obtenerTickets(String fecha){
+        ArrayList<Ticket> tickets = new ArrayList<>(); 
+        PreparedStatement ps; 
+        ResultSet rs = null; 
+        Connection con = getConexion(); 
         
-        String sql = "SELECT numero FROM ticket";
+        String sql = "SELECT * FROM ticket WHERE fechaVenta like \"" + fecha + "%\""; 
         
-        return ticketID;
+        try {
+            ps = con.prepareStatement(sql); 
+            rs = ps.executeQuery(); 
+            
+            while (rs.next()){
+                Ticket ticket = new Ticket(); 
+                ArrayList<String> boletosVendidos = new ArrayList<>(); 
+                ticket.setNumVenta(rs.getInt("numero"));
+                ticket.setFechaVenta(rs.getDate("fechaVenta"));
+                ticket.setTotalVenta(rs.getDouble("totalVenta"));
+                ticket.setNombreObra(rs.getString("nombreObra"));
+                boletosVendidos.add(rs.getString("asientos")); 
+                ticket.setBoletosVendidos(boletosVendidos);
+
+                tickets.add(ticket);             }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+
+        return tickets; 
     }
 }

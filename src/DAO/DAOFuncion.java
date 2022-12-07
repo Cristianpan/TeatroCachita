@@ -1,11 +1,11 @@
 package DAO;
 
 import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.util.logging.*;
 
-import com.mysql.cj.x.protobuf.MysqlxPrepare.Prepare;
-
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import Modelo.Funcion;
 import Modelo.Obra;
@@ -72,12 +72,7 @@ public class DAOFuncion extends Db {
         return fueEliminado;
     }
 
-    // No se tiene asociado ninguna funcionalidad a la funcion de consulta
-    public void consultarFuncion() {
-        
-    }
-
-    public ArrayList<Funcion> buscarPorFecha(Date fecha) {
+    public ArrayList<Funcion> obtenerFuncionPorFecha(Date fecha) {
         ArrayList<Funcion> funciones = new ArrayList<>();
         PreparedStatement ps;
         Connection con = getConexion();
@@ -93,11 +88,18 @@ public class DAOFuncion extends Db {
             while (rs.next()) {
                 Funcion funcion = new Funcion();
                 Obra obra = new Obra(); 
-                funcion.setId(rs.getInt("id"));
+                //Obtencion de datos de la obra
                 obra.setId(rs.getInt("obraId"));
-                obra.setDuracion(rs.getInt("duracion"));
                 obra.setNombre(rs.getString("nombre"));
+                obra.setGenero(rs.getString("genero"));
+                obra.setPrimerActor(rs.getString("primerActor"));
+                obra.setSegundoActor(rs.getString("segundoActor"));
+                obra.setDuracion(rs.getInt("duracion"));
+                obra.setPrecioBoleto(rs.getDouble("precioBoleto"));
+                obra.setResumen(rs.getString("resumen"));
+                //Obtencion de datos de la funcion
                 funcion.setObra(obra); 
+                funcion.setId(rs.getInt("id"));
                 funcion.setFechaPresentacion(rs.getDate("fechaPresentacion"));
                 funcion.setHoraPresentacion(rs.getTime("horaPresentacion"));
 
@@ -132,9 +134,17 @@ public class DAOFuncion extends Db {
             while (rs.next()) {
                 Funcion funcion = new Funcion();
                 Obra obra = new Obra(); 
-                funcion.setId(rs.getInt("id"));
+                //Obtencion de datos de la obra
                 obra.setId(rs.getInt("obraId"));
                 obra.setNombre(rs.getString("nombre"));
+                obra.setGenero(rs.getString("genero"));
+                obra.setPrimerActor(rs.getString("primerActor"));
+                obra.setSegundoActor(rs.getString("segundoActor"));
+                obra.setDuracion(rs.getInt("duracion"));
+                obra.setPrecioBoleto(rs.getDouble("precioBoleto"));
+                obra.setResumen(rs.getString("resumen"));
+                //Obtencion de datos de la funcion
+                funcion.setId(rs.getInt("id"));
                 funcion.setObra(obra); 
                 funcion.setFechaPresentacion(rs.getDate("fechaPresentacion"));
                 funcion.setHoraPresentacion(rs.getTime("horaPresentacion"));
@@ -183,10 +193,39 @@ public class DAOFuncion extends Db {
         }
         return false;
     }
-    
-    public void consultarFechasFuncionesExistente() {
-        Date date = null;
-        PreparedStatement ps = null;
-        ResultSet rs;
+
+    public boolean  obtenerFuncionesVigentes(int idObra){
+            boolean funcionesVigentes = false;
+
+        PreparedStatement ps;
+        Connection con = getConexion(); 
+        ResultSet rs = null; 
+        
+        //Fecha actual 
+        Calendar dateToday = Calendar.getInstance(); 
+        Date fecha = new Date(dateToday.getTimeInMillis()); 
+
+
+        //Query
+        String sql = "SELECT * FROM funcion JOIN obra ON obra.id = ? WHERE fechaPresentacion >= \"?\" ORDER BY fechaPresentacion ASC"; 
+
+        try {
+        
+            ps = con.prepareStatement(sql); 
+            ps.setDate(2, fecha);
+            ps.setInt(1, idObra);
+
+            rs = ps.executeQuery(); 
+
+
+            while (rs.next()){
+                funcionesVigentes= true;
+            }
+
+        } catch (Exception e) {
+            
+        }
+
+        return funcionesVigentes; 
     }
 }

@@ -1,24 +1,7 @@
 package Vista;
 
-import java.sql.Time;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-
-import javax.swing.JOptionPane;
-
-import DAO.DAOFuncion;
-import DAO.DAOObra;
-import Modelo.Funcion;
-import Modelo.Obra;
-import javax.accessibility.AccessibleContext;
 import javax.swing.JButton;
-import javax.swing.JRootPane;
 
-
-/**
- *
- * @author diana
- */
 public class CrearFuncion extends javax.swing.JFrame {
     /**
      * Creates new form VentanaCrearFuncion
@@ -117,6 +100,7 @@ public class CrearFuncion extends javax.swing.JFrame {
 
         comboBoxHora.setBackground(new java.awt.Color(255, 255, 255));
         comboBoxHora.setForeground(new java.awt.Color(0, 0, 0));
+        comboBoxHora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Seleccionar horario--", "18:00", "20:30" }));
         comboBoxHora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboBoxHoraActionPerformed(evt);
@@ -126,6 +110,7 @@ public class CrearFuncion extends javax.swing.JFrame {
 
         comboBoxObra.setBackground(new java.awt.Color(255, 255, 255));
         comboBoxObra.setForeground(new java.awt.Color(0, 0, 0));
+        comboBoxObra.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Selecionar obra--" }));
         comboBoxObra.addInputMethodListener(new java.awt.event.InputMethodListener() {
             public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
@@ -147,9 +132,9 @@ public class CrearFuncion extends javax.swing.JFrame {
         btnCancelar.setToolTipText("Cancelar");
         panel1.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, 130, 30));
 
-        // jDateFecha.setBackground(new java.awt.Color(255, 255, 255));
-        // jDateFecha.setForeground(new java.awt.Color(0, 0, 0));
-        // panel1.add(jDateFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 240, 30));
+        jDateChooser1.setBackground(new java.awt.Color(255, 255, 255));
+        jDateChooser1.setForeground(new java.awt.Color(0, 0, 0));
+        panel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 240, -1));
 
         getContentPane().add(panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, 290));
 

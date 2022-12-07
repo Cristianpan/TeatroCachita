@@ -117,6 +117,7 @@ public class CambiosFunciones extends javax.swing.JFrame {
         panel17.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 130, -1, -1));
 
         comboBoxObraNueva.setBackground(new java.awt.Color(255, 255, 255));
+        comboBoxObraNueva.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Seleccionar Obra--" }));
         panel17.add(comboBoxObraNueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 160, 240, -1));
 
         jLabel24.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
@@ -131,6 +132,7 @@ public class CambiosFunciones extends javax.swing.JFrame {
 
         comboBoxHorarioNuevo.setBackground(new java.awt.Color(255, 255, 255));
         comboBoxHorarioNuevo.setForeground(new java.awt.Color(0, 0, 0));
+        comboBoxHorarioNuevo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccionar-", "18:00", "20:30" }));
         comboBoxHorarioNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboBoxHorarioNuevoActionPerformed(evt);
@@ -180,9 +182,9 @@ public class CambiosFunciones extends javax.swing.JFrame {
             tabla.getColumnModel().getColumn(3).setPreferredWidth(50);
         }
 
-        panel17.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 60, 360, 290));
+        panel17.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 470, 340));
 
-        getContentPane().add(panel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 830, 360));
+        getContentPane().add(panel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 830, 430));
 
         panel4.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -356,13 +358,8 @@ public class CambiosFunciones extends javax.swing.JFrame {
     private javax.swing.JButton btnRegresarMenu;
     private javax.swing.JComboBox<String> comboBoxHorarioNuevo;
     private javax.swing.JComboBox<String> comboBoxObraNueva;
-    private javax.swing.JComboBox<String> comboBoxObrasAgendadas;
     private com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
     private com.toedter.calendar.JDayChooser jDayChooser1;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;

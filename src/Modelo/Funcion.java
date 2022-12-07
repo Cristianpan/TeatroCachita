@@ -2,6 +2,7 @@ package Modelo;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.util.ArrayList;
 
 // Falta agregar el campo de duracion en la ventana de agregar funcion
 public class Funcion {
@@ -9,16 +10,10 @@ public class Funcion {
     private Obra obra;
     private Date fechaPresentacion;
     private Time horaPresentacion;
-    private boolean[] AsientoA;
-    private boolean[] AsientoB;
-    private boolean[] AsientoC;
-    private double precioA;
-    private double precioB;
+    private ArrayList<Integer> asientos; 
+    private final double precioA = 0.2;
+    private final double precioB = 0.1;
 
-    public Funcion() {
-        this.precioB= 0.1;
-        this.precioA= 0.2;
-    }
     public void setId(int id) {
         this.id = id;
     }
@@ -35,16 +30,8 @@ public class Funcion {
         this.horaPresentacion = horaPresentacion;
     }
 
-    public void setAsientoA(boolean[] asientoA) {
-        AsientoA = asientoA;
-    }
-
-    public void setAsientoB(boolean[] asientoB) {
-        AsientoB = asientoB;
-    }
-
-    public void setAsientoC(boolean[] asientoC) {
-        AsientoC = asientoC;
+    public void setAsientos(ArrayList<Integer> asientos){
+        this.asientos = asientos; 
     }
 
     public int getId() {
@@ -63,33 +50,18 @@ public class Funcion {
         return horaPresentacion;
     }
 
-    public boolean[] getAsientoA() {
-        return AsientoA;
+    public ArrayList<Integer> getAsientos() {
+        return asientos;
     }
-
-    public boolean[] getAsientoB() {
-        return AsientoB;
-    }
-
-    public boolean[] getAsientoC() {
-        return AsientoC;
-    }
-
+    
     public double getPrecioA() {
         return precioA;
-    }
-
-    public void setPrecioA(double precioA) {
-        this.precioA = precioA;
     }
 
     public double getPrecioB() {
         return precioB;
     }
 
-    public void setPrecioB(double precioB) {
-        this.precioB = precioB;
-    }
     
     
 }

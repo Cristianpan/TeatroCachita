@@ -5,6 +5,13 @@
  */
 package Vista;
 
+import java.sql.Date;
+import java.util.Calendar;
+
+import com.toedter.calendar.JDateChooser;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+
 /**
  *
  * @author diana
@@ -16,6 +23,9 @@ public class ElegirFuncion extends javax.swing.JFrame {
      */
     public ElegirFuncion() {
         initComponents();
+        calendar.setMinSelectableDate(new java.util.Date());
+        Calendar dateToday = Calendar.getInstance(); 
+        calendar.setDate(new Date(dateToday.getTimeInMillis())); 
     }
 
     /**
@@ -30,14 +40,13 @@ public class ElegirFuncion extends javax.swing.JFrame {
         panel19 = new java.awt.Panel();
         panel18 = new java.awt.Panel();
         jLabel21 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        btnRegresarMenu = new javax.swing.JButton();
-        textArea2 = new java.awt.TextArea();
+        labelRegresar = new javax.swing.JLabel();
+        btnRegresar = new javax.swing.JButton();
+        txtResumen = new java.awt.TextArea();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         btnElegirAsientos = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        comboBoxFecha = new javax.swing.JComboBox<>();
+        btnCancelar = new javax.swing.JButton();
         comboBoxObra = new javax.swing.JComboBox<>();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -45,6 +54,7 @@ public class ElegirFuncion extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         txtPrecio = new javax.swing.JTextField();
         panel5 = new java.awt.Panel();
+        calendar = new com.toedter.calendar.JDateChooser();
         panel4 = new java.awt.Panel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -62,16 +72,16 @@ public class ElegirFuncion extends javax.swing.JFrame {
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));
         jLabel21.setText("Elegir Función");
 
-        jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Menú");
+        labelRegresar.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        labelRegresar.setForeground(new java.awt.Color(255, 255, 255));
+        labelRegresar.setText("-");
 
-        btnRegresarMenu.setBackground(new java.awt.Color(25, 43, 55));
-        btnRegresarMenu.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        btnRegresarMenu.setForeground(new java.awt.Color(255, 255, 255));
-        btnRegresarMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/regreso2.png"))); // NOI18N
-        btnRegresarMenu.setToolTipText("Regresar");
-        btnRegresarMenu.setBorder(null);
+        btnRegresar.setBackground(new java.awt.Color(25, 43, 55));
+        btnRegresar.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        btnRegresar.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Img/regreso2.png"))); // NOI18N
+        btnRegresar.setToolTipText("Regresar");
+        btnRegresar.setBorder(null);
 
         javax.swing.GroupLayout panel18Layout = new javax.swing.GroupLayout(panel18);
         panel18.setLayout(panel18Layout);
@@ -79,10 +89,10 @@ public class ElegirFuncion extends javax.swing.JFrame {
             panel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel18Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnRegresarMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 418, Short.MAX_VALUE)
+                .addComponent(labelRegresar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 446, Short.MAX_VALUE)
                 .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         panel18Layout.setVerticalGroup(
@@ -92,22 +102,23 @@ public class ElegirFuncion extends javax.swing.JFrame {
                 .addGroup(panel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel18Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnRegresarMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-                        .addComponent(jLabel4)))
+                        .addComponent(labelRegresar)))
                 .addContainerGap())
         );
 
         panel19.add(panel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 50));
 
-        textArea2.setEnabled(false);
-        panel19.add(textArea2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 310, 130));
+        txtResumen.setEditable(false);
+        txtResumen.setEnabled(false);
+        panel19.add(txtResumen, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 310, 130));
 
         jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(25, 43, 55));
         jLabel5.setText("Obra");
-        panel19.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
+        panel19.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(25, 43, 55));
@@ -121,50 +132,43 @@ public class ElegirFuncion extends javax.swing.JFrame {
         btnElegirAsientos.setToolTipText("Modificar");
         panel19.add(btnElegirAsientos, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 240, 130, 30));
 
-        jButton1.setBackground(new java.awt.Color(25, 43, 55));
-        jButton1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Cancelar");
-        jButton1.setToolTipText("Cancelar");
-        panel19.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 240, 130, 30));
-
-        comboBoxFecha.setBackground(new java.awt.Color(255, 255, 255));
-        comboBoxFecha.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        comboBoxFecha.setForeground(new java.awt.Color(0, 0, 0));
-        comboBoxFecha.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {}));
-        panel19.add(comboBoxFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 250, -1));
+        btnCancelar.setBackground(new java.awt.Color(25, 43, 55));
+        btnCancelar.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancelar.setText("Cancelar");
+        btnCancelar.setToolTipText("Cancelar");
+        panel19.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 240, 130, 30));
 
         comboBoxObra.setBackground(new java.awt.Color(255, 255, 255));
         comboBoxObra.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         comboBoxObra.setForeground(new java.awt.Color(0, 0, 0));
-        comboBoxObra.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {}));
-        panel19.add(comboBoxObra, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 250, -1));
+        comboBoxObra.setToolTipText("");
+        panel19.add(comboBoxObra, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 250, -1));
 
         jLabel13.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(25, 43, 55));
         jLabel13.setText("Fecha");
-        panel19.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
+        panel19.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
 
         jLabel14.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(25, 43, 55));
         jLabel14.setText("Precio");
-        panel19.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
+        panel19.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, -1, -1));
 
         comboBoxHorario.setBackground(new java.awt.Color(255, 255, 255));
         comboBoxHorario.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         comboBoxHorario.setForeground(new java.awt.Color(0, 0, 0));
-        comboBoxHorario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {}));
-        panel19.add(comboBoxHorario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 250, -1));
+        panel19.add(comboBoxHorario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 120, -1));
 
         jLabel15.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(25, 43, 55));
         jLabel15.setText("Horario");
-        panel19.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
+        panel19.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
 
         txtPrecio.setEditable(false);
         txtPrecio.setBackground(new java.awt.Color(255, 255, 255));
         txtPrecio.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        panel19.add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 250, -1));
+        panel19.add(txtPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 110, -1));
 
         panel5.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -172,14 +176,18 @@ public class ElegirFuncion extends javax.swing.JFrame {
         panel5.setLayout(panel5Layout);
         panel5Layout.setHorizontalGroup(
             panel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 690, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         panel5Layout.setVerticalGroup(
             panel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         panel19.add(panel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 690, 30));
+
+        calendar.setBackground(new java.awt.Color(255, 255, 255));
+        calendar.setForeground(new java.awt.Color(0, 0, 0));
+        panel19.add(calendar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 250, -1));
 
         getContentPane().add(panel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 310));
 
@@ -239,25 +247,25 @@ public class ElegirFuncion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnElegirAsientos;
-    private javax.swing.JButton btnRegresarMenu;
-    private javax.swing.JComboBox<String> comboBoxFecha;
+    private javax.swing.JButton btnRegresar;
+    private com.toedter.calendar.JDateChooser calendar;
     private javax.swing.JComboBox<String> comboBoxHorario;
     private javax.swing.JComboBox<String> comboBoxObra;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel labelRegresar;
     private java.awt.Panel panel18;
     private java.awt.Panel panel19;
     private java.awt.Panel panel4;
     private java.awt.Panel panel5;
-    private java.awt.TextArea textArea2;
     private javax.swing.JTextField txtPrecio;
+    private java.awt.TextArea txtResumen;
     // End of variables declaration//GEN-END:variables
     
     public javax.swing.JButton getBtnElegirAsientos() {
@@ -268,20 +276,12 @@ public class ElegirFuncion extends javax.swing.JFrame {
         this.btnElegirAsientos = btnElegirAsientos;
     }
 
-    public javax.swing.JButton getBtnRegresarMenu() {
-        return btnRegresarMenu;
+    public javax.swing.JButton getBtnRegresar() {
+        return btnRegresar;
     }
 
-    public void setBtnRegresarMenu(javax.swing.JButton btnRegresarMenu) {
-        this.btnRegresarMenu = btnRegresarMenu;
-    }
-
-    public javax.swing.JComboBox<String> getComboBoxFecha() {
-        return comboBoxFecha;
-    }
-
-    public void setComboBoxFecha(javax.swing.JComboBox<String> comboBoxFecha) {
-        this.comboBoxFecha = comboBoxFecha;
+    public void setBtnRegresar(javax.swing.JButton btnRegresarMenu) {
+        this.btnRegresar = btnRegresarMenu;
     }
 
     public javax.swing.JComboBox<String> getComboBoxHorario() {
@@ -300,108 +300,12 @@ public class ElegirFuncion extends javax.swing.JFrame {
         this.comboBoxObra = comboBoxObra;
     }
 
-    public javax.swing.JButton getjButton1() {
-        return jButton1;
+    public java.awt.TextArea getTxtResumen() {
+        return txtResumen;
     }
 
-    public void setjButton1(javax.swing.JButton jButton1) {
-        this.jButton1 = jButton1;
-    }
-
-    public javax.swing.JLabel getjLabel13() {
-        return jLabel13;
-    }
-
-    public void setjLabel13(javax.swing.JLabel jLabel13) {
-        this.jLabel13 = jLabel13;
-    }
-
-    public javax.swing.JLabel getjLabel14() {
-        return jLabel14;
-    }
-
-    public void setjLabel14(javax.swing.JLabel jLabel14) {
-        this.jLabel14 = jLabel14;
-    }
-
-    public javax.swing.JLabel getjLabel15() {
-        return jLabel15;
-    }
-
-    public void setjLabel15(javax.swing.JLabel jLabel15) {
-        this.jLabel15 = jLabel15;
-    }
-
-    public javax.swing.JLabel getjLabel21() {
-        return jLabel21;
-    }
-
-    public void setjLabel21(javax.swing.JLabel jLabel21) {
-        this.jLabel21 = jLabel21;
-    }
-
-    public javax.swing.JLabel getjLabel4() {
-        return jLabel4;
-    }
-
-    public void setjLabel4(javax.swing.JLabel jLabel4) {
-        this.jLabel4 = jLabel4;
-    }
-
-    public javax.swing.JLabel getjLabel5() {
-        return jLabel5;
-    }
-
-    public void setjLabel5(javax.swing.JLabel jLabel5) {
-        this.jLabel5 = jLabel5;
-    }
-
-    public javax.swing.JLabel getjLabel6() {
-        return jLabel6;
-    }
-
-    public void setjLabel6(javax.swing.JLabel jLabel6) {
-        this.jLabel6 = jLabel6;
-    }
-
-    public java.awt.Panel getPanel18() {
-        return panel18;
-    }
-
-    public void setPanel18(java.awt.Panel panel18) {
-        this.panel18 = panel18;
-    }
-
-    public java.awt.Panel getPanel19() {
-        return panel19;
-    }
-
-    public void setPanel19(java.awt.Panel panel19) {
-        this.panel19 = panel19;
-    }
-
-    public java.awt.Panel getPanel4() {
-        return panel4;
-    }
-
-    public void setPanel4(java.awt.Panel panel4) {
-        this.panel4 = panel4;
-    }
-
-    public java.awt.Panel getPanel5() {
-        return panel5;
-    }
-
-    public void setPanel5(java.awt.Panel panel5) {
-        this.panel5 = panel5;
-    }
-
-    public java.awt.TextArea getTextArea2() {
-        return textArea2;
-    }
-
-    public void setTextArea2(java.awt.TextArea textArea2) {
-        this.textArea2 = textArea2;
+    public void setTxtResumen(java.awt.TextArea textArea2) {
+        this.txtResumen = textArea2;
     }
 
     public javax.swing.JTextField getTxtPrecio() {
@@ -411,4 +315,31 @@ public class ElegirFuncion extends javax.swing.JFrame {
     public void setTxtPrecio(javax.swing.JTextField txtPrecio) {
         this.txtPrecio = txtPrecio;
     }
+
+    public JDateChooser getCalendar() {
+        return calendar;
+    }
+
+    public void setCalendar(JDateChooser calendar) {
+        this.calendar = calendar;
+    }
+
+    public JButton getBtnCancelar() {
+        return btnCancelar;
+    }
+
+    public void setBtnCancelar(JButton btnCancelar) {
+        this.btnCancelar = btnCancelar;
+    }
+
+    public JLabel getLabelRegresar() {
+        return labelRegresar;
+    }
+
+    public void setLabelRegresar(JLabel labelRegresar) {
+        this.labelRegresar = labelRegresar;
+    }
+    
+    
+    
 }

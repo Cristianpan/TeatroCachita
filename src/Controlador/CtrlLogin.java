@@ -35,10 +35,10 @@ public class CtrlLogin implements ActionListener {
                 if (daoUsuario.isLogin(modelUser)) {
                     if (modelUser.getTipo().equals("Administrador")) {
                         cerrarVentana();
-                        new CtrlMenu(new MenuAdmi());
+                        new CtrlMenu(new MenuAdmi(), "administrador");
                     } else {
                         cerrarVentana();
-                        new CtrlEligegirFuncion(new ElegirFuncion()); 
+                        new CtrlElegirFuncion(new ElegirFuncion(), "operador"); 
                     }
                 } else {
                     frmLogin.getTxtWarning().setText("Usuario o contraseña incorrectos");

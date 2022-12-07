@@ -3,8 +3,7 @@ package Controlador;
 import java.sql.*;
 import java.awt.event.*;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
-import java.awt.event.MouseEvent;
+import javax.swing.JOptionPane; 
 import java.text.SimpleDateFormat;
 
 import javax.swing.table.DefaultTableModel;
@@ -14,13 +13,13 @@ import Modelo.*;
 import Vista.*;
 
 
-public class CtrlModificarEliminarFunciones implements ActionListener, MouseListener {
+public class CtrlcambiosFunciones implements ActionListener, MouseListener {
     private CambiosFunciones vista;
     private ArrayList<Funcion> funciones;
     private ArrayList<Obra> obras;
     private Funcion funcion;
 
-    public CtrlModificarEliminarFunciones(CambiosFunciones vista, Funcion funcion) {
+    public CtrlcambiosFunciones(CambiosFunciones vista, Funcion funcion) {
         this.vista = vista;
         this.funcion = funcion;
         this.vista.getBtnCancelar().addActionListener(this);
@@ -29,7 +28,6 @@ public class CtrlModificarEliminarFunciones implements ActionListener, MouseList
         this.vista.getBtnRegresarMenu().addActionListener(this);
         this.vista.getTabla().addMouseListener(this);
         llenarTabla();
-        agregarHorariosComboBox();
         agregarObrasComboBox();
 
         this.vista.setVisible(true);
@@ -70,15 +68,20 @@ public class CtrlModificarEliminarFunciones implements ActionListener, MouseList
 
             if (opcion == 0) {
                 DAOFuncion daoFuncion = new DAOFuncion();
-
-                if (daoFuncion.eliminarFuncion(funciones.get(fila).getId())) {
+                
+                if (existenBoletosVendidos(funciones.get(fila).getId())) {
+                      JOptionPane.showMessageDialog(this.vista, "La función ya tiene boletos vendidos, no es posible eliminarla");
+                }else{
+                    if (daoFuncion.eliminarFuncion(funciones.get(fila).getId())) {
                     ((DefaultTableModel) this.vista.getTabla().getModel()).removeRow(fila);
                     funciones.remove(fila);
                     JOptionPane.showMessageDialog(this.vista, "La función ha sido eliminada");
                     limpiarCampos();
-                } else {
-                    JOptionPane.showMessageDialog(this.vista, "Ha habido un error. Por favor intente nuevamente");
+                    } else {
+                        JOptionPane.showMessageDialog(this.vista, "Ha habido un error. Por favor intente nuevamente");
+                    }
                 }
+                
 
             }
         }
@@ -129,6 +132,12 @@ public class CtrlModificarEliminarFunciones implements ActionListener, MouseList
                     .setSelectedItem(String.valueOf(this.funciones.get(fila).getHoraPresentacion()).substring(0, 5));
         }
     }
+    
+    public boolean existenBoletosVendidos(int idFuncion){
+         DAOSala daoSala= new DAOSala();
+         ArrayList<Integer> asientos = daoSala.obtenerAsientos(idFuncion);
+        return asientos.contains(1);
+    }
 
     /*
      * Obtiene todos los datos en en los campos Obra, fecha, horario
@@ -161,19 +170,12 @@ public class CtrlModificarEliminarFunciones implements ActionListener, MouseList
     public void agregarObrasComboBox() {
         DAOObra daoObras = new DAOObra();
         this.obras = daoObras.obtenerObrasRegistradas();
-        vista.getComboBoxObraNueva().addItem("-Seleccionar Obra-");
+        this.vista.getComboBoxObraNueva().addItem("-Seleccionar Obra-");
         for (Obra obra : this.obras) {
-            vista.getComboBoxObraNueva().addItem(obra.getNombre());
+            this.vista.getComboBoxObraNueva().addItem(obra.getNombre());
         }
     }
-
-    // Agrega los horarios disponibles
-    public void agregarHorariosComboBox() {
-        this.vista.getComboBoxHorarioNuevo().addItem("-Seleccionar horario-");
-        this.vista.getComboBoxHorarioNuevo().addItem("18:00");
-        this.vista.getComboBoxHorarioNuevo().addItem("20:30");
-    }
-
+    
     // Inicializa la tabal con las funciones que han sido registradas
     public void llenarTabla() {
         DefaultTableModel tabla = new DefaultTableModel();
@@ -204,7 +206,7 @@ public class CtrlModificarEliminarFunciones implements ActionListener, MouseList
      */
     public boolean validarDisponibilidadHorario() {
         DAOFuncion daoFuncion = new DAOFuncion();
-        ArrayList<Funcion> funciones = daoFuncion.buscarPorFecha(this.funcion.getFechaPresentacion());
+        ArrayList<Funcion> funciones = daoFuncion.obtenerFuncionPorFecha(this.funcion.getFechaPresentacion());
         
         if (funciones.isEmpty()) {
             
@@ -218,10 +220,12 @@ public class CtrlModificarEliminarFunciones implements ActionListener, MouseList
                     return true;
 
                 } else if (this.funcion.getHoraPresentacion().equals(new Time(18, 0, 0)) && funcion.getObra().getDuracion() < 150) {
-                   
                     return true;
-                }
-            } else {
+                } 
+            } else if (funcion.getId() == this.funcion.getId() && funcion.getHoraPresentacion().equals(this.funcion.getHoraPresentacion())){
+                return true; 
+            }
+            else {
                 JOptionPane.showMessageDialog(vista,"El horario no se encuentra disponible. Por favor seleccione otro");
                 return false;
             }
