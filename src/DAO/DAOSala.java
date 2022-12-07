@@ -5,32 +5,29 @@ import java.sql.PreparedStatement;
 
 import Recursos.*;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.logging.*;
 
 public class DAOSala extends Db {
     
-    public boolean crearNuevaSala (int idFuncion){
-        boolean fueCreadoSala = false; 
+    public void crearNuevaSala (int idFuncion) throws SQLException{
         Connection con = getConexion(); 
         PreparedStatement ps = null; 
         String sql = "INSERT INTO sala (funcionId) VALUES (?)"; 
 
 
-        try {
-            ps =  con.prepareStatement(sql); 
-            ps.setInt(1, idFuncion);
-            ps.execute(); 
+        ps =  con.prepareStatement(sql); 
+        ps.setInt(1, idFuncion);
+        ps.execute(); 
 
-            fueCreadoSala = true; 
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (con != null){
+            con.close();
         }
-        return fueCreadoSala; 
+ 
     }
     
-    public boolean ocuparAsiento(ArrayList<String> asiento, int idFuncion){
-        boolean asientoOcupado= false;
+    public void ocuparAsiento(ArrayList<String> asiento, int idFuncion) throws SQLException{
+       
         Connection con = getConexion(); 
         PreparedStatement ps = null;
         String set= "";
@@ -42,24 +39,16 @@ public class DAOSala extends Db {
             }
         }
         String sql = "UPDATE sala SET " + set + "WHERE funcionId = " + idFuncion;
+        ps = con.prepareStatement(sql);
+        ps.executeUpdate();
+
         
-        try {
-            ps = con.prepareStatement(sql);
-            ps.executeUpdate();
-            asientoOcupado = true;
-        } catch (Exception ex) {
-            Logger.getLogger(DAOObra.class.getName()).log(Level.SEVERE, null, ex);
-        }finally {
-            try {
-                con.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        if(con != null){
+            con.close();
         }
-        return asientoOcupado;
     }
     
-    public ArrayList<Integer> obtenerAsientos(int funcionId){
+    public ArrayList<Integer> obtenerAsientos(int funcionId) throws SQLException{
         ArrayList<Integer> asientos = new ArrayList<>(); 
 
         PreparedStatement ps; 
@@ -68,20 +57,19 @@ public class DAOSala extends Db {
         Connection con = getConexion(); 
 
         String sql = "SELECT * FROM sala WHERE funcionId = ?"; 
+        ps = con.prepareStatement(sql); 
+        ps.setInt(1, funcionId); 
 
-        try {
-            ps = con.prepareStatement(sql); 
-            ps.setInt(1, funcionId); 
+        rs = ps.executeQuery(); 
 
-            rs = ps.executeQuery(); 
-
-            if (rs.next()){
-                for (int i = 2; i <= 43; i++){
-                    asientos.add(rs.getInt(i)); 
-                }
+        if (rs.next()){
+            for (int i = 2; i <= 43; i++){
+                asientos.add(rs.getInt(i)); 
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        }
+
+        if (con != null){
+            con.close();
         }
 
         return asientos; 

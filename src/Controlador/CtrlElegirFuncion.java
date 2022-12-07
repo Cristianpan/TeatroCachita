@@ -1,15 +1,10 @@
 package controlador;
 
 import java.awt.event.*;
-import java.beans.PropertyChangeListener;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.EventListener;
-
 import javax.swing.JOptionPane;
-
-import com.mysql.cj.protocol.a.TracingPacketReader;
 
 import Vista.ElegirAsientos;
 import Vista.ElegirFuncion;
@@ -105,7 +100,6 @@ public class CtrlElegirFuncion implements ActionListener, ItemListener {
                     new CtrlLogin(new User(), new Login());
                     this.frmElegirFuncion.setVisible(false);
                     this.frmElegirFuncion.dispose();
-                    ;
                 }
             }
         }
@@ -145,24 +139,26 @@ public class CtrlElegirFuncion implements ActionListener, ItemListener {
 
     public void agregarObras() {
         try {
-            DAOFuncion daoFuncion = new DAOFuncion();
-            this.funcionesDisponibles = daoFuncion
-                    .obtenerFuncionPorFecha(new Date(this.frmElegirFuncion.getCalendar().getDate().getTime()));
-
-            this.frmElegirFuncion.getComboBoxObra().removeAllItems();
-            this.frmElegirFuncion.getComboBoxObra().addItem("--Selecionar obra--");
-
-            if (!funcionesDisponibles.isEmpty()) {
-                String obra = null;
-                for (Funcion funcion : funcionesDisponibles) {
-                    if (!funcion.getObra().getNombre().equals(obra)) {
-                        this.frmElegirFuncion.getComboBoxObra().addItem(funcion.getObra().getNombre());
+            if (this.frmElegirFuncion.isVisible() == true){
+                DAOFuncion daoFuncion = new DAOFuncion();
+                this.funcionesDisponibles = daoFuncion
+                        .obtenerFuncionPorFecha(new Date(this.frmElegirFuncion.getCalendar().getDate().getTime()));
+    
+                this.frmElegirFuncion.getComboBoxObra().removeAllItems();
+                this.frmElegirFuncion.getComboBoxObra().addItem("--Selecionar obra--");
+    
+                if (!funcionesDisponibles.isEmpty()) {
+                    String obra = null;
+                    for (Funcion funcion : funcionesDisponibles) {
+                        if (!funcion.getObra().getNombre().equals(obra)) {
+                            this.frmElegirFuncion.getComboBoxObra().addItem(funcion.getObra().getNombre());
+                        }
+                        obra = funcion.getObra().getNombre();
                     }
-                    obra = funcion.getObra().getNombre();
+                } else {
+                    JOptionPane.showMessageDialog(this.frmElegirFuncion,
+                            "No existen funciones registradas para la fecha seleccionada.");
                 }
-            } else {
-                JOptionPane.showMessageDialog(this.frmElegirFuncion,
-                        "No existen funciones registradas para la fecha seleccionada.");
             }
 
         } catch (SQLException e) {

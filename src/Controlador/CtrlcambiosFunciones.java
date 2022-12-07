@@ -34,7 +34,7 @@ public class CtrlcambiosFunciones implements ActionListener, MouseListener {
         try {
             agregarObrasComboBox();
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(vista, "Ha ocurrido un error, por favor intente nuevamente");
+            JOptionPane.showMessageDialog(vista, "Ha ocurrido un error en el sistema.\nPor favor intente nuevamente");
         }
 
         this.vista.setVisible(true);
@@ -83,7 +83,7 @@ public class CtrlcambiosFunciones implements ActionListener, MouseListener {
                 } catch (ExcepcionFuncionBoletosVendidos e){
                     JOptionPane.showMessageDialog(this.vista, e.getMessage());
                 }catch (SQLException e) {    
-                    JOptionPane.showMessageDialog(vista, "Ha ocurrido un error, por favor intenta nuevamente.");
+                    JOptionPane.showMessageDialog(vista, "Ha ocurrido un error en el sistema.\nPor favor intente nuevamente.");
                 }
             }
         }
@@ -112,9 +112,11 @@ public class CtrlcambiosFunciones implements ActionListener, MouseListener {
                     //limpiar los campos 
                     limpiarCampos();
                 } catch (ExcepcionHorarioNoDisponible e) {
-                    JOptionPane.showMessageDialog(null, e.getMessage());
+                    JOptionPane.showMessageDialog(vista, e.getMessage());
+                }catch (SQLException e){
+                    JOptionPane.showMessageDialog(vista, "Ha ocurrido un error en el sistema.\nPor favor intente nuevamente");
                 }catch (Exception e) {
-                    JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios.");
+                    JOptionPane.showMessageDialog(vista, "Todos los campos son obligatorios.");
                 }
             }
         }
@@ -134,12 +136,13 @@ public class CtrlcambiosFunciones implements ActionListener, MouseListener {
         }
     }
     
-    public void existenBoletosVendidos(int idFuncion) throws ExcepcionFuncionBoletosVendidos{
+    public void existenBoletosVendidos(int idFuncion) throws ExcepcionFuncionBoletosVendidos, SQLException{
         DAOSala daoSala= new DAOSala();
         ArrayList<Integer> asientos = daoSala.obtenerAsientos(idFuncion);
         if (asientos.contains(1)){
             throw new ExcepcionFuncionBoletosVendidos("No es posible realizar esta acción, la función ya tiene boletos vendidos");
         }
+            
     }
 
     /*

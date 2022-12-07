@@ -1,6 +1,7 @@
 package controlador;
 
 import java.awt.event.*;
+import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -23,7 +24,6 @@ public class CtrlReportes implements ActionListener {
         this.vista.getComboBoxMes().addActionListener(this);
         llenarTabla(""); 
         this.vista.setVisible(true);
-
     }    
 
 
@@ -93,44 +93,51 @@ public class CtrlReportes implements ActionListener {
         }
 
     }
-
+    
     public void llenarTabla(String date){
-        Calendar dateToday = Calendar.getInstance(); 
-        int year = dateToday.get(Calendar.YEAR); 
-        String auxDate = year + date; 
-        DecimalFormat formatoPrecio = new DecimalFormat("#.00");
-        
-        DAOTicket daoTicket = new DAOTicket(); 
-        ArrayList<Ticket> tickets = daoTicket.obtenerTickets(auxDate); 
-        
-        DefaultTableModel tabla = new DefaultTableModel();
-        String[] fila = new String[5];
-
-        Double ventaPromedio = 0.0; 
-
-        tabla.addColumn("Num. Venta");
-        tabla.addColumn("Fecha");
-        tabla.addColumn("Obra");
-        tabla.addColumn("Boletos");
-        tabla.addColumn("T. Vendido");
-
-
-        for (Ticket ticket : tickets) {
-            fila[0] = String.valueOf(ticket.getNumVenta());
-            fila[1] = String.valueOf(ticket.getFechaVenta());
-            fila[2] = ticket.getNombreObra(); 
-            fila[3] = ticket.getBoletosVendidos().toString();  
-            fila[4] = String.valueOf(ticket.getTotalVenta()); 
-
-            ventaPromedio = ventaPromedio + ticket.getTotalVenta() / tickets.size(); 
+        try {
+            Calendar dateToday = Calendar.getInstance(); 
+            int year = dateToday.get(Calendar.YEAR); 
+            String auxDate = year + date; 
+            DecimalFormat formatoPrecio = new DecimalFormat("#.00");
             
-            tabla.addRow(fila);
+            DAOTicket daoTicket = new DAOTicket(); 
+        
+        
+            ArrayList<Ticket> tickets = daoTicket.obtenerTickets(auxDate); 
+            
+            DefaultTableModel tabla = new DefaultTableModel();
+            String[] fila = new String[5];
+        
+            Double ventaPromedio = 0.0; 
+        
+            tabla.addColumn("Num. Venta");
+            tabla.addColumn("Fecha");
+            tabla.addColumn("Obra");
+            tabla.addColumn("Boletos");
+            tabla.addColumn("T. Vendido");
+        
+        
+            for (Ticket ticket : tickets) {
+                fila[0] = String.valueOf(ticket.getNumVenta());
+                fila[1] = String.valueOf(ticket.getFechaVenta());
+                fila[2] = ticket.getNombreObra(); 
+                fila[3] = ticket.getBoletosVendidos().toString();  
+                fila[4] = String.valueOf(ticket.getTotalVenta()); 
+        
+                ventaPromedio = ventaPromedio + ticket.getTotalVenta() / tickets.size(); 
+                
+                tabla.addRow(fila);
+            }
+        
+        
+        
+            this.vista.getTxtVentaPromedio().setText("$" + formatoPrecio.format(ventaPromedio));
+            this.vista.getTableReporte().setModel(tabla);
+            
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(vista, "Ha ocurrido un error en el sistema.\nPor favor intentenuevamente.");
         }
-
-
-
-        this.vista.getTxtVentaPromedio().setText("$" + formatoPrecio.format(ventaPromedio));
-        this.vista.getTableReporte().setModel(tabla);
     }
 
 }
