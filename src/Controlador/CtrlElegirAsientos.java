@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controlador;
+package controlador;
 
-import DAO.*;
-import Modelo.*;
 import Vista.ElegirAsientos;
 import Vista.ElegirFuncion;
 import Vista.ImprimirTicketBoletos;
+import dao.*;
+import modelo.*;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Date;

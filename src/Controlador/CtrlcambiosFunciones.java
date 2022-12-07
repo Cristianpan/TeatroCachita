@@ -1,4 +1,4 @@
-package Controlador;
+package controlador;
 
 import java.sql.*;
 import java.awt.event.*;
@@ -8,12 +8,11 @@ import java.text.SimpleDateFormat;
 
 import javax.swing.table.DefaultTableModel;
 
-import DAO.*; 
-import ExcepcionesTeatro.ExcepcionDAOFunciones;
-import ExcepcionesTeatro.ExcepcionFuncionBoletosVendidos;
-import ExcepcionesTeatro.ExcepcionHorarioNoDisponible;
-import Modelo.*; 
 import Vista.*;
+import dao.*;
+import excepciones.ExcepcionFuncionBoletosVendidos;
+import excepciones.ExcepcionHorarioNoDisponible;
+import modelo.*;
 
 
 public class CtrlcambiosFunciones implements ActionListener, MouseListener {
@@ -31,7 +30,12 @@ public class CtrlcambiosFunciones implements ActionListener, MouseListener {
         this.vista.getBtnRegresarMenu().addActionListener(this);
         this.vista.getTabla().addMouseListener(this);
         llenarTabla();
-        agregarObrasComboBox();
+
+        try {
+            agregarObrasComboBox();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(vista, "Ha ocurrido un error, por favor intente nuevamente");
+        }
 
         this.vista.setVisible(true);
 
@@ -78,9 +82,8 @@ public class CtrlcambiosFunciones implements ActionListener, MouseListener {
                     limpiarCampos();
                 } catch (ExcepcionFuncionBoletosVendidos e){
                     JOptionPane.showMessageDialog(this.vista, e.getMessage());
-                }catch (ExcepcionDAOFunciones e) {
-                    JOptionPane.showMessageDialog(this.vista, e.getMessage());
-                }catch (Exception e) {         
+                }catch (SQLException e) {    
+                    JOptionPane.showMessageDialog(vista, "Ha ocurrido un error, por favor intenta nuevamente.");
                 }
             }
         }
@@ -108,9 +111,7 @@ public class CtrlcambiosFunciones implements ActionListener, MouseListener {
 
                     //limpiar los campos 
                     limpiarCampos();
-                } catch (ExcepcionDAOFunciones e) {
-                    JOptionPane.showMessageDialog(null, e.getMessage());
-                }catch (ExcepcionHorarioNoDisponible e) {
+                } catch (ExcepcionHorarioNoDisponible e) {
                     JOptionPane.showMessageDialog(null, e.getMessage());
                 }catch (Exception e) {
                     JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios.");
@@ -133,7 +134,7 @@ public class CtrlcambiosFunciones implements ActionListener, MouseListener {
         }
     }
     
-    public void existenBoletosVendidos(int idFuncion)throws Exception{
+    public void existenBoletosVendidos(int idFuncion) throws ExcepcionFuncionBoletosVendidos{
         DAOSala daoSala= new DAOSala();
         ArrayList<Integer> asientos = daoSala.obtenerAsientos(idFuncion);
         if (asientos.contains(1)){
@@ -145,7 +146,7 @@ public class CtrlcambiosFunciones implements ActionListener, MouseListener {
      * Obtiene todos los datos en en los campos Obra, fecha, horario
      * Retorna falso si algún campo es vacio
      */
-    public void obtenerDatos(int fila) throws Exception{
+    public void obtenerDatos(int fila) throws Exception {
         SimpleDateFormat timeFormater = new SimpleDateFormat("HH:mm");
             this.funcion.setId(this.funciones.get(fila).getId());
             this.funcion.setFechaPresentacion(new Date(vista.getjDateChooser1().getDate().getTime()));
@@ -162,10 +163,9 @@ public class CtrlcambiosFunciones implements ActionListener, MouseListener {
     }
 
     // Inicializa el combobox de obras con las obras existentes
-    public void agregarObrasComboBox() {
+    public void agregarObrasComboBox() throws SQLException {
         DAOObra daoObras = new DAOObra();
         this.obras = daoObras.obtenerObrasRegistradas();
-        this.vista.getComboBoxObraNueva().addItem("-Seleccionar Obra-");
         for (Obra obra : this.obras) {
             this.vista.getComboBoxObraNueva().addItem(obra.getNombre());
         }
@@ -181,16 +181,21 @@ public class CtrlcambiosFunciones implements ActionListener, MouseListener {
         tabla.addColumn("Obra");
         tabla.addColumn("Fecha");
         tabla.addColumn("Horario");
-
-        funciones = daoFuncion.obtenerFuncionesRegistradas();
-
-        for (Funcion funcion : funciones) {
-            fila[0] = String.valueOf(funcion.getId());
-            fila[1] = funcion.getObra().getNombre();
-            fila[2] = String.valueOf(funcion.getFechaPresentacion());
-            fila[3] = String.valueOf(funcion.getHoraPresentacion());
-            tabla.addRow(fila);
+        try {
+            funciones = daoFuncion.obtenerFuncionesRegistradas();
+    
+            for (Funcion funcion : funciones) {
+                fila[0] = String.valueOf(funcion.getId());
+                fila[1] = funcion.getObra().getNombre();
+                fila[2] = String.valueOf(funcion.getFechaPresentacion());
+                fila[3] = String.valueOf(funcion.getHoraPresentacion());
+                tabla.addRow(fila);
+            }
+            
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(vista, "Ha habido un error en el sistema.\nPor favor intente nuevamente.");
         }
+        
         this.vista.getTabla().setModel(tabla);
     }
 

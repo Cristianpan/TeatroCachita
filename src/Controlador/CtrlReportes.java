@@ -1,4 +1,4 @@
-package Controlador;
+package controlador;
 
 import java.awt.event.*;
 import java.text.DecimalFormat;
@@ -6,9 +6,10 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import DAO.DAOTicket;
-import Modelo.Ticket;
+
 import Vista.*;
+import dao.DAOTicket;
+import modelo.Ticket;
 
 
 public class CtrlReportes implements ActionListener {

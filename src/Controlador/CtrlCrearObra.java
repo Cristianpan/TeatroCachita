@@ -1,15 +1,15 @@
-package Controlador;
+package controlador;
 
-import Modelo.*;
-import DAO.*;
-import ExcepcionesTeatro.ExcepcionCamposVacios;
-import ExcepcionesTeatro.ExcepcionDAOObras;
 import Vista.CrearObra;
 import Vista.MenuAdmi;
+import dao.*;
+import excepciones.ExcepcionCamposVacios;
+import modelo.*;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.sql.SQLException;
+
 import javax.swing.JOptionPane;
 
 public class CtrlCrearObra implements ActionListener{
@@ -43,10 +43,10 @@ public class CtrlCrearObra implements ActionListener{
             } catch (ExcepcionCamposVacios ex) {
                 JOptionPane.showMessageDialog(frmCrearObra, ex.getMessage());
             } catch (NumberFormatException ex) {
-                JOptionPane.showMessageDialog(frmCrearObra, "El dato precio o duración es incorrecto");
-            } catch (ExcepcionDAOObras ex) {
+                JOptionPane.showMessageDialog(frmCrearObra, "El dato precio o duración es incorrecto.\nPor favor digite un numero valido");
+            } catch (SQLException ex) {
                  JOptionPane.showMessageDialog(frmCrearObra, ex.getMessage());
-            } catch (Exception ex) {}
+            } 
         }
         
         
@@ -79,7 +79,7 @@ public class CtrlCrearObra implements ActionListener{
         }
     }
     
-    public void obtenerDatosRegistro() throws Exception{
+    public void obtenerDatosRegistro() throws NumberFormatException {
         this.obra.setNombre(frmCrearObra.getTxtNombre().getText().trim());
         this.obra.setGenero(frmCrearObra.getTxtGenero().getText().trim());
         this.obra.setPrimerActor(frmCrearObra.getTxtPrimerActor().getText().trim());

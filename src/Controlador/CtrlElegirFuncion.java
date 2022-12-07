@@ -1,21 +1,24 @@
-package Controlador;
+package controlador;
 
 import java.awt.event.*;
 import java.beans.PropertyChangeListener;
 import java.sql.Date;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.EventListener;
 
 import javax.swing.JOptionPane;
 
-import DAO.DAOFuncion;
-import Modelo.Funcion;
-import Modelo.Ticket;
-import Modelo.User;
+import com.mysql.cj.protocol.a.TracingPacketReader;
+
 import Vista.ElegirAsientos;
 import Vista.ElegirFuncion;
 import Vista.Login;
 import Vista.MenuAdmi;
+import dao.DAOFuncion;
+import modelo.Funcion;
+import modelo.Ticket;
+import modelo.User;
 
 public class CtrlElegirFuncion implements ActionListener, ItemListener {
     private ElegirFuncion frmElegirFuncion;
@@ -40,10 +43,10 @@ public class CtrlElegirFuncion implements ActionListener, ItemListener {
             }
         });
     }
-    
-    public CtrlElegirFuncion(ElegirFuncion frmElegirFuncion, String tipoUsuario){
+
+    public CtrlElegirFuncion(ElegirFuncion frmElegirFuncion, String tipoUsuario) {
         this(frmElegirFuncion);
-        this.tipoUsuario= tipoUsuario;
+        this.tipoUsuario = tipoUsuario;
         inicializarVista();
     }
 
@@ -55,7 +58,8 @@ public class CtrlElegirFuncion implements ActionListener, ItemListener {
             agregarHorarios(indexObra);
             this.frmElegirFuncion.getTxtPrecio()
                     .setText(String.valueOf(this.funcionesDisponibles.get(indexObra - 1).getObra().getPrecioBoleto()));
-            this.frmElegirFuncion.getTxtResumen().setText(this.funcionesDisponibles.get(indexObra - 1).getObra().getResumen());
+            this.frmElegirFuncion.getTxtResumen()
+                    .setText(this.funcionesDisponibles.get(indexObra - 1).getObra().getResumen());
         } else {
             this.frmElegirFuncion.getComboBoxHorario().removeAllItems();
             this.frmElegirFuncion.getTxtPrecio().setText(null);
@@ -67,56 +71,62 @@ public class CtrlElegirFuncion implements ActionListener, ItemListener {
     public void actionPerformed(ActionEvent event) {
         // btn Elegir asientos
         if (event.getSource() == this.frmElegirFuncion.getBtnElegirAsientos()) {
-           if (this.frmElegirFuncion.getComboBoxObra().getSelectedIndex() != 0 && !this.funcionesDisponibles.isEmpty()){
-                if(this.frmElegirFuncion.getComboBoxHorario().getSelectedIndex() != 0 ){
-                    Ticket ticket = new Ticket(); 
+            if (this.frmElegirFuncion.getComboBoxObra().getSelectedIndex() != 0
+                    && !this.funcionesDisponibles.isEmpty()) {
+                if (this.frmElegirFuncion.getComboBoxHorario().getSelectedIndex() != 0) {
+                    Ticket ticket = new Ticket();
                     ticket.setNombreObra(this.frmElegirFuncion.getComboBoxObra().getSelectedItem().toString());
-                    new CtrlElegirAsientos(ticket, new ElegirAsientos(), obtenerFuncionSeleccionada()); 
+                    new CtrlElegirAsientos(ticket, new ElegirAsientos(), obtenerFuncionSeleccionada());
                     this.frmElegirFuncion.setVisible(false);
                     this.frmElegirFuncion.dispose();
                 } else {
                     JOptionPane.showMessageDialog(this.frmElegirFuncion, "Por favor seleccione el horario disponible.");
                 }
 
-           } else {
+            } else {
                 JOptionPane.showMessageDialog(this.frmElegirFuncion, "Por favor seleccione una función disponible.");
-           } 
+            }
         }
-        //btn cancelar
-        if(event.getSource() == this.frmElegirFuncion.getBtnCancelar()){
+        // btn cancelar
+        if (event.getSource() == this.frmElegirFuncion.getBtnCancelar()) {
             this.frmElegirFuncion.getComboBoxObra().setSelectedIndex(0);
         }
-        
-        //btn regresar
+
+        // btn regresar
         if (event.getSource() == this.frmElegirFuncion.getBtnRegresar()) {
-            if(tipoUsuario=="administrador"){
-            new CtrlMenu(new MenuAdmi());
-            cerrarVentana();
-            }else{
+            if (tipoUsuario == "administrador") {
+                new CtrlMenu(new MenuAdmi());
+                cerrarVentana();
+            } else {
                 int opcion = JOptionPane.showConfirmDialog(frmElegirFuncion, "¿Desea cerrar sesión?", null,
                         JOptionPane.YES_NO_OPTION, 1);
 
-                if (opcion == 0){
-                    new CtrlLogin(new User(), new Login()); 
+                if (opcion == 0) {
+                    new CtrlLogin(new User(), new Login());
                     this.frmElegirFuncion.setVisible(false);
-                    this.frmElegirFuncion.dispose();;
+                    this.frmElegirFuncion.dispose();
+                    ;
                 }
             }
         }
     }
 
-    public void cerrarVentana(){
+    public void cerrarVentana() {
         this.frmElegirFuncion.setVisible(false);
         this.frmElegirFuncion.dispose();
     }
-    public Funcion obtenerFuncionSeleccionada(){
 
-        for (Funcion funcion: funcionesDisponibles){
-            if (this.frmElegirFuncion.getComboBoxHorario().getSelectedItem().toString().equals(String.valueOf(funcion.getHoraPresentacion())) && this.frmElegirFuncion.getComboBoxObra().getSelectedItem().toString().equals(funcion.getObra().getNombre())){
-                return funcion; 
+    public Funcion obtenerFuncionSeleccionada() {
+
+        for (Funcion funcion : funcionesDisponibles) {
+            if (this.frmElegirFuncion.getComboBoxHorario().getSelectedItem().toString()
+                    .equals(String.valueOf(funcion.getHoraPresentacion()))
+                    && this.frmElegirFuncion.getComboBoxObra().getSelectedItem().toString()
+                            .equals(funcion.getObra().getNombre())) {
+                return funcion;
             }
         }
-        
+
         return null;
     }
 
@@ -134,30 +144,37 @@ public class CtrlElegirFuncion implements ActionListener, ItemListener {
     }
 
     public void agregarObras() {
-        DAOFuncion daoFuncion = new DAOFuncion();
-        this.funcionesDisponibles = daoFuncion
-                .obtenerFuncionPorFecha(new Date(this.frmElegirFuncion.getCalendar().getDate().getTime()));
+        try {
+            DAOFuncion daoFuncion = new DAOFuncion();
+            this.funcionesDisponibles = daoFuncion
+                    .obtenerFuncionPorFecha(new Date(this.frmElegirFuncion.getCalendar().getDate().getTime()));
 
-        this.frmElegirFuncion.getComboBoxObra().removeAllItems();
-        this.frmElegirFuncion.getComboBoxObra().addItem("--Selecionar obra--");
+            this.frmElegirFuncion.getComboBoxObra().removeAllItems();
+            this.frmElegirFuncion.getComboBoxObra().addItem("--Selecionar obra--");
 
-        if (!funcionesDisponibles.isEmpty()) {
-            String obra = null;
-            for (Funcion funcion : funcionesDisponibles) {
-                if (!funcion.getObra().getNombre().equals(obra)) {
-                    this.frmElegirFuncion.getComboBoxObra().addItem(funcion.getObra().getNombre());
+            if (!funcionesDisponibles.isEmpty()) {
+                String obra = null;
+                for (Funcion funcion : funcionesDisponibles) {
+                    if (!funcion.getObra().getNombre().equals(obra)) {
+                        this.frmElegirFuncion.getComboBoxObra().addItem(funcion.getObra().getNombre());
+                    }
+                    obra = funcion.getObra().getNombre();
                 }
-                obra = funcion.getObra().getNombre();
+            } else {
+                JOptionPane.showMessageDialog(this.frmElegirFuncion,
+                        "No existen funciones registradas para la fecha seleccionada.");
             }
-        } else {
-            JOptionPane.showMessageDialog(this.frmElegirFuncion, "No existen funciones registradas para la fecha seleccionada.");
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(frmElegirFuncion,
+                    "Ha ocurrido un error en el sistema. Por favor intente nuevamente.");
         }
     }
-    
-    public void inicializarVista(){
-        if(tipoUsuario == "administrador"){
+
+    public void inicializarVista() {
+        if (tipoUsuario == "administrador") {
             this.frmElegirFuncion.getLabelRegresar().setText("Menú");
-        }else{
+        } else {
             this.frmElegirFuncion.getLabelRegresar().setText("Salir");
         }
     }

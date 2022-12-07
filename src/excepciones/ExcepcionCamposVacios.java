@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ExcepcionesTeatro;
+package excepciones;
 
 /**
  *
  * @author diana
  */
-public class ExcepcionHorarioNoDisponible extends Exception{
+public class ExcepcionCamposVacios extends Exception{
 
-    public ExcepcionHorarioNoDisponible(String message) {
+    public ExcepcionCamposVacios(String message) {
         super(message);
     }
     

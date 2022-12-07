@@ -1,12 +1,13 @@
-package Controlador;
+package controlador;
 
-import Modelo.*;
 import Recursos.*;
 import Vista.*;
+import dao.DAOUsuario;
+import modelo.*;
+
 import java.awt.event.*;
 
 import javax.swing.JOptionPane;
-import DAO.DAOUsuario;
 
 public class CtrlLogin implements ActionListener {
     private User modelUser;
