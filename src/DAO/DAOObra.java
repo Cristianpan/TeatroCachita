@@ -5,6 +5,7 @@
  */
 package DAO;
 
+import ExcepcionesTeatro.ExcepcionDAOObras;
 import Modelo.Obra;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -22,7 +23,7 @@ import java.util.logging.Logger;
  */
 public class DAOObra extends Db {
 
-    public boolean agregarObra(Obra obra) {
+    public void agregarObra(Obra obra) throws Exception {
         boolean obraAgregada = false;
         PreparedStatement ps = null;
         Connection con = getConexion();
@@ -48,7 +49,7 @@ public class DAOObra extends Db {
                 System.out.println(e);
             }
         }
-        return obraAgregada;
+        if(obraAgregada==false){throw new ExcepcionDAOObras("Error al crear obra");}
     }
 
     public Obra buscarObra(String nombreObra) {
@@ -89,7 +90,7 @@ public class DAOObra extends Db {
         return obra;
     }
 
-    public boolean actualizarObra(Obra obra) {
+    public void actualizarObra(Obra obra) throws ExcepcionDAOObras {
         boolean fueActualizado = false;
         PreparedStatement ps;
         Connection con = getConexion();
@@ -120,10 +121,10 @@ public class DAOObra extends Db {
             }
         }
 
-        return fueActualizado;
+        if(fueActualizado==false){throw new ExcepcionDAOObras("Error al actualizar obra");}
     }
 
-    public boolean eliminarObra(int idObra) {
+    public void eliminarObra(int idObra) throws ExcepcionDAOObras {
         boolean fueEliminado = false;
         PreparedStatement ps;
         Connection con = getConexion();
@@ -144,7 +145,7 @@ public class DAOObra extends Db {
                 e.printStackTrace();
             }
         }
-        return fueEliminado;
+        if(fueEliminado==false){throw new ExcepcionDAOObras("Error al eliminar obra");}
     }
 
     public ArrayList<Obra> obtenerObrasRegistradas() {

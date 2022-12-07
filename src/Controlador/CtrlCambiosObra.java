@@ -8,6 +8,9 @@ package Controlador;
 import DAO.DAOFuncion;
 import DAO.DAOObra;
 import DAO.DAOSala;
+import ExcepcionesTeatro.ExcepcionCamposVacios;
+import ExcepcionesTeatro.ExcepcionDAOFunciones;
+import ExcepcionesTeatro.ExcepcionDAOObras;
 import Modelo.Funcion;
 import Modelo.Obra;
 import Vista.CambiosObra;
@@ -15,6 +18,8 @@ import Vista.MenuAdmi;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 
@@ -82,39 +87,43 @@ public class CtrlCambiosObra implements ActionListener {
 
         // modificar
         if (e.getSource() == this.frmCambiosObra.getBtnModificar()) {
-            if (!esVacioInput()) {
-                
+            try {
+                esVacioInput();
                 String obraSeleccionada = this.frmCambiosObra.getComboBoxObra().getSelectedItem().toString();
-
                 if (obraSeleccionada != "-Seleccionar Obra-") {
                     DAOObra daoObra = new DAOObra();
                     Obra obra = daoObra.buscarObra(obraSeleccionada);
-                    boolean modificar = obtenerDatosRegistro(); // la this,obra va a tener los datos de registro
+                    DAOFuncion daoFuncion= new DAOFuncion();
+                    daoFuncion.existeFuncionConObra(obra.getId());
+                    obtenerDatosRegistro(); // la this,obra va a tener los datos de registro
                     this.obra.setId(obra.getId());
-
-                    if (modificar == true) {
                         if (this.obra.getNombre().equals(obra.getNombre())
                                 || daoObra.buscarObra(this.obra.getNombre()) == null) {
-                            if (daoObra.actualizarObra(this.obra)) {
-                                JOptionPane.showMessageDialog(frmCambiosObra, "Actualización exitosa");
-                                this.frmCambiosObra.getComboBoxObra().setSelectedItem(this.obra.getNombre());
-                                this.frmCambiosObra.getComboBoxObra().removeAllItems();
-                                agregarObrasComboBox();
-                                limpiarCampos();
-
-                            } else {
-                                JOptionPane.showMessageDialog(frmCambiosObra, "Algo ha salido mal");
-                            }
+                            daoObra.actualizarObra(this.obra);
+                            JOptionPane.showMessageDialog(frmCambiosObra, "Actualización exitosa");
+                            this.frmCambiosObra.getComboBoxObra().setSelectedItem(this.obra.getNombre());
+                            this.frmCambiosObra.getComboBoxObra().removeAllItems();
+                            agregarObrasComboBox();
+                            limpiarCampos();
                         } else {
                             JOptionPane.showMessageDialog(frmCambiosObra, "Obra existente. Ingrese otro");
                         }
-                    }
                 } else {
                     JOptionPane.showMessageDialog(frmCambiosObra, "No se ha seleccionado alguna obra");
                 }
-            } else {
-                JOptionPane.showMessageDialog(frmCambiosObra, "Todos los campos son obligatorios");
-            }
+            } catch (ExcepcionCamposVacios ex){
+                JOptionPane.showMessageDialog(frmCambiosObra, ex.getMessage());
+            } catch (ExcepcionDAOFunciones ex) {
+                JOptionPane.showMessageDialog(frmCambiosObra, ex.getMessage());
+            }catch(NumberFormatException ex){
+                JOptionPane.showMessageDialog(frmCambiosObra, "El dato precio o duración es incorrecto");
+            }catch (ExcepcionDAOObras ex) {
+                JOptionPane.showMessageDialog(frmCambiosObra, ex.getMessage());
+            }catch (Exception ex) {
+                
+            }    
+                
+            
         }
 
         // eliminar
@@ -123,39 +132,47 @@ public class CtrlCambiosObra implements ActionListener {
             
             if (obraSeleccionada != "-Seleccionar Obra-") {
                 DAOObra daoObra = new DAOObra();
-                this.obra = daoObra.buscarObra(obraSeleccionada);
+                Obra obra = daoObra.buscarObra(obraSeleccionada);
+                
                 String msg = "¿Desea eliminar la obra " + obra.getNombre() + "?"; 
 
                 int opcion = JOptionPane.showConfirmDialog(frmCambiosObra, msg , null,
                         JOptionPane.YES_NO_OPTION, 2);
                 
-                
                 if (opcion == 0) {
-                    DAOFuncion daoFuncion = new DAOFuncion();
-                    if(daoFuncion.obtenerFuncionesVigentes(this.obra.getId())){
-                        JOptionPane.showMessageDialog(frmCambiosObra, "No se puede eliminar la obra, ya existen funciones");
-                    }else{
-                        if (daoObra.eliminarObra(this.obra.getId())) {
-                        JOptionPane.showMessageDialog(frmCambiosObra, "Obra Eliminada");
-                        this.frmCambiosObra.getComboBoxObra()
-                                .removeItem(this.frmCambiosObra.getComboBoxObra().getSelectedItem());
+                    try {
+                        DAOFuncion daoFuncion= new DAOFuncion();
+                        daoFuncion.existeFuncionConObra(obra.getId());
+                        
+                            daoFuncion.obtenerFuncionesVigentes(this.obra.getId());
+                            daoObra.eliminarObra(this.obra.getId());
+                            JOptionPane.showMessageDialog(frmCambiosObra, "Obra Eliminada");
+                            this.frmCambiosObra.getComboBoxObra()
+                                    .removeItem(this.frmCambiosObra.getComboBoxObra().getSelectedItem());
                             limpiarCampos();
-                        } else {
-                            JOptionPane.showMessageDialog(frmCambiosObra, "Algo ha salido mal");
-                        }
+                        
+                    } catch (ExcepcionDAOObras ex) {
+                        JOptionPane.showMessageDialog(frmCambiosObra, ex.getMessage());
+                    } catch (ExcepcionDAOFunciones ex) {
+                        JOptionPane.showMessageDialog(frmCambiosObra, ex.getMessage());
+                    } catch (Exception ex) {
+                        JOptionPane.showMessageDialog(frmCambiosObra, ex.getMessage());
                     }
                 }
             }
         }
     }
     
-    public boolean esVacioInput() {
-        return (frmCambiosObra.getTxtNombre().getText().isEmpty() ||
+    public void esVacioInput() throws Exception{
+        if(frmCambiosObra.getTxtNombre().getText().isEmpty() ||
                 frmCambiosObra.getTxtDuracion().getText().isEmpty() ||
                 frmCambiosObra.getTxtGenero().getText().isEmpty() ||
                 frmCambiosObra.getTxtPrecio().getText().isEmpty() ||
                 frmCambiosObra.getTxtPrimerActor().getText().isEmpty() ||
-                frmCambiosObra.getTxtSegundoActor().getText().isEmpty());
+                frmCambiosObra.getTxtSegundoActor().getText().isEmpty()){
+           throw new ExcepcionCamposVacios("Todos los campos son obligatorios");
+        }
+        
     }
 
     public void limpiarCampos() {
@@ -166,7 +183,6 @@ public class CtrlCambiosObra implements ActionListener {
         frmCambiosObra.getTxtPrimerActor().setText(null);
         frmCambiosObra.getTxtSegundoActor().setText(null);
         frmCambiosObra.getTxtResumenTematico().setText(null);
-
         frmCambiosObra.getComboBoxObra().setSelectedItem("-Seleccionar Obra-");
     }
 
@@ -180,22 +196,14 @@ public class CtrlCambiosObra implements ActionListener {
         frmCambiosObra.getTxtResumenTematico().setText(obra.getResumen());
     }
 
-    public boolean obtenerDatosRegistro() {
+    public void obtenerDatosRegistro() throws Exception{
         obra.setNombre(frmCambiosObra.getTxtNombre().getText().trim());
         obra.setGenero(frmCambiosObra.getTxtGenero().getText().trim());
         obra.setPrimerActor(frmCambiosObra.getTxtPrimerActor().getText().trim());
         obra.setSegundoActor(frmCambiosObra.getTxtSegundoActor().getText().trim());
         obra.setResumen(frmCambiosObra.getTxtResumenTematico().getText().trim());
-
-        try {
-            obra.setDuracion(Integer.parseInt(frmCambiosObra.getTxtDuracion().getText().trim()));
-            obra.setPrecioBoleto(Double.parseDouble(frmCambiosObra.getTxtPrecio().getText().trim()));
-            return true;
-        } catch (NumberFormatException e) {
-
-            JOptionPane.showMessageDialog(frmCambiosObra, "El dato precio o duración es incorrecto");
-            return false;
-        }
+        obra.setDuracion(Integer.parseInt(frmCambiosObra.getTxtDuracion().getText().trim()));
+        obra.setPrecioBoleto(Double.parseDouble(frmCambiosObra.getTxtPrecio().getText().trim()));
     }
 
 }

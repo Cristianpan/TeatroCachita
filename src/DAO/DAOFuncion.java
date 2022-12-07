@@ -1,5 +1,6 @@
 package DAO;
 
+import ExcepcionesTeatro.ExcepcionDAOFunciones;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.logging.*;
@@ -47,7 +48,7 @@ public class DAOFuncion extends Db {
         return idNuevaFuncion; 
     }
     
-    public boolean eliminarFuncion(int idFuncion) {
+    public void eliminarFuncion(int idFuncion)throws Exception {
         boolean fueEliminado = false;
         PreparedStatement ps;
         Connection con = getConexion();
@@ -68,8 +69,7 @@ public class DAOFuncion extends Db {
                 e.printStackTrace();
             }
         }
-
-        return fueEliminado;
+        if(fueEliminado==false){throw new ExcepcionDAOFunciones("Error al eliminar función");}
     }
 
     public ArrayList<Funcion> obtenerFuncionPorFecha(Date fecha) {
@@ -166,7 +166,37 @@ public class DAOFuncion extends Db {
         return funcionesRegistradas; 
     }
     
-    public boolean modificarFuncion(Funcion funcion) {
+    public void existeFuncionConObra(int idObra)throws Exception{
+        boolean existeObra= false;
+        ArrayList<Funcion> funcionesRegistradas = new ArrayList<>(); 
+        PreparedStatement ps;
+        Connection con = getConexion();
+        ResultSet rs = null;
+
+        String sql = "SELECT * FROM funcion WHERE obraId= "+idObra; 
+        try {
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                existeObra= true;
+            }
+
+            ps.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOObra.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        if(existeObra==true){throw new ExcepcionDAOFunciones("No se puede realizar esta acción, ya tiene funciones existentes");}
+    }
+    
+    public void modificarFuncion(Funcion funcion)throws Exception{
+        boolean modificada= false;
         PreparedStatement ps;
         Connection con = getConexion();
 
@@ -180,7 +210,7 @@ public class DAOFuncion extends Db {
             ps.setInt(4, funcion.getId());
             ps.executeUpdate();
 
-            return true;
+            modificada=true;
 
         } catch (SQLException ex) {
             Logger.getLogger(DAOObra.class.getName()).log(Level.SEVERE, null, ex);
@@ -191,11 +221,11 @@ public class DAOFuncion extends Db {
                 e.printStackTrace();
             }
         }
-        return false;
+        if(modificada==false){throw new ExcepcionDAOFunciones("Error al modificar función");}
     }
 
-    public boolean  obtenerFuncionesVigentes(int idObra){
-            boolean funcionesVigentes = false;
+    public void  obtenerFuncionesVigentes(int idObra)throws Exception{
+        boolean funcionesVigentes = false;
 
         PreparedStatement ps;
         Connection con = getConexion(); 
@@ -226,6 +256,6 @@ public class DAOFuncion extends Db {
             
         }
 
-        return funcionesVigentes; 
+        if(funcionesVigentes==true){throw new ExcepcionDAOFunciones("No se puede realizar esta acción, ya tiene funciones existentes");}
     }
 }
