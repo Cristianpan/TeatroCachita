@@ -3,16 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controlador;
+package controlador;
 
-import DAO.*;
-import Modelo.*;
 import Vista.ElegirAsientos;
 import Vista.ElegirFuncion;
 import Vista.ImprimirTicketBoletos;
+import dao.*;
+import modelo.*;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Date;
+import java.sql.SQLException;
 import java.sql.Time;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -43,52 +45,58 @@ public class CtrlElegirAsientos implements ActionListener {
     // Añade el action listener a cada asiento e inicializa a cada uno con sus
     // valores
     public void inicializarAsientos() {
-        DAOSala dao = new DAOSala();
-        this.funcionActual.setAsientos(dao.obtenerAsientos(this.funcionActual.getId()));
-        int aux = 0;
-
-        // Asientos A
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 5; j++) {
-                this.frmElegirAsiento.getAsientosA()[i][j].addActionListener(this);
-                if (this.funcionActual.getAsientos().get(aux) == 1) {
-                    this.frmElegirAsiento.getAsientosA()[i][j].setEnabled(false);
+        try {
+            DAOSala dao = new DAOSala();
+            
+            this.funcionActual.setAsientos(dao.obtenerAsientos(this.funcionActual.getId()));
+            int aux = 0;
+    
+            // Asientos A
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 5; j++) {
+                    this.frmElegirAsiento.getAsientosA()[i][j].addActionListener(this);
+                    if (this.funcionActual.getAsientos().get(aux) == 1) {
+                        this.frmElegirAsiento.getAsientosA()[i][j].setEnabled(false);
+                    }
+                    aux++;
                 }
-                aux++;
             }
-        }
-
-        // Asientos B1
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 2; j++) {
-                this.frmElegirAsiento.getAsientosB1()[i][j].addActionListener(this);
-                if (this.funcionActual.getAsientos().get(aux) == 1) {
-                    this.frmElegirAsiento.getAsientosB1()[i][j].setEnabled(false);
+    
+            // Asientos B1
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 2; j++) {
+                    this.frmElegirAsiento.getAsientosB1()[i][j].addActionListener(this);
+                    if (this.funcionActual.getAsientos().get(aux) == 1) {
+                        this.frmElegirAsiento.getAsientosB1()[i][j].setEnabled(false);
+                    }
+                    aux++;
                 }
-                aux++;
             }
-        }
-
-        // Asientos B2
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 2; j++) {
-                this.frmElegirAsiento.getAsientosB2()[i][j].addActionListener(this);
-                if (this.funcionActual.getAsientos().get(aux) == 1) {
-                    this.frmElegirAsiento.getAsientosB2()[i][j].setEnabled(false);
+    
+            // Asientos B2
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 2; j++) {
+                    this.frmElegirAsiento.getAsientosB2()[i][j].addActionListener(this);
+                    if (this.funcionActual.getAsientos().get(aux) == 1) {
+                        this.frmElegirAsiento.getAsientosB2()[i][j].setEnabled(false);
+                    }
+                    aux++;
                 }
-                aux++;
             }
-        }
-
-        // Asientos C
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 5; j++) {
-                this.frmElegirAsiento.getAsientosC()[i][j].addActionListener(this);
-                if (this.funcionActual.getAsientos().get(aux) == 1) {
-                    this.frmElegirAsiento.getAsientosC()[i][j].setEnabled(false);
+    
+            // Asientos C
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 5; j++) {
+                    this.frmElegirAsiento.getAsientosC()[i][j].addActionListener(this);
+                    if (this.funcionActual.getAsientos().get(aux) == 1) {
+                        this.frmElegirAsiento.getAsientosC()[i][j].setEnabled(false);
+                    }
+                    aux++;
                 }
-                aux++;
             }
+            
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(frmElegirAsiento, "Ha ocurrido un error en el sistema. Por favor intente nuevamente.");
         }
     }
     
@@ -115,17 +123,18 @@ public class CtrlElegirAsientos implements ActionListener {
                     if (montoApagar >= this.precioTotal){
                         DAOSala daoSala = new DAOSala(); 
                         // actualiza la base de datos
-                        if (daoSala.ocuparAsiento(asientosSeleccionados, this.funcionActual.getId()) == true) {
-                            // abrir siguiente ventana y la de funciones
-                            crearTicket();
-                            new CtrlImprimirTicketBoleto(ticket, new ImprimirTicketBoletos(), this.funcionActual);
-                            cerrarVenta();
-                        }
+                        daoSala.ocuparAsiento(asientosSeleccionados, this.funcionActual.getId()); 
+                        // abrir siguiente ventana y la de funciones
+                        crearTicket();
+                        new CtrlImprimirTicketBoleto(ticket, new ImprimirTicketBoletos(), this.funcionActual);
+                        cerrarVenta();
                     } else{
                         JOptionPane.showMessageDialog(frmElegirAsiento, "Monto a pagar insuficiente");
                     }
-                } catch (Exception exception) {
+                } catch (NumberFormatException exception) {
                     JOptionPane.showMessageDialog(frmElegirAsiento, "El monto a pagar es incorrecto.\n Por favor ingrese un dato numérico.");
+                } catch (SQLException exception){
+                    JOptionPane.showMessageDialog(frmElegirAsiento, "Ha ocurrido un error con el sistema ");
                 }
             } else {
                 JOptionPane.showMessageDialog(frmElegirAsiento, "No se ha seleccionado algún asiento.");
@@ -252,16 +261,12 @@ public class CtrlElegirAsientos implements ActionListener {
 
         Date fechaVenta = new Date(date.getTimeInMillis());
         Time horaVenta = new Time(date.getTimeInMillis()); 
-        try {
-            this.ticket.setHoraVenta(horaVenta);
-            this.ticket.setFechaVenta(fechaVenta);
-            this.ticket.setBoletosVendidos(asientosSeleccionados);
-            this.ticket.setTotalVenta(this.precioTotal);
-            this.ticket.setMontoEntregado(Double.parseDouble(this.frmElegirAsiento.getTxtMontoPagar().getText()));
-            this.ticket.obtenerCambio();
-        } catch (Exception e) {
-            System.out.println("Error al crear el ticket");
-        }
+        this.ticket.setHoraVenta(horaVenta);
+        this.ticket.setFechaVenta(fechaVenta);
+        this.ticket.setBoletosVendidos(asientosSeleccionados);
+        this.ticket.setTotalVenta(this.precioTotal);
+        this.ticket.setMontoEntregado(Double.parseDouble(this.frmElegirAsiento.getTxtMontoPagar().getText()));
+        this.ticket.obtenerCambio();
     }
 
     public void cerrarVenta() {

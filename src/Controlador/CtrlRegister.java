@@ -1,13 +1,16 @@
-package Controlador;
+package controlador;
 
-import Modelo.*;
 import Vista.MenuAdmi;
 import Vista.Register;
+import dao.DAOUsuario;
+import excepciones.ExcepcionCamposVacios;
+import modelo.*;
+
 import java.awt.event.*;
+import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
 
-import DAO.DAOUsuario;
 import Recursos.*;
 
 public class CtrlRegister implements ActionListener {
@@ -29,30 +32,29 @@ public class CtrlRegister implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         if (e.getSource() == this.frmRegister.getBtnRegistrar()) {
-
-            
-
-            if (esVacioInput()) {
-                JOptionPane.showMessageDialog(this.frmRegister, "Todos los campos son obligatorios");
-            } else {
+            try {
+                esVacioInput();
                 DAOUsuario daoUsuario = new DAOUsuario();
                 if (daoUsuario.buscarUsuario(this.frmRegister.getTxtUsuario().getText().trim()) == null) {
 
                     obtenerDatosRegistro();
                     limpiarCampos();
-
-                    if (daoUsuario.isRegister(this.modelUser))
-                        JOptionPane.showMessageDialog(null, "Registro exitoso");
-                    else
-                        JOptionPane.showMessageDialog(null, "Ha ocurrido un error");
+                    daoUsuario.isRegister(this.modelUser);
+                    JOptionPane.showMessageDialog(null, "Registro exitoso");
 
                 } else {
                     this.frmRegister.getTxtWarning().setText("Nombre de usuario existente. Ingrese otro");
                 }
+
+            } catch (ExcepcionCamposVacios exception) {
+                JOptionPane.showMessageDialog(this.frmRegister, exception.getMessage());
+            } catch (SQLException exception) {
+                JOptionPane.showMessageDialog(null,
+                        "Ha ocurrido un error en el sitema.\nPor favor intente nuevemante.");
             }
-        } 
-        
-        //boton cancelar 
+        }
+
+        // boton cancelar
         if (e.getSource() == this.frmRegister.getBtnCancelar()) {
             int opcion = JOptionPane.showConfirmDialog(frmRegister, "¿Desea cancelar la acción?", null,
                     JOptionPane.YES_NO_OPTION, -1);
@@ -60,9 +62,9 @@ public class CtrlRegister implements ActionListener {
                 limpiarCampos();
             }
 
-        } 
-        
-        //boton regresar menu
+        }
+
+        // boton regresar menu
         if (e.getSource() == this.frmRegister.getBtnMenu()) {
             int opcion = JOptionPane.showConfirmDialog(frmRegister, "¿Está seguro de regresar al menú?", null,
                     JOptionPane.YES_NO_OPTION, 1);
@@ -75,13 +77,16 @@ public class CtrlRegister implements ActionListener {
     }
 
     // Retorna verdadero si algun textField es vacio, falso en caso contrario
-    public boolean esVacioInput() {
-        return (frmRegister.getTxtNombre().getText().isEmpty()
+    public void esVacioInput() throws ExcepcionCamposVacios {
+        if (frmRegister.getTxtNombre().getText().isEmpty()
                 || frmRegister.getTxtApellido().getText().isEmpty()
                 || frmRegister.getTxtUsuario().getText().isEmpty()
                 || frmRegister.getTxtCurp().getText().isEmpty()
                 || frmRegister.getTxtContrasena().getText().isEmpty()
-                || frmRegister.getBoxTipoUsuario().getSelectedIndex() == 0);
+                || frmRegister.getBoxTipoUsuario().getSelectedIndex() == 0) {
+            throw new ExcepcionCamposVacios("Todos los campos son obligatorios");
+        }
+        ;
     }
 
     // Obtiene todos los datos proporcionados en la ventana de registro de usuario y
