@@ -2,10 +2,14 @@ package Controlador;
 
 import Modelo.*;
 import DAO.*;
+import ExcepcionesTeatro.ExcepcionCamposVacios;
+import ExcepcionesTeatro.ExcepcionDAOObras;
 import Vista.CrearObra;
 import Vista.MenuAdmi;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class CtrlCrearObra implements ActionListener{
@@ -27,23 +31,24 @@ public class CtrlCrearObra implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         //botón agregar
         if(e.getSource() == this.frmCrearObra.getBtnAgregar()){
-            if (esVacioInput()){
-                JOptionPane.showMessageDialog(this.frmCrearObra, "Todos los campos son obligatorios");
-            }else{
+            try {
+                esVacioInput();
                 DAOObra daoObra= new DAOObra();
                 if(daoObra.buscarObra(this.frmCrearObra.getTxtNombre().getText().trim()) == null){
                     obtenerDatosRegistro();
-                    
-                    if(obtenerDatosRegistro()){
-                        limpiarCampos();
-                        if (daoObra.agregarObra(this.obra))
-                        JOptionPane.showMessageDialog(null, "Registro exitoso");
-                        else
-                            JOptionPane.showMessageDialog(null, "Ha ocurrido un error");
-                        }
+                    limpiarCampos();
+                    daoObra.agregarObra(this.obra);
+                    JOptionPane.showMessageDialog(null, "Registro exitoso");
                 }
-            }
+            } catch (ExcepcionCamposVacios ex) {
+                JOptionPane.showMessageDialog(frmCrearObra, ex.getMessage());
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(frmCrearObra, "El dato precio o duración es incorrecto");
+            } catch (ExcepcionDAOObras ex) {
+                 JOptionPane.showMessageDialog(frmCrearObra, ex.getMessage());
+            } catch (Exception ex) {}
         }
+        
         
         //boton cancelar
         if (e.getSource() == this.frmCrearObra.getBtnCancelar()){
@@ -62,32 +67,27 @@ public class CtrlCrearObra implements ActionListener{
         }
     }
     
-    public boolean esVacioInput(){
-        return(frmCrearObra.getTxtNombre().getText().isEmpty() ||
+    public void esVacioInput() throws ExcepcionCamposVacios{
+        if((frmCrearObra.getTxtNombre().getText().isEmpty() ||
         this.frmCrearObra.getTxtDuracion().getText().isEmpty()||
         this.frmCrearObra.getTxtGenero().getText().isEmpty()||
         this.frmCrearObra.getTxtPrecio().getText().isEmpty()||
         this.frmCrearObra.getTxtPrimerActor().getText().isEmpty()||
         this.frmCrearObra.getTxtSegundoActor().getText().isEmpty()) || 
-        this.frmCrearObra.getTxtResumenTematico().getText().isEmpty();
+        this.frmCrearObra.getTxtResumenTematico().getText().isEmpty()){
+            throw new ExcepcionCamposVacios("Todos los campos son obligatorios");
+        }
     }
     
-    public boolean obtenerDatosRegistro() {
-
+    public void obtenerDatosRegistro() throws Exception{
         this.obra.setNombre(frmCrearObra.getTxtNombre().getText().trim());
         this.obra.setGenero(frmCrearObra.getTxtGenero().getText().trim());
         this.obra.setPrimerActor(frmCrearObra.getTxtPrimerActor().getText().trim());
         this.obra.setSegundoActor(frmCrearObra.getTxtSegundoActor().getText().trim());
         this.obra.setResumen(frmCrearObra.getTxtResumenTematico().getText().trim());
+        this.obra.setPrecioBoleto(Double.parseDouble(frmCrearObra.getTxtPrecio().getText().trim()));
+        this.obra.setDuracion(Integer.parseInt(frmCrearObra.getTxtDuracion().getText().trim()));
         
-        try {
-            this.obra.setPrecioBoleto(Double.parseDouble(frmCrearObra.getTxtPrecio().getText().trim()));
-            this.obra.setDuracion(Integer.parseInt(frmCrearObra.getTxtDuracion().getText().trim()));
-            return true;
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(frmCrearObra, "El dato precio o duración es incorrecto");
-             return false;
-        }
     }
     
     public void limpiarCampos(){

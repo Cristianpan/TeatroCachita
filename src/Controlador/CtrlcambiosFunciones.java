@@ -9,6 +9,9 @@ import java.text.SimpleDateFormat;
 import javax.swing.table.DefaultTableModel;
 
 import DAO.*; 
+import ExcepcionesTeatro.ExcepcionDAOFunciones;
+import ExcepcionesTeatro.ExcepcionFuncionBoletosVendidos;
+import ExcepcionesTeatro.ExcepcionHorarioNoDisponible;
 import Modelo.*; 
 import Vista.*;
 
@@ -38,10 +41,8 @@ public class CtrlcambiosFunciones implements ActionListener, MouseListener {
     public void actionPerformed(ActionEvent event) {
         // boton regresar al menu
         if (event.getSource() == this.vista.getBtnRegresarMenu()) {
-
             int opcion = JOptionPane.showConfirmDialog(vista, "¿Está seguro de regresar al menú?", null,
                     JOptionPane.YES_NO_OPTION, 1);
-
             if (opcion == 0) {
                 new CtrlMenu(new MenuAdmi());
                 this.vista.setVisible(false);
@@ -68,21 +69,19 @@ public class CtrlcambiosFunciones implements ActionListener, MouseListener {
 
             if (opcion == 0) {
                 DAOFuncion daoFuncion = new DAOFuncion();
-                
-                if (existenBoletosVendidos(funciones.get(fila).getId())) {
-                      JOptionPane.showMessageDialog(this.vista, "La función ya tiene boletos vendidos, no es posible eliminarla");
-                }else{
-                    if (daoFuncion.eliminarFuncion(funciones.get(fila).getId())) {
+                try {
+                    existenBoletosVendidos(funciones.get(fila).getId());
+                    daoFuncion.eliminarFuncion(funciones.get(fila).getId());
                     ((DefaultTableModel) this.vista.getTabla().getModel()).removeRow(fila);
                     funciones.remove(fila);
                     JOptionPane.showMessageDialog(this.vista, "La función ha sido eliminada");
                     limpiarCampos();
-                    } else {
-                        JOptionPane.showMessageDialog(this.vista, "Ha habido un error. Por favor intente nuevamente");
-                    }
+                } catch (ExcepcionFuncionBoletosVendidos e){
+                    JOptionPane.showMessageDialog(this.vista, e.getMessage());
+                }catch (ExcepcionDAOFunciones e) {
+                    JOptionPane.showMessageDialog(this.vista, e.getMessage());
+                }catch (Exception e) {         
                 }
-                
-
             }
         }
 
@@ -96,24 +95,25 @@ public class CtrlcambiosFunciones implements ActionListener, MouseListener {
                     JOptionPane.YES_NO_OPTION, 2);
 
             if (opcion == 0) {
+                try {
+                    obtenerDatos(fila);
+                    validarDisponibilidadHorario();
+                    daoFuncion.modificarFuncion(this.funcion);
+                    JOptionPane.showMessageDialog(this.vista, "Funcion modificada");
+                    this.vista.getTabla().setValueAt(this.funcion.getObra().getNombre(), fila, 1);
+                    this.vista.getTabla().setValueAt(this.funcion.getFechaPresentacion(), fila, 2);
+                    this.vista.getTabla().setValueAt(this.funcion.getHoraPresentacion(), fila, 3);
+                    // actualiza el arraylist
+                    this.funciones.set(fila, funcion);
 
-                if (obtenerDatos(fila)) {
-                    if (validarDisponibilidadHorario()){
-                        if (daoFuncion.modificarFuncion(this.funcion)) {
-                            // actualiza la fila de la función en la tabla
-                            JOptionPane.showMessageDialog(this.vista, "Funcion modificada");
-                            this.vista.getTabla().setValueAt(this.funcion.getObra().getNombre(), fila, 1);
-                            this.vista.getTabla().setValueAt(this.funcion.getFechaPresentacion(), fila, 2);
-                            this.vista.getTabla().setValueAt(this.funcion.getHoraPresentacion(), fila, 3);
-                            // actualiza el arraylist
-                            this.funciones.set(fila, funcion);
-
-                            //limpiar los campos 
-                            limpiarCampos();
-                        } else {
-                            JOptionPane.showInternalMessageDialog(null, "Ha habido un error. Por favor intente nuevamente");
-                        }
-                    }
+                    //limpiar los campos 
+                    limpiarCampos();
+                } catch (ExcepcionDAOFunciones e) {
+                    JOptionPane.showMessageDialog(null, e.getMessage());
+                }catch (ExcepcionHorarioNoDisponible e) {
+                    JOptionPane.showMessageDialog(null, e.getMessage());
+                }catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios.");
                 }
             }
         }
@@ -133,30 +133,25 @@ public class CtrlcambiosFunciones implements ActionListener, MouseListener {
         }
     }
     
-    public boolean existenBoletosVendidos(int idFuncion){
-         DAOSala daoSala= new DAOSala();
-         ArrayList<Integer> asientos = daoSala.obtenerAsientos(idFuncion);
-        return asientos.contains(1);
+    public void existenBoletosVendidos(int idFuncion)throws Exception{
+        DAOSala daoSala= new DAOSala();
+        ArrayList<Integer> asientos = daoSala.obtenerAsientos(idFuncion);
+        if (asientos.contains(1)){
+            throw new ExcepcionFuncionBoletosVendidos("No es posible realizar esta acción, la función ya tiene boletos vendidos");
+        }
     }
 
     /*
      * Obtiene todos los datos en en los campos Obra, fecha, horario
      * Retorna falso si algún campo es vacio
      */
-    public boolean obtenerDatos(int fila) {
+    public void obtenerDatos(int fila) throws Exception{
         SimpleDateFormat timeFormater = new SimpleDateFormat("HH:mm");
-
-        try {
             this.funcion.setId(this.funciones.get(fila).getId());
             this.funcion.setFechaPresentacion(new Date(vista.getjDateChooser1().getDate().getTime()));
             this.funcion.setHoraPresentacion(new Time(
                     timeFormater.parse(vista.getComboBoxHorarioNuevo().getSelectedItem().toString()).getTime()));
             this.funcion.setObra(this.obras.get(this.vista.getComboBoxObraNueva().getSelectedIndex() - 1));
-            return true;
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios.");
-            return false;
-        }
     }
 
     // Limpia todos los campos después modificar o eliminar
@@ -204,41 +199,36 @@ public class CtrlcambiosFunciones implements ActionListener, MouseListener {
      * Retorna true si el horario de la función seleccionada se encuentra disponible
      * y si no interfiere con alguna otra función
      */
-    public boolean validarDisponibilidadHorario() {
+    public void validarDisponibilidadHorario() throws Exception{
+        boolean disponible=false;
         DAOFuncion daoFuncion = new DAOFuncion();
         ArrayList<Funcion> funciones = daoFuncion.obtenerFuncionPorFecha(this.funcion.getFechaPresentacion());
         
         if (funciones.isEmpty()) {
-            
-            return true;
-
+            disponible=true;
         } else if (funciones.size() == 1) {
-            
             if (!funciones.get(0).getHoraPresentacion().equals(this.funcion.getHoraPresentacion())) {
                 if (funciones.get(0).getHoraPresentacion().equals(new Time(18, 0, 0)) && funciones.get(0).getObra().getDuracion() < 150) {
-                    
-                    return true;
-
+                    disponible=true;
                 } else if (this.funcion.getHoraPresentacion().equals(new Time(18, 0, 0)) && funcion.getObra().getDuracion() < 150) {
-                    return true;
+                    disponible=true;
                 } 
             } else if (funcion.getId() == this.funcion.getId() && funcion.getHoraPresentacion().equals(this.funcion.getHoraPresentacion())){
-                return true; 
+                disponible=true;
             }
             else {
-                JOptionPane.showMessageDialog(vista,"El horario no se encuentra disponible. Por favor seleccione otro");
-                return false;
+                throw new ExcepcionHorarioNoDisponible("El horario no se encuentra disponible. Por favor seleccione otro");
             }
         } else {
             for(Funcion funcion: funciones){
                 if (funcion.getId() == this.funcion.getId() && funcion.getHoraPresentacion().equals(this.funcion.getHoraPresentacion())){
-                    return true; 
+                    disponible=true;
                 }
             }
         }
-
-        JOptionPane.showMessageDialog(this.vista, "No hay horarios disponibles. Por favor seleccione otro día");
-        return false;
+        if (disponible==false) {
+            throw new ExcepcionHorarioNoDisponible("No hay horarios disponibles. Por favor seleccione otro día");
+        }
     }
 
     @Override
