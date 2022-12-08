@@ -48,9 +48,18 @@ public class CtrlReportes implements ActionListener {
             String date; 
 
             if (mes != 0){
-                date = "-" + mes;                 
+                if (mes < 10){
+                    date = "-0" + mes;                 
+                } else {
+                    date = "-" + mes; 
+                }
+
                 if (dia != 0){
-                    date = date + "-" + dia; 
+                    if (dia < 10){
+                        date = date + "-0" + dia; 
+                    }else {
+                        date = date + "-" + dia; 
+                    }
                 }
                 llenarTabla(date);
             } else {
@@ -69,27 +78,28 @@ public class CtrlReportes implements ActionListener {
 
     //Agrega la cantidad de días al combo box de dias, dependiendo del mes seleccionado
     public void agregarDias(int numMes){
+        int numDias; 
         
         this.vista.getComboBoxDia().removeAllItems();
 
         this.vista.getComboBoxDia().addItem("-Seleccione un día-");
-
+        for (int i = 1; i < 10; i++){
+        }
+        
         switch(numMes){
             case 1: case 3: case 5: case 7: case 8: case 10: case 12: {
-                for (int i = 1; i <= 31; i++){
-                    this.vista.getComboBoxDia().addItem(String.valueOf(i));
-                }
+                numDias = 31; 
             } break; 
             case 2: {
-                for (int i = 1; i <= 28; i++){
-                    this.vista.getComboBoxDia().addItem(String.valueOf(i));
-                }
+                numDias = 28; 
             } break; 
             default: {
-                for (int i = 1; i <= 30; i++){
-                    this.vista.getComboBoxDia().addItem(String.valueOf(i));
-                }
+                numDias = 30; 
             }
+        }
+        
+        for (int i = 1; i <= numDias; i++){
+            this.vista.getComboBoxDia().addItem(String.valueOf(i));
         }
 
     }
@@ -115,7 +125,7 @@ public class CtrlReportes implements ActionListener {
             tabla.addColumn("Fecha");
             tabla.addColumn("Obra");
             tabla.addColumn("Boletos");
-            tabla.addColumn("T. Vendido");
+            tabla.addColumn("T. Vendido"); 
         
         
             for (Ticket ticket : tickets) {
@@ -126,8 +136,7 @@ public class CtrlReportes implements ActionListener {
                 fila[4] = String.valueOf(ticket.getTotalVenta()); 
         
                 ventaPromedio = ventaPromedio + ticket.getTotalVenta() / tickets.size(); 
-                
-                tabla.addRow(fila);
+                tabla.addRow(fila); 
             }
         
         

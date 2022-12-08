@@ -53,7 +53,7 @@ public class DAOTicket extends Db {
         ResultSet rs = null;
         Connection con = getConexion();
 
-        String sql = "SELECT * FROM ticket WHERE fechaVenta like \"" + fecha + "%\"";
+        String sql = "SELECT * FROM ticket WHERE fechaVenta like \"" + fecha + "%\" ORDER BY fechaVenta ASC";
         ps = con.prepareStatement(sql);
         rs = ps.executeQuery();
 
