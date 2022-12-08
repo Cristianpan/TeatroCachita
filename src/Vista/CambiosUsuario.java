@@ -7,7 +7,7 @@ package Vista;
 
 /**
  *
- * @author diana
+ * 
  */
 public class CambiosUsuario extends javax.swing.JFrame {
 

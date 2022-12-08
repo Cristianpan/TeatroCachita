@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author diana
+ * 
  */
 public class Ticket {
     //nombre ya está por defecto

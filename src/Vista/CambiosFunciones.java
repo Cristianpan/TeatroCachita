@@ -11,7 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 /**
  *
- * @author diana
+ *
  */
 public class CambiosFunciones extends javax.swing.JFrame {
 

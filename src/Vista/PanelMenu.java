@@ -9,7 +9,7 @@ import javax.swing.JButton;
 
 /**
  *
- * @author diana
+ * 
  */
 public class PanelMenu extends javax.swing.JPanel {
 

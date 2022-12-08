@@ -7,7 +7,7 @@ package modelo;
 
 /**
  *
- * @author diana
+ * 
  */
 public class Obra {
     private int id;

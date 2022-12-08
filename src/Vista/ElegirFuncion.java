@@ -14,7 +14,7 @@ import javax.swing.JLabel;
 
 /**
  *
- * @author diana
+ * 
  */
 public class ElegirFuncion extends javax.swing.JFrame {
 
