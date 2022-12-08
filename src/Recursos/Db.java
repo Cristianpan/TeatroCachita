@@ -12,9 +12,8 @@ public class Db {
 
     public Connection getConexion() {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            String url = "jdbc:mysql://chachitauady.mysql.database.azure.com:3306/chachita?useSSL=true";
-            myDbConn = DriverManager.getConnection(url, "CristianPan", "Chachita1");
+            String url = "";
+            myDbConn = DriverManager.getConnection(url, "", "");
 
         } catch (Exception e) {
             e.printStackTrace();

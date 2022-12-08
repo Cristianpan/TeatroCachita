@@ -6,7 +6,9 @@ import controlador.*;
 import modelo.*;
 
 public class ChachitaMain {
-    public static void main(String[] args) {      
-      new CtrlLogin(new User(), new Login());  
-    }
+  public static void main(String[] args) {
+    // new CtrlLogin(new User(), new Login());
+
+    new CtrlReportes(new Reportes());
+  }
 }
