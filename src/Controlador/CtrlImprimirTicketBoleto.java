@@ -94,10 +94,7 @@ public class CtrlImprimirTicketBoleto implements ActionListener{
         DAOTicket daoTicket = new DAOTicket();
         int numVenta = daoTicket.agregarTicket(this.ticket);
         if(numVenta != 0){
-            System.out.println("ticket guardado con éxito");
             this.ticket.setNumVenta(numVenta);
-        }else{
-            System.out.println("error al guardar ticket");
         }
     }
             
