@@ -13,7 +13,7 @@ import javax.swing.plaf.basic.BasicMenuBarUI;
 
 /**
  *
- * @author diana
+ * 
  */
 public class CrearObra extends javax.swing.JFrame {
 

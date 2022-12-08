@@ -14,7 +14,7 @@ import javax.swing.plaf.basic.BasicMenuBarUI;
 
 /**
  *
- * @author diana
+ * 
  */
 public class CambiosObra extends javax.swing.JFrame {
 

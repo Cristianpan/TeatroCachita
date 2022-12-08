@@ -7,7 +7,7 @@ package modelo;
 
 /**
  *
- * @author panza
+ * 
  */
 public class User {
     private int id; 

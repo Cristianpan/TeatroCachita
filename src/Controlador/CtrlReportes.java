@@ -69,26 +69,31 @@ public class CtrlReportes implements ActionListener {
 
     //Agrega la cantidad de días al combo box de dias, dependiendo del mes seleccionado
     public void agregarDias(int numMes){
+        int numDias; 
         
         this.vista.getComboBoxDia().removeAllItems();
 
         this.vista.getComboBoxDia().addItem("-Seleccione un día-");
-
+        for (int i = 1; i < 10; i++){
+        }
+        
         switch(numMes){
             case 1: case 3: case 5: case 7: case 8: case 10: case 12: {
-                for (int i = 1; i <= 31; i++){
-                    this.vista.getComboBoxDia().addItem(String.valueOf(i));
-                }
+                numDias = 31; 
             } break; 
             case 2: {
-                for (int i = 1; i <= 28; i++){
-                    this.vista.getComboBoxDia().addItem(String.valueOf(i));
-                }
+                numDias = 28; 
             } break; 
             default: {
-                for (int i = 1; i <= 30; i++){
-                    this.vista.getComboBoxDia().addItem(String.valueOf(i));
-                }
+                numDias = 30; 
+            }
+        }
+        
+        for (int i = 1; i <= numDias; i++){
+            if (i < 10){
+                this.vista.getComboBoxDia().addItem(String.valueOf("0" + i));
+            }else {
+                this.vista.getComboBoxDia().addItem(String.valueOf( i));
             }
         }
 

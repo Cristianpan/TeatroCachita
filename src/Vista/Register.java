@@ -10,7 +10,7 @@ import javax.swing.JPasswordField;
 
 /**
  *
- * @author diana
+ * 
  */
 public class Register extends javax.swing.JFrame {
 

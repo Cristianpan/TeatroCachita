@@ -10,7 +10,7 @@ import javax.swing.JCheckBox;
 
 /**
  *
- * @author diana
+ * 
  */
 public class ElegirAsiento extends javax.swing.JFrame {
 
