@@ -14,7 +14,7 @@ import javax.swing.JTextField;
 
 /**
  *
- * @author diana
+ * 
  */
 public class ElegirAsientos extends javax.swing.JFrame {
 

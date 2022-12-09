@@ -1,12 +1,15 @@
-package Controlador;
+package controlador;
 
-import Modelo.*;
 import Recursos.*;
 import Vista.*;
+import dao.DAOUsuario;
+import excepciones.ExcepcionCamposVacios;
+import modelo.*;
+
 import java.awt.event.*;
+import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
-import DAO.DAOUsuario;
 
 public class CtrlCambiosUsuario implements ActionListener {
     private User modelUser = null;
@@ -26,70 +29,78 @@ public class CtrlCambiosUsuario implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent event) {
 
-        //boton buscar
+        // boton buscar
         if (event.getSource() == this.frmCUsuario.getBtnBuscar()) {
 
             if (this.frmCUsuario.getTxtNombreUser().getText().isEmpty()) {
                 JOptionPane.showMessageDialog(frmCUsuario, "Por favor ingrese un nombre de usuario", null, 0);
             } else {
-                DAOUsuario daoUsuario = new DAOUsuario();
-                this.modelUser = daoUsuario.buscarUsuario(this.frmCUsuario.getTxtNombreUser().getText().trim());
-                if (this.modelUser == null) {
-                    JOptionPane.showMessageDialog(frmCUsuario, "Usuario no encontrado", null, 0);
-                } else {
-                    mostrarDatos();
+                try {
+                    DAOUsuario daoUsuario = new DAOUsuario();
+                    this.modelUser = daoUsuario.buscarUsuario(this.frmCUsuario.getTxtNombreUser().getText().trim());
+                    if (this.modelUser == null) {
+                        JOptionPane.showMessageDialog(frmCUsuario, "Usuario no encontrado", null, 0);
+                    } else {
+                        mostrarDatos();
+                    }
+
+                } catch (SQLException e) {
+                    JOptionPane.showMessageDialog(frmCUsuario,
+                            "Ha ocurrido un error en el sistema. Por favor intente nuevamente");
                 }
             }
 
-        } 
-        //boton modificar
+        }
+        // boton modificar
         if (event.getSource() == this.frmCUsuario.getBtnModificar()) {
-            if (modelUser == null) {
-                JOptionPane.showMessageDialog(frmCUsuario, "Busque un usuario existente", null, 0);
-            } else {
-                if (esVacioInput()) {
-                    JOptionPane.showMessageDialog(frmCUsuario, "Todos los campos son obligatorios");
-                } else {
+
+            if (this.modelUser != null) {
+                try {
+                    esVacioInput();
                     obtenerDatos();
                     DAOUsuario daoUsuario = new DAOUsuario();
-
                     if (daoUsuario.buscarUsuario(modelUser.getNombreUsuario()) == null || modelUser.getNombreUsuario()
                             .equals(this.frmCUsuario.getTxtNombreUser().getText().trim())) {
-                        if (daoUsuario.actualizarUsuario(modelUser)) {
-                            JOptionPane.showMessageDialog(frmCUsuario, "Actualización exitosa");
-                            limpiarCampos();
-                        } else {
-                            JOptionPane.showMessageDialog(frmCUsuario, "Algo ha salido mal");
-                        }
+                        daoUsuario.actualizarUsuario(modelUser);
+                        JOptionPane.showMessageDialog(frmCUsuario, "Actualización exitosa");
+                        limpiarCampos();
                     } else {
                         JOptionPane.showMessageDialog(frmCUsuario, "Nombre de usuario existente. Ingrese otro");
                     }
 
+                } catch (ExcepcionCamposVacios e) {
+                    JOptionPane.showMessageDialog(frmCUsuario, e.getMessage());
+                } catch (SQLException e) {
+                    JOptionPane.showMessageDialog(frmCUsuario, "Ha ocurrido un error. Por favor intente nuevamente.");
                 }
-            }
-        } 
-        //boton eliminar
-        if (event.getSource() == this.frmCUsuario.getBtnEliminar()) {
-            if (modelUser == null) {
-                JOptionPane.showMessageDialog(frmCUsuario, "Busque un usuario existente", null, 0);
             } else {
-                int opcion = JOptionPane.showConfirmDialog(frmCUsuario,
-                        "¿Desea eliminar al usuario " + modelUser.getNombreUsuario() + "?", null,
-                        JOptionPane.YES_NO_OPTION, 2);
+                JOptionPane.showMessageDialog(frmCUsuario, "Por favor busque a un usuario existente");
+            }
+        }
+        // boton eliminar
+        if (event.getSource() == this.frmCUsuario.getBtnEliminar()) {
+            if (modelUser != null) {
+                try {
+                    int opcion = JOptionPane.showConfirmDialog(frmCUsuario,
+                            "¿Desea eliminar al usuario " + modelUser.getNombreUsuario() + "?", null,
+                            JOptionPane.YES_NO_OPTION, 2);
 
-                if (opcion == 0) {
-                    DAOUsuario daoUsuario = new DAOUsuario();
-                    if (daoUsuario.eliminarUsuario(this.modelUser.getId())) {
+                    if (opcion == 0) {
+                        DAOUsuario daoUsuario = new DAOUsuario();
+                        daoUsuario.eliminarUsuario(this.modelUser.getId());
                         JOptionPane.showMessageDialog(frmCUsuario, "Usuario Eliminado");
                         limpiarCampos();
-                    } else {
-                        JOptionPane.showMessageDialog(frmCUsuario, "Algo ha salido mal");
+
                     }
+
+                } catch (SQLException e) {
+                    JOptionPane.showMessageDialog(frmCUsuario, "Ha ocurrido un error. Por favor intente nuevamente.");
                 }
+
             }
 
-        } 
-        //boton cancelar
+        }
+        // boton cancelar
         if (event.getSource() == this.frmCUsuario.getBtnCancelar()) {
             int opcion = JOptionPane.showConfirmDialog(frmCUsuario, "¿Desea cancelar la acción?", null,
                     JOptionPane.YES_NO_OPTION, -1);
@@ -97,8 +108,8 @@ public class CtrlCambiosUsuario implements ActionListener {
                 limpiarCampos();
             }
 
-        } 
-        //boton regresar menu
+        }
+        // boton regresar menu
         if (event.getSource() == this.frmCUsuario.getBtnMenu()) {
             int opcion = JOptionPane.showConfirmDialog(frmCUsuario, "¿Está seguro de regresar al menú?", null,
                     JOptionPane.YES_NO_OPTION, 1);
@@ -111,7 +122,8 @@ public class CtrlCambiosUsuario implements ActionListener {
         }
     }
 
-    // Muestra en el frame los datos obtenidos tras haber realizado la busqueda del usuario
+    // Muestra en el frame los datos obtenidos tras haber realizado la busqueda del
+    // usuario
     public void mostrarDatos() {
         this.frmCUsuario.getTxtNombre().setText(this.modelUser.getNombre());
         this.frmCUsuario.getTxtApellido().setText(this.modelUser.getApellido());
@@ -124,13 +136,15 @@ public class CtrlCambiosUsuario implements ActionListener {
     }
 
     // Retorna true si algun campo está vacio, false en caso contrario
-    public boolean esVacioInput() {
-        return (this.frmCUsuario.getTxtNombre().getText().isEmpty()
+    public void esVacioInput() throws ExcepcionCamposVacios {
+        if (this.frmCUsuario.getTxtNombre().getText().isEmpty()
                 || this.frmCUsuario.getTxtApellido().getText().isEmpty()
                 || this.frmCUsuario.getTxtUsuario().getText().isEmpty()
                 || this.frmCUsuario.getTxtCurp().getText().isEmpty()
                 || this.frmCUsuario.getTxtContrasena().getPassword().toString().isEmpty()
-                || this.frmCUsuario.getBoxTipoUsuario().getSelectedIndex() == 0);
+                || this.frmCUsuario.getBoxTipoUsuario().getSelectedIndex() == 0) {
+            throw new ExcepcionCamposVacios("Todos los campos son obligatorios");
+        }
     }
 
     // Agrega los datos de los campos en el modelo de Usuario

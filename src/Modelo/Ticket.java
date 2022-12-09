@@ -1,4 +1,4 @@
-package Modelo;
+package modelo;
 
 import java.sql.Date;
 import java.sql.Time;
@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author diana
+ * 
  */
 public class Ticket {
     //nombre ya está por defecto

@@ -1,9 +1,9 @@
 package Test;
 
 
-import Controlador.*;
-import Modelo.*;
 import Vista.*;
+import controlador.*;
+import modelo.*;
 
 public class ChachitaMain {
     public static void main(String[] args) {      

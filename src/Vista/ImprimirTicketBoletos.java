@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author diana
+ * 
  */
 public class ImprimirTicketBoletos extends javax.swing.JFrame {
 

@@ -11,7 +11,7 @@ import javax.swing.JButton;
 
 /**
  *
- * @author diana
+ * 
  */
 public class MenuAdmi extends javax.swing.JFrame {
 

@@ -12,7 +12,7 @@ import javax.swing.JTextField;
 
 /**
  *
- * @author diana
+ *
  */
 public class Login extends javax.swing.JFrame {
 

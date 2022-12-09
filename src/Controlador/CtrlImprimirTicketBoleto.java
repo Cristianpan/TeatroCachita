@@ -3,14 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controlador;
+package controlador;
 
-import DAO.DAOTicket;
-import Modelo.*;
 import Vista.ElegirFuncion;
 import Vista.ImprimirTicketBoletos;
+import dao.DAOTicket;
+import modelo.*;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
+
+import javax.swing.JOptionPane;
 
 public class CtrlImprimirTicketBoleto implements ActionListener{
     private Ticket ticket;
@@ -68,27 +72,29 @@ public class CtrlImprimirTicketBoleto implements ActionListener{
     }
     
     public void agregarTicket(ImprimirTicketBoletos impB){
-        aniadirTicketBD();
-        String id = "Num. Venta: " +this.ticket.getNumVenta()+"\n";
-        String nombreObra = "Función: " + this.ticket.getNombreObra() + "\n";
-        String fecha = "Fecha: " +this.ticket.getFechaVenta().toString()+ "\n";
-        String horario = "Horario: " + this.ticket.getHoraVenta().toString()+ "\n";
-        String asiento = "Asientos: " +this.ticket.getBoletosVendidos()+ "\n"+ "\n";
-        
-        String precioTotal = "PrecioTotal: " + this.ticket.getTotalVenta()+ "\n";
-        String recibido = "Monto entregado: " + this.ticket.getMontoEntregado()+ "\n";
-        String cambio = "Cambio: " + this.ticket.getCambio()+ "\n";
-        impB.getTxtTicket().setText(id+nombreObra+fecha+horario+asiento+precioTotal+recibido+cambio);
+        try {
+            aniadirTicketBD();
+            String id = "Num. Venta: " +this.ticket.getNumVenta()+"\n";
+            String nombreObra = "Función: " + this.ticket.getNombreObra() + "\n";
+            String fecha = "Fecha: " +this.ticket.getFechaVenta().toString()+ "\n";
+            String horario = "Horario: " + this.ticket.getHoraVenta().toString()+ "\n";
+            String asiento = "Asientos: " +this.ticket.getBoletosVendidos()+ "\n"+ "\n";
+            
+            String precioTotal = "PrecioTotal: " + this.ticket.getTotalVenta()+ "\n";
+            String recibido = "Monto entregado: " + this.ticket.getMontoEntregado()+ "\n";
+            String cambio = "Cambio: " + this.ticket.getCambio()+ "\n";
+            impB.getTxtTicket().setText(id+nombreObra+fecha+horario+asiento+precioTotal+recibido+cambio);
+            
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(impB,"Ha ocurrido un error en el sistema.\nPor favor intente nuevamente");
+        }
     }
     
-    public void aniadirTicketBD(){
+    public void aniadirTicketBD() throws SQLException{
         DAOTicket daoTicket = new DAOTicket();
         int numVenta = daoTicket.agregarTicket(this.ticket);
         if(numVenta != 0){
-            System.out.println("ticket guardado con éxito");
             this.ticket.setNumVenta(numVenta);
-        }else{
-            System.out.println("error al guardar ticket");
         }
     }
             

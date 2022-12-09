@@ -1,7 +1,8 @@
-package Controlador;
+package controlador;
 
-import Modelo.*;
 import Vista.*;
+import modelo.*;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
