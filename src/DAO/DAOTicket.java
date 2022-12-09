@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dao;
+package DAO;
 
 import Recursos.Db;
-import modelo.Ticket;
+import Modelo.Ticket;
 
 import java.sql.*;
 import java.util.ArrayList;

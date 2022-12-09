@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controlador;
+package Controlador;
 
 import Vista.CambiosObra;
 import Vista.MenuAdmi;
-import dao.DAOFuncion;
-import dao.DAOObra;
+import DAO.DAOFuncion;
+import DAO.DAOObra;
 import excepciones.ExcepcionCamposVacios;
 import excepciones.ExcepcionDAOFunciones;
-import modelo.Obra;
+import Modelo.Obra;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

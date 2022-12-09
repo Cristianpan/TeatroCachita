@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controlador;
+package Controlador;
 
 import Vista.ElegirFuncion;
 import Vista.ImprimirTicketBoletos;
-import dao.DAOTicket;
-import modelo.*;
+import DAO.DAOTicket;
+import Modelo.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

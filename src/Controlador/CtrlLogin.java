@@ -1,9 +1,9 @@
-package controlador;
+package Controlador;
 
 import Recursos.*;
 import Vista.*;
-import dao.DAOUsuario;
-import modelo.*;
+import DAO.DAOUsuario;
+import Modelo.*;
 
 import java.awt.event.*;
 

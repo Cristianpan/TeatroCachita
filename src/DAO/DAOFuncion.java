@@ -1,4 +1,4 @@
-package dao;
+package DAO;
 
 import java.sql.*;
 
@@ -7,8 +7,8 @@ import java.util.Calendar;
 
 import Recursos.Db;
 import excepciones.ExcepcionDAOFunciones;
-import modelo.Funcion;
-import modelo.Obra;
+import Modelo.Funcion;
+import Modelo.Obra;
 
 public class DAOFuncion extends Db {
 

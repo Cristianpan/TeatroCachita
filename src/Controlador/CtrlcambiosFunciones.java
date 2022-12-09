@@ -1,4 +1,4 @@
-package controlador;
+package Controlador;
 
 import java.sql.*;
 import java.awt.event.*;
@@ -9,10 +9,10 @@ import java.text.SimpleDateFormat;
 import javax.swing.table.DefaultTableModel;
 
 import Vista.*;
-import dao.*;
+import DAO.*;
 import excepciones.ExcepcionFuncionBoletosVendidos;
 import excepciones.ExcepcionHorarioNoDisponible;
-import modelo.*;
+import Modelo.*;
 
 
 public class CtrlcambiosFunciones implements ActionListener, MouseListener {

@@ -1,10 +1,11 @@
-package controlador;
+package Controlador;
 
 import Vista.CrearObra;
 import Vista.MenuAdmi;
-import dao.*;
+import DAO.*;
 import excepciones.ExcepcionCamposVacios;
-import modelo.*;
+import excepciones.ExcepcionSoloLetras;
+import Modelo.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -33,6 +34,7 @@ public class CtrlCrearObra implements ActionListener{
         if(e.getSource() == this.frmCrearObra.getBtnAgregar()){
             try {
                 esVacioInput();
+                verificarLetras();
                 DAOObra daoObra= new DAOObra();
                 if(daoObra.buscarObra(this.frmCrearObra.getTxtNombre().getText().trim()) == null){
                     obtenerDatosRegistro();
@@ -46,6 +48,9 @@ public class CtrlCrearObra implements ActionListener{
                 JOptionPane.showMessageDialog(frmCrearObra, "El dato precio o duración es incorrecto.\nPor favor digite un numero valido");
             } catch (SQLException ex) {
                  JOptionPane.showMessageDialog(frmCrearObra, ex.getMessage());
+            } catch (ExcepcionSoloLetras e1) {
+                JOptionPane.showMessageDialog(frmCrearObra, "Solo se permiten letras en los campos de Primer Actor, Segundo Actor y Género");
+                    e1.printStackTrace();
             } 
         }
         
@@ -76,6 +81,13 @@ public class CtrlCrearObra implements ActionListener{
         this.frmCrearObra.getTxtSegundoActor().getText().isEmpty()) || 
         this.frmCrearObra.getTxtResumenTematico().getText().isEmpty()){
             throw new ExcepcionCamposVacios("Todos los campos son obligatorios");
+        }
+    }
+
+    public void verificarLetras() throws ExcepcionSoloLetras{
+        if((!frmCrearObra.getTxtGenero().getText().matches("[a-zA-Z]*") || !frmCrearObra.getTxtPrimerActor().getText().matches("[a-zA-Z]*") || !frmCrearObra.getTxtSegundoActor().getText().matches("[a-zA-Z]*"))){
+            limpiarCampos();
+            throw new ExcepcionSoloLetras("Solo se permiten letras");
         }
     }
     

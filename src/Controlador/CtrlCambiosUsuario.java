@@ -1,14 +1,16 @@
-package controlador;
+package Controlador;
 
 import Recursos.*;
 import Vista.*;
-import dao.DAOUsuario;
+import DAO.DAOUsuario;
 import excepciones.ExcepcionCamposVacios;
-import modelo.*;
+import excepciones.ExcepcionSoloLetras;
+import Modelo.*;
 
 import java.awt.event.*;
 import java.sql.SQLException;
 
+import javax.print.attribute.standard.JobHoldUntil;
 import javax.swing.JOptionPane;
 
 public class CtrlCambiosUsuario implements ActionListener {
@@ -58,6 +60,7 @@ public class CtrlCambiosUsuario implements ActionListener {
                 try {
                     esVacioInput();
                     obtenerDatos();
+                    verificarLetras();
                     DAOUsuario daoUsuario = new DAOUsuario();
                     if (daoUsuario.buscarUsuario(modelUser.getNombreUsuario()) == null || modelUser.getNombreUsuario()
                             .equals(this.frmCUsuario.getTxtNombreUser().getText().trim())) {
@@ -72,6 +75,9 @@ public class CtrlCambiosUsuario implements ActionListener {
                     JOptionPane.showMessageDialog(frmCUsuario, e.getMessage());
                 } catch (SQLException e) {
                     JOptionPane.showMessageDialog(frmCUsuario, "Ha ocurrido un error. Por favor intente nuevamente.");
+                } catch (ExcepcionSoloLetras e) {
+                    JOptionPane.showMessageDialog(frmCUsuario, "los campos Nombre y Apellido solo aceptan letras");
+                    e.printStackTrace();
                 }
             } else {
                 JOptionPane.showMessageDialog(frmCUsuario, "Por favor busque a un usuario existente");
@@ -144,6 +150,13 @@ public class CtrlCambiosUsuario implements ActionListener {
                 || this.frmCUsuario.getTxtContrasena().getPassword().toString().isEmpty()
                 || this.frmCUsuario.getBoxTipoUsuario().getSelectedIndex() == 0) {
             throw new ExcepcionCamposVacios("Todos los campos son obligatorios");
+        }
+    }
+
+    public void verificarLetras() throws ExcepcionSoloLetras{
+        if((!frmCUsuario.getTxtNombre().getText().matches("[a-zA-Z]*") || !frmCUsuario.getTxtApellido().getText().matches("[a-zA-Z]*"))){
+            limpiarCampos();
+            throw new ExcepcionSoloLetras("Solo se permiten letras");
         }
     }
 

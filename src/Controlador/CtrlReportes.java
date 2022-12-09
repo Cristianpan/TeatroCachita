@@ -1,4 +1,4 @@
-package controlador;
+package Controlador;
 
 import java.awt.event.*;
 import java.sql.SQLException;
@@ -9,8 +9,8 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 import Vista.*;
-import dao.DAOTicket;
-import modelo.Ticket;
+import DAO.DAOTicket;
+import Modelo.Ticket;
 
 
 public class CtrlReportes implements ActionListener {

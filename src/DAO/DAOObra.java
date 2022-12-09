@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dao;
+package DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import Recursos.Db;
-import modelo.Obra;
+import Modelo.Obra;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

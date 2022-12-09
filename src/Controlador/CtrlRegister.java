@@ -1,10 +1,11 @@
-package controlador;
+package Controlador;
 
 import Vista.MenuAdmi;
 import Vista.Register;
-import dao.DAOUsuario;
+import DAO.DAOUsuario;
 import excepciones.ExcepcionCamposVacios;
-import modelo.*;
+import excepciones.ExcepcionSoloLetras;
+import Modelo.*;
 
 import java.awt.event.*;
 import java.sql.SQLException;
@@ -34,6 +35,7 @@ public class CtrlRegister implements ActionListener {
         if (e.getSource() == this.frmRegister.getBtnRegistrar()) {
             try {
                 esVacioInput();
+                verificarLetras();
                 DAOUsuario daoUsuario = new DAOUsuario();
                 if (daoUsuario.buscarUsuario(this.frmRegister.getTxtUsuario().getText().trim()) == null) {
 
@@ -51,6 +53,9 @@ public class CtrlRegister implements ActionListener {
             } catch (SQLException exception) {
                 JOptionPane.showMessageDialog(null,
                         "Ha ocurrido un error en el sitema.\nPor favor intente nuevemante.");
+            } catch (ExcepcionSoloLetras e1) {
+                JOptionPane.showMessageDialog(frmRegister, "Los campos Nombre y Apellido solo aceptan letras");
+                e1.printStackTrace();
             }
         }
 
@@ -87,6 +92,12 @@ public class CtrlRegister implements ActionListener {
             throw new ExcepcionCamposVacios("Todos los campos son obligatorios");
         }
         ;
+    }
+    public void verificarLetras() throws ExcepcionSoloLetras{
+        if((!frmRegister.getTxtNombre().getText().matches("[a-zA-Z]*")  || !frmRegister.getTxtApellido().getText().matches("[a-zA-Z]*"))){
+            limpiarCampos();
+            throw new ExcepcionSoloLetras("Solo se permiten letras");
+        }
     }
 
     // Obtiene todos los datos proporcionados en la ventana de registro de usuario y

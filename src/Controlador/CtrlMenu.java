@@ -1,7 +1,7 @@
-package controlador;
+package Controlador;
 
 import Vista.*;
-import modelo.*;
+import Modelo.*;
 
 import java.awt.BorderLayout;
 import java.awt.Color;

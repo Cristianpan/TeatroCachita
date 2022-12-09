@@ -1,4 +1,4 @@
-package controlador;
+package Controlador;
 
 import java.sql.*;
 import java.text.*;
@@ -8,10 +8,11 @@ import javax.swing.JOptionPane;
 
 import Vista.CrearFuncion;
 import Vista.MenuAdmi;
-import dao.*;
+import DAO.*;
 import excepciones.ExcepcionDAOFunciones;
 import excepciones.ExcepcionHorarioNoDisponible;
-import modelo.*;
+
+import Modelo.*;
 
 public class CtrlAgregarFunciones implements ActionListener {
 
@@ -29,7 +30,6 @@ public class CtrlAgregarFunciones implements ActionListener {
         agregarObrasComboBox();
 
         this.vista.setVisible(true);
-
     }
 
     @Override

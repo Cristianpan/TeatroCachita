@@ -1,4 +1,4 @@
-package controlador;
+package Controlador;
 
 import java.awt.event.*;
 import java.sql.Date;
@@ -10,10 +10,10 @@ import Vista.ElegirAsientos;
 import Vista.ElegirFuncion;
 import Vista.Login;
 import Vista.MenuAdmi;
-import dao.DAOFuncion;
-import modelo.Funcion;
-import modelo.Ticket;
-import modelo.User;
+import DAO.DAOFuncion;
+import Modelo.Funcion;
+import Modelo.Ticket;
+import Modelo.User;
 
 public class CtrlElegirFuncion implements ActionListener, ItemListener {
     private ElegirFuncion frmElegirFuncion;

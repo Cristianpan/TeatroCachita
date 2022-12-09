@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package modelo;
+package Modelo;
 
 /**
  *
@@ -13,7 +13,7 @@ public class Obra {
     private int id;
     private String nombre;
     private String genero;
-    private  String resumen;
+    private String resumen;
     private int duracion;
     private String primerActor;
     private String segundoActor;
